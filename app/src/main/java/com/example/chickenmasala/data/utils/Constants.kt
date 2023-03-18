@@ -1,7 +1,7 @@
 package com.example.chickenmasala.data.utils
 
 object Constants {
-    object ColumnIndex {
+    object RecipeFileColumnIndex {
         const val NAME = 0
         const val INGREDIENTS = 1
         const val TOTAL_TIME = 2
@@ -11,6 +11,11 @@ object Constants {
         const val CLEANED_INGREDIENTS = 6
         const val IMAGE_URL = 7
         const val INGREDIENTS_COUNT = 8
+    }
 
+    object CategoryFileColumnIndex {
+        const val NAME = 0
+        const val DESCRIPTION = 1
+        const val IMAGE_URL = 2
     }
 }
