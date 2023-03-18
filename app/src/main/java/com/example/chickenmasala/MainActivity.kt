@@ -3,11 +3,11 @@ package com.example.chickenmasala
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.chickenmasala.data.DataManager
-import com.example.chickenmasala.data.utils.CsvParser
+import com.example.chickenmasala.data.CsvDataSource
+import com.example.chickenmasala.data.interactors.GetRecipesOfCuisineInteractor
+import com.example.chickenmasala.data.utils.CategoryParser
+import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.util.Constants
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity() {
     private val TAG = "MAIN_ACTIVITY"
@@ -16,19 +16,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //For Testing
-        parseCsvFile()
-        DataManager.allRecipesList.forEachIndexed { index, recipeEntity ->
-            Log.v(TAG, "[$index]: $recipeEntity")
+        //Just for testing and must be removed
+        CsvDataSource(this, Constants.RECIPES_CSV_FILE_NAME, RecipeParser()).apply {
+            getAllItems().forEachIndexed { index, recipeEntity ->
+                Log.v(TAG, "[$index]: $recipeEntity")
+            }
         }
-    }
 
-    private fun parseCsvFile() {
-        val inputStream = assets.open(Constants.CSV_FILE_NAME)
-        val buffer = BufferedReader(InputStreamReader(inputStream))
-        val parser = CsvParser()
-        buffer.forEachLine {
-            DataManager.allRecipesList.add(parser.parseLine(it))
+        //Just for testing and must be removed [demonstration of calling an interactor]
+        CsvDataSource(this, Constants.RECIPES_CSV_FILE_NAME, RecipeParser()).apply {
+            GetRecipesOfCuisineInteractor(this).execute("indian",5).forEachIndexed { index, recipeEntity ->
+                Log.v(TAG, "[$index]: $recipeEntity")
+            }
         }
+
+        ////Just for testing and must be removed
+        CsvDataSource(this, Constants.CATEGORIES_CSV_FILE_NAME, CategoryParser()).apply {
+            getAllItems().forEachIndexed { index, categoryEntity ->
+                Log.v(TAG, "[$index]: $categoryEntity")
+            }
+        }
+
+
     }
 }
