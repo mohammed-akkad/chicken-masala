@@ -6,7 +6,7 @@ import com.example.chickenmasala.data.domain.QuestionGames
 import com.example.chickenmasala.data.domain.RecipeEntity
 
 class GuessGames(private val dataSource: FoodDataSource<RecipeEntity>) {
-
+    private  val randomRecipe: RecipeEntity = getRandomRecipe()
     fun guessGames(gameName: GuessGamesName): QuestionGames {
         return when (gameName) {
               GuessGamesName.GUESS_THE_CUISINE ->guessCuisine()
@@ -29,6 +29,5 @@ class GuessGames(private val dataSource: FoodDataSource<RecipeEntity>) {
         TODO("Not yet implemented")
     }
 
-
-
+    private fun getRandomRecipe() = dataSource.getAllItems().random()
 }
