@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ChickenMasala</string>
+    <string name="content">Guess The Ingredient</string>
 </resources>
