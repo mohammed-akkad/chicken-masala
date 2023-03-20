@@ -9,5 +9,6 @@ data class RecipeEntity(
     val url: String,
     val cleanedIngredients: List<String>,
     val imageUrl: String,
-    val ingredientsCount: Int?
+    val ingredientsCount: Int?,
+    val tags:List<String>
 )
