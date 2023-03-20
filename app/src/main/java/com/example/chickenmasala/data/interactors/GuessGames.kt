@@ -18,7 +18,18 @@ class GuessGames(private val dataSource: FoodDataSource<RecipeEntity>) {
 
 
     private fun guessMeal(): QuestionGames {
-        TODO("Not yet implemented")
+        val correctName=randomRecipe.name
+        val correctIngredent=randomRecipe.cleanedIngredients.random()
+        val result=dataSource.getAllItems()
+            .filterNot { it.cleanedIngredients.contains(correctIngredent) }
+        return QuestionGames(
+            correctName,
+            correctIngredent, listOf(
+                result[0].cleanedIngredients.random(),
+                result[1].cleanedIngredients.random(),
+                result[2].cleanedIngredients.random()
+            )
+        )
     }
 
     private fun guessCuisine(): QuestionGames {
