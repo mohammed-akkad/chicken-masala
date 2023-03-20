@@ -9,82 +9,52 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.function.Executable
 
-class GetAllCuisineImageUrlsAndNamesInteractorTest{
+class GetAllCuisineImageUrlsAndNamesInteractorTest {
 
-     private lateinit var cuisineList: GetAllCuisineImageUrlsAndNamesInteractor
-
-
-     @MockK
-     private lateinit var dataSource: FoodDataSource<RecipeEntity>
-
-     @MockK
-     private lateinit var indianCuisine: RecipeEntity
-
-     @MockK
-     private lateinit var usaCuisine: RecipeEntity
+    private lateinit var cuisineList: GetAllCuisineImageUrlsAndNamesInteractor
 
 
-     @BeforeEach
-     fun setup() {
-         MockKAnnotations.init(this)
+    @MockK
+    private lateinit var dataSource: FoodDataSource<RecipeEntity>
 
-         every {
-             indianCuisine.cuisine
-         } returns "indian"
-
-         every {
-             indianCuisine.imageUrl
-         } returns "img.url"
-
-
-         every {
-             dataSource.getAllItems()
-         }returns listOf(indianCuisine)
-         cuisineList= GetAllCuisineImageUrlsAndNamesInteractor(dataSource)
+    @MockK
+    private lateinit var indianCuisine: RecipeEntity
 
 
 
-     }
 
-    @Test
-    fun should_ThrowException_When_NameCuisineNotFound(){
-        // given
-            val cuisine = ""
-            val imageUrl = "image.com"
+    @BeforeEach
+    fun setup() {
+        MockKAnnotations.init(this)
 
-        // when
-            val result = Executable { cuisineList.execute(cuisine, imageUrl)}
+        every {
+            indianCuisine.cuisine
+        } returns "indian"
 
-        // then
-            assertThrows(Exception::class.java,result)
+        every {
+            indianCuisine.imageUrl
+        } returns "img.url"
+
+
+        every {
+            dataSource.getAllItems()
+        } returns listOf(indianCuisine)
+        cuisineList = GetAllCuisineImageUrlsAndNamesInteractor(dataSource)
+
     }
 
     @Test
-    fun should_ThrowException_When_ImageUrlCuisineNotFound(){
+    fun should_ReturnAllCuisine_When_ExecutFunction() {
         // given
-            val cuisine = "indian"
-            val imageUrl = ""
+            val recipesList = listOf(indianCuisine)
 
-        // when
-            val result = Executable { cuisineList.execute(cuisine, imageUrl)}
+        //when
+            val result = cuisineList.execute()
 
         // then
-            assertThrows(Exception::class.java,result)
-    }
+            assertEquals(recipesList,result)
 
-    @Test
-    fun should_ReturnAllCuisine_When_ImageUrlAndNameCuisineFound(){
-        // given
-            val cuisine = "indian"
-            val imageUrl = "img.url"
-
-            val listCuisine = listOf(indianCuisine)
-        // when
-            val result =  cuisineList.execute(cuisine, imageUrl)
-
-        // then
-            assertEquals(listCuisine,result)
     }
 
 
- }
+}

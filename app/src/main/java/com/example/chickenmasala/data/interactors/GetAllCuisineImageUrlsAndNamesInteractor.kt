@@ -11,5 +11,4 @@ class GetAllCuisineImageUrlsAndNamesInteractor(
         return dataSource.getAllItems().shuffled().distinct()
     }
 
-
 }
