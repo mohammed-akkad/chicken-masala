@@ -6,6 +6,7 @@
     <dimen name="textLarge">18sp</dimen>
     <dimen name="textXLarge">20sp</dimen>
 
+    <dimen name="spaceXXXLarge">76dp</dimen>
     <dimen name="spaceXXLarge">52dp</dimen>
     <dimen name="spaceXLarge">32dp</dimen>
     <dimen name="spaceLarge">24dp</dimen>
