@@ -15,7 +15,8 @@ class RecipeParser : CsvParser<RecipeEntity>() {
             url = tokenizedList[RecipeCsvColumns.URL.index],
             cleanedIngredients = tokenizedList.getItemsList(RecipeCsvColumns.CLEANED_INGREDIENTS.index),
             imageUrl = tokenizedList[RecipeCsvColumns.IMAGE_URL.index],
-            ingredientsCount = tokenizedList.getInt(RecipeCsvColumns.INGREDIENTS_COUNT.index)
+            ingredientsCount = tokenizedList.getInt(RecipeCsvColumns.INGREDIENTS_COUNT.index),
+            tags = tokenizedList.getItemsList(RecipeCsvColumns.TAGS.index)
         )
     }
 }
@@ -28,5 +29,6 @@ private enum class RecipeCsvColumns(val index: Int) {
     URL(5),
     CLEANED_INGREDIENTS(6),
     IMAGE_URL(7),
-    INGREDIENTS_COUNT(8)
+    INGREDIENTS_COUNT(8),
+    TAGS(9),
 }
