@@ -7,15 +7,28 @@ class RecipeParser : CsvParser<RecipeEntity>() {
     override fun parseLine(csvLine: String): RecipeEntity {
         val tokenizedList: List<String> = csvLine.split(",")
         return RecipeEntity(
-            name = tokenizedList[Constants.RecipeFileColumnIndex.NAME],
-            ingredients = tokenizedList.getItemsList(Constants.RecipeFileColumnIndex.INGREDIENTS),
-            totalTime = tokenizedList.getInt(Constants.RecipeFileColumnIndex.TOTAL_TIME),
-            cuisine = tokenizedList[Constants.RecipeFileColumnIndex.CUISINE],
-            instructions = tokenizedList.getItemsList(Constants.RecipeFileColumnIndex.INSTRUCTIONS),
-            url = tokenizedList[Constants.RecipeFileColumnIndex.URL],
-            cleanedIngredients = tokenizedList.getItemsList(Constants.RecipeFileColumnIndex.CLEANED_INGREDIENTS),
-            imageUrl = tokenizedList[Constants.RecipeFileColumnIndex.IMAGE_URL],
-            ingredientsCount = tokenizedList.getInt(Constants.RecipeFileColumnIndex.INGREDIENTS_COUNT)
+            name = tokenizedList[RecipeCsvColumns.NAME.index],
+            ingredients = tokenizedList.getItemsList(RecipeCsvColumns.INGREDIENTS.index),
+            totalTime = tokenizedList.getInt(RecipeCsvColumns.TOTAL_TIME.index),
+            cuisine = tokenizedList[RecipeCsvColumns.CUISINE.index],
+            instructions = tokenizedList.getItemsList(RecipeCsvColumns.INSTRUCTIONS.index),
+            url = tokenizedList[RecipeCsvColumns.URL.index],
+            cleanedIngredients = tokenizedList.getItemsList(RecipeCsvColumns.CLEANED_INGREDIENTS.index),
+            imageUrl = tokenizedList[RecipeCsvColumns.IMAGE_URL.index],
+            ingredientsCount = tokenizedList.getInt(RecipeCsvColumns.INGREDIENTS_COUNT.index),
+            tags = tokenizedList.getItemsList(RecipeCsvColumns.TAGS.index)
         )
     }
+}
+private enum class RecipeCsvColumns(val index: Int) {
+    NAME(0),
+    INGREDIENTS(1),
+    TOTAL_TIME(2),
+    CUISINE(3),
+    INSTRUCTIONS(4),
+    URL(5),
+    CLEANED_INGREDIENTS(6),
+    IMAGE_URL(7),
+    INGREDIENTS_COUNT(8),
+    TAGS(9),
 }
