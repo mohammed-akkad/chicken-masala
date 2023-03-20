@@ -4,17 +4,17 @@
         android:id="@+id/home_screen"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="Home" />
+        android:title="@string/home" />
     <item
         android:id="@+id/kitchen_screen"
         android:enabled="true"
         android:icon="@drawable/ic_kitchens"
-        android:title="Kitchen" />
+        android:title="@string/kitchen" />
     <item
         android:id="@+id/trivia_screen"
         android:enabled="true"
         android:checked="true"
         android:icon="@drawable/ic_mini_game"
-        android:title="Trivia" />
+        android:title="@string/trivia" />
 
 </menu>

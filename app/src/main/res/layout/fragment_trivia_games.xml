@@ -25,7 +25,7 @@
                 android:id="@+id/iv_guess_the_cuisineTwo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitXY"
+                android:scaleType= "centerCrop"
                 android:src="@drawable/guess_the_cuisine" />
 
             <TextView
@@ -37,7 +37,7 @@
                 android:layout_marginTop="@dimen/spaceMedium"
                 android:layout_marginBottom="@dimen/spaceMedium"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Guess The Ingredient"
+                android:text="@string/guess_the_ingredient"
                 android:textColor="@color/white"
                 android:textSize="@dimen/textXLarge"
 
@@ -60,7 +60,9 @@
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+
+            >
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_ingredient"
@@ -77,7 +79,7 @@
                 android:layout_marginTop="@dimen/spaceMedium"
                 android:layout_marginBottom="@dimen/spaceMedium"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Guess The Cuisine"
+                android:text="@string/guess_the_cuisine"
                 android:textColor="@color/white"
                 android:textSize="@dimen/textXLarge"
 
@@ -117,7 +119,7 @@
                 android:layout_marginTop="@dimen/spaceMedium"
                 android:layout_marginBottom="@dimen/spaceMedium"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Guess The Meal"
+                android:text="@string/guess_the_meal"
                 android:textColor="@color/white"
                 android:textSize="@dimen/textXLarge"
 

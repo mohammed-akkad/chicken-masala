@@ -15,4 +15,10 @@
     <string name="flour">4 - flour</string>
     <string name="guessTheMealQuestion">What is the name of the meal ?</string>
     <string name="btats">1 - Btats</string>
+    <string name="home">Home</string>
+    <string name="kitchen">Kitchen</string>
+    <string name="trivia">Trivia</string>
+    <string name="guess_the_ingredient">Guess The Ingredient</string>
+    <string name="guess_the_cuisine">Guess The Cuisine</string>
+    <string name="guess_the_meal">Guess The Meal</string>
 </resources>
