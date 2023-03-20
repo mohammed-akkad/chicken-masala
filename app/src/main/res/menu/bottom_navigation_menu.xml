@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_screen"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/kitchen_screen"
+        android:enabled="true"
+        android:icon="@drawable/ic_kitchens"
+        android:title="Kitchen" />
+    <item
+        android:id="@+id/trivia_screen"
+        android:enabled="true"
+        android:checked="true"
+        android:icon="@drawable/ic_mini_game"
+        android:title="Trivia" />
+
+</menu>
