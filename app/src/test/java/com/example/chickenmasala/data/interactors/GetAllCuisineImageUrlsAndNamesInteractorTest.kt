@@ -36,17 +36,10 @@ class GetAllCuisineImageUrlsAndNamesInteractorTest{
              indianCuisine.imageUrl
          } returns "img.url"
 
-         every {
-             usaCuisine.cuisine
-         } returns "usa"
-
-         every {
-             indianCuisine.imageUrl
-         } returns "img2.url"
 
          every {
              dataSource.getAllItems()
-         }returns listOf(indianCuisine,usaCuisine)
+         }returns listOf(indianCuisine)
          cuisineList= GetAllCuisineImageUrlsAndNamesInteractor(dataSource)
 
 
@@ -85,7 +78,7 @@ class GetAllCuisineImageUrlsAndNamesInteractorTest{
             val cuisine = "indian"
             val imageUrl = "img.url"
 
-            val listCuisine = listOf(indianCuisine,usaCuisine)
+            val listCuisine = listOf(indianCuisine)
         // when
             val result =  cuisineList.execute(cuisine, imageUrl)
 
