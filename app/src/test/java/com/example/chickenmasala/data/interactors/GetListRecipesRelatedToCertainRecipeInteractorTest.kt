@@ -23,10 +23,7 @@ class GetListRecipesRelatedToCertainRecipeInteractorTest {
     private lateinit var recipeIndianTwo: RecipeEntity
 
     @MockK
-    private lateinit var categoryFoodOne: CategoryEntity
-
-    @MockK
-    private lateinit var categoryFoodTwo: CategoryEntity
+    private lateinit var recipeIndianThree: RecipeEntity
 
     @BeforeEach
     fun setup() {
@@ -38,19 +35,27 @@ class GetListRecipesRelatedToCertainRecipeInteractorTest {
 
         every {
             recipeIndianTwo.cuisine
+        } returns "iraq"
+
+        every {
+            recipeIndianThree.cuisine
         } returns "indian"
 
         every {
-            categoryFoodOne.name
-        } returns "Vegetarian"
+            recipeIndianOne.tags
+        } returns listOf("Vegetarian","rice")
 
         every {
-            categoryFoodTwo.name
-        } returns "Rice"
+            recipeIndianTwo.tags
+        } returns listOf("spicy", "rice")
+
+        every {
+            recipeIndianThree.tags
+        } returns listOf("rice")
 
         every {
             dataSource.getAllItems()
-        } returns listOf(recipeIndianOne, recipeIndianTwo)
+        } returns listOf(recipeIndianOne, recipeIndianTwo,recipeIndianThree)
         recipeRelated = GetListRecipesRelatedToCertainRecipeInteractor(dataSource)
 
     }
@@ -60,7 +65,7 @@ class GetListRecipesRelatedToCertainRecipeInteractorTest {
     fun should_ReturnAllRecipe_When_LimitIsZero() {
         // given
         val limit = 0
-        val categories = null
+        val categories = listOf("Vegetarian")
         val cuisine = "indian"
 
         val relatedRecipeExpected = listOf(recipeIndianOne,recipeIndianTwo)
@@ -68,23 +73,23 @@ class GetListRecipesRelatedToCertainRecipeInteractorTest {
 
 
         // when
-        val relatedRecipeActual =
+        val relatedRecipeActual = Executable {
             recipeRelated.execute(
                 limit = limit,
                 categories = categories,
                 cuisine = cuisine
-            )
+            ) }
 
 
         // then
-        assertEquals(relatedRecipeExpected, relatedRecipeActual)
+        assertThrows(Exception::class.java, relatedRecipeActual)
     }
 
     @Test
     fun should_ThrowException_When_LimitIsNegative() {
         // given
         val limit = -5
-        val categories = "Vegetarian"
+        val categories = listOf("Vegetarian")
         val cuisine = "indian"
 
 
@@ -105,7 +110,7 @@ class GetListRecipesRelatedToCertainRecipeInteractorTest {
     fun should_ReturnRecipeRelated_When_LimitIsPositive() {
         // given
         val limit = 1
-        val categories = "Vegetarian"
+        val categories = listOf("Vegetarian","rice")
         val cuisine = "indian"
         val relatedRecipeExpected = listOf(recipeIndianOne)
 
@@ -119,33 +124,37 @@ class GetListRecipesRelatedToCertainRecipeInteractorTest {
     }
 
     @Test
-    fun should_ReturnNull_When_CuisineNotFound() {
+    fun should_ReturnRecipesOfListThatRelatedOfCategory_When_CuisineIsEmpty() {
         // given
         val limit = 1
-        val categories = "drinks"
-        val cuisine = "thai"
+        val categories = listOf("Vegetarian","rice")
+        val cuisine = ""
+        val result = listOf(recipeIndianOne)
 
         // when
         val relatedRecipe =
             recipeRelated.execute(limit = limit, categories = categories, cuisine = cuisine)
 
         // then
-        assertNull(relatedRecipe)
+        assertEquals(result,relatedRecipe)
     }
 
     @Test
-    fun should_ReturnNull_When_CategoriesNotFound() {
+    fun should_ReturnRecipesOfListThatRelatedOfCuisine_When_CategoriesNotFound() {
         // given
         val limit = 1
-        val categories = "legumes"
-        val cuisine = "palestine"
+        val categories = listOf("rice")
+        val cuisine = "indian"
+
+        val result = listOf(recipeIndianThree)
+
 
         // when
         val relatedRecipe =
             recipeRelated.execute(limit = limit, categories = categories, cuisine = cuisine)
 
         // then
-        assertNull(relatedRecipe)
+        assertEquals(result,relatedRecipe)
 
     }
 
