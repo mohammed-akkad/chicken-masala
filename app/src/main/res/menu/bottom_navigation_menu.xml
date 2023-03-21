@@ -15,10 +15,12 @@
         android:enabled="true"
         android:icon="@drawable/ic_mini_game"
         android:title="@string/trivia" />
+
     <item
         android:id="@+id/indian_food_history"
         android:enabled="true"
         android:icon="@drawable/ic_information"
         android:title="@string/food_history" />
+
 
 </menu>

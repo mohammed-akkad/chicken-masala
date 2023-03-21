@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_food_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FoodDetailsFragment"
+
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="800dp">
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/rounded_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageView"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="-160dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:shapeAppearanceOverlay="@style/circle"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="40dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="@dimen/spaceXLarge"
+                android:paddingStart="@dimen/spaceMedium"
+                android:paddingEnd="@dimen/spaceMedium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+                <TextView
+                    android:id="@+id/tvFoodName"
+                    style="@style/textTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chicken Frid Rice"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvFoodDetailName"
+                    style="@style/textSubTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceExtraSmall"
+                    android:text="Chicken Frid Rice"
+                    app:layout_constraintStart_toStartOf="@+id/tvFoodName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFoodName"
+                     />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/textTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceLarge"
+                    android:text="Description"
+                    app:layout_constraintStart_toStartOf="@+id/tvFoodDetailName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFoodDetailName" />
+
+                <TextView
+                    android:id="@+id/tvFoodDescription"
+                    style="@style/textSubTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceExtraSmall"
+                    android:text="Chicken Frid Rice"
+                    app:layout_constraintStart_toStartOf="@+id/tvFoodName"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                     />
+
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/textTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceLarge"
+                    android:text="Relative Food"
+                    app:layout_constraintStart_toStartOf="@+id/tvFoodDescription"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFoodDescription" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_firstRelativeFood"
+                    android:layout_width="160dp"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="@dimen/spaceMedium"
+                    android:background="@color/gray_300"
+                    android:backgroundTint="@color/gray_300"
+                    app:cardCornerRadius="@dimen/spaceLarge"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3"
+                    app:layout_goneMarginEnd="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="300dp"
+                            android:layout_height="200dp"
+                            android:alpha="0.5"
+                            android:rotation="190"
+                            android:src="@drawable/card_background"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+                            android:id="@+id/tvFirstRelativeFoodName"
+                            style="@style/textTitle.FoodName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spaceSmall"
+                            android:layout_marginTop="@dimen/spaceSmall"
+                            android:text="Manchurian Nodules"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/img_firstRelativeFood"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="@dimen/spaceMedium"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvFirstRelativeFoodName"
+                            app:shapeAppearanceOverlay="@style/relativeFoodImage"
+                            tools:src="@drawable/ic_launcher_background" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_secondRelativeFood"
+                    android:layout_width="160dp"
+                    android:layout_height="180dp"
+                    android:backgroundTint="@color/gray_300"
+                    app:cardCornerRadius="@dimen/spaceLarge"
+                    app:layout_constraintBottom_toBottomOf="@+id/card_firstRelativeFood"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/card_firstRelativeFood"
+                    app:layout_goneMarginEnd="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="300dp"
+                            android:layout_height="200dp"
+                            android:alpha="0.5"
+                            android:rotation="190"
+                            android:src="@drawable/card_background"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+                            android:id="@+id/tvSecondRelativeFoodName"
+                            style="@style/textTitle.FoodName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spaceSmall"
+                            android:layout_marginTop="@dimen/spaceSmall"
+                            android:text="Manchurian Nodules"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/img_secondRelativeFood"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="@dimen/spaceMedium"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvSecondRelativeFoodName"
+                            app:shapeAppearanceOverlay="@style/relativeFoodImage"
+                            tools:src="@drawable/ic_launcher_background" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</FrameLayout>

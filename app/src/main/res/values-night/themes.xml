@@ -13,4 +13,21 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="textTitle">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/textXLarge</item>
+    </style>
+
+    <style name="textSubTitle">
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textColor">#9A9A9A</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+    </style>
+
+    <style name="circle">
+        <item name="cornerSize">100dp</item>
+    </style>
 </resources>

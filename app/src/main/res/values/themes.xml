@@ -13,4 +13,36 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="textTitle">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/textXLarge</item>
+    </style>
+
+    <style name="textTitle.FoodName">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/textLarge</item>
+    </style>
+
+    <style name="textSubTitle">
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textColor">#9A9A9A</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+    </style>
+
+    <style name="circle">
+        <item name="cornerSize">100dp</item>
+    </style>
+
+    <style name="relativeFoodImage">
+        <item name="cornerSize">50dp</item>
+    </style>
+
+    <style name="chip" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="textStartPadding">@dimen/spaceMedium</item>
+        <item name="textEndPadding">@dimen/spaceMedium</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:textColor">@color/orange_200</item>
+    </style>
 </resources>
