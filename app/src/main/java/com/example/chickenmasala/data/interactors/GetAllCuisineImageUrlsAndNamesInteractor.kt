@@ -8,7 +8,9 @@ class GetAllCuisineImageUrlsAndNamesInteractor(
 
     ) {
     fun execute(): List<RecipeEntity> {
-        return dataSource.getAllItems().shuffled().distinct()
+        return dataSource.getAllItems().shuffled().distinctBy {
+            it.cuisine
+        }
     }
 
 }
