@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spaceXLarge"
+        app:cardCornerRadius="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,12 +22,21 @@
             android:layout_height="wrap_content"
             >
 
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:elevation="1dp"
+                android:layout_gravity="bottom"
+                android:background="#3E000000"
+                />
+
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_cuisineTwo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
                 android:scaleType= "centerCrop"
-                android:src="@drawable/guess_the_cuisine" />
+                android:src="@drawable/kitchen" />
 
             <TextView
                 android:id="@+id/tv_gameOne"
@@ -34,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|start"
                 android:layout_marginStart="@dimen/spaceLarge"
+                android:elevation="3dp"
                 android:layout_marginTop="@dimen/spaceMedium"
                 android:layout_marginBottom="@dimen/spaceMedium"
                 android:fontFamily="@font/roboto_bold"
@@ -52,6 +63,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_miniGameTwo"
         android:layout_width="wrap_content"
+        app:cardCornerRadius="@dimen/spaceMedium"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,9 +78,10 @@
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_ingredient"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/guess_the_ingredient" />
+                android:layout_width="350dp"
+                android:scaleType="centerCrop"
+                android:layout_height="150dp"
+                android:src="@drawable/ingredients" />
 
             <TextView
                 android:id="@+id/tv_gameTwo"
@@ -76,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|start"
                 android:layout_marginStart="@dimen/spaceLarge"
+                android:elevation="3dp"
                 android:layout_marginTop="@dimen/spaceMedium"
                 android:layout_marginBottom="@dimen/spaceMedium"
                 android:fontFamily="@font/roboto_bold"
@@ -95,6 +109,7 @@
         android:id="@+id/cardview_miniGameThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/spaceMedium"
         android:layout_marginTop="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,11 +119,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:elevation="1dp"
+                android:layout_gravity="bottom"
+                android:background="#2C000000"
+                />
+
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:elevation="1dp"
+                android:layout_gravity="bottom"
+                android:background="#00000000"
+                />
+
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_Meal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/guess_the_meal" />
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/meal" />
 
             <TextView
                 android:id="@+id/tv_gameThree"
@@ -118,6 +152,7 @@
                 android:layout_marginStart="@dimen/spaceLarge"
                 android:layout_marginTop="@dimen/spaceMedium"
                 android:layout_marginBottom="@dimen/spaceMedium"
+                android:elevation="3dp"
                 android:fontFamily="@font/roboto_bold"
                 android:text="@string/guess_the_meal"
                 android:textColor="@color/white"
