@@ -5,7 +5,7 @@ import com.example.chickenmasala.data.domain.GuessGamesName
 import com.example.chickenmasala.data.domain.QuestionGames
 import com.example.chickenmasala.data.domain.RecipeEntity
 
-class GuessGames(private val dataSource: FoodDataSource<RecipeEntity>) {
+class GuessGamesInteractor(private val dataSource: FoodDataSource<RecipeEntity>) {
     private  val randomRecipe: RecipeEntity = getRandomRecipe()
     fun guessGames(gameName: GuessGamesName): QuestionGames {
         return when (gameName) {
