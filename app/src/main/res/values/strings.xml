@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">ChickenMasala</string>
 
+    <string name="content">Guess The Ingredient</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="questionText">To which cuisine , chicken masala belong ?</string>
@@ -62,6 +65,7 @@
     <string name="blockThree">Indian ingredients are as varied as the Indian people and the available foods of each region. Masala means spice blend. Certain foods use certain spice blends. For instance, birlyani masala—cardamom, cinnamon, cloves and fennel—is used for birlyani, an oven-cooked dish of rice and a vegetable, seafood or meat. Chilies, mustard seeds, gram flour, coconut and yogurt are popular ingredients in all types of Indian cuisine. Ghee, a type of clarified butter, is used for cooking, and has a toasty taste. Saffron is used to flavor and color rice dishes. Over 5,000 years you learn to use what you have and be creative with it.</string>
     <string name="titleFour">Regional Cuisine</string>
     <string name="blockFour">Food choice varies north, south, east and west. Indians from the north eat flat breads like chapati and naan, while Southern Indians prefer to eat rice and coconut. The versatile coconut not only provides milk, it thickens stews, makes a chewy snack and is used in many sweet southern dishes as an ingredient or as a garnish. Western India is more cosmopolitan, but is known for its traditional spicy curries. Mumbai, formerly Bombay, at the heart of the region, is flooded with city dwellers, students and workers. They all have their traditional cuisines, but seafood and curries, hot and spicy sausages and snacks with chai tea are popular traditional fare. East Indian food relies heavily on rice, milk and vegetables, prepared simply with yogurt, seeds and spices steamed and curried. East Indians love their sweets and use milk and other dairy products abundantly in them.</string>
+
 
 
 
