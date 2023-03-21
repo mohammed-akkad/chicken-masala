@@ -12,7 +12,8 @@ abstract class BaseFragment<VB:ViewBinding>:Fragment(){
 abstract val LOG_TAG:String
 abstract val bindingInflater:(LayoutInflater,ViewGroup?,Boolean)->VB
     private var _binding:ViewBinding?=null
-    protected val binding=_binding as VB
+    protected val binding
+    get() = _binding as VB
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
