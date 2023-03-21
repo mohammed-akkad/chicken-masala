@@ -1,17 +1,17 @@
 package com.example.chickenmasala.data.interactors
 
 
-import com.example.chickenmasala.data.domain.GuessGamesName
+import com.example.chickenmasala.data.domain.GuessGamesNameInteractor
 import com.example.chickenmasala.data.domain.QuestionGames
 import com.example.chickenmasala.data.domain.RecipeEntity
 
 class GuessGames(private val dataSource: FoodDataSource<RecipeEntity>) {
     private  val randomRecipe: RecipeEntity = getRandomRecipe()
-    fun guessGames(gameName: GuessGamesName): QuestionGames {
+    fun guessGames(gameName: GuessGamesNameInteractor): QuestionGames {
         return when (gameName) {
-              GuessGamesName.GUESS_THE_CUISINE ->guessCuisine()
-            GuessGamesName.GUESS_THE_EXSTING_INGREDIENT->guessExistingIngredient()
-            GuessGamesName.GUESS_THE_MEAL -> guessMeal()
+              GuessGamesNameInteractor.GUESS_THE_CUISINE ->guessCuisine()
+            GuessGamesNameInteractor.GUESS_THE_EXSTING_INGREDIENT->guessExistingIngredient()
+            GuessGamesNameInteractor.GUESS_THE_MEAL -> guessMeal()
         }
 
     }
