@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_large_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:layout_marginTop="@dimen/spaceLarge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_category_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:layout_marginTop="@dimen/spaceLarge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_title_home_category" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_for_you_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:layout_marginTop="@dimen/spaceLarge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_title_home_for_you" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_sweet_treat_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:layout_marginTop="@dimen/spaceLarge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_title_home_sweet_treat" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_cake_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:layout_marginTop="@dimen/spaceLarge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_title_home_cake" />
+
+            <LinearLayout
+                android:id="@+id/text_title_home_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:layout_marginTop="@dimen/spaceXLarge"
+                android:layout_marginEnd="@dimen/spaceMedium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_large_home">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="@string/categories"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="@color/orange_200"
+                    android:textSize="@dimen/textLarge" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/see_all"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/orange_200"
+                    android:textSize="@dimen/textMedium" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/text_title_home_for_you"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:layout_marginTop="@dimen/spaceXLarge"
+                android:layout_marginEnd="@dimen/spaceMedium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_category_home">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:text="@string/for_you"
+                    android:textColor="@color/orange_200"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/textLarge" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/see_all"
+                    android:textColor="@color/orange_200"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="@dimen/textMedium" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/text_title_home_sweet_treat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:layout_marginTop="@dimen/spaceXLarge"
+                android:layout_marginEnd="@dimen/spaceMedium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_for_you_home">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:text="@string/sweet_treats"
+                    android:textColor="@color/orange_200"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/textLarge" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/see_all"
+                    android:textColor="@color/orange_200"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="@dimen/textMedium" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/text_title_home_cake"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:layout_marginTop="@dimen/spaceXLarge"
+                android:layout_marginEnd="@dimen/spaceMedium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_sweet_treat_home">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:text="@string/cake_corner"
+                    android:textColor="@color/orange_200"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/textLarge" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/see_all"
+                    android:textColor="@color/orange_200"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="@dimen/textMedium" />
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
