@@ -18,12 +18,14 @@ abstract val bindingInflater:(LayoutInflater,ViewGroup?,Boolean)->VB
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setup()
+        addCallBacks()
         _binding=bindingInflater(inflater,container,false)
         return (_binding as VB).root
 
     }
     abstract fun setup()
     abstract fun addCallBacks()
-    protected fun log(value: String)=Log.i(LOG_TAG,value)
+    protected fun log(value: String)=Log.v(LOG_TAG,value)
 
 }
