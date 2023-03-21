@@ -45,7 +45,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:text="@string/meat"
+                android:text="@string/meatOne"
                 android:textColor="@color/orange_200"
                 android:textSize="@dimen/textLarge"
                 android:layout_marginStart="@dimen/spaceMedium"
