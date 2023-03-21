@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">ChickenMasala</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hinted_search_text">Hinted Search Text</string>
+    <string name="categories">Categories</string>
+    <string name="meat">Meat</string>
+    <string name="desert">Desert</string>
+    <string name="cheese">Cheese</string>
+    <string name="spice">Spice</string>
+    <string name="cook_time">Cook Time</string>
+    <string name="under_15_min">Under 15 min</string>
+    <string name="under_30_min">Under 30 min</string>
+    <string name="under_1_hour">Under 1 hour</string>
+    <string name="ingredients_count">Ingredients count</string>
+    <string name="under_30_ingredients">Under 30 Ingredients</string>
+    <string name="under_10_ingredients">Under 10 Ingredients</string>
 </resources>
