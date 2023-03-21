@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_300"
+    tools:context=".FoodKitchenCategoryFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaceLarge"
+        android:layout_marginStart="@dimen/spaceMedium"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/now_ready_this_food"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="@dimen/textXLarge"
+      />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaceMedium"
+        app:layout_constraintTop_toBottomOf="@+id/titleView"
+        android:layout_marginHorizontal="@dimen/spaceMedium"
+
+  />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
