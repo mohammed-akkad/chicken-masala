@@ -1,4 +1,74 @@
 <resources>
     <string name="app_name">ChickenMasala</string>
+
     <string name="content">Guess The Ingredient</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="questionText">To which cuisine , chicken masala belong ?</string>
+    <string name="answerOne">1 - Indian Cuisine</string>
+    <string name="submit">Submit</string>
+    <string name="answerTwo">2 - Egyptian Cuisine</string>
+    <string name="answerThree">3 - Iraqi Cuisine</string>
+    <string name="answerFour">4 - Palestinian Cuisine</string>
+    <string name="invalidIngredientQuestion">What is the invalid ingredient in chicken masala ?</string>
+    <string name="meatOne">1 - Meat</string>
+    <string name="tomato">2 - Tomato</string>
+    <string name="chicken">3 - Chicken</string>
+    <string name="flour">4 - flour</string>
+    <string name="guessTheMealQuestion">What is the name of the meal ?</string>
+    <string name="btats">1 - Btats</string>
+    <string name="home">Home</string>
+    <string name="kitchen">Kitchen</string>
+    <string name="trivia">Trivia</string>
+    <string name="guess_the_ingredient">Guess The Ingredient</string>
+    <string name="guess_the_cuisine">Guess The Cuisine</string>
+    <string name="guess_the_meal">Guess The Meal</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hinted_search_text">Hinted Search Text</string>
+    <string name="categories">Categories</string>
+    <string name="meat">Meat</string>
+    <string name="desert">Desert</string>
+    <string name="cheese">Cheese</string>
+    <string name="spice">Spice</string>
+    <string name="cook_time">Cook Time</string>
+    <string name="under_15_min">Under 15 min</string>
+    <string name="under_30_min">Under 30 min</string>
+    <string name="under_1_hour">Under 1 hour</string>
+    <string name="ingredients_count">Ingredients count</string>
+    <string name="under_30_ingredients">Under 30 Ingredients</string>
+    <string name="under_10_ingredients">Under 10 Ingredients</string>
+
+
+    <string name="see_all">See all</string>
+    <string name="cake_corner">Cake corner</string>
+    <string name="sweet_treats">Sweet treats</string>
+    <string name="for_you">For you</string>
+
+    <string name="content">Content</string>
+    <string name="category_food">Category food</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="now_ready_this_food">Now ready this food</string>
+    <string name="masala_karela_recipe">masala karela recipe</string>
+
+    <string name="food_history">Food history</string>
+
+    <string name="titleOne">A Guide To Indian Cuisine</string>
+    <string name="blockOne">Indian cuisine is meant to be eaten socially, in groups, until everyone is fully satisfied. You will be served all your courses at once on a plate of food called a thali. A thali is a large tray that is used to serve all the foods at once. Some foods are mild, sweet and some are spicy and hot. Most dinners are served later at night since many Indians eat several smaller meals during the day. The food ranges from very simple vegetarian fare to exotic dishes layered with texture and flavor. Great care is taken in the planning and preparation of meals no matter how simple or complex.</string>
+    <string name="titleTwo">History of Indian Cuisine</string>
+    <string name="blockTwo">Indian cuisine is meant to be eaten socially, in groups, until everyone is fully satisfied. You will be served all your courses at once on a plate of food called a thali. A thali is a large tray that is used to serve all the foods at once. Some foods are mild, sweet and some are spicy and hot. Most dinners are served later at night since many Indians eat several smaller meals during the day. The food ranges from very simple vegetarian fare to exotic dishes layered with texture and flavor. Great care is taken in the planning and preparation of meals no matter how simple or complex.</string>
+    <string name="titleThree">Ingredients</string>
+    <string name="blockThree">Indian ingredients are as varied as the Indian people and the available foods of each region. Masala means spice blend. Certain foods use certain spice blends. For instance, birlyani masala—cardamom, cinnamon, cloves and fennel—is used for birlyani, an oven-cooked dish of rice and a vegetable, seafood or meat. Chilies, mustard seeds, gram flour, coconut and yogurt are popular ingredients in all types of Indian cuisine. Ghee, a type of clarified butter, is used for cooking, and has a toasty taste. Saffron is used to flavor and color rice dishes. Over 5,000 years you learn to use what you have and be creative with it.</string>
+    <string name="titleFour">Regional Cuisine</string>
+    <string name="blockFour">Food choice varies north, south, east and west. Indians from the north eat flat breads like chapati and naan, while Southern Indians prefer to eat rice and coconut. The versatile coconut not only provides milk, it thickens stews, makes a chewy snack and is used in many sweet southern dishes as an ingredient or as a garnish. Western India is more cosmopolitan, but is known for its traditional spicy curries. Mumbai, formerly Bombay, at the heart of the region, is flooded with city dwellers, students and workers. They all have their traditional cuisines, but seafood and curries, hot and spicy sausages and snacks with chai tea are popular traditional fare. East Indian food relies heavily on rice, milk and vegetables, prepared simply with yogurt, seeds and spices steamed and curried. East Indians love their sweets and use milk and other dairy products abundantly in them.</string>
+
+
+
+
+
+
 </resources>
