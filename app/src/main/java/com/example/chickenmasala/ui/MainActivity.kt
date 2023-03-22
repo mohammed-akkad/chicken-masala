@@ -8,7 +8,7 @@ import com.example.chickenmasala.databinding.ActivityMainBinding
 import com.example.chickenmasala.util.Operation
 
 class MainActivity : AppCompatActivity() {
-    private val TAG = "MAIN_ACTIVITY"
+    private val LOG_TAG = "MAIN_ACTIVITY"
 
     lateinit var binding: ActivityMainBinding
     val homeFragment = HomeFragment()
