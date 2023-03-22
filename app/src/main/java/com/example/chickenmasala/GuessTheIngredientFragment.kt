@@ -11,17 +11,14 @@ import com.example.chickenmasala.databinding.FragmentGuessTheIngredientBinding
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
 class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBinding>() {
-    override val LOG_TAG: String
-        get() = TODO("Not yet implemented")
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheIngredientBinding
-        get() = TODO("Not yet implemented")
+    override val LOG_TAG: String = "GuessTheIngredientFragment"
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheIngredientBinding = FragmentGuessTheIngredientBinding::inflate
 
     override fun setup() {
-        TODO("Not yet implemented")
     }
 
     override fun addCallBacks() {
-        TODO("Not yet implemented")
+
     }
 
 

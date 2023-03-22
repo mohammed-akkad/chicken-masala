@@ -9,17 +9,14 @@ import com.example.chickenmasala.databinding.FragmentGuessTheCuisineBinding
 
 
 class GuessTheCuisineFragment : BaseFragment<FragmentGuessTheCuisineBinding>() {
-    override val LOG_TAG: String
-        get() = TODO("Not yet implemented")
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheCuisineBinding
-        get() = TODO("Not yet implemented")
+    override val LOG_TAG: String = "GuessTheCuisineFrag"
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheCuisineBinding =
+        FragmentGuessTheCuisineBinding::inflate
 
     override fun setup() {
-        TODO("Not yet implemented")
     }
 
     override fun addCallBacks() {
-        TODO("Not yet implemented")
     }
 
 

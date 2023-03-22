@@ -9,17 +9,16 @@ import com.example.chickenmasala.databinding.FragmentFoodKitchenCategoryBinding
 
 
 class FoodKitchenCategoryFragment : BaseFragment<FragmentFoodKitchenCategoryBinding>() {
-    override val LOG_TAG: String
-        get() = TODO("Not yet implemented")
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodKitchenCategoryBinding
-        get() = TODO("Not yet implemented")
+    override val LOG_TAG: String = "FoodKitchenCategoryFragment"
+
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodKitchenCategoryBinding =
+        FragmentFoodKitchenCategoryBinding::inflate
 
     override fun setup() {
-        TODO("Not yet implemented")
+
     }
 
     override fun addCallBacks() {
-        TODO("Not yet implemented")
     }
 
 
