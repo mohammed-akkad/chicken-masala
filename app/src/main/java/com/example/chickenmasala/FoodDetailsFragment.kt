@@ -5,20 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.chickenmasala.databinding.FragmentFoodDetailsBinding
 
-class FoodDetailsFragment : Fragment() {
+class FoodDetailsFragment :BaseFragment<FragmentFoodDetailsBinding>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
+
+
+
+    override val LOG_TAG: String = "FragmentDetails"
+
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodDetailsBinding = FragmentFoodDetailsBinding::inflate
+
+
+    override fun setup() {
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_food_details, container, false)
+    override fun addCallBacks() {
     }
 
 }
