@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         addCallBacks()
+        showFragment(homeFragment , "Home ")
 
 
     }
