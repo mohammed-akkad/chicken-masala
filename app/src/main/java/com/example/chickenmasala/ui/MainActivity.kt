@@ -29,23 +29,19 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home_screen -> {
-                    showFragment(homeFragment)
-                    title = "Home"
+                    showFragment(homeFragment , "Home")
                     true
                 }
                 R.id.kitchen_screen -> {
-                    showFragment(kitchenFragment)
-                    title = "kitchen"
+                    showFragment(kitchenFragment , "kitchen")
                     true
                 }
                 R.id.trivia_screen -> {
-                    showFragment(triviaGamesFragment)
-                    title = "Trivia Screen"
+                    showFragment(triviaGamesFragment , "Trivia Screen")
                     true
                 }
                 R.id.indian_food_history -> {
-                    showFragment(indianFoodHistoryFragment)
-                    title = "Indian Food History"
+                    showFragment(indianFoodHistoryFragment , "Indian Food History")
                     true
                 }
 
@@ -56,10 +52,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showFragment(fragment: Fragment) {
+    private fun showFragment(fragment: Fragment , screenTitle:String) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
             .commit()
+
+        title = screenTitle
+
     }
 
 }
