@@ -26,22 +26,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addCallBacks() {
-        binding.bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
+        binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home_screen -> {
                     showFragment(homeFragment)
+                    title = "Home"
                     true
                 }
                 R.id.kitchen_screen -> {
                     showFragment(kitchenFragment)
+                    title = "kitchen"
                     true
                 }
                 R.id.trivia_screen -> {
                     showFragment(triviaGamesFragment)
+                    title = "Trivia Screen"
                     true
                 }
                 R.id.indian_food_history -> {
                     showFragment(indianFoodHistoryFragment)
+                    title = "Indian Food History"
                     true
                 }
 
