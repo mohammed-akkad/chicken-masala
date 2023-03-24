@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     private val indianFoodHistoryFragment = IndianFoodHistoryFragment()
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)

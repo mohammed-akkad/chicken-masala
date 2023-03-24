@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/pic7"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/category_food"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

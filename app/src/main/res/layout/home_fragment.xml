@@ -49,8 +49,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spaceMedium"
                 android:layout_marginTop="@dimen/spaceLarge"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_title_home_for_you" />
+                app:layout_constraintTop_toBottomOf="@id/text_title_home_for_you"
+                tools:listitem="@layout/card_small" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_sweet_treat_home"

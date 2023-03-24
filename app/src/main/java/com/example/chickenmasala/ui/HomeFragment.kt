@@ -37,16 +37,22 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
 
     private fun setupDataRecipesEntity() {
         csvRecipeParser = RecipeParser()
-        dataSourceOfRecipeEntity = CsvDataSource(requireContext(), "indian_food.csv", csvRecipeParser)
+        dataSourceOfRecipeEntity =
+            CsvDataSource(requireContext(), "indian_food.csv", csvRecipeParser)
+
         getListRecipesRelatedToCertainRecipeInteractor =
             GetListRecipesRelatedToCertainRecipeInteractor(dataSourceOfRecipeEntity)
+
+
         val list = dataSourceOfRecipeEntity.getAllItems().take(5)
         recipesAdapter = RecipesAdapter(list)
 
     }
+
     private fun setupDataCategoryEntity() {
         csvCategoryParser = CategoryParser()
-        dataSourceOfCategoryEntity = CsvDataSource(requireContext(), "categories.csv", csvCategoryParser)
+        dataSourceOfCategoryEntity =
+            CsvDataSource(requireContext(), "categories.csv", csvCategoryParser)
         val list = dataSourceOfCategoryEntity.getAllItems().take(5)
         categotyAdapter = CategotyAdapter(list)
 
@@ -62,9 +68,9 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
                 navigationBetweenFragment(foodKitchenCategoryFragment)
                 setNavigationTitleAppBar("Food Categories")
             }
-            textSeeAllForYou.setOnClickListener {
+            textSeeAllSweetTreats.setOnClickListener {
                 navigationBetweenFragment(foodKitchenCategoryFragment)
-                setNavigationTitleAppBar("Food Categories")
+                setNavigationTitleAppBar("Sweet Treats")
             }
 
         }
@@ -82,7 +88,6 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
 
     private fun setNavigationTitleAppBar(name: String) {
         (activity as MainActivity).apply {
-            binding.bottomNavigation.visibility = View.GONE
             title = "$name "
         }
 

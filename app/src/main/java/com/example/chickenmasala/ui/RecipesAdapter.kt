@@ -7,14 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
-import com.example.chickenmasala.data.CsvDataSource
+
 import com.example.chickenmasala.data.domain.RecipeEntity
-import com.example.chickenmasala.data.interactors.FoodDataSource
-import com.example.chickenmasala.data.interactors.GetAllCuisineImageUrlsAndNamesInteractor
-import com.example.chickenmasala.data.utils.RecipeParser
-import com.example.chickenmasala.databinding.CardCategoryBinding
 import com.example.chickenmasala.databinding.CardLargeBinding
-import com.example.chickenmasala.util.Constants
+import com.example.chickenmasala.databinding.CardSmallBinding
 
 class RecipesAdapter(val list: List<RecipeEntity>) :
     RecyclerView.Adapter<RecipesAdapter.BaseViewHolder>() {
@@ -22,16 +18,18 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return when (viewType) {
-            VIEW_TYPE_HEADER -> {
+
+            VIEW_TYPE_IMAGE_LARGE -> {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.card_large, parent, false)
                 RecipeViewHolder(view)
             }
-            //            VIEW_TYPE_MATCH -> {
-            //                val view =
-            //                    LayoutInflater.from(parent.context).inflate(R.layout.item_match, parent, false)
-            //                return MatchViewHolder(view)
-            //            }
+            VIEW_TYPE_FOR_YOU -> {
+                val view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.card_small, parent, false)
+                return ForYouViewHolder(view)
+            }
+
             else -> {
                 super.createViewHolder(parent, viewType)
             }
@@ -45,7 +43,7 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
 
         when (holder) {
             is RecipeViewHolder -> bindImage(holder, position)
-            is CategoryViewHolder -> bindCategory(holder, position)
+            is ForYouViewHolder -> bindRecipeForYou(holder, position)
         }
 
     }
@@ -63,14 +61,16 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
         }
 
     }
-    private fun bindCategory(holder: CategoryViewHolder, position: Int) {
-        val currentCategory = list[position]
+
+    private fun bindRecipeForYou(holder: ForYouViewHolder, position: Int) {
+        val currentRecipe = list[position]
         holder.binding.apply {
-    
+            textNameRecipe.text = currentRecipe.name
+
             Glide
                 .with(this.root)
-                .load(currentCategory.imageUrl)
-                .into(holder.binding.imageView)
+                .load(currentRecipe.imageUrl)
+                .into(holder.binding.imageRecipe)
         }
 
     }
@@ -81,12 +81,14 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
         val binding = CardLargeBinding.bind(viewItem)
     }
 
-    class CategoryViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
-        val binding = CardCategoryBinding.bind(viewItem)
+    class ForYouViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
+        val binding = CardSmallBinding.bind(viewItem)
     }
 
     companion object {
-        const val VIEW_TYPE_HEADER = 0
+        const val VIEW_TYPE_IMAGE_LARGE = 0
+        const val VIEW_TYPE_FOR_YOU = 1
+
     }
 
 
