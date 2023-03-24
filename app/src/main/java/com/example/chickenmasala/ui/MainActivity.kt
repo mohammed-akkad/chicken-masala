@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        setTheme(R.style.SplashScreen)
         setContentView(binding.root)
         addCallBacks()
         showFragment(homeFragment , "Home ")
