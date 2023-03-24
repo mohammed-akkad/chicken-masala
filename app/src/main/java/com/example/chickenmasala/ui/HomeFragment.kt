@@ -8,10 +8,13 @@ import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.CategoryEntity
 import com.example.chickenmasala.data.domain.RecipeEntity
+import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
 import com.example.chickenmasala.data.interactors.GetListRecipesRelatedToCertainRecipeInteractor
 import com.example.chickenmasala.data.utils.CategoryParser
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.HomeFragmentBinding
+import com.example.chickenmasala.util.Constants.CATEGORIES_CSV_FILE_NAME
+import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
 
 class HomeFragment : BaseFragment<HomeFragmentBinding>() {
     override val LOG_TAG: String = "HomeFragment"
@@ -20,7 +23,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
     private lateinit var dataSourceOfCategoryEntity: CsvDataSource<CategoryEntity>
     private val foodKitchenCategoryFragment = FoodKitchenCategoryFragment()
-    lateinit var getListRecipesRelatedToCertainRecipeInteractor: GetListRecipesRelatedToCertainRecipeInteractor
+    lateinit var getAListOfRandomRecipesInteractor: GetAListOfRandomRecipesInteractor
 
     lateinit var recipesAdapter: RecipesAdapter
     lateinit var categotyAdapter: CategotyAdapter
@@ -38,13 +41,13 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
     private fun setupDataRecipesEntity() {
         csvRecipeParser = RecipeParser()
         dataSourceOfRecipeEntity =
-            CsvDataSource(requireContext(), "indian_food.csv", csvRecipeParser)
+            CsvDataSource(requireContext(), RECIPES_CSV_FILE_NAME, csvRecipeParser)
 
-        getListRecipesRelatedToCertainRecipeInteractor =
-            GetListRecipesRelatedToCertainRecipeInteractor(dataSourceOfRecipeEntity)
+        getAListOfRandomRecipesInteractor =
+            GetAListOfRandomRecipesInteractor(dataSourceOfRecipeEntity)
 
 
-        val list = dataSourceOfRecipeEntity.getAllItems().take(5)
+        val list = getAListOfRandomRecipesInteractor.execute(5)
         recipesAdapter = RecipesAdapter(list)
 
     }
@@ -52,8 +55,8 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
     private fun setupDataCategoryEntity() {
         csvCategoryParser = CategoryParser()
         dataSourceOfCategoryEntity =
-            CsvDataSource(requireContext(), "categories.csv", csvCategoryParser)
-        val list = dataSourceOfCategoryEntity.getAllItems().take(5)
+            CsvDataSource(requireContext(), CATEGORIES_CSV_FILE_NAME, csvCategoryParser)
+        val list = dataSourceOfCategoryEntity.getAllItems().shuffled().take(5)
         categotyAdapter = CategotyAdapter(list)
 
     }
@@ -66,7 +69,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
 
             textSeeAllCategories.setOnClickListener {
                 navigationBetweenFragment(foodKitchenCategoryFragment)
-                setNavigationTitleAppBar("Food Categories")
+                setNavigationTitleAppBar(getString(R.string.food_categories))
             }
             textSeeAllSweetTreats.setOnClickListener {
                 navigationBetweenFragment(foodKitchenCategoryFragment)

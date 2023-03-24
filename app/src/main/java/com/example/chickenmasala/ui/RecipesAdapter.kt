@@ -41,9 +41,9 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
 
 
-        when (holder) {
-            is RecipeViewHolder -> bindImage(holder, position)
-            is ForYouViewHolder -> bindRecipeForYou(holder, position)
+        when {
+            holder is RecipeViewHolder && position > 0 -> bindImage(holder, position)
+            holder is ForYouViewHolder -> bindRecipeForYou(holder, position)
         }
 
     }
