@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">مسالا دجاج</string>
+    <string name="home">الرئيسية</string>
+    <string name="kitchen">المطبخ</string>
+    <string name="trivia">التسلية</string>
+    <string name="food_history">تاريخ الطعام</string>
+</resources>
