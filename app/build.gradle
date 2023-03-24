@@ -7,6 +7,7 @@ android {
     namespace 'com.example.chickenmasala'
     compileSdk 33
 
+
     defaultConfig {
         applicationId "com.example.chickenmasala"
         minSdk 21
@@ -35,9 +36,9 @@ android {
             useJUnitPlatform()
         }
     }
-buildFeatures{
-    viewBinding=true
-}
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {

@@ -12,10 +12,10 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/card_large_Categories"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/pic7"
+            android:background="@drawable/card_large_categories"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

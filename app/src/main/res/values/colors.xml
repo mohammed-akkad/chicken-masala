@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="orange_100">#F9F5F3</color>
+    <color name="color_bottom_navigation">#F9F5F3</color>
     <color name="orange_200">#4F4A45</color>
     <color name="orange_300">#7E7974</color>
     <color name="orange_400">#726254</color>
