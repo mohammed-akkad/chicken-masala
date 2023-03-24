@@ -123,5 +123,45 @@
         <item name="android:layout_width">350dp</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
-
+    <style name="textQuestion">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_marginTop">@dimen/spaceXXXLarge</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/orange_200</item>
+        <item name="android:textSize">@dimen/textLarge</item>
+    </style>
+    <style name="submitButton">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_marginTop">@dimen/spaceXXLarge</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:background">@drawable/button_with_radius</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:text">@string/submit</item>
+    </style>
+    <style name="textAnswers">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/textLarge</item>
+        <item name="android:textColor">@color/orange_200</item>
+    </style>
+    <style name="constraint_layout">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/gray_200</item>
+    </style>
+    <style name="cv_guess">
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:layout_marginTop">@dimen/spaceMedium</item>
+        <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
+    </style>
 </resources>
