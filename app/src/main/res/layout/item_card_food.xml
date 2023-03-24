@@ -36,7 +36,7 @@
                     android:layout_width="match_parent"
                     android:scaleType="centerCrop"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/tamil_food_picture" />
+                    android:src="@drawable/img_card_food" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:scaleType="centerCrop"
                 android:layout_height="wrap_content"
-                android:src="@drawable/tamil_food_picture" />
+                android:src="@drawable/img_card_food" />
 
             <TextView
                 android:layout_width="match_parent"

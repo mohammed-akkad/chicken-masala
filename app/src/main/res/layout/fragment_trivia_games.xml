@@ -36,7 +36,7 @@
                 android:layout_width="350dp"
                 android:layout_height="150dp"
                 android:scaleType= "centerCrop"
-                android:src="@drawable/kitchen" />
+                android:src="@drawable/img_kitchen" />
 
             <TextView
                 android:id="@+id/tv_gameOne"
@@ -81,7 +81,7 @@
                 android:layout_width="350dp"
                 android:scaleType="centerCrop"
                 android:layout_height="150dp"
-                android:src="@drawable/ingredients" />
+                android:src="@drawable/img_ingredients" />
 
             <TextView
                 android:id="@+id/tv_gameTwo"
@@ -142,7 +142,7 @@
                 android:layout_width="350dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/meal" />
+                android:src="@drawable/img_meal" />
 
             <TextView
                 android:id="@+id/tv_gameThree"

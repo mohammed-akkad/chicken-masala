@@ -176,7 +176,7 @@
         android:scaleType="centerCrop"
         android:layout_marginTop="@dimen/spaceXXLarge"
         app:roundPercent="0.2"
-        android:src="@drawable/meal"
+        android:src="@drawable/img_meal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />

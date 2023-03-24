@@ -21,7 +21,7 @@
             android:layout_marginTop="@dimen/spaceMedium"
             android:layout_marginStart="@dimen/spaceLarge"
             android:layout_marginEnd="@dimen/spaceLarge"
-            android:background="@drawable/rounded_search_bar"
+            android:background="@drawable/shape_rounded_search_bar"
             android:drawableLeft="@drawable/ic_filter"
             android:drawableRight="@drawable/ic_search"
             android:drawablePadding="16dp"
@@ -219,7 +219,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.8" />
+                    app:layout_constraintGuide_begin="312dp" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
