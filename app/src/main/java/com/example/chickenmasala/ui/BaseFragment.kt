@@ -1,4 +1,4 @@
-package com.example.chickenmasala
+package com.example.chickenmasala.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -20,13 +20,21 @@ abstract val bindingInflater:(LayoutInflater,ViewGroup?,Boolean)->VB
         savedInstanceState: Bundle?
     ): View? {
         setup()
-        addCallBacks()
+
         _binding=bindingInflater(inflater,container,false)
+
         return (_binding as VB).root
 
     }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setup()
+        addCallBacks()
+    }
     abstract fun setup()
     abstract fun addCallBacks()
+
     protected fun log(value: String)=Log.v(LOG_TAG,value)
 
 }

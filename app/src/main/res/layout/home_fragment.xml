@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -20,19 +21,27 @@
                 android:id="@+id/recycler_large_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceLarge"
+                android:layout_marginVertical="@dimen/spaceSmall"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/text_title_home_category"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/card_large" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_category_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceLarge"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_title_home_category" />
+                app:layout_constraintTop_toBottomOf="@id/text_title_home_category"
+                tools:listitem="@layout/card_category" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_for_you_home"
@@ -76,16 +85,17 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="@string/categories"
                     android:fontFamily="@font/roboto_bold"
+                    android:text="@string/categories"
                     android:textColor="@color/orange_200"
                     android:textSize="@dimen/textLarge" />
 
                 <TextView
+                    android:id="@+id/text_seeAllCategories"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/see_all"
                     android:fontFamily="@font/roboto_regular"
+                    android:text="@string/see_all"
                     android:textColor="@color/orange_200"
                     android:textSize="@dimen/textMedium" />
             </LinearLayout>
@@ -105,17 +115,18 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="@string/for_you"
                     android:textColor="@color/orange_200"
-                    android:fontFamily="@font/roboto_bold"
                     android:textSize="@dimen/textLarge" />
 
                 <TextView
+                    android:id="@+id/text_seeAllForYou"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
                     android:text="@string/see_all"
                     android:textColor="@color/orange_200"
-                    android:fontFamily="@font/roboto_regular"
                     android:textSize="@dimen/textMedium" />
             </LinearLayout>
 
@@ -135,17 +146,18 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="@string/sweet_treats"
                     android:textColor="@color/orange_200"
-                    android:fontFamily="@font/roboto_bold"
                     android:textSize="@dimen/textLarge" />
 
                 <TextView
+                    android:id="@+id/text_seeAllSweetTreats"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
                     android:text="@string/see_all"
                     android:textColor="@color/orange_200"
-                    android:fontFamily="@font/roboto_regular"
                     android:textSize="@dimen/textMedium" />
             </LinearLayout>
 
@@ -164,17 +176,18 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="@string/cake_corner"
                     android:textColor="@color/orange_200"
-                    android:fontFamily="@font/roboto_bold"
                     android:textSize="@dimen/textLarge" />
 
                 <TextView
+                    android:id="@+id/text_seeAllCakeCorner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
                     android:text="@string/see_all"
                     android:textColor="@color/orange_200"
-                    android:fontFamily="@font/roboto_regular"
                     android:textSize="@dimen/textMedium" />
             </LinearLayout>
 
