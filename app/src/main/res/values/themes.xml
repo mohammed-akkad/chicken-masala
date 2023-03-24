@@ -45,4 +45,17 @@
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:textColor">@color/orange_200</item>
     </style>
+    <style name="textCategory">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/textLarge</item>
+    </style>
+    <style name="textCategory.textCardLarge">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/textXLarge</item>
+    </style>
+    <style name="textCategory.textCardSmall">
+        <item name="android:textSize">@dimen/textMedium</item>
+    </style>
+
 </resources>

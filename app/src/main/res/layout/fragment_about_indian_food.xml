@@ -77,7 +77,7 @@
                     app:roundPercent="0.2"
                     android:elevation="1dp"
                     android:layout_height="255dp"
-                    android:src="@drawable/img_meal"/>
+                    android:src="@drawable/indian_meal"/>
 
             </androidx.cardview.widget.CardView>
 
