@@ -23,8 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/meal">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-           style="@style/constraint_layout">
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
                 android:id="@+id/textview_number_one"
@@ -36,6 +35,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/answerTwo"
         style="@style/cv_guess"
@@ -43,19 +43,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerOne">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/constraint_layout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
                 android:id="@+id/textview_number_two"
                 style="@style/textAnswers"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/chicken"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:text="@string/chicken" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/answerThree"
         style="@style/cv_guess"
@@ -64,19 +65,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerTwo">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/constraint_layout">
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
                 android:id="@+id/textview_number_three"
                 style="@style/textAnswers"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/chicken"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:text="@string/chicken" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/answerFour"
         style="@style/cv_guess"
@@ -85,15 +86,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerThree">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/constraint_layout">
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
+
             <TextView
                 android:id="@+id/textview_number_four"
                 style="@style/textAnswers"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/btats"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:text="@string/btats" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -109,12 +110,12 @@
         android:id="@+id/meal"
         android:layout_width="300dp"
         android:layout_height="150dp"
-        android:scaleType="centerCrop"
         android:layout_marginTop="@dimen/spaceXXLarge"
-        app:roundPercent="0.2"
+        android:scaleType="centerCrop"
         android:src="@drawable/img_meal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:roundPercent="0.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

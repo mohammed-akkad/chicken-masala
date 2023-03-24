@@ -14,25 +14,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/answerOne"
         style="@style/cv_guess"
-        app:cardCornerRadius="22dp"
         android:layout_marginTop="@dimen/spaceXLarge"
+        app:cardCornerRadius="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/constraint_layout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
+
             <TextView
                 android:id="@+id/textview_number_one"
                 style="@style/textAnswers"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/answerOne"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:text="@string/answerOne" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/answerTwo"
         style="@style/cv_guess"
@@ -40,17 +43,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerOne">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/constraint_layout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
+
             <TextView
                 android:id="@+id/textview_number_two"
                 style="@style/textAnswers"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/answerTwo"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:text="@string/answerTwo" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/answerThree"
         style="@style/cv_guess"
@@ -58,17 +63,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerTwo">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/constraint_layout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
+
             <TextView
                 android:id="@+id/textview_number_three"
                 style="@style/textAnswers"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/answerThree"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:text="@string/answerThree" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/answerFour"
         style="@style/cv_guess"
@@ -76,17 +83,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerThree">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/constraint_layout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
+
             <TextView
                 android:id="@+id/textview_number_four"
                 style="@style/textAnswers"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/answerFour"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:text="@string/answerFour" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
     <Button
         android:id="@+id/submitButton"
         style="@style/submitButton"

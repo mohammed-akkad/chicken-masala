@@ -5,9 +5,7 @@
     android:id="@+id/fragment_food_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FoodDetailsFragment"
-
-    >
+    tools:context=".FoodDetailsFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -50,7 +48,6 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.5" />
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
@@ -65,8 +62,6 @@
                 <TextView
                     android:id="@+id/tvFoodName"
                     style="@style/textTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:text="Chicken Frid Rice"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -74,8 +69,6 @@
                 <TextView
                     android:id="@+id/tvFoodDetailName"
                     style="@style/textSubTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spaceExtraSmall"
                     android:text="Chicken Frid Rice"
                     app:layout_constraintStart_toStartOf="@+id/tvFoodName"
@@ -84,8 +77,6 @@
                 <TextView
                     android:id="@+id/textView2"
                     style="@style/textTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spaceLarge"
                     android:text="Description"
                     app:layout_constraintStart_toStartOf="@+id/tvFoodDetailName"
@@ -94,24 +85,18 @@
                 <TextView
                     android:id="@+id/tvFoodDescription"
                     style="@style/textSubTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spaceExtraSmall"
                     android:text="Chicken Frid Rice"
                     app:layout_constraintStart_toStartOf="@+id/tvFoodName"
                     app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-
                 <TextView
                     android:id="@+id/textView3"
                     style="@style/textTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spaceLarge"
                     android:text="Relative Food"
                     app:layout_constraintStart_toStartOf="@+id/tvFoodDescription"
                     app:layout_constraintTop_toBottomOf="@+id/tvFoodDescription" />
-
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_firstRelativeFood"
@@ -162,7 +147,6 @@
                             app:shapeAppearanceOverlay="@style/relativeFoodImage"
                             tools:src="@drawable/ic_launcher_background" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -191,7 +175,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-
                         <TextView
                             android:id="@+id/tvSecondRelativeFoodName"
                             style="@style/textTitle.FoodName"
@@ -212,14 +195,8 @@
                             app:shapeAppearanceOverlay="@style/relativeFoodImage"
                             tools:src="@drawable/ic_launcher_background" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
                 </androidx.cardview.widget.CardView>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </ScrollView>
-
-
 </FrameLayout>
