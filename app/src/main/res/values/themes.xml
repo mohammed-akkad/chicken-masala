@@ -57,13 +57,18 @@
     <style name="textCategory.textCardSmall">
         <item name="android:textSize">@dimen/textMedium</item>
     </style>
-    <style name="indian_food">
+    <style name="indian_food_text">
         <item name="android:textColor">@color/orange_200</item>
         <item name="android:textSize">@dimen/textXLarge</item>
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
     </style>
-    <style name="indian_food.indian">
+    <style name="indian_food_text.indian">
         <item name="android:textSize">@dimen/textMedium</item>
+    </style>
+    <style name="text_Kitchen_category">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/textXLarge</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
     </style>
 
 
