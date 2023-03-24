@@ -19,7 +19,7 @@
 
             <TextView
                 android:id="@+id/textview_headline_guide"
-                style="@style/indian_food"
+                style="@style/indian_food_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/gray_300"
@@ -27,7 +27,7 @@
 
             <TextView
                 android:id="@+id/textview_details_guide"
-                style="@style/indian_food.indian"
+                style="@style/indian_food_text.indian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spaceMedium"
@@ -37,7 +37,7 @@
 
             <TextView
                 android:id="@+id/textview_headline_history"
-                style="@style/indian_food"
+                style="@style/indian_food_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -46,7 +46,7 @@
 
             <TextView
                 android:id="@+id/textview_details_history"
-                style="@style/indian_food.indian"
+                style="@style/indian_food_text.indian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spaceMedium"
@@ -78,7 +78,7 @@
 
             <TextView
                 android:id="@+id/textview_headline_ingredients"
-                style="@style/indian_food"
+                style="@style/indian_food_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -87,7 +87,7 @@
 
             <TextView
                 android:id="@+id/textview_details_ingredients"
-                style="@style/indian_food.indian"
+                style="@style/indian_food_text.indian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spaceMedium"
@@ -96,7 +96,7 @@
 
             <TextView
                 android:id="@+id/textview_headline_regional_cuisine"
-                style="@style/indian_food"
+                style="@style/indian_food_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -105,7 +105,7 @@
 
             <TextView
                 android:id="@+id/textview_details_regional_cuisine"
-                style="@style/indian_food.indian"
+                style="@style/indian_food_text.indian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spaceMedium"

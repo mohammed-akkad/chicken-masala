@@ -70,6 +70,30 @@
         <item name="android:textSize">@dimen/textXLarge</item>
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
     </style>
-
+    <style name="see_all">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/orange_200</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+    </style>
+    <style name="see_all.categories">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/textLarge</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">3</item>
+    </style>
+    <style name="RV">
+        <item name="android:layout_marginTop">@dimen/spaceLarge</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <style name="linearLayout">
+        <item name="android:layout_marginTop">@dimen/spaceXLarge</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
 
 </resources>

@@ -183,6 +183,7 @@
                         android:layout_height="match_parent">
 
                         <ImageView
+                            android:id="@+id/imageview_food_photo2"
                             android:layout_width="300dp"
                             android:layout_height="200dp"
                             android:alpha="0.5"
