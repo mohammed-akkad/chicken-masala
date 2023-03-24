@@ -95,5 +95,33 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
     </style>
+    <style name="textTrivia">
+        <item name="android:layout_marginTop">@dimen/spaceMedium</item>
+        <item name="android:layout_marginStart">@dimen/spaceLarge</item>
+        <item name="android:layout_marginBottom">@dimen/spaceMedium</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/textXLarge</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_gravity">bottom|start</item>
+        <item name="android:elevation">3dp</item>
+    </style>
+    <style name="cardviewTrivia">
+        <item name="android:layout_marginTop">@dimen/spaceXLarge</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+    <style name="viewTrivia">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">350dp</item>
+        <item name="android:elevation">1dp</item>
+        <item name="android:layout_gravity">bottom</item>
+    </style>
+    <style name="imageviewTrivia">
+        <item name="android:layout_height">150dp</item>
+        <item name="android:layout_width">350dp</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
 
 </resources>
