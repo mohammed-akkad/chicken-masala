@@ -7,7 +7,7 @@ class GetListRecipesRelatedToCertainRecipeInteractor(
     private val dataSource: FoodDataSource<RecipeEntity>,
 
     ) {
-    fun execute(categories: List<String>?, cuisine: String, limit: Int): List<RecipeEntity> {
+    fun execute(categories: List<String>?, cuisine: String?, limit: Int): List<RecipeEntity> {
         require(limit > 0)
         return dataSource.getAllItems()
             .filter {
@@ -15,7 +15,7 @@ class GetListRecipesRelatedToCertainRecipeInteractor(
                     categories == null -> {
                         it.cuisine.equals(cuisine, ignoreCase = true)
                     }
-                    cuisine.isEmpty() -> {
+                    cuisine == null -> {
                         it.tags == categories
                     }
                     else -> {
@@ -23,6 +23,24 @@ class GetListRecipesRelatedToCertainRecipeInteractor(
                     }
                 }
             }
+            .takeIf { it.isNotEmpty() }
+            ?.take(limit) ?: emptyList()
+
+
+    }
+
+    fun executeRecipe(categories: String, limit: Int): List<RecipeEntity> {
+        require(limit > 0)
+        return dataSource.getAllItems()
+            .filter {
+                it.tags.contains(categories)
+            }
+            .takeIf { it.isNotEmpty() }
+            ?.take(limit) ?: emptyList()
+    }
+    fun executeAllRecipe(limit: Int): List<RecipeEntity> {
+        require(limit > 0)
+        return dataSource.getAllItems()
             .takeIf { it.isNotEmpty() }
             ?.take(limit) ?: emptyList()
     }
