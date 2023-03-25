@@ -45,7 +45,7 @@
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:textColor">@color/orange_200</item>
     </style>
-    <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="SplashScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
        <item name="android:windowBackground">@drawable/splash_screen</item>
         <item name="android:statusBarColor" >@color/white</item>
 
