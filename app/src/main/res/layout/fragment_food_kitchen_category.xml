@@ -13,23 +13,27 @@
         android:id="@+id/titleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spaceLarge"
         android:layout_marginStart="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceLarge"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/now_ready_this_food"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:textSize="@dimen/textXLarge"
-      />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/spaceMedium"
-        app:layout_constraintTop_toBottomOf="@+id/titleView"
-        android:layout_marginHorizontal="@dimen/spaceMedium"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
 
-  />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleView"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_card_food" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
