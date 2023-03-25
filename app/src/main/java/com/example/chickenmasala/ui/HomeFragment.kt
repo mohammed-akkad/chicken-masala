@@ -1,7 +1,7 @@
 package com.example.chickenmasala.ui
 
+import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.chickenmasala.R
@@ -9,14 +9,14 @@ import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.CategoryEntity
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
-import com.example.chickenmasala.data.interactors.GetListRecipesRelatedToCertainRecipeInteractor
 import com.example.chickenmasala.data.utils.CategoryParser
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.HomeFragmentBinding
+import com.example.chickenmasala.util.Constants
 import com.example.chickenmasala.util.Constants.CATEGORIES_CSV_FILE_NAME
 import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
 
-class HomeFragment : BaseFragment<HomeFragmentBinding>() {
+class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionListener{
     override val LOG_TAG: String = "HomeFragment"
     private lateinit var csvRecipeParser: RecipeParser
     private lateinit var csvCategoryParser: CategoryParser
@@ -24,6 +24,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
     private lateinit var dataSourceOfCategoryEntity: CsvDataSource<CategoryEntity>
     private val foodKitchenCategoryFragment = FoodKitchenCategoryFragment()
     lateinit var getAListOfRandomRecipesInteractor: GetAListOfRandomRecipesInteractor
+
 
     lateinit var recipesAdapter: RecipesAdapter
     lateinit var categotyAdapter: CategotyAdapter
@@ -37,6 +38,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
         setupDataCategoryEntity()
 
     }
+
 
     private fun setupDataRecipesEntity() {
         csvRecipeParser = RecipeParser()
@@ -57,7 +59,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
         dataSourceOfCategoryEntity =
             CsvDataSource(requireContext(), CATEGORIES_CSV_FILE_NAME, csvCategoryParser)
         val list = dataSourceOfCategoryEntity.getAllItems().shuffled().take(5)
-        categotyAdapter = CategotyAdapter(list)
+        categotyAdapter = CategotyAdapter(list, this)
 
     }
 
@@ -81,11 +83,14 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
     }
 
     private fun navigationBetweenFragment(fragment: Fragment) {
+
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.apply {
             replace(R.id.container, fragment)
+            addToBackStack(null)
             commit()
         }
+
 
     }
 
@@ -93,6 +98,17 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
         (activity as MainActivity).apply {
             title = "$name "
         }
+
+    }
+
+
+
+    override fun onClickItemCategory(nameCategory: String) {
+        val fragment = FoodKitchenCategoryFragment.newInstance(nameCategory)
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit()
 
     }
 
