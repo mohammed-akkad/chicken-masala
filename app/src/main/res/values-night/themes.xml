@@ -1,18 +1,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+     Base application theme.
     <style name="Theme.ChickenMasala" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/orange_700</item>
-        <item name="colorPrimaryVariant">@color/orange_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/orange_600</item>
-        <item name="colorSecondaryVariant">@color/orange_600</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+<!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
+<!--        <item name="colorPrimary">#CCFFFFFF</item>-->
+<!--        <item name="colorPrimaryVariant">#000000</item>-->
+<!--    <item name="colorOnPrimary">#CCFFFFFF</item>-->
+<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+<!--        <item name="colorSecondary">@color/orange_600</item>-->
+<!--        <item name="colorSecondaryVariant">@color/orange_600</item>-->
+<!--        <item name="colorOnSecondary">@color/green_100</item>-->
+<!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
+<!--        <item name="android:statusBarColor">#000000</item>-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+
+<!--        <item name="android:background">#121212</item>-->
+
+<!--        <item name="android:background">@color/background</item>-->
+<!--        <item name="navigationViewStyle">@color/bottom_navigation</item>-->
+
+<!--        <item name="colorPrimary">@color/primary</item>-->
+<!--        <item name="color">@color/color_splash</item>-->
+
+<!--        <item name="android:statusBarColor" >@color/primary</item>-->
+<!--        <item name="background" >@color/color_bottom_navigation</item>-->
     </style>
+
 
 
     <style name="textTitle">
@@ -30,4 +42,7 @@
     <style name="circle">
         <item name="cornerSize">100dp</item>
     </style>
+
+
+
 </resources>

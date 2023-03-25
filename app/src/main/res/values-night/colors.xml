@@ -18,7 +18,13 @@
     <color name="gray_200">#F1F0F3</color>
     <color name="gray_300">#FAFAFA</color>
 
-    <color name="primary">#ff7900</color>
-    <color name="background">@color/white</color>
-    <color name="bottom_navigation">#F9F5F3</color>
+    <color name="primary">#1f1d1b</color>
+    <color name="background">#1f1d1b</color>
+    <color name="bottom_navigation">#242424</color>
+<!--    &lt;!&ndash;The colors used in the dark mode&ndash;&gt;-->
+<!--    <color name="color_splash">#d2d1d0</color>-->
+<!--    <color name="primary">#121212</color>-->
+<!--    <color name="background">#2e2e2e</color>-->
+<!--    <color name="primary_text">#34FF1E</color>-->
+<!--    <color name="color_bottom_navigation">#F9F5F3</color>-->
 </resources>

@@ -102,7 +102,7 @@
                         android:id="@+id/chipCategoriesDesert"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/desert"
+                        android:text="@string/dessert"
                         />
 
                     <com.google.android.material.chip.Chip
