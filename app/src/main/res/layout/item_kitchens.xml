@@ -32,12 +32,10 @@
         android:id="@+id/text_item_kitchens"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spaceMedium"
+        style="@style/text_Kitchen_category"
         android:layout_marginBottom="@dimen/spaceSmall"
         android:text="@string/content"
         android:textColor="@color/white"
-        android:textSize="@dimen/textXLarge"
-        android:fontFamily="@font/roboto_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
