@@ -1,16 +1,19 @@
 package com.example.chickenmasala
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import com.example.chickenmasala.data.CsvDataSource
+import com.example.chickenmasala.data.domain.RecipeEntity
+import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
 import com.example.chickenmasala.databinding.FragmentGuessTheIngredientBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
 class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBinding>() {
+
+    lateinit var dataSource: CsvDataSource<RecipeEntity>
+    lateinit var randomListOfData : GetAListOfRandomRecipesInteractor
     override val LOG_TAG: String = "GuessTheIngredientFragment"
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheIngredientBinding = FragmentGuessTheIngredientBinding::inflate
 
@@ -19,6 +22,14 @@ class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBindin
 
     override fun addCallBacks() {
 
+    }
+
+    private fun makeQuestion(){
+
+        randomListOfData = GetAListOfRandomRecipesInteractor(dataSource)
+        val randomRecipe = randomListOfData.execute(1)[0]
+        val questionText = "What is the invalid ingredient in " + "${randomRecipe.name} ? "
+        binding.guessTheInvalidIngredientQuestion.text = questionText
     }
 
 
