@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
@@ -46,6 +47,7 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
             holder is ForYouViewHolder -> bindRecipeForYou(holder, position)
         }
 
+
     }
 
     override fun getItemCount() = list.size
@@ -60,9 +62,12 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
                 .into(holder.binding.imageCardLarge)
         }
 
+
     }
 
-    private fun bindRecipeForYou(holder: ForYouViewHolder, position: Int) {
+
+
+        private fun bindRecipeForYou(holder: ForYouViewHolder, position: Int) {
         val currentRecipe = list[position]
         holder.binding.apply {
             textNameRecipe.text = currentRecipe.name
@@ -71,9 +76,11 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
                 .with(this.root)
                 .load(currentRecipe.imageUrl)
                 .into(holder.binding.imageRecipe)
+
         }
 
     }
+
 
     abstract class BaseViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem)
 
