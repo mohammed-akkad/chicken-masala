@@ -9,6 +9,8 @@ import androidx.core.content.ContextCompat
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
+import com.example.chickenmasala.data.utils.CsvParser
+import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentGuessTheCuisineBinding
 
 
@@ -16,20 +18,26 @@ class GuessTheCuisineFragment : BaseFragment<FragmentGuessTheCuisineBinding>() {
 
     private lateinit var dataSource: CsvDataSource<RecipeEntity>
     private lateinit var randomListOfData : GetAListOfRandomRecipesInteractor
+    private lateinit var recipeParser: RecipeParser
+
     var randomRecipes = randomListOfData.execute(4)
     var randomRecipe = randomRecipes.random()
     override val LOG_TAG: String = "GuessTheCuisineFrag"
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheCuisineBinding =
         FragmentGuessTheCuisineBinding::inflate
 
-
     override fun setup() {
-    }
 
+        recipeParser = RecipeParser()
+        dataSource = CsvDataSource(requireContext(),"indian_food.csv",recipeParser)
+        randomListOfData = GetAListOfRandomRecipesInteractor(dataSource)
+    }
     override fun addCallBacks() {
+
+        prepareQuestion()
+        prepareAnswers()
+        answeringProcess()
     }
-
-
     private fun prepareQuestion(){
 
         val questionText = "To which cuisine , " + "${randomRecipe.name} " + "belong ? "
