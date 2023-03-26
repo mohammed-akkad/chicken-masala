@@ -12,6 +12,7 @@ import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInterac
 import com.example.chickenmasala.data.utils.CsvParser
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentGuessTheCuisineBinding
+import com.example.chickenmasala.ui.BaseFragment
 
 
 class GuessTheCuisineFragment : BaseFragment<FragmentGuessTheCuisineBinding>() {
