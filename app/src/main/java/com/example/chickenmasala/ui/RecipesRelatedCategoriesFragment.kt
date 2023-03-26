@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
+import com.example.chickenmasala.data.interactors.GetAllCuisineImageUrlsAndNamesInteractor
 import com.example.chickenmasala.data.interactors.GetListRecipesRelatedToCertainRecipeInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentFoodKitchenCategoryBinding
@@ -21,7 +22,7 @@ class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategor
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
     lateinit var getListRecipesRelatedToCertainRecipeInteractor: GetListRecipesRelatedToCertainRecipeInteractor
     lateinit var categorySpacificAdapter: CategorySpacificAdapter
-
+    lateinit var getAllCuisineImageUrlsAndNamesInteractor: GetAllCuisineImageUrlsAndNamesInteractor
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodKitchenCategoryBinding =
         FragmentFoodKitchenCategoryBinding::inflate
 
@@ -55,11 +56,19 @@ class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategor
         getListRecipesRelatedToCertainRecipeInteractor =
             GetListRecipesRelatedToCertainRecipeInteractor(dataSourceOfRecipeEntity)
 
+        getAllCuisineImageUrlsAndNamesInteractor = GetAllCuisineImageUrlsAndNamesInteractor(dataSourceOfRecipeEntity)
+
         val list = getListRecipesRelatedToCertainRecipeInteractor.executeAllRecipe(
             limit = 20,
 
             )
-        Log.d(LOG_TAG, "$list")
+
+        val newList  = dataSourceOfRecipeEntity.getAllItems().distinct().shuffled().distinctBy {
+            it.cuisine
+        }.map {
+            it.cuisine
+        }
+        Log.d(LOG_TAG, "$newList ")
         categorySpacificAdapter = CategorySpacificAdapter(list,this)
 
 

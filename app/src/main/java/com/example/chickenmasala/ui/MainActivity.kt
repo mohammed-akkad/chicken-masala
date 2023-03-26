@@ -4,6 +4,8 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
@@ -23,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private val kitchenFragment = KitchenFragment()
     private val triviaGamesFragment = TriviaGamesFragment()
     private val indianFoodHistoryFragment = IndianFoodHistoryFragment()
+    private val searchFoodFragment = SearchFoodFragment()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,12 +91,29 @@ class MainActivity : AppCompatActivity() {
         updateSelectedItemId(selected)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+           R.id.search_icon_screen -> {
+               showFragment(searchFoodFragment,SEARCH_FOOD_SCREEN)
+               return true
+           }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.app_bar_menu, menu)
+        return true
+    }
+
     companion object {
         private val LOG_TAG = "MAIN_ACTIVITY"
         private val HOME_SCREEN = "Home"
         private val KITCHEN_SCREEN = "Kitchens"
         private val TRIVIA_GAME_SCREEN = "Trivia Game"
         private val ABOUT_INDIAN_FOOD_SCREEN = "About Indian Food"
+        private val SEARCH_FOOD_SCREEN = "Search"
     }
 
 }

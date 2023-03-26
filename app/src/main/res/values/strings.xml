@@ -29,10 +29,35 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hinted_search_text">Hinted Search Text</string>
     <string name="categories">Categories</string>
-    <string name="meat">Meat</string>
-    <string name="desert">Desert</string>
-    <string name="cheese">Cheese</string>
-    <string name="spice">Spice</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="seafood">Seafood</string>
+    <string name="grilled">Grilled</string>
+    <string name="spicy">Spicy</string>
+    <string name="salad">Salad</string>
+    <string name="mediterranean">Mediterranean</string>
+    <string name="barbecue">Barbecue</string>
+    <string name="soup">Soup</string>
+    <string name="pasta">Pasta</string>
+    <string name="Chicken">Chicken</string>
+    <string name="beef">Beef</string>
+    <string name="rice">Rice</string>
+    <string name="pizza">Pizza</string>
+    <string name="sandwiches">Sandwiches</string>
+    <string name="breakfast">Breakfast</string>
+
+    <string name="north_indian_recipes">North Indian Recipes</string>
+    <string name="bengali_recipes">Bengali Recipes</string>
+    <string name="goan_recipes">Goan Recipes</string>
+    <string name="continental">Continental</string>
+    <string name="indian">Indian</string>
+    <string name="indonesian">Indonesian</string>
+    <string name="thai">Thai</string>
+    <string name="south_indian_recipes">South Indian Recipes</string>
+    <string name="italian_recipes">Italian Recipes</string>
+    <string name="arab">Arab</string>
+
+
+
     <string name="cook_time">Cook Time</string>
     <string name="under_15_min">Under 15 min</string>
     <string name="under_30_min">Under 30 min</string>
@@ -66,6 +91,9 @@
     <string name="titleFour">Regional Cuisine</string>
     <string name="blockFour">Food choice varies north, south, east and west. Indians from the north eat flat breads like chapati and naan, while Southern Indians prefer to eat rice and coconut. The versatile coconut not only provides milk, it thickens stews, makes a chewy snack and is used in many sweet southern dishes as an ingredient or as a garnish. Western India is more cosmopolitan, but is known for its traditional spicy curries. Mumbai, formerly Bombay, at the heart of the region, is flooded with city dwellers, students and workers. They all have their traditional cuisines, but seafood and curries, hot and spicy sausages and snacks with chai tea are popular traditional fare. East Indian food relies heavily on rice, milk and vegetables, prepared simply with yogurt, seeds and spices steamed and curried. East Indians love their sweets and use milk and other dairy products abundantly in them.</string>
     <string name="food_categories">Food Categories</string>
+    <string name="search">search</string>
+    <string name="collapse">Collapse</string>
+    <string name="cuisine">Cuisine</string>
 
 
 </resources>
