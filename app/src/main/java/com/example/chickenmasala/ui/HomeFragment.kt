@@ -36,6 +36,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
     override fun setup() {
         setupDataRecipesEntity()
         setupDataCategoryEntity()
+        setNavigationTitleAppBar(getString(R.string.home))
 
     }
 
@@ -73,9 +74,17 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
                 navigationBetweenFragment(foodKitchenCategoryFragment)
                 setNavigationTitleAppBar(getString(R.string.food_categories))
             }
+            textSeeAllForYou.setOnClickListener {
+                navigationBetweenFragment(foodKitchenCategoryFragment)
+                setNavigationTitleAppBar(getString(R.string.for_you))
+            }
             textSeeAllSweetTreats.setOnClickListener {
                 navigationBetweenFragment(foodKitchenCategoryFragment)
-                setNavigationTitleAppBar("Sweet Treats")
+                setNavigationTitleAppBar(getString(R.string.sweet_treats))
+            }
+            textSeeAllCakeCorner.setOnClickListener {
+                navigationBetweenFragment(foodKitchenCategoryFragment)
+                setNavigationTitleAppBar(getString(R.string.cake_corner))
             }
 
         }
