@@ -1,4 +1,4 @@
-package com.example.chickenmasala
+package com.example.chickenmasala.ui
 
 
 import android.view.LayoutInflater
