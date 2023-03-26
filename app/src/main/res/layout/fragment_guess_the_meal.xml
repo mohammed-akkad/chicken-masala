@@ -40,6 +40,7 @@
             android:background="@color/gray_200">
 
             <TextView
+                android:id="@+id/firstAnswer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spaceMedium"
@@ -73,6 +74,7 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/secondAnswer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -106,6 +108,7 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/thirdAnswer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -139,6 +142,7 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/fourthAnswer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"

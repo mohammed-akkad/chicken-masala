@@ -12,8 +12,10 @@ import com.example.chickenmasala.databinding.FragmentGuessTheIngredientBinding
 
 class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBinding>() {
 
-    lateinit var dataSource: CsvDataSource<RecipeEntity>
-    lateinit var randomListOfData : GetAListOfRandomRecipesInteractor
+    private lateinit var dataSource: CsvDataSource<RecipeEntity>
+    private lateinit var randomListOfData : GetAListOfRandomRecipesInteractor
+    var randomRecipes = randomListOfData.execute(4)
+    var randomRecipe = randomRecipes.random()
     override val LOG_TAG: String = "GuessTheIngredientFragment"
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheIngredientBinding = FragmentGuessTheIngredientBinding::inflate
 
@@ -24,10 +26,8 @@ class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBindin
 
     }
 
-    private fun makeQuestion(){
+    private fun prepareQuestion(){
 
-        randomListOfData = GetAListOfRandomRecipesInteractor(dataSource)
-        val randomRecipe = randomListOfData.execute(1)[0]
         val questionText = "What is the invalid ingredient in " + "${randomRecipe.name} ? "
         binding.guessTheInvalidIngredientQuestion.text = questionText
     }
