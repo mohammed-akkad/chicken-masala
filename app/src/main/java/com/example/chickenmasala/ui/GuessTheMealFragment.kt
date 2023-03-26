@@ -1,19 +1,17 @@
-package com.example.chickenmasala
+package com.example.chickenmasala.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
-import com.example.chickenmasala.databinding.FragmentGuessTheIngredientBinding
+import com.example.chickenmasala.databinding.FragmentGuessTheMealBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
-class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBinding>() {
+class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
     private lateinit var dataSource: CsvDataSource<RecipeEntity>
     private lateinit var randomListOfData : GetAListOfRandomRecipesInteractor
@@ -21,8 +19,10 @@ class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBindin
 
     var randomRecipes = randomListOfData.execute(4)
     var randomRecipe = randomRecipes.random()
-    override val LOG_TAG: String = "GuessTheIngredientFragment"
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheIngredientBinding = FragmentGuessTheIngredientBinding::inflate
+
+    override val LOG_TAG: String = "GuessTheMealFragment"
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheMealBinding =
+        FragmentGuessTheMealBinding::inflate
 
     override fun setup() {
 
@@ -33,23 +33,24 @@ class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBindin
 
     override fun addCallBacks() {
 
-        prepareQuestion()
         prepareAnswers()
+        prepareImage()
         answeringProcess()
     }
-    private fun prepareQuestion(){
+    private fun prepareImage(){
 
-        val questionText = "What is the invalid ingredient in " + "${randomRecipe.name} ? "
-        binding.guessTheInvalidIngredientQuestion.text = questionText
+        Glide.with(this)
+            .load(randomRecipe.url)
+            .into(binding.meal)
     }
     private fun prepareAnswers(){
 
         binding.apply {
 
-            firstAnswer.text = "1 - ${randomRecipes[0].ingredients[0]}"
-            secondAnswer.text = "2 - ${randomRecipes[1].ingredients[0]}"
-            thirdAnswer.text = "3 - ${randomRecipes[2].ingredients[0]}"
-            fourthAnswer.text = "4 - ${randomRecipes[3].ingredients[0]}"
+            firstAnswer.text = "1 - ${randomRecipes[0].name}"
+            secondAnswer.text = "2 - ${randomRecipes[1].name}"
+            thirdAnswer.text = "3 - ${randomRecipes[2].name}"
+            fourthAnswer.text = "4 - ${randomRecipes[3].name}"
         }
     }
     private fun changeButtonTextToNext(){
@@ -60,6 +61,7 @@ class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBindin
 
         binding.submitButton.text = "Try Again"
     }
+
     private fun checkIfRightAnswer(chosenAnswer : RecipeEntity, answerId : Int){
 
         if (chosenAnswer == randomRecipe){
