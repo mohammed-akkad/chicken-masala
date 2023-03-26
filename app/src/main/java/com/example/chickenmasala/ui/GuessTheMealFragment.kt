@@ -4,29 +4,45 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
+import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentGuessTheMealBinding
-
 
 class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
     private lateinit var dataSource: CsvDataSource<RecipeEntity>
     private lateinit var randomListOfData : GetAListOfRandomRecipesInteractor
+    private lateinit var recipeParser: RecipeParser
+
     var randomRecipes = randomListOfData.execute(4)
     var randomRecipe = randomRecipes.random()
+
     override val LOG_TAG: String = "GuessTheMealFragment"
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheMealBinding =
         FragmentGuessTheMealBinding::inflate
 
     override fun setup() {
 
+        recipeParser = RecipeParser()
+        dataSource = CsvDataSource(requireContext(),"indian_food.csv",recipeParser)
+        randomListOfData = GetAListOfRandomRecipesInteractor(dataSource)
     }
 
     override fun addCallBacks() {
-    }
 
+        prepareAnswers()
+        prepareImage()
+        answeringProcess()
+    }
+    private fun prepareImage(){
+
+        Glide.with(this)
+            .load(randomRecipe.url)
+            .into(binding.meal)
+    }
     private fun prepareAnswers(){
 
         binding.apply {
@@ -100,26 +116,30 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
         var chosenAnswer : RecipeEntity? = null
         val yellowColor = ContextCompat.getColor(requireContext(), R.color.yellow_600)
-        var clickCount = 0
+
         binding.apply {
 
             answerOne.setOnClickListener {
                 changeColorToYellow(0)
+                changeColorToGray(0)
                 chosenAnswer = randomRecipes[0]
             }
 
             answerTwo.setOnClickListener {
                 changeColorToYellow(1)
+                changeColorToGray(1)
                 chosenAnswer = randomRecipes[1]
             }
 
             answerThree.setOnClickListener {
                 changeColorToYellow(2)
+                changeColorToGray(2)
                 chosenAnswer = randomRecipes[2]
             }
 
             answerFour.setOnClickListener {
                 changeColorToYellow(3)
+                changeColorToGray(3)
                 chosenAnswer = randomRecipes[3]
             }
         }
