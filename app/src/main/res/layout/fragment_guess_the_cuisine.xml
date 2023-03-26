@@ -8,7 +8,7 @@
     tools:context=".GuessTheCuisineFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_question"
         style="@style/textQuestion"
         android:text="@string/questionText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,12 +22,12 @@
         app:cardCornerRadius="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView_question">
 
         <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:id="@+id/textview_number_one"
+                android:id="@+id/textview_answer_one_cuisine"
                 style="@style/textAnswers"
                 android:text="@string/answerOne"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:id="@+id/textview_number_two"
+                android:id="@+id/textview_answer_two_cuisine"
                 style="@style/textAnswers"
                 android:text="@string/answerTwo"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -67,7 +67,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:id="@+id/textview_number_three"
+                android:id="@+id/textview_answer_three_cuisine"
                 style="@style/textAnswers"
                 android:text="@string/answerThree"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +87,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:id="@+id/textview_number_four"
+                android:id="@+id/textview_answer_four_cuisine"
                 style="@style/textAnswers"
                 android:text="@string/answerFour"
                 app:layout_constraintBottom_toBottomOf="parent"

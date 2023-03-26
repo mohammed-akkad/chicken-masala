@@ -27,7 +27,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:id="@+id/textview_number_one"
+                android:id="@+id/textview_answer_one_ingredients"
                 style="@style/textAnswers"
                 android:text="@string/meatOne"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -48,7 +48,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:id="@+id/textview_number_two"
+                android:id="@+id/textview_answer_two_ingredients"
                 style="@style/textAnswers"
                 android:text="@string/tomato"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -69,7 +69,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:id="@+id/textview_number_three"
+                android:id="@+id/textview_answer_three_ingredient"
                 style="@style/textAnswers"
                 android:text="@string/chicken"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -90,7 +90,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:id="@+id/textview_number_four"
+                android:id="@+id/textview_answer_four_ingredient"
                 style="@style/textAnswers"
                 android:text="@string/flour"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -59,7 +59,7 @@
                     android:text="@string/categories" />
 
                 <TextView
-                    android:id="@+id/see_all"
+                    android:id="@+id/see_all_categories"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/see_all"
@@ -79,7 +79,7 @@
                     android:text="@string/for_you" />
 
                 <TextView
-                    android:id="@+id/textview_see_all_2"
+                    android:id="@+id/textview_see_all_for_you"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/see_all"
@@ -100,7 +100,7 @@
                     android:text="@string/sweet_treats" />
 
                 <TextView
-                    android:id="@+id/see_all_3"
+                    android:id="@+id/see_all_sweet_treats"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/see_all"
@@ -121,7 +121,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/see_all_4"
+                    android:id="@+id/see_all_cake_corner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/see_all"
