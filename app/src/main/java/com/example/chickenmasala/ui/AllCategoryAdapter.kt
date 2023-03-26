@@ -8,12 +8,13 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.CategoryEntity
 import com.example.chickenmasala.databinding.ItemCardFoodBinding
+import com.example.chickenmasala.databinding.ItemKitchensBinding
 
 class AllCategoryAdapter(private val list: List<CategoryEntity>) : RecyclerView.Adapter<AllCategoryAdapter.AllCategoryViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllCategoryViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card_food,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_kitchens,parent,false)
         return AllCategoryViewHolder(view)
     }
 
@@ -24,8 +25,8 @@ class AllCategoryAdapter(private val list: List<CategoryEntity>) : RecyclerView.
             Glide
                 .with(this.root)
                 .load(currentCategorey.imageUrl)
-                .into(holder.binding.imageCategoryFood)
-            textCategoryFood.text = currentCategorey.name
+                .into(holder.binding.imageItemKitchens)
+            textItemKitchens.text = currentCategorey.name
 
         }
     }
@@ -33,6 +34,6 @@ class AllCategoryAdapter(private val list: List<CategoryEntity>) : RecyclerView.
     override fun getItemCount() = list.size
 
     class AllCategoryViewHolder(viewItem: View) : CategotyAdapter.BaseViewHolder(viewItem) {
-        val binding = ItemCardFoodBinding.bind(viewItem)
+        val binding = ItemKitchensBinding.bind(viewItem)
     }
 }

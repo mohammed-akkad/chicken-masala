@@ -28,12 +28,11 @@
         android:layout_marginTop="@dimen/spaceMedium"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleView"
-        tools:itemCount="1"
+        tools:itemCount="2"
         tools:listitem="@layout/item_card_food" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -93,6 +93,13 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
 
 
     }
+    private fun navigationBetweenParentFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit()
+
+    }
 
     private fun setNavigationTitleAppBar(name: String) {
         (activity as MainActivity).apply {
@@ -104,11 +111,9 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
 
 
     override fun onClickItemCategory(nameCategory: String) {
-        val fragment = FoodKitchenCategoryFragment.newInstance(nameCategory)
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment)
-            .addToBackStack(null)
-            .commit()
+        val fragment = RecipesRelatedCategoriesFragment.newInstance(nameCategory)
+        navigationBetweenParentFragment(fragment)
+
 
     }
 

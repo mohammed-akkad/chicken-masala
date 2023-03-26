@@ -10,7 +10,7 @@ import com.example.chickenmasala.data.domain.CategoryEntity
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.databinding.ItemCardFoodBinding
 
-class CategorySpacificAdapter(val list: List<RecipeEntity>) :
+class CategorySpacificAdapter(val list: List<RecipeEntity>, val listener: RecipeInteractionListener) :
     RecyclerView.Adapter<CategorySpacificAdapter.CategorySpicficViewHolder>() {
 
 
@@ -36,6 +36,7 @@ class CategorySpacificAdapter(val list: List<RecipeEntity>) :
                 .load(currentCategory.imageUrl)
                 .into(holder.binding.imageCategoryFood)
             textCategoryFood.text = currentCategory.name
+            root.setOnClickListener { listener.onClickItemRecipeEntitty(currentCategory)  }
 
         }
     }

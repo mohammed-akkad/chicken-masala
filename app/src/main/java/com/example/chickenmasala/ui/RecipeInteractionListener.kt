@@ -5,7 +5,7 @@ import com.example.chickenmasala.data.domain.RecipeEntity
 
 interface RecipeInteractionListener {
 
-    fun onClickItemCategories(recipeEntity: RecipeEntity)
+    fun onClickItemRecipeEntitty(recipeEntity: RecipeEntity)
 
 
 }

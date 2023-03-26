@@ -1,6 +1,5 @@
 package com.example.chickenmasala.data.interactors
 
-import com.example.chickenmasala.data.domain.CategoryEntity
 import com.example.chickenmasala.data.domain.RecipeEntity
 
 class GetListRecipesRelatedToCertainRecipeInteractor(
@@ -33,7 +32,7 @@ class GetListRecipesRelatedToCertainRecipeInteractor(
         require(limit > 0)
         return dataSource.getAllItems()
             .filter {
-                it.tags.contains(categories)
+                it.tags.equals(categories)
             }
             .takeIf { it.isNotEmpty() }
             ?.take(limit) ?: emptyList()
