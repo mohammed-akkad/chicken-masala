@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
@@ -13,9 +14,9 @@ import com.example.chickenmasala.databinding.FragmentGuessTheMealBinding
 
 class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
-    private lateinit var dataSource: CsvDataSource<RecipeEntity>
-    private lateinit var randomListOfData : GetAListOfRandomRecipesInteractor
-    private lateinit var recipeParser: RecipeParser
+    var recipeParser = RecipeParser()
+    var dataSource = CsvDataSource(binding.root.context,"indian_food.csv",recipeParser)
+    var randomListOfData = GetAListOfRandomRecipesInteractor(dataSource)
 
     var randomRecipes = randomListOfData.execute(4)
     var randomRecipe = randomRecipes.random()
@@ -26,9 +27,6 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
     override fun setup() {
 
-        recipeParser = RecipeParser()
-        dataSource = CsvDataSource(requireContext(),"indian_food.csv",recipeParser)
-        randomListOfData = GetAListOfRandomRecipesInteractor(dataSource)
     }
 
     override fun addCallBacks() {

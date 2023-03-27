@@ -19,8 +19,6 @@ abstract val bindingInflater:(LayoutInflater,ViewGroup?,Boolean)->VB
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        setup()
-        addCallBacks()
         _binding=bindingInflater(inflater,container,false)
         return (_binding as VB).root
 

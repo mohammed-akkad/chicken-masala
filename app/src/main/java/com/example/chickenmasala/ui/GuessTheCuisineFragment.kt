@@ -12,25 +12,24 @@ import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInterac
 import com.example.chickenmasala.data.utils.CsvParser
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentGuessTheCuisineBinding
+import com.example.chickenmasala.ui.BaseFragment
 
 
 class GuessTheCuisineFragment : BaseFragment<FragmentGuessTheCuisineBinding>() {
 
-    private lateinit var dataSource: CsvDataSource<RecipeEntity>
-    private lateinit var randomListOfData : GetAListOfRandomRecipesInteractor
-    private lateinit var recipeParser: RecipeParser
+    var recipeParser = RecipeParser()
+    var dataSource = CsvDataSource(binding.root.context,"indian_food.csv",recipeParser)
+    var randomListOfData = GetAListOfRandomRecipesInteractor(dataSource)
 
     var randomRecipes = randomListOfData.execute(4)
     var randomRecipe = randomRecipes.random()
+
     override val LOG_TAG: String = "GuessTheCuisineFrag"
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheCuisineBinding =
         FragmentGuessTheCuisineBinding::inflate
 
     override fun setup() {
 
-        recipeParser = RecipeParser()
-        dataSource = CsvDataSource(requireContext(),"indian_food.csv",recipeParser)
-        randomListOfData = GetAListOfRandomRecipesInteractor(dataSource)
     }
     override fun addCallBacks() {
 
