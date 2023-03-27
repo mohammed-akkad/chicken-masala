@@ -19,10 +19,16 @@ abstract val bindingInflater:(LayoutInflater,ViewGroup?,Boolean)->VB
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        setup()
-        addCallBacks()
+
         _binding=bindingInflater(inflater,container,false)
         return (_binding as VB).root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        addCallBacks()
 
     }
     abstract fun setup()
