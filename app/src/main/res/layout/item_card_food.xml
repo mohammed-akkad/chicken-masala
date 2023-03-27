@@ -47,6 +47,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:layout_marginStart="@dimen/spaceSmall"
                     android:layout_marginTop="@dimen/spaceSmall"
+                    android:textColor="@color/txt_white_dark_background"
                     android:layout_marginBottom="@dimen/spaceSmall"
                     android:text="@string/masala_karela_recipe" />
             </LinearLayout>
@@ -86,7 +87,9 @@
                 android:layout_marginStart="@dimen/spaceSmall"
                 android:layout_marginTop="@dimen/spaceSmall"
                 android:layout_marginBottom="@dimen/spaceSmall"
-                android:text="@string/masala_karela_recipe" />
+                android:text="@string/masala_karela_recipe"
+                android:textColor="@color/txt_white_dark_background"
+                />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

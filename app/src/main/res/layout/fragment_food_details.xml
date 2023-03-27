@@ -5,7 +5,7 @@
     android:id="@+id/fragment_food_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/background"
     tools:context=".FoodDetailsFragment">
 
     <ScrollView
@@ -60,14 +60,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView">
 
+
+
                 <TextView
+
                     android:id="@+id/tvFoodName"
                     style="@style/textTitle"
                     android:text="Chicken Frid Rice"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/tvFoodDetailName"
                     style="@style/textSubTitle"
                     android:layout_marginTop="@dimen/spaceExtraSmall"
@@ -84,6 +91,8 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvFoodDetailName" />
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/tvFoodDescription"
                     style="@style/textSubTitle"
                     android:layout_marginTop="@dimen/spaceExtraSmall"
@@ -99,6 +108,7 @@
                     app:layout_constraintStart_toStartOf="@+id/tvFoodDescription"
                     app:layout_constraintTop_toBottomOf="@+id/tvFoodDescription" />
 
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_firstRelativeFood"
                     android:layout_width="160dp"
@@ -106,7 +116,7 @@
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="@dimen/spaceMedium"
                     android:background="@color/gray_300"
-                    android:backgroundTint="@color/gray_300"
+                    android:backgroundTint="@color/backround_card"
                     app:cardCornerRadius="@dimen/spaceLarge"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -122,15 +132,17 @@
                             android:layout_height="200dp"
                             android:alpha="0.5"
                             android:rotation="190"
+                            android:backgroundTint="@color/backround_card"
                             android:src="@drawable/img_card_background"
                             app:layout_constraintEnd_toEndOf="parent"
+
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
 
                         <TextView
                             android:id="@+id/tvFirstRelativeFoodName"
-                            style="@style/textTitle.FoodName"
+                            style="@style/FoodName"
                             android:layout_marginStart="@dimen/spaceSmall"
                             android:layout_marginTop="@dimen/spaceSmall"
                             android:text="Manchurian Nodules"
@@ -147,6 +159,8 @@
                             app:layout_constraintTop_toBottomOf="@id/tvFirstRelativeFoodName"
                             app:shapeAppearanceOverlay="@style/relativeFoodImage"
                             tools:src="@drawable/ic_launcher_background" />
+
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -154,7 +168,7 @@
                     android:id="@+id/card_secondRelativeFood"
                     android:layout_width="160dp"
                     android:layout_height="180dp"
-                    android:backgroundTint="@color/gray_300"
+                    android:backgroundTint="@color/backround_card"
                     app:cardCornerRadius="@dimen/spaceLarge"
                     app:layout_constraintBottom_toBottomOf="@+id/card_firstRelativeFood"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -178,7 +192,7 @@
 
                         <TextView
                             android:id="@+id/tvSecondRelativeFoodName"
-                            style="@style/textTitle.FoodName"
+                            style="@style/FoodName"
                             android:layout_marginStart="@dimen/spaceSmall"
                             android:layout_marginTop="@dimen/spaceSmall"
                             android:text="Manchurian Nodules"

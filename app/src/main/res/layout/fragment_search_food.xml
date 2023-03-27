@@ -31,7 +31,7 @@
             android:paddingEnd="@dimen/spaceMedium"
             android:paddingBottom="@dimen/spaceExtraSmall"
             android:textColor="@color/orange_400"
-            android:textColorHint="@color/orange_400"
+            android:textColorHint="@color/txt_white_dark_background"
             android:textSize="@dimen/textMedium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,15 +58,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/spaceMedium"
-
+                android:background="@color/backround_card"
                 >
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/tape"
                     android:layout_width="80dp"
                     android:layout_height="@dimen/spaceSmall"
-                    android:backgroundTint="@color/gray_200"
+                    android:backgroundTint="#c4c1c0"
                     app:cardCornerRadius="@dimen/spaceExtraSmall"
+
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -78,6 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spaceLarge"
                     android:text="@string/categories"
+                    android:textColor="@color/txt_white_dark_background"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tape" />
@@ -98,6 +100,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="true"
+
                         android:text="@string/meat" />
 
                     <com.google.android.material.chip.Chip
@@ -141,6 +144,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spaceMedium"
                     android:text="@string/cook_time"
+                    android:textColor="@color/txt_color_bottom_navigation"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/chipGroup_category" />
@@ -185,6 +189,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spaceMedium"
+                    android:textColor="@color/txt_white_dark_background"
                     android:text="@string/ingredients_count"
                     app:layout_constraintTop_toBottomOf="@+id/chipGroup_cookTime"
                     tools:layout_editor_absoluteX="16dp" />

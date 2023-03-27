@@ -13,22 +13,25 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
-<!--        <item name="android:toolbarStyle">@color/primary</item>-->
+
     </style>
 
     <style name="textTitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/roboto_medium</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/txt_white_dark_background</item>
         <item name="android:textSize">@dimen/textXLarge</item>
     </style>
 
-    <style name="textTitle.FoodName">
+    <style name="FoodName">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:textSize">@dimen/textLarge</item>
+        <item name="android:textColor">@color/txt_white_dark_background</item>
+        <item name="android:textStyle">bold</item>
+
     </style>
 
     <style name="textSubTitle">
@@ -52,12 +55,14 @@
         <item name="textEndPadding">@dimen/spaceMedium</item>
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:textColor">@color/orange_200</item>
+        <item name="android:backgroundTint">@color/white</item>
+
     </style>
     <style name="textCategory">
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/textLarge</item>
-        <item name="android:background">#00FFFFFF</item>
+
 
     </style>
     <style name="textCategory.textCardLarge">
@@ -77,7 +82,7 @@
     <style name="indian_food_text.indian">
         <item name="background">@color/black</item>
         <item name="android:textSize">@dimen/textMedium</item>
-        <item name="android:textColor">@color/orange_200</item>
+        <item name="android:textColor">@color/txt_white_dark_background</item>
     </style>
     <style name="text_Kitchen_category">
         <item name="android:fontFamily">@font/roboto_bold</item>
@@ -146,7 +151,7 @@
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
         <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
-        <item name="android:textColor">@color/white_txt_dark</item>
+        <item name="android:textColor">@color/txt_white_dark_background</item>
         <item name="android:textSize">@dimen/textLarge</item>
 
     </style>
@@ -160,6 +165,7 @@
         <item name="android:background">@drawable/button_with_radius</item>
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:text">@string/submit</item>
+        <item name="android:textColor">@color/txt_white_dark_background</item>
         <item name="android:backgroundTint">@color/orange_400</item>
     </style>
     <style name="textAnswers">
@@ -168,13 +174,13 @@
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:textSize">@dimen/textLarge</item>
-        <item name="android:textColor">@color/white_txt_dark</item>
+        <item name="android:textColor">@color/txt_white_dark_background</item>
         <item name="backgroundTint">#00FFFFFF</item>
     </style>
     <style name="constraint_layout">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:background">@color/backround_card_answres</item>
+        <item name="android:background">@color/backround_card</item>
     </style>
     <style name="cv_guess">
         <item name="android:layout_height">45dp</item>
