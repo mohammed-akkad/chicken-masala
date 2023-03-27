@@ -3,6 +3,7 @@ package com.example.chickenmasala.ui.screen
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.CategoryEntity
 import com.example.chickenmasala.data.utils.CategoryParser
@@ -19,7 +20,6 @@ class FoodKitchenCategoryFragment : BaseFragment<FragmentFoodKitchenCategoryBind
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodKitchenCategoryBinding =
         FragmentFoodKitchenCategoryBinding::inflate
-
 
 
     override fun setup() {
@@ -40,23 +40,17 @@ class FoodKitchenCategoryFragment : BaseFragment<FragmentFoodKitchenCategoryBind
 
     }
 
+
     override fun addCallBacks() {
         binding.apply {
             itemCard.apply {
-
                 adapter = allCategoryAdapter
+                layoutManager = GridLayoutManager(requireContext(), 2)
             }
+
         }
 
     }
-
-
-
-
-
-
-
-
 
 
 }

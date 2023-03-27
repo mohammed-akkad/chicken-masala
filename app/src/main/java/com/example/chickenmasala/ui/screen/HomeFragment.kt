@@ -15,10 +15,12 @@ import com.example.chickenmasala.ui.listener.CategoryInteractionListener
 import com.example.chickenmasala.ui.adapter.CategotyAdapter
 import com.example.chickenmasala.ui.adapter.RecipesAdapter
 import com.example.chickenmasala.ui.adapter.SweetAdapter
+import com.example.chickenmasala.ui.listener.SweetTreatsListener
 import com.example.chickenmasala.util.Constants.CATEGORIES_CSV_FILE_NAME
 import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
 
-class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionListener {
+class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionListener,
+    SweetTreatsListener {
     override val LOG_TAG: String = "HomeFragment"
     private lateinit var csvRecipeParser: RecipeParser
     private lateinit var csvCategoryParser: CategoryParser
@@ -69,7 +71,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
 
 
         val list = getAListOfRandomRecipesInteractor.execute(5)
-        sweetAdapter = SweetAdapter(list)
+        sweetAdapter = SweetAdapter(list, this)
 
     }
 
@@ -88,6 +90,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
             recyclerLargeHome.adapter = recipesAdapter
             recyclerCategoryHome.adapter = categotyAdapter
             recyclerSweetTreatHome.adapter = sweetAdapter
+
 
             textSeeAllCategories.setOnClickListener {
                 navigationBetweenFragment(foodKitchenCategoryFragment)
@@ -142,6 +145,12 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
         val fragment = RecipesRelatedCategoriesFragment.newInstance(nameCategory)
         navigationBetweenParentFragment(fragment)
 
+
+    }
+
+    override fun onClickItemRecipeEntity(recipeEntity: String) {
+        val fragment = FoodDetailsFragment.newInstance(recipeEntity)
+        navigationBetweenParentFragment(fragment)
 
     }
 

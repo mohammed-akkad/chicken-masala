@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.RecipeEntity
-import com.example.chickenmasala.databinding.CardCategoryBinding
 import com.example.chickenmasala.databinding.CardSmallBinding
+import com.example.chickenmasala.ui.listener.SweetTreatsListener
 
-class SweetAdapter(val list: List<RecipeEntity>) :
+class SweetAdapter(val list: List<RecipeEntity>, val listener : SweetTreatsListener) :
     RecyclerView.Adapter<SweetAdapter.SweetViewHolder>() {
 
 
@@ -32,6 +32,7 @@ class SweetAdapter(val list: List<RecipeEntity>) :
                 .into(holder.binding.imageRecipe)
 
             textNameRecipe.text = currentItem.name
+            root.setOnClickListener { listener.onClickItemRecipeEntity(currentItem.name) }
         }
 
 
