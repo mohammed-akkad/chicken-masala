@@ -8,12 +8,6 @@
     app:cardCornerRadius="@dimen/spaceMedium">
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/image_item_kitchens"
@@ -27,6 +21,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:roundPercent="0.2" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/card_kitchen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <TextView
         android:id="@+id/text_item_kitchens"
@@ -36,7 +38,6 @@
         android:layout_marginBottom="@dimen/spaceSmall"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/content"
-        android:background="@drawable/card_kitchen"
         android:textColor="@color/white"
         android:textSize="@dimen/textXLarge"
         app:layout_constraintBottom_toBottomOf="parent"

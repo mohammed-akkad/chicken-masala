@@ -53,7 +53,6 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
     private fun bindImage(holder: RecipeViewHolder, position: Int) {
         val currentRecipe = list[position]
         holder.binding.apply {
-
             Glide
                 .with(this.root)
                 .load(currentRecipe.imageUrl)

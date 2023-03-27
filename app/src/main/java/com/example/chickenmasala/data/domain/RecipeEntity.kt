@@ -1,7 +1,7 @@
 package com.example.chickenmasala.data.domain
 
 data class RecipeEntity(
-    val name: String,
+    var name: String,
     val ingredients: List<String>,
     val totalTime: Int?,
     val cuisine: String,

@@ -28,11 +28,12 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
     private lateinit var dataSourceOfCategoryEntity: CsvDataSource<CategoryEntity>
     private val foodKitchenCategoryFragment = FoodKitchenCategoryFragment()
     lateinit var getAListOfRandomRecipesInteractor: GetAListOfRandomRecipesInteractor
-
+    private val sweetRecipeFragment = SweetRecipeFragment()
 
     lateinit var recipesAdapter: RecipesAdapter
     lateinit var categotyAdapter: CategotyAdapter
     lateinit var sweetAdapter: SweetAdapter
+
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> HomeFragmentBinding =
         HomeFragmentBinding::inflate
@@ -70,10 +71,13 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
             GetAListOfRandomRecipesInteractor(dataSourceOfRecipeEntity)
 
 
-        val list = getAListOfRandomRecipesInteractor.execute(5)
+        val list = dataSourceOfRecipeEntity.getAllItems()
+            .filter { it.cleanedIngredients.toString().contains("sugar ") }.shuffled().take(5)
+
         sweetAdapter = SweetAdapter(list, this)
 
     }
+
 
     private fun setupDataCategoryEntity() {
         csvCategoryParser = CategoryParser()
@@ -101,7 +105,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
                 setNavigationTitleAppBar(getString(R.string.for_you))
             }
             textSeeAllSweetTreats.setOnClickListener {
-                navigationBetweenFragment(foodKitchenCategoryFragment)
+                navigationBetweenFragment(sweetRecipeFragment)
                 setNavigationTitleAppBar(getString(R.string.sweet_treats))
             }
             textSeeAllCakeCorner.setOnClickListener {
@@ -149,8 +153,8 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
     }
 
     override fun onClickItemRecipeEntity(recipeEntity: String) {
-        val fragment = FoodDetailsFragment.newInstance(recipeEntity)
-        navigationBetweenParentFragment(fragment)
+        val foodDetailsFragment = FoodDetailsFragment.newInstance(recipeEntity)
+        navigationBetweenParentFragment(foodDetailsFragment)
 
     }
 
