@@ -1,45 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="@dimen/spaceMedium"
-    android:layout_marginHorizontal="@dimen/spaceMedium"
-    android:layout_marginVertical="@dimen/spaceSmall">
+    android:layout_marginVertical="@dimen/spaceSmall"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="@dimen/spaceMedium">
 
-    <View
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@drawable/card_kitchen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/image_item_kitchens"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        app:roundPercent="0.2"
-        android:src="@drawable/imag"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/text_item_kitchens"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spaceMedium"
-        android:layout_marginBottom="@dimen/spaceSmall"
-        android:text="@string/content"
-        android:textColor="@color/white"
-        android:textSize="@dimen/textXLarge"
-        android:fontFamily="@font/roboto_bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/kitchen_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/imag"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/card_kitchen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/kitchen_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spaceMedium"
+            android:layout_marginBottom="@dimen/spaceSmall"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textXLarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
