@@ -15,7 +15,8 @@
             android:id="@+id/image_recipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/pic6"
+            android:src="@drawable/pic6"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/category_food"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +42,8 @@
             android:text="@string/content"
             android:textColor="@color/white"
             android:textSize="@dimen/textMedium"
+            android:lines="2"
+            android:ellipsize="middle"
             app:layout_constraintBottom_toBottomOf="@id/shadow"
             app:layout_constraintStart_toStartOf="@id/shadow"
             app:layout_constraintTop_toTopOf="@+id/shadow" />

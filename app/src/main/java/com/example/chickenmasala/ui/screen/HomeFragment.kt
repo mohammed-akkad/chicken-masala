@@ -14,6 +14,7 @@ import com.example.chickenmasala.databinding.HomeFragmentBinding
 import com.example.chickenmasala.ui.listener.CategoryInteractionListener
 import com.example.chickenmasala.ui.adapter.CategotyAdapter
 import com.example.chickenmasala.ui.adapter.RecipesAdapter
+import com.example.chickenmasala.ui.adapter.SweetAdapter
 import com.example.chickenmasala.util.Constants.CATEGORIES_CSV_FILE_NAME
 import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
 
@@ -29,6 +30,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
 
     lateinit var recipesAdapter: RecipesAdapter
     lateinit var categotyAdapter: CategotyAdapter
+    lateinit var sweetAdapter: SweetAdapter
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> HomeFragmentBinding =
         HomeFragmentBinding::inflate
@@ -38,6 +40,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
         setupDataRecipesEntity()
         setupDataCategoryEntity()
         setNavigationTitleAppBar(getString(R.string.home))
+        setDAtaSweetTreats()
 
     }
 
@@ -56,6 +59,20 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
 
     }
 
+    private fun setDAtaSweetTreats() {
+        csvRecipeParser = RecipeParser()
+        dataSourceOfRecipeEntity =
+            CsvDataSource(requireContext(), RECIPES_CSV_FILE_NAME, csvRecipeParser)
+
+        getAListOfRandomRecipesInteractor =
+            GetAListOfRandomRecipesInteractor(dataSourceOfRecipeEntity)
+
+
+        val list = getAListOfRandomRecipesInteractor.execute(5)
+        sweetAdapter = SweetAdapter(list)
+
+    }
+
     private fun setupDataCategoryEntity() {
         csvCategoryParser = CategoryParser()
         dataSourceOfCategoryEntity =
@@ -70,6 +87,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
         binding.apply {
             recyclerLargeHome.adapter = recipesAdapter
             recyclerCategoryHome.adapter = categotyAdapter
+            recyclerSweetTreatHome.adapter = sweetAdapter
 
             textSeeAllCategories.setOnClickListener {
                 navigationBetweenFragment(foodKitchenCategoryFragment)
@@ -103,6 +121,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
 
 
     }
+
     private fun navigationBetweenParentFragment(fragment: Fragment) {
         parentFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
@@ -117,7 +136,6 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
         }
 
     }
-
 
 
     override fun onClickItemCategory(nameCategory: String) {
