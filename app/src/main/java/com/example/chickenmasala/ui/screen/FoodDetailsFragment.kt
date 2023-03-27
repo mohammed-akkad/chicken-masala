@@ -2,6 +2,7 @@ package com.example.chickenmasala.ui.screen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.chickenmasala.databinding.FragmentFoodDetailsBinding
 
 class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
@@ -14,9 +15,17 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
 
 
     override fun setup() {
+        val name = arguments?.getString("name")
     }
 
     override fun addCallBacks() {
+        binding.apply {
+            val name = arguments?.getString("name")
+            tvFoodDetailName.text = arguments?.getString("name")
+            tvFoodDescription.text = arguments?.getString("count")
+
+            Glide.with(this.root).load(arguments?.getString("imageUrl")).into(imageView)
+        }
     }
 
 }

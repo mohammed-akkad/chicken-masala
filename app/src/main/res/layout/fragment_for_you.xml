@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.screen.ForYouFragment">
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recycler_for_you_home"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/spaceMedium"
+          android:layout_marginEnd="@dimen/spaceMedium"
+          android:orientation="vertical"
+          app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+          app:spanCount="2"
+          tools:listitem="@layout/card_medium" />
+
+
+
+
+</FrameLayout>
