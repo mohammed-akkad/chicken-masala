@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_300"
-    tools:context=".ui.GuessTheCuisineFragment">
+    tools:context=".ui.screen.GuessTheCuisineFragment">
 
 
     <TextView

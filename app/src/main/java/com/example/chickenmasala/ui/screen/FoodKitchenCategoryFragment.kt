@@ -1,18 +1,13 @@
-package com.example.chickenmasala.ui
+package com.example.chickenmasala.ui.screen
 
-import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.CategoryEntity
-import com.example.chickenmasala.data.domain.RecipeEntity
-import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
-import com.example.chickenmasala.data.interactors.GetListRecipesRelatedToCertainRecipeInteractor
 import com.example.chickenmasala.data.utils.CategoryParser
-import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentFoodKitchenCategoryBinding
+import com.example.chickenmasala.ui.adapter.AllCategoryAdapter
 import com.example.chickenmasala.util.Constants
 
 

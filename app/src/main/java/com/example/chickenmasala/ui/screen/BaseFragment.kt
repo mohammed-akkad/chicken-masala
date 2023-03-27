@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui
+package com.example.chickenmasala.ui.screen
 
 import android.os.Bundle
 import android.util.Log

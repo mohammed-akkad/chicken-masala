@@ -1,6 +1,5 @@
-package com.example.chickenmasala.ui
+package com.example.chickenmasala.ui.screen
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -12,11 +11,13 @@ import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInterac
 import com.example.chickenmasala.data.utils.CategoryParser
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.HomeFragmentBinding
-import com.example.chickenmasala.util.Constants
+import com.example.chickenmasala.ui.listener.CategoryInteractionListener
+import com.example.chickenmasala.ui.adapter.CategotyAdapter
+import com.example.chickenmasala.ui.adapter.RecipesAdapter
 import com.example.chickenmasala.util.Constants.CATEGORIES_CSV_FILE_NAME
 import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
 
-class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionListener{
+class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionListener {
     override val LOG_TAG: String = "HomeFragment"
     private lateinit var csvRecipeParser: RecipeParser
     private lateinit var csvCategoryParser: CategoryParser

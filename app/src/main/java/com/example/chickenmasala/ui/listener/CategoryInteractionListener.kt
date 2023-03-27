@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui
+package com.example.chickenmasala.ui.listener
 
 import com.example.chickenmasala.data.domain.CategoryEntity
 

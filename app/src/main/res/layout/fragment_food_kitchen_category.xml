@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_300"
-    tools:context=".ui.FoodKitchenCategoryFragment">
+    tools:context=".ui.screen.FoodKitchenCategoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui
+package com.example.chickenmasala.ui.screen
 
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +12,8 @@ import com.example.chickenmasala.data.interactors.GetAllCuisineImageUrlsAndNames
 import com.example.chickenmasala.data.interactors.GetListRecipesRelatedToCertainRecipeInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentFoodKitchenCategoryBinding
+import com.example.chickenmasala.ui.listener.RecipeInteractionListener
+import com.example.chickenmasala.ui.adapter.CategorySpacificAdapter
 import com.example.chickenmasala.util.Constants
 
 class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategoryBinding>(),

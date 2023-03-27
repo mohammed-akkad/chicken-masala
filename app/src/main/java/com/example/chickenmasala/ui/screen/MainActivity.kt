@@ -1,21 +1,13 @@
-package com.example.chickenmasala.ui
+package com.example.chickenmasala.ui.screen
 
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.chickenmasala.R
-import com.example.chickenmasala.data.CsvDataSource
-import com.example.chickenmasala.data.domain.RecipeEntity
-import com.example.chickenmasala.data.interactors.FoodDataSource
-import com.example.chickenmasala.data.interactors.GetAllCuisineImageUrlsAndNamesInteractor
-import com.example.chickenmasala.data.utils.CsvParser
-import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.ActivityMainBinding
-import com.example.chickenmasala.util.Operation
 
 class MainActivity : AppCompatActivity() {
 
@@ -94,7 +86,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
            R.id.search_icon_screen -> {
-               showFragment(searchFoodFragment,SEARCH_FOOD_SCREEN)
+               showFragment(searchFoodFragment, SEARCH_FOOD_SCREEN)
                return true
            }
         }

@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui
+package com.example.chickenmasala.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.CategoryEntity
-import com.example.chickenmasala.databinding.ItemCardFoodBinding
 import com.example.chickenmasala.databinding.ItemKitchensBinding
 
 class AllCategoryAdapter(private val list: List<CategoryEntity>) : RecyclerView.Adapter<AllCategoryAdapter.AllCategoryViewHolder>() {
