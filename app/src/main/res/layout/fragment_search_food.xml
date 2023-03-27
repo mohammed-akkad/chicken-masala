@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchFoodFragment"
-    android:background="@color/gray_300"
+
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:background="@color/background"
         >
 
         <EditText
@@ -35,7 +35,9 @@
             android:textSize="@dimen/textMedium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
 
 
         <androidx.cardview.widget.CardView
@@ -56,6 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/spaceMedium"
+
                 >
 
                 <androidx.cardview.widget.CardView

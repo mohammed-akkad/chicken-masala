@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/spaceMedium"
     android:layout_marginHorizontal="@dimen/spaceMedium"
+    android:background="@color/background"
     android:layout_marginVertical="@dimen/spaceSmall">
 
     <View
@@ -30,9 +31,9 @@
 
     <TextView
         android:id="@+id/text_item_kitchens"
+        style="@style/text_Kitchen_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/text_Kitchen_category"
         android:layout_marginBottom="@dimen/spaceSmall"
         android:text="@string/content"
         android:textColor="@color/white"

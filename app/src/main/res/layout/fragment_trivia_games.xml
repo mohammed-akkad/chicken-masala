@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_200"
+    android:background="@color/background"
     tools:context=".TriviaGamesFragment">
 
     <androidx.cardview.widget.CardView
@@ -18,16 +18,20 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <View
                 style="@style/viewTrivia"
                 android:background="#3E000000" />
+
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_cuisineTwo"
                 style="@style/imageviewTrivia"
                 android:src="@drawable/img_kitchen" />
+
             <TextView
                 android:id="@+id/tv_gameOne"
                 style="@style/textTrivia"
+                android:background="#00FFFFFF"
                 android:text="@string/guess_the_ingredient" />
         </FrameLayout>
     </androidx.cardview.widget.CardView>
@@ -43,10 +47,12 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_ingredient"
                 style="@style/imageviewTrivia"
                 android:src="@drawable/img_ingredients" />
+
             <TextView
                 android:id="@+id/tv_gameTwo"
                 style="@style/textTrivia"
@@ -65,12 +71,14 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <View
-                android:background="#2C000000"
-                style="@style/viewTrivia" />
+                style="@style/viewTrivia"
+                android:background="#2C000000" />
+
             <View
-                android:background="#00000000"
-                style="@style/viewTrivia" />
+                style="@style/viewTrivia"
+                android:background="#00000000" />
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_Meal"

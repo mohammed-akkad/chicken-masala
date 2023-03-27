@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_300"
+android:background="@color/background"
     tools:context=".GuessTheCuisineFragment">
 
     <TextView
@@ -13,7 +13,9 @@
         android:text="@string/questionText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white_txt_dark"
+        />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/answerOne"

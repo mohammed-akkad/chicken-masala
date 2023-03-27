@@ -2,7 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    >
 
 
     <ScrollView
@@ -22,7 +24,6 @@
                 style="@style/indian_food_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/gray_300"
                 android:text="@string/titleOne" />
 
             <TextView
@@ -41,8 +42,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/gray_300"
-                android:text="@string/titleTwo" />
+                android:text="@string/titleTwo"
+               />
 
             <TextView
                 android:id="@+id/textview_details_history"
@@ -60,7 +61,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
-                    android:background="@color/gray_300" />
+                    android:background="@color/background" />
 
                 <androidx.constraintlayout.utils.widget.ImageFilterView
                     android:id="@+id/imageview_indian_meal"
@@ -82,7 +83,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/gray_300"
                 android:text="@string/titleThree" />
 
             <TextView
@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/gray_300"
+
                 android:text="@string/titleFour" />
 
             <TextView
