@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_200"
-    tools:context=".ui.TriviaGamesFragment">
+    android:background="@color/background"
+    tools:context=".TriviaGamesFragment">
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_miniGameOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spaceXLarge"
+        style="@style/cardviewTrivia"
         app:cardCornerRadius="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,98 +18,57 @@
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-
+            android:layout_height="wrap_content">
 
             <View
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:elevation="1dp"
-                android:layout_gravity="bottom"
-                android:background="#3E000000"
+                style="@style/viewTrivia"
                 />
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_cuisineTwo"
-                android:layout_width="350dp"
-                android:layout_height="150dp"
-                android:scaleType= "centerCrop"
-                android:src="@drawable/kitchen" />
+                style="@style/imageviewTrivia"
+                android:src="@drawable/img_kitchen" />
+            <View
+                style="@style/viewTrivia"
+                android:background="@drawable/shape_shadow" />
 
             <TextView
                 android:id="@+id/tv_gameOne"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|start"
-                android:layout_marginStart="@dimen/spaceLarge"
-                android:elevation="3dp"
-                android:layout_marginTop="@dimen/spaceMedium"
-                android:layout_marginBottom="@dimen/spaceMedium"
-                android:fontFamily="@font/roboto_bold"
-                android:text="@string/guess_the_ingredient"
-                android:textColor="@color/white"
-                android:textSize="@dimen/textXLarge"
-
-                />
-
-
+                style="@style/textTrivia"
+                android:text="@string/guess_the_ingredient" />
         </FrameLayout>
-
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_miniGameTwo"
-        android:layout_width="wrap_content"
+        style="@style/cardviewTrivia"
         app:cardCornerRadius="@dimen/spaceMedium"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardview_miniGameOne">
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            >
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_ingredient"
-                android:layout_width="350dp"
-                android:scaleType="centerCrop"
-                android:layout_height="150dp"
-                android:src="@drawable/ingredients" />
-
+                style="@style/imageviewTrivia"
+                android:src="@drawable/img_ingredients" />
+            <View
+                style="@style/viewTrivia"
+                android:background="@drawable/shape_shadow" />
             <TextView
                 android:id="@+id/tv_gameTwo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|start"
-                android:layout_marginStart="@dimen/spaceLarge"
-                android:elevation="3dp"
-                android:layout_marginTop="@dimen/spaceMedium"
-                android:layout_marginBottom="@dimen/spaceMedium"
-                android:fontFamily="@font/roboto_bold"
-                android:text="@string/guess_the_cuisine"
-                android:textColor="@color/white"
-                android:textSize="@dimen/textXLarge"
-
-                />
-
-
+                style="@style/textTrivia"
+                android:text="@string/guess_the_cuisine" />
         </FrameLayout>
-
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_miniGameThree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/cardviewTrivia"
         app:cardCornerRadius="@dimen/spaceMedium"
-        android:layout_marginTop="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardview_miniGameTwo">
@@ -121,52 +79,18 @@
 
 
             <View
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:elevation="1dp"
-                android:layout_gravity="bottom"
-                android:background="#2C000000"
-                />
-
-
-            <View
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:elevation="1dp"
-                android:layout_gravity="bottom"
-                android:background="#00000000"
-                />
+                style="@style/viewTrivia"
+                android:background="@drawable/shape_shadow" />
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_Meal"
-                android:layout_width="350dp"
-                android:layout_height="150dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/meal" />
+                style="@style/imageviewTrivia"
+                android:src="@drawable/img_meal" />
 
             <TextView
                 android:id="@+id/tv_gameThree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|start"
-                android:layout_marginStart="@dimen/spaceLarge"
-                android:layout_marginTop="@dimen/spaceMedium"
-                android:layout_marginBottom="@dimen/spaceMedium"
-                android:elevation="3dp"
-                android:fontFamily="@font/roboto_bold"
-                android:text="@string/guess_the_meal"
-                android:textColor="@color/white"
-                android:textSize="@dimen/textXLarge"
-
-                />
-
-
+                style="@style/textTrivia"
+                android:text="@string/guess_the_meal" />
         </FrameLayout>
-
-
     </androidx.cardview.widget.CardView>
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

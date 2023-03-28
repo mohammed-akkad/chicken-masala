@@ -1,21 +1,20 @@
 package com.example.chickenmasala.data.interactors
 
-import com.example.chickenmasala.data.domain.CategoryEntity
 import com.example.chickenmasala.data.domain.RecipeEntity
 
 class GetListRecipesRelatedToCertainRecipeInteractor(
     private val dataSource: FoodDataSource<RecipeEntity>,
 
     ) {
-    fun execute(categories: List<String>?, cuisine: String, limit: Int): List<RecipeEntity> {
+    fun execute(categories: List<String>?, cuisine: String?, limit: Int): List<RecipeEntity> {
         require(limit > 0)
         return dataSource.getAllItems()
             .filter {
                 when {
-                    categories == null -> {
+                    categories.isNullOrEmpty() -> {
                         it.cuisine.equals(cuisine, ignoreCase = true)
                     }
-                    cuisine.isEmpty() -> {
+                    cuisine.isNullOrEmpty() -> {
                         it.tags == categories
                     }
                     else -> {
@@ -23,6 +22,16 @@ class GetListRecipesRelatedToCertainRecipeInteractor(
                     }
                 }
             }
+            .takeIf { it.isNotEmpty() }
+            ?.take(limit) ?: emptyList()
+
+
+    }
+
+
+    fun executeAllRecipe(limit: Int): List<RecipeEntity> {
+        require(limit > 0)
+        return dataSource.getAllItems()
             .takeIf { it.isNotEmpty() }
             ?.take(limit) ?: emptyList()
     }
