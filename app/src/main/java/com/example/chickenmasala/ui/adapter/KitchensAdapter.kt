@@ -1,20 +1,24 @@
 package com.example.chickenmasala.ui.adapter
 
-import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.chickenmasala.R
+
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.databinding.ItemKitchensBinding
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
-class KitchensAdapter(private val list: List<RecipeEntity>, private val clickable: Clickable) :
+class KitchensAdapter(
+    private val list: List<RecipeEntity>,
+    private val onClick: (cuisineName: String) -> Unit,
+) :
     RecyclerView.Adapter<KitchensAdapter.KitchensViewHolder>() {
-    class KitchensViewHolder(val binding: ItemKitchensBinding) : RecyclerView.ViewHolder(binding.root)
+    class KitchensViewHolder(val binding: ItemKitchensBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     private val shimmer =
         Shimmer.AlphaHighlightBuilder()
@@ -41,7 +45,7 @@ class KitchensAdapter(private val list: List<RecipeEntity>, private val clickabl
         }
 
         holder.binding.apply {
-            this.root.setOnClickListener { clickable.onClick(position) }
+            this.root.setOnClickListener { onClick(list[position].cuisine) }
             kitchenName.text = list[position].cuisine
             Glide
                 .with(this.root)
@@ -50,9 +54,5 @@ class KitchensAdapter(private val list: List<RecipeEntity>, private val clickabl
                 .into(holder.binding.kitchenImage)
 
         }
-    }
-
-    interface Clickable {
-        fun onClick(position: Int)
     }
 }
