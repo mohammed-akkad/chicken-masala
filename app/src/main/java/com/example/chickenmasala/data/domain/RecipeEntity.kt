@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class RecipeEntity(
-    var name: String,
+    val name: String,
     val ingredients: List<String>,
     val totalTime: Int?,
     val cuisine: String,
