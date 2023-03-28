@@ -25,7 +25,7 @@ class AllCategoryAdapter(private val list: List<CategoryEntity>) : RecyclerView.
                 .with(this.root)
                 .load(currentCategorey.imageUrl)
                 .into(holder.binding.imageItemKitchens)
-            textItemKitchens.text = currentCategorey.name
+            textViewCardLarge.text = currentCategorey.name
 
         }
     }

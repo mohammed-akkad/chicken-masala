@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="312dp"
     android:layout_height="208dp"
-    android:layout_margin="@dimen/spaceMedium"
+    android:layout_marginVertical="@dimen/spaceMedium"
+    android:layout_marginEnd="@dimen/spaceExtraSmall"
+    android:layout_marginStart="@dimen/spaceSmall"
     app:cardCornerRadius="@dimen/spaceSmall">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +16,8 @@
             android:id="@+id/card_large_Categories"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/card_large_categories"
+            android:src="@drawable/card_large_categories"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/category_food"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

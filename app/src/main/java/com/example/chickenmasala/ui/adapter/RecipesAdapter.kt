@@ -72,7 +72,7 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
             Glide
                 .with(this.root)
                 .load(currentRecipe.imageUrl)
-                .into(holder.binding.imageviewCardSmall)
+                .into(holder.binding.imageViewCardSmall)
 
         }
 

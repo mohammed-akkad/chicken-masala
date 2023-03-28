@@ -99,7 +99,9 @@
         <item name="android:layout_weight">3</item>
     </style>
     <style name="RV">
+        <item name="android:orientation">horizontal</item>
         <item name="android:layout_marginTop">@dimen/spaceLarge</item>
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
     </style>

@@ -29,7 +29,7 @@ class SweetAdapter(val list: List<RecipeEntity>, val listener : SweetTreatsListe
             Glide
                 .with(this.root)
                 .load(currentItem.imageUrl)
-                .into(holder.binding.imageviewCardSmall)
+                .into(holder.binding.imageViewCardSmall)
 
             textviewCardSmall.text = currentItem.name
             root.setOnClickListener { listener.onClickItemRecipeEntity(currentItem.name) }
