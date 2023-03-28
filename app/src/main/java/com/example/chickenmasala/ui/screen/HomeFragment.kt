@@ -177,7 +177,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
         bundle.putString(Constants.KEY_RECIPE_NAME, recipeEntity.name)
         bundle.putString(Constants.KEY_CLEANED_INGREDIENTS, recipeEntity.cleanedIngredients.joinToString())
         bundle.putString(Constants.KEY_IMAGE_URL, recipeEntity.imageUrl)
-        bundle.putString(Constants.KEY_INGREDIENTS, recipeEntity.ingredients.joinToString { it })
+        bundle.putString(Constants.KEY_INGREDIENTS, recipeEntity.ingredients.joinToString())
         foodDetailsFragment.arguments = bundle
 
 
