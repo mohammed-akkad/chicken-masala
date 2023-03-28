@@ -24,8 +24,8 @@ class AllCategoryAdapter(private val list: List<CategoryEntity>) : RecyclerView.
             Glide
                 .with(this.root)
                 .load(currentCategorey.imageUrl)
-                .into(holder.binding.imageItemKitchens)
-            textViewCardLarge.text = currentCategorey.name
+                .into(holder.binding.kitchenImage)
+                kitchenName.text = currentCategorey.name
 
         }
     }
