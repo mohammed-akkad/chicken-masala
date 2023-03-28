@@ -11,7 +11,8 @@ import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentGuessTheCuisineBinding
-import com.example.chickenmasala.ui.BaseFragment
+
+import com.example.chickenmasala.ui.screen.BaseFragment
 import com.example.chickenmasala.util.Constants
 
 class GuessTheCuisineFragment : BaseFragment<FragmentGuessTheCuisineBinding>() {
