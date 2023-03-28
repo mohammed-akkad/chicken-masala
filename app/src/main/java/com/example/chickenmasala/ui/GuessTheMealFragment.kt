@@ -28,13 +28,6 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
     private lateinit var randomRecipes : List<RecipeEntity>
     private lateinit var randomRecipe : RecipeEntity
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
     override fun setup() {
 
         val recipeParser = RecipeParser()
@@ -47,14 +40,15 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
     override fun addCallBacks() {
 
-        prepareAnswers()
         prepareImage()
+        prepareAnswers()
         answeringProcess()
     }
     private fun prepareImage(){
 
-        Glide.with(requireContext())
-            .load(randomRecipe.url)
+        Glide.with(this)
+            .load(randomRecipe.imageUrl)
+            .error(R.drawable.baseline_error_24)
             .into(binding.mealImageView)
     }
     private fun prepareAnswers(){
