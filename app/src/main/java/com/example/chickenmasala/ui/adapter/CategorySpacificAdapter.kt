@@ -34,8 +34,8 @@ class CategorySpacificAdapter(val list: List<RecipeEntity>, val listener: Recipe
             Glide
                 .with(this.root)
                 .load(currentCategory.imageUrl)
-                .into(holder.binding.imageCategoryFood)
-            textCategoryFood.text = currentCategory.name
+                .into(holder.binding.imageviewIndianFoodFirstItem)
+            textviewRecipe.text = currentCategory.name
             root.setOnClickListener { listener.onClickItemRecipeEntitty(currentCategory)  }
 
         }

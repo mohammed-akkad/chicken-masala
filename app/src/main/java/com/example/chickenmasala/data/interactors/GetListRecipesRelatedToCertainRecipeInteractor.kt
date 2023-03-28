@@ -11,10 +11,10 @@ class GetListRecipesRelatedToCertainRecipeInteractor(
         return dataSource.getAllItems()
             .filter {
                 when {
-                    categories == null -> {
+                    categories.isNullOrEmpty() -> {
                         it.cuisine.equals(cuisine, ignoreCase = true)
                     }
-                    cuisine == null -> {
+                    cuisine.isNullOrEmpty() -> {
                         it.tags == categories
                     }
                     else -> {
@@ -28,15 +28,7 @@ class GetListRecipesRelatedToCertainRecipeInteractor(
 
     }
 
-    fun executeRecipe(categories: String, limit: Int): List<RecipeEntity> {
-        require(limit > 0)
-        return dataSource.getAllItems()
-            .filter {
-                it.tags.equals(categories)
-            }
-            .takeIf { it.isNotEmpty() }
-            ?.take(limit) ?: emptyList()
-    }
+
     fun executeAllRecipe(limit: Int): List<RecipeEntity> {
         require(limit > 0)
         return dataSource.getAllItems()

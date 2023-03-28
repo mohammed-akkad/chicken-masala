@@ -9,9 +9,6 @@
     android:background="@color/gray_300"
     android:layout_height="match_parent">
 
-  
-    
-
 
     <EditText
         android:id="@+id/editText"
@@ -20,10 +17,11 @@
         android:layout_marginStart="@dimen/spaceLarge"
         android:layout_marginTop="@dimen/spaceMedium"
         android:layout_marginEnd="@dimen/spaceLarge"
-        android:background="@drawable/rounded_search_bar"
-        android:drawableLeft="@drawable/ic_filter"
-        android:drawableRight="@drawable/ic_search"
-        android:drawablePadding="16dp"
+        android:background="@drawable/shape_rounded_search_bar"
+        android:drawableStart="@drawable/ic_filter"
+        android:drawableEnd="@drawable/ic_search"
+        android:singleLine="true"
+        android:drawablePadding="@dimen/spaceMedium"
         android:hint="@string/hinted_search_text"
         android:paddingStart="@dimen/spaceMedium"
         android:paddingTop="@dimen/spaceExtraSmall"

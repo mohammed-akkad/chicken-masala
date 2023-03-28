@@ -31,7 +31,6 @@ class ForYouRecipesAdapter(val list: List<RecipeEntity>, val listener: RecipeInt
             textNameRecipe.text = currentRecipes.name
 
             root.setOnClickListener{
-//                Toast.makeText(textNameRecipe.context , "${currentRecipes.ingredientsCount} -  ${currentRecipes.name}" , Toast.LENGTH_SHORT).show()
                 listener.onClickItemRecipeEntitty(currentRecipes)
 
             }

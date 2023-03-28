@@ -7,33 +7,17 @@
     android:background="@color/gray_300"
     tools:context=".ui.screen.FoodKitchenCategoryFragment">
 
-
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/titleView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spaceMedium"
-        android:layout_marginTop="@dimen/spaceLarge"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/now_ready_this_food"
-        android:textSize="@dimen/textXLarge"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemCard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/spaceMedium"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        android:layout_marginTop="@dimen/spaceSmall"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleView"
-        tools:itemCount="2"
-        tools:listitem="@layout/item_card_food" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

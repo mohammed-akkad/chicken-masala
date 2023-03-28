@@ -21,11 +21,7 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
                     .inflate(R.layout.card_category, parent, false)
                 CategoryViewHolder(view)
             }
-//            VIEW_TYPE_MATCH -> {
-//                val view =
-//                    LayoutInflater.from(parent.context).inflate(R.layout.item_card_food, parent, false)
-//                return CategorySpicficViewHolder(view)
-//            }
+
             else -> {
                 super.createViewHolder(parent, viewType)
             }
@@ -39,7 +35,6 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
 
         when (holder) {
             is CategoryViewHolder -> bindCategory(holder, position)
-//            is CategorySpicficViewHolder -> bindCategorySpicfic(holder, position)
         }
 
     }
@@ -48,32 +43,21 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
 
 
     private fun bindCategory(holder: CategoryViewHolder, position: Int) {
+
         val currentCategory = list[position]
         holder.binding.apply {
 
             Glide
                 .with(this.root)
                 .load(currentCategory.imageUrl)
-                .into(holder.binding.imageView)
-            textNameCategory.text = currentCategory.name
-            textNameCategory.setOnClickListener { listener.onClickItemCategory(currentCategory.name) }
+                .into(holder.binding.cardLargeImageview)
+            textViewCategory.text = currentCategory.name
+            textViewCategory.setOnClickListener { listener.onClickItemCategory(currentCategory.name) }
         }
+
 
     }
 
-//    private fun bindCategorySpicfic(holder: CategorySpicficViewHolder, position: Int) {
-//        val currentCategory = list[position]
-//        holder.binding.apply {
-//
-//            Glide
-//                .with(this.root)
-//                .load(currentCategory.imageUrl)
-//                .into(holder.binding.imageCategoryFood)
-//            textCategoryFood.text = currentCategory.name
-//
-//        }
-//
-//    }
 
     abstract class BaseViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem)
 
@@ -82,12 +66,8 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
         val binding = CardCategoryBinding.bind(viewItem)
     }
 
-//    class CategorySpicficViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
-//        val binding = ItemCardFoodBinding.bind(viewItem)
-//    }
 
     companion object {
         const val VIEW_TYPE_HEADER = 0
-//        const val VIEW_TYPE_MATCH = 1
     }
 }

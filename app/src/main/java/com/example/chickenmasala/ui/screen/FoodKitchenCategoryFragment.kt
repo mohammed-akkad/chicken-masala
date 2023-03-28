@@ -3,11 +3,16 @@ package com.example.chickenmasala.ui.screen
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.CategoryEntity
+import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.utils.CategoryParser
+import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentFoodKitchenCategoryBinding
 import com.example.chickenmasala.ui.adapter.AllCategoryAdapter
+import com.example.chickenmasala.ui.adapter.SweetAdapter
+import com.example.chickenmasala.ui.listener.SweetTreatsListener
 import com.example.chickenmasala.util.Constants
 
 
@@ -17,9 +22,9 @@ class FoodKitchenCategoryFragment : BaseFragment<FragmentFoodKitchenCategoryBind
     private lateinit var dataSourceOfCategoryEntity: CsvDataSource<CategoryEntity>
     lateinit var allCategoryAdapter: AllCategoryAdapter
 
+
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodKitchenCategoryBinding =
         FragmentFoodKitchenCategoryBinding::inflate
-
 
 
     override fun setup() {
@@ -40,23 +45,17 @@ class FoodKitchenCategoryFragment : BaseFragment<FragmentFoodKitchenCategoryBind
 
     }
 
+
     override fun addCallBacks() {
         binding.apply {
             itemCard.apply {
-
                 adapter = allCategoryAdapter
+                layoutManager = GridLayoutManager(requireContext(), 2)
             }
+
         }
 
     }
-
-
-
-
-
-
-
-
 
 
 }

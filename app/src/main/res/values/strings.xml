@@ -5,14 +5,14 @@
 
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="questionText">To which cuisine , chicken masala belong ?</string>
     <string name="answerOne">1 - Indian Cuisine</string>
     <string name="submit">Submit</string>
     <string name="answerTwo">2 - Egyptian Cuisine</string>
     <string name="answerThree">3 - Iraqi Cuisine</string>
     <string name="answerFour">4 - Palestinian Cuisine</string>
-    <string name="invalidIngredientQuestion">What is the invalid ingredient in chicken masala ?</string>
+    <string name="invalidIngredientQuestion"> What is the valid ingredient in chicken masala ?</string>
     <string name="meatOne">1 - Meat</string>
     <string name="tomato">2 - Tomato</string>
     <string name="chicken">3 - Chicken</string>
@@ -44,7 +44,6 @@
     <string name="pizza">Pizza</string>
     <string name="sandwiches">Sandwiches</string>
     <string name="breakfast">Breakfast</string>
-
     <string name="north_indian_recipes">North Indian Recipes</string>
     <string name="bengali_recipes">Bengali Recipes</string>
     <string name="goan_recipes">Goan Recipes</string>
@@ -57,10 +56,16 @@
     <string name="arab">Arab</string>
 
 
+    <string name="meat">Meat</string>
+    <string name="dessert">dessert</string>
+    <string name="cheese">Cheese</string>
+    <string name="spice">Spice</string>
     <string name="cook_time">Cook Time</string>
     <string name="under_15_min">Under 15 min</string>
     <string name="under_30_min">Under 30 min</string>
-    <string name="under_1_hour">Under 1 hour</string>
+    <string name="under_1_hour">under_1_hour</string>
+
+
     <string name="ingredients_count">Ingredients count</string>
     <string name="under_30_ingredients">Under 30 Ingredients</string>
     <string name="under_10_ingredients">Under 10 Ingredients</string>
@@ -93,6 +98,10 @@
     <string name="search">search</string>
     <string name="collapse">Collapse</string>
     <string name="cuisine">Cuisine</string>
+    <string name="chicken_frid_rice">Chicken Frid Rice</string>
+    <string name="description">Description</string>
+    <string name="relative_food">Relative Food</string>
+    <string name="manchurian_nodules">Manchurian Nodules</string>
 
 
 </resources>

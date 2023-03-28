@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,180 +20,115 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_large_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spaceSmall"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toTopOf="@+id/text_title_home_category"
-                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/RV"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/card_large" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_category_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceSmall"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/RV"
+                tools:itemCount="4"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_title_home_category"
-                tools:listitem="@layout/card_category" />
+                app:layout_constraintTop_toBottomOf="@id/text_title_home_category" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_for_you_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceLarge"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/RV"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_title_home_for_you"
-                tools:listitem="@layout/card_small" />
+                app:layout_constraintTop_toBottomOf="@id/text_title_home_for_you" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_sweet_treat_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceLarge"
+                style="@style/RV"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_title_home_sweet_treat" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_cake_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceLarge"
+                style="@style/RV"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_title_home_cake" />
 
             <LinearLayout
                 android:id="@+id/text_title_home_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceXLarge"
-                android:layout_marginEnd="@dimen/spaceMedium"
+                style="@style/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_large_home">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/categories"
-                    android:textColor="@color/orange_200"
-                    android:textSize="@dimen/textLarge" />
+                    android:id="@+id/textview_categories"
+                    style="@style/see_all.categories"
+                    android:text="@string/categories" />
 
                 <TextView
-                    android:id="@+id/text_seeAllCategories"
+                    android:id="@+id/see_all_categories"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
                     android:text="@string/see_all"
-                    android:textColor="@color/orange_200"
-                    android:textSize="@dimen/textMedium" />
+                    style="@style/see_all" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/text_title_home_for_you"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceXLarge"
-                android:layout_marginEnd="@dimen/spaceMedium"
+               style="@style/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_category_home">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/for_you"
-                    android:textColor="@color/orange_200"
-                    android:textSize="@dimen/textLarge" />
+                    android:id="@+id/textview_for_you"
+                    style="@style/see_all.categories"
+                    android:text="@string/for_you" />
 
                 <TextView
-                    android:id="@+id/text_seeAllForYou"
+                    android:id="@+id/textview_see_all_for_you"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
                     android:text="@string/see_all"
-                    android:textColor="@color/orange_200"
-                    android:textSize="@dimen/textMedium" />
+                    style="@style/see_all" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:id="@+id/text_title_home_sweet_treat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceXLarge"
-                android:layout_marginEnd="@dimen/spaceMedium"
+                style="@style/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_for_you_home">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/sweet_treats"
-                    android:textColor="@color/orange_200"
-                    android:textSize="@dimen/textLarge" />
+                    android:id="@+id/sweet_treats_textview"
+                    style="@style/see_all.categories"
+                    android:text="@string/sweet_treats" />
 
                 <TextView
-                    android:id="@+id/text_seeAllSweetTreats"
+                    android:id="@+id/see_all_sweet_treats"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
                     android:text="@string/see_all"
-                    android:textColor="@color/orange_200"
-                    android:textSize="@dimen/textMedium" />
+                    style="@style/see_all" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/text_title_home_cake"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceXLarge"
-                android:layout_marginEnd="@dimen/spaceMedium"
+                style="@style/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_sweet_treat_home">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:fontFamily="@font/roboto_bold"
+                    android:id="@+id/cake_corner_textview"
+                    style="@style/see_all.categories"
                     android:text="@string/cake_corner"
-                    android:textColor="@color/orange_200"
-                    android:textSize="@dimen/textLarge" />
+                    />
 
                 <TextView
-                    android:id="@+id/text_seeAllCakeCorner"
+                    android:id="@+id/see_all_cake_corner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
                     android:text="@string/see_all"
-                    android:textColor="@color/orange_200"
-                    android:textSize="@dimen/textMedium" />
+                    style="@style/see_all" />
             </LinearLayout>
 
 
