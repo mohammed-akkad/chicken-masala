@@ -1,33 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="312dp"
     android:layout_height="208dp"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginHorizontal="@dimen/spaceExtraSmall"
-    android:layout_marginVertical="@dimen/spaceSmall"
-    android:elevation="@dimen/spaceSmall"
-    app:cardCornerRadius="@dimen/spaceMedium">
+    android:layout_margin="@dimen/spaceMedium"
+    app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/image_card_large"
+            android:id="@+id/card_large_Categories"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/card_large_categories"
             android:contentDescription="@string/category_food"
-            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/imag" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/shadow"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/shape_shadow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_card_large"
+            style="@style/textCategory.textCardLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spaceMedium"
+            android:text="@string/content"
+            app:layout_constraintBottom_toBottomOf="@id/shadow"
+            app:layout_constraintStart_toStartOf="@id/shadow"
+            app:layout_constraintTop_toTopOf="@+id/shadow" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.cardview.widget.CardView>
