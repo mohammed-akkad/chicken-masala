@@ -25,26 +25,20 @@ class TriviaGamesFragment : BaseFragment<FragmentTriviaGamesBinding>() {
     override fun addCallBacks() {
 
         binding.cardviewMiniGameOne.setOnClickListener {
-            changeFragment(cuisineFragmentVal )
-
+            replaceFragment(GuessTheIngredientFragment())
         }
         binding.cardviewMiniGameTwo.setOnClickListener {
-            changeFragment(ingredientFragmentVal )
-
+            replaceFragment(GuessTheCuisineFragment())
         }
         binding.cardviewMiniGameThree.setOnClickListener {
-            changeFragment(mealFragmentVal )
-
+            replaceFragment(GuessTheMealFragment())
         }
-
     }
-    private fun changeFragment(fragment: Fragment) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.apply{
-            replace(R.id.container, fragment)
-            addToBackStack(null)
-            commit()
-        }
+    private fun replaceFragment(fragment:Fragment){
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
 }

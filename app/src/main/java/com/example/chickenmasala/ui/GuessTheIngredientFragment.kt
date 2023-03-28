@@ -4,30 +4,38 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.example.chickenmasala.GuessTheCuisineFragment
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
+import com.example.chickenmasala.data.utils.CsvParser
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentGuessTheIngredientBinding
+import com.example.chickenmasala.util.Constants
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
 class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBinding>() {
 
-    var recipeParser = RecipeParser()
-    var dataSource = CsvDataSource(binding.root.context,"indian_food.csv",recipeParser)
-    var randomListOfData = GetAListOfRandomRecipesInteractor(dataSource)
 
-    var randomRecipes = randomListOfData.execute(4)
-    var randomRecipe = randomRecipes.random()
     override val LOG_TAG: String = "GuessTheIngredientFragment"
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheIngredientBinding = FragmentGuessTheIngredientBinding::inflate
 
+    private var chosenAnswer : RecipeEntity? = null
+    private lateinit var randomListOfDataInteractor : GetAListOfRandomRecipesInteractor
+    private lateinit var randomRecipes : List<RecipeEntity>
+    private lateinit var randomRecipe : RecipeEntity
+
     override fun setup() {
 
+        val recipeParser = RecipeParser()
+        val dataSource = CsvDataSource(requireContext(), Constants.RECIPES_CSV_FILE_NAME,recipeParser)
+        val randomListOfDataInteractor = GetAListOfRandomRecipesInteractor(dataSource)
 
+        randomRecipes = randomListOfDataInteractor.execute(GuessTheCuisineFragment.NUMBER_OF_ANSWERS)
+        randomRecipe = randomRecipes.random()
     }
 
     override fun addCallBacks() {
@@ -38,28 +46,138 @@ class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBindin
     }
     private fun prepareQuestion(){
 
-        val questionText = "What is the invalid ingredient in " + "${randomRecipe.name} ? "
-        binding.guessTheInvalidIngredientQuestion.text = questionText
+        val questionText = "What is the valid ingredient in " + "${randomRecipe.name} ? "
+        binding.guessTheValidIngredientQuestion.text = questionText
     }
     private fun prepareAnswers(){
 
         binding.apply {
 
-            firstAnswer.text = "1 - ${randomRecipes[0].ingredients[0]}"
-            secondAnswer.text = "2 - ${randomRecipes[1].ingredients[0]}"
-            thirdAnswer.text = "3 - ${randomRecipes[2].ingredients[0]}"
-            fourthAnswer.text = "4 - ${randomRecipes[3].ingredients[0]}"
+            answerOneText.text = "1 - ${randomRecipes[0].ingredients[0]}"
+            answerTwoText.text = "2 - ${randomRecipes[1].ingredients[0]}"
+            answerThreeText.text = "3 - ${randomRecipes[2].ingredients[0]}"
+            answerFourText.text = "4 - ${randomRecipes[3].ingredients[0]}"
         }
     }
-    private fun changeButtonTextToNext(){
+    private fun changeColorToYellow(answerId : Int){
 
-        binding.submitButton.text = "Next"
-    }
-    private fun changeButtonTextToTryAgain(){
+        val yellowColor = ContextCompat.getColor(requireContext(), R.color.yellow_600)
+        when(answerId){
 
-        binding.submitButton.text = "Try Again"
+            FIRST_ANSWER_KEY -> binding.constraintLayoutOfCard1.setBackgroundColor(yellowColor)
+            SECOND_ANSWER_KEY -> binding.constraintLayoutOfCard2.setBackgroundColor(yellowColor)
+            THIRD_ANSWER_KEY -> binding.constraintLayoutOfCard3.setBackgroundColor(yellowColor)
+            FOURTH_ANSWER_KEY -> binding.constraintLayoutOfCard4.setBackgroundColor(yellowColor)
+        }
     }
-    private fun checkIfRightAnswer(chosenAnswer : RecipeEntity, answerId : Int){
+    private fun changeColorToGreen(answerId : Int){
+
+        val greenColor = ContextCompat.getColor(requireContext(), R.color.green_100)
+        when(answerId){
+
+            FIRST_ANSWER_KEY -> binding.constraintLayoutOfCard1.setBackgroundColor(greenColor)
+            SECOND_ANSWER_KEY -> binding.constraintLayoutOfCard2.setBackgroundColor(greenColor)
+            THIRD_ANSWER_KEY -> binding.constraintLayoutOfCard3.setBackgroundColor(greenColor)
+            FOURTH_ANSWER_KEY -> binding.constraintLayoutOfCard4.setBackgroundColor(greenColor)
+        }
+    }
+    private fun changeColorToRed(answerId : Int){
+
+        val redColor = ContextCompat.getColor(requireContext(), R.color.red_100)
+        when(answerId){
+
+            FIRST_ANSWER_KEY -> binding.constraintLayoutOfCard1.setBackgroundColor(redColor)
+            SECOND_ANSWER_KEY -> binding.constraintLayoutOfCard2.setBackgroundColor(redColor)
+            THIRD_ANSWER_KEY -> binding.constraintLayoutOfCard3.setBackgroundColor(redColor)
+            FOURTH_ANSWER_KEY -> binding.constraintLayoutOfCard4.setBackgroundColor(redColor)
+        }
+    }
+    private fun changeColorToGray(answerId : Int){
+
+        val grayColor = ContextCompat.getColor(requireContext(), R.color.gray_200)
+        when(answerId){
+
+            FIRST_ANSWER_KEY ->{
+
+                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
+                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
+                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
+            }
+
+            SECOND_ANSWER_KEY ->{
+
+                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
+                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
+                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
+            }
+
+            THIRD_ANSWER_KEY ->{
+
+                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
+                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
+                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
+            }
+
+            FOURTH_ANSWER_KEY ->{
+
+                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
+                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
+                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
+            }
+
+            NUMBER_OF_ANSWERS ->{
+
+                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
+                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
+                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
+                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
+            }
+        }
+    }
+    private fun answeringProcess(){
+
+        selectAnswer()
+
+        binding.submitButton.setOnClickListener {
+
+            when(chosenAnswer){
+
+                randomRecipes[FIRST_ANSWER_KEY] -> {
+
+                    checkIfRightAnswer(FIRST_ANSWER_KEY)
+                    disableClickingForAnswers()
+                    repeat()
+                }
+
+                randomRecipes[SECOND_ANSWER_KEY] -> {
+
+                    checkIfRightAnswer(SECOND_ANSWER_KEY)
+                    disableClickingForAnswers()
+                    repeat()
+                }
+
+                randomRecipes[THIRD_ANSWER_KEY] -> {
+
+                    checkIfRightAnswer(THIRD_ANSWER_KEY)
+                    disableClickingForAnswers()
+                    repeat()
+                }
+
+                randomRecipes[FOURTH_ANSWER_KEY] -> {
+
+                    checkIfRightAnswer(FOURTH_ANSWER_KEY)
+                    disableClickingForAnswers()
+                    repeat()
+                }
+
+                null ->{
+
+                    Toast.makeText(requireContext(), "Select an answer please", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+    private fun checkIfRightAnswer(answerId : Int){
 
         if (chosenAnswer == randomRecipe){
 
@@ -74,140 +192,81 @@ class GuessTheIngredientFragment : BaseFragment<FragmentGuessTheIngredientBindin
         }
 
     }
-    private fun answeringProcess(){
+    private fun changeButtonTextToNext(){
 
-        val chosenAnswer = selectAnswer()
-
-        binding.submitButton.setOnClickListener {
-
-            when(chosenAnswer){
-
-                randomRecipes[0] -> {
-
-                    checkIfRightAnswer(chosenAnswer,0)
-                }
-
-                randomRecipes[1] -> {
-
-                    checkIfRightAnswer(chosenAnswer,1)
-                }
-
-                randomRecipes[2] -> {
-
-                    checkIfRightAnswer(chosenAnswer,2)
-                }
-
-                randomRecipes[3] -> {
-
-                    checkIfRightAnswer(chosenAnswer,3)
-                }
-
-                null ->{
-
-                    Toast.makeText(requireContext(), "Select an answer please", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
+        binding.submitButton.text = NEXT_WORD
     }
-    private fun selectAnswer() : RecipeEntity? {
+    private fun changeButtonTextToSubmit(){
 
-        var chosenAnswer : RecipeEntity? = null
-        val yellowColor = ContextCompat.getColor(requireContext(), R.color.yellow_600)
+        binding.submitButton.text = SUBMIT_WORD
+    }
+    private fun changeButtonTextToTryAgain(){
+
+        binding.submitButton.text = TRY_AGAIN_WORD
+    }
+    private fun selectAnswer(){
 
         binding.apply {
 
             answerOne.setOnClickListener {
-                changeColorToYellow(0)
-                changeColorToGray(0)
-                chosenAnswer = randomRecipes[0]
+                changeColorToYellow(FIRST_ANSWER_KEY)
+                changeColorToGray(FIRST_ANSWER_KEY)
+                chosenAnswer = randomRecipes[FIRST_ANSWER_KEY]
             }
 
             answerTwo.setOnClickListener {
-                changeColorToYellow(1)
-                changeColorToGray(1)
-                chosenAnswer = randomRecipes[1]
+                changeColorToYellow(SECOND_ANSWER_KEY)
+                changeColorToGray(SECOND_ANSWER_KEY)
+                chosenAnswer = randomRecipes[SECOND_ANSWER_KEY]
             }
 
             answerThree.setOnClickListener {
-                changeColorToYellow(2)
-                changeColorToGray(2)
-                chosenAnswer = randomRecipes[2]
+                changeColorToYellow(THIRD_ANSWER_KEY)
+                changeColorToGray(THIRD_ANSWER_KEY)
+                chosenAnswer = randomRecipes[THIRD_ANSWER_KEY]
             }
 
             answerFour.setOnClickListener {
-                changeColorToYellow(3)
-                changeColorToGray(3)
-                chosenAnswer = randomRecipes[3]
-            }
-        }
-
-        return chosenAnswer
-    }
-    private fun changeColorToGray(answerId : Int){
-
-        val grayColor = ContextCompat.getColor(requireContext(), R.color.gray_200)
-        when(answerId){
-
-            0 ->{
-
-                binding.answerTwo.setBackgroundColor(grayColor)
-                binding.answerThree.setBackgroundColor(grayColor)
-                binding.answerFour.setBackgroundColor(grayColor)
-            }
-
-            1 ->{
-
-                binding.answerOne.setBackgroundColor(grayColor)
-                binding.answerThree.setBackgroundColor(grayColor)
-                binding.answerFour.setBackgroundColor(grayColor)
-            }
-
-            2 ->{
-
-                binding.answerTwo.setBackgroundColor(grayColor)
-                binding.answerOne.setBackgroundColor(grayColor)
-                binding.answerFour.setBackgroundColor(grayColor)
-            }
-
-            3 ->{
-
-                binding.answerTwo.setBackgroundColor(grayColor)
-                binding.answerThree.setBackgroundColor(grayColor)
-                binding.answerOne.setBackgroundColor(grayColor)
+                changeColorToYellow(FOURTH_ANSWER_KEY)
+                changeColorToGray(FOURTH_ANSWER_KEY)
+                chosenAnswer = randomRecipes[FOURTH_ANSWER_KEY]
             }
         }
     }
-    private fun changeColorToYellow(answerId : Int){
+    private fun repeat(){
 
-        val yellowColor = ContextCompat.getColor(requireContext(), R.color.yellow_600)
-        when(answerId){
+        if (binding.submitButton.text != SUBMIT_WORD){
 
-            0 -> binding.answerOne.setBackgroundColor(yellowColor)
-            1 -> binding.answerTwo.setBackgroundColor(yellowColor)
-            2 -> binding.answerThree.setBackgroundColor(yellowColor)
-            3 -> binding.answerFour.setBackgroundColor(yellowColor)
+            binding.submitButton.setOnClickListener {
+
+                chosenAnswer = null
+                setup()
+                addCallBacks()
+                changeButtonTextToSubmit()
+                changeColorToGray(4)
+            }
         }
     }
-    private fun changeColorToGreen(answerId : Int){
+    private fun disableClickingForAnswers(){
 
-        val greenColor = ContextCompat.getColor(requireContext(), R.color.green_100)
-        when(answerId){
+        binding.apply {
 
-            0 -> binding.answerOne.setBackgroundColor(greenColor)
-            1 -> binding.answerTwo.setBackgroundColor(greenColor)
-            2 -> binding.answerThree.setBackgroundColor(greenColor)
-            3 -> binding.answerFour.setBackgroundColor(greenColor)
+            answerOne.isClickable = false
+            answerTwo.isClickable = false
+            answerThree.isClickable = false
+            answerFour.isClickable = false
         }
     }
-    private fun changeColorToRed(answerId : Int){
 
-        val redColor = ContextCompat.getColor(requireContext(), R.color.red_100)
-        when(answerId){
+    companion object{
 
-            0 -> binding.answerOne.setBackgroundColor(redColor)
-            1 -> binding.answerTwo.setBackgroundColor(redColor)
-            2 -> binding.answerThree.setBackgroundColor(redColor)
-            3 -> binding.answerFour.setBackgroundColor(redColor)
-        }
+        const val NUMBER_OF_ANSWERS = 4
+        const val FOURTH_ANSWER_KEY = 3
+        const val THIRD_ANSWER_KEY = 2
+        const val SECOND_ANSWER_KEY = 1
+        const val FIRST_ANSWER_KEY = 0
+        const val SUBMIT_WORD = "Submit"
+        const val NEXT_WORD = "Next"
+        const val TRY_AGAIN_WORD = "Try Again"
     }
 }

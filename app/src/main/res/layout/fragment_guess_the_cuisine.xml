@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_300"
-    tools:context=".ui.GuessTheCuisineFragment">
+    android:background="@color/gray_300">
 
 
     <TextView
@@ -36,12 +35,13 @@
         app:layout_constraintTop_toBottomOf="@+id/guessTheCuisineQuestion">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutOfCard1"
             android:layout_width="match_parent"
             android:background="@color/gray_200"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/firstAnswer"
+                android:id="@+id/answerOneText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -70,12 +70,13 @@
         app:layout_constraintTop_toBottomOf="@+id/answerOne">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutOfCard2"
             android:layout_width="match_parent"
             android:background="@color/gray_200"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/secondAnswer"
+                android:id="@+id/answerTwoText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,12 +105,13 @@
         app:layout_constraintTop_toBottomOf="@+id/answerTwo">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutOfCard3"
             android:layout_width="match_parent"
             android:background="@color/gray_200"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/thirdAnswer"
+                android:id="@+id/answerThreeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -138,12 +140,13 @@
         app:layout_constraintTop_toBottomOf="@+id/answerThree">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutOfCard4"
             android:layout_width="match_parent"
             android:background="@color/gray_200"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/fourthAnswer"
+                android:id="@+id/answerFourText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
