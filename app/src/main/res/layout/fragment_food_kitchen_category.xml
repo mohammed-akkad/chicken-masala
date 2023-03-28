@@ -7,6 +7,7 @@
     android:background="@color/gray_300"
     tools:context=".ui.screen.FoodKitchenCategoryFragment">
 
+
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
