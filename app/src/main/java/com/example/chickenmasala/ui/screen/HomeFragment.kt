@@ -115,20 +115,16 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
                 setNavigationTitleAppBar(getString(R.string.food_categories))
             }
             textviewSeeAllForYou.setOnClickListener {
+                navigationBetweenFragment(forYouRecipesFragment)
+                setNavigationTitleAppBar(getString(R.string.for_you))
+            }
+            seeAllSweetTreats.setOnClickListener {
+                navigationBetweenFragment(sweetRecipeFragment)
+                setNavigationTitleAppBar(getString(R.string.sweet_treats))
+            }
+            seeAllCakeCorner.setOnClickListener {
                 navigationBetweenFragment(foodKitchenCategoryFragment)
-                textviewSeeAllForYou.setOnClickListener {
-                    navigationBetweenFragment(forYouRecipesFragment)
-                    setNavigationTitleAppBar(getString(R.string.for_you))
-                }
-                seeAllSweetTreats.setOnClickListener {
-                    navigationBetweenFragment(sweetRecipeFragment)
-                    setNavigationTitleAppBar(getString(R.string.sweet_treats))
-                }
-                seeAllCakeCorner.setOnClickListener {
-                    navigationBetweenFragment(foodKitchenCategoryFragment)
-                    setNavigationTitleAppBar(getString(R.string.cake_corner))
-                }
-
+                setNavigationTitleAppBar(getString(R.string.cake_corner))
             }
 
         }

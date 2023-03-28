@@ -43,6 +43,7 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
 
 
     private fun bindCategory(holder: CategoryViewHolder, position: Int) {
+
         val currentCategory = list[position]
         holder.binding.apply {
 
@@ -53,6 +54,7 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
             textViewCategory.text = currentCategory.name
             textViewCategory.setOnClickListener { listener.onClickItemCategory(currentCategory.name) }
         }
+
 
     }
 
