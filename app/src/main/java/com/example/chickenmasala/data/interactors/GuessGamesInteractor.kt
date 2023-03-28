@@ -6,11 +6,11 @@ import com.example.chickenmasala.data.domain.QuestionGames
 import com.example.chickenmasala.data.domain.RecipeEntity
 
 class GuessGamesInteractor(private val dataSource: FoodDataSource<RecipeEntity>) {
-    private  val randomRecipe: RecipeEntity = getRandomRecipe()
+    private val randomRecipe: RecipeEntity = getRandomRecipe()
     fun guessGames(gameName: GuessGamesName): QuestionGames {
         return when (gameName) {
-              GuessGamesName.GUESS_THE_CUISINE ->guessCuisine()
-            GuessGamesName.GUESS_THE_EXSTING_INGREDIENT->guessExistingIngredient()
+            GuessGamesName.GUESS_THE_CUISINE -> guessCuisine()
+            GuessGamesName.GUESS_THE_EXSTING_INGREDIENT -> guessExistingIngredient()
             GuessGamesName.GUESS_THE_MEAL -> guessMeal()
         }
 
@@ -18,9 +18,9 @@ class GuessGamesInteractor(private val dataSource: FoodDataSource<RecipeEntity>)
 
 
     private fun guessMeal(): QuestionGames {
-        val correctName=randomRecipe.name
-        val correctIngredent=randomRecipe.cleanedIngredients.random()
-        val result=dataSource.getAllItems()
+        val correctName = randomRecipe.name
+        val correctIngredent = randomRecipe.cleanedIngredients.random()
+        val result = dataSource.getAllItems()
             .filterNot { it.cleanedIngredients.contains(correctIngredent) }
         return QuestionGames(
             correctName,
@@ -33,14 +33,18 @@ class GuessGamesInteractor(private val dataSource: FoodDataSource<RecipeEntity>)
     }
 
     private fun guessCuisine(): QuestionGames {
-        val correctCuisine=randomRecipe.cuisine
-        val correctRecipeName=randomRecipe.name
-        val result=dataSource.getAllItems()
+        val correctCuisine = randomRecipe.cuisine
+        val correctRecipeName = randomRecipe.name
+
+        val result = dataSource.getAllItems()
+
             .filterNot { it.name.contains(correctRecipeName) }
+        val wrongAnswers = listOf(result[0].cuisine, result[1].cuisine, result[2].cuisine)
+
         return QuestionGames(
             correctRecipeName,
-            correctCuisine, listOf(
-                result[0].cuisine, result[1].cuisine, result[2].cuisine)
+            correctCuisine,
+            wrongAnswers
         )
     }
 
