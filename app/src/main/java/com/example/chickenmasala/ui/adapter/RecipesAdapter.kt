@@ -56,7 +56,7 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
             Glide
                 .with(this.root)
                 .load(currentRecipe.imageUrl)
-                .into(holder.binding.imageCardLarge)
+                .into(holder.binding.cardLargeCategories)
         }
 
 
@@ -67,12 +67,12 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
         private fun bindRecipeForYou(holder: ForYouViewHolder, position: Int) {
         val currentRecipe = list[position]
         holder.binding.apply {
-            textNameRecipe.text = currentRecipe.name
+            textviewCardSmall.text = currentRecipe.name
 
             Glide
                 .with(this.root)
                 .load(currentRecipe.imageUrl)
-                .into(holder.binding.imageRecipe)
+                .into(holder.binding.imageviewCardSmall)
 
         }
 

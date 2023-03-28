@@ -54,9 +54,9 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
             Glide
                 .with(this.root)
                 .load(currentCategory.imageUrl)
-                .into(holder.binding.imageView)
-            textNameCategory.text = currentCategory.name
-            textNameCategory.setOnClickListener { listener.onClickItemCategory(currentCategory.name) }
+                .into(holder.binding.cardLargeImageview)
+            textViewCategory.text = currentCategory.name
+            textViewCategory.setOnClickListener { listener.onClickItemCategory(currentCategory.name) }
         }
 
     }
