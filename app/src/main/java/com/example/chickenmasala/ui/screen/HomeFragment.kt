@@ -143,9 +143,12 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
     override fun onClickItemRecipeEntitty(recipeEntity: RecipeEntity) {
         navigationBetweenFragment(foodDetailsFragment)
         bundle.putString("name" , recipeEntity.name)
-        bundle.putString("count" , recipeEntity.cleanedIngredients.toString())
+        bundle.putString("cleanedIngredients" , recipeEntity.cleanedIngredients.joinToString())
         bundle.putString("imageUrl" , recipeEntity.imageUrl)
+        bundle.putString("ingredients" , recipeEntity.ingredients.joinToString { it })
         foodDetailsFragment.arguments = bundle
+
+
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.chickenmasala.ui.screen
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -19,6 +20,7 @@ class ForYouFragment : BaseFragment<FragmentForYouBinding>() , RecipeInteraction
     override val LOG_TAG: String = "FragmentForYou"
     private lateinit var csvRecipeParser: RecipeParser
     private val foodDetailsFragment = FoodDetailsFragment()
+    private val bundle= Bundle()
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
     lateinit var getAListOfRandomRecipesInteractor: GetAListOfRandomRecipesInteractor
     lateinit var forYouAdapter : ForYouRecipesAdapter
@@ -56,6 +58,12 @@ class ForYouFragment : BaseFragment<FragmentForYouBinding>() , RecipeInteraction
 
     override fun onClickItemRecipeEntitty(recipeEntity: RecipeEntity) {
         navigationBetweenFragment(foodDetailsFragment)
+
+        bundle.putString("name" , recipeEntity.name)
+        bundle.putString("cleanedIngredients" , recipeEntity.cleanedIngredients.joinToString())
+        bundle.putString("imageUrl" , recipeEntity.imageUrl)
+        bundle.putString("ingredients" , recipeEntity.ingredients.joinToString { it })
+        foodDetailsFragment.arguments = bundle
     }
 
 
