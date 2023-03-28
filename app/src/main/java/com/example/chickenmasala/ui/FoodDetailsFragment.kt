@@ -43,6 +43,15 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
     }
 
     override fun addCallBacks() {
+        binding.apply {
+            cardFirstRelativeFood.setOnClickListener {
+
+            }
+
+            cardSecondRelativeFood.setOnClickListener {
+
+            }
+        }
     }
 
 
