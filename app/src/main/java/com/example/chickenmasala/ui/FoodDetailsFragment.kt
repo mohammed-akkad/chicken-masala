@@ -7,6 +7,8 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
+import com.example.chickenmasala.data.interactors.GetAllCuisineImageUrlsAndNamesInteractor
+import com.example.chickenmasala.data.interactors.GetListRecipesRelatedToCertainRecipeInteractor
 import com.example.chickenmasala.data.interactors.GetRecipesOfCuisineInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentFoodDetailsBinding
@@ -39,8 +41,9 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
             getAllFoodDetailsInformation(foodDetailsList)
             foodDetailsList?.let { updateFoodDetailsViews(it) }
 
-            val relativeFoodList = getAllFoodRelativeInformation(cuisine,2)
-            updateRelativeFoodViews(relativeFoodList)
+            val relativeFoodList =
+                foodDetailsList?.get(0)?.cuisine?.let { getAllFoodRelativeInformation(it,2) }
+            relativeFoodList?.let { updateRelativeFoodViews(it) }
 
 
 
@@ -79,6 +82,8 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
         }
     }
 
+
+
     private fun getAllFoodRelativeInformation(cuisine: String, limit:Int): List<RecipeEntity> {
         csvRecipeParser = RecipeParser()
         dataSourceOfRecipeEntity =
@@ -96,6 +101,9 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
 
             loadImageFromNetwork(list[0].imageUrl, imgFirstRelativeFood) }
         loadImageFromNetwork(list[1].imageUrl, binding.imgSecondRelativeFood) }
+
+
+
     private fun loadImageFromNetwork(url: String, imageView: ImageView){
         Glide.with(this@FoodDetailsFragment).load(url)
             .placeholder(R.drawable.ic_test_download)
