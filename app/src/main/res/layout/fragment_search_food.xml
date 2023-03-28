@@ -18,6 +18,7 @@
         android:background="@drawable/shape_rounded_search_bar"
         android:drawableLeft="@drawable/ic_filter"
         android:drawableRight="@drawable/ic_search"
+        android:singleLine="true"
         android:drawablePadding="16dp"
         android:hint="@string/hinted_search_text"
         android:paddingStart="@dimen/spaceMedium"
