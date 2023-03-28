@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_300">
+
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/textQuestion"
+            android:text="@string/guessTheMealQuestion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/answerOne"
+            style="@style/cv_guess"
+            app:cardCornerRadius="22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/meal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
+
+                <TextView
+                    android:id="@+id/textview_answer_one"
+                    style="@style/textAnswers"
+                    android:text="@string/chicken"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/answerTwo"
+            style="@style/cv_guess"
+            app:cardCornerRadius="22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answerOne">
+
+            <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
+
+                <TextView
+                    android:id="@+id/textview_answer_two"
+                    style="@style/textAnswers"
+                    android:text="@string/chicken"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/answerThree"
+            style="@style/cv_guess"
+            app:cardCornerRadius="22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answerTwo">
+
+            <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
+
+                <TextView
+                    android:id="@+id/textview_answer_three"
+                    style="@style/textAnswers"
+                    android:text="@string/chicken"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/answerFour"
+            style="@style/cv_guess"
+            app:cardCornerRadius="22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answerThree">
+
+            <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
+
+                <TextView
+                    android:id="@+id/textview_answer_four"
+                    style="@style/textAnswers"
+                    android:text="@string/btats"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/submitButton"
+            style="@style/submitButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answerFour" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/meal"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="@dimen/spaceXXLarge"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_meal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:roundPercent="0.2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
