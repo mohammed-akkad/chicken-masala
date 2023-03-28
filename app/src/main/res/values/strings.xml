@@ -5,7 +5,7 @@
 
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="questionText">To which cuisine , chicken masala belong ?</string>
     <string name="answerOne">1 - Indian Cuisine</string>
     <string name="submit">Submit</string>
@@ -29,14 +29,43 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hinted_search_text">Hinted Search Text</string>
     <string name="categories">Categories</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="seafood">Seafood</string>
+    <string name="grilled">Grilled</string>
+    <string name="spicy">Spicy</string>
+    <string name="salad">Salad</string>
+    <string name="mediterranean">Mediterranean</string>
+    <string name="barbecue">Barbecue</string>
+    <string name="soup">Soup</string>
+    <string name="pasta">Pasta</string>
+    <string name="Chicken">Chicken</string>
+    <string name="beef">Beef</string>
+    <string name="rice">Rice</string>
+    <string name="pizza">Pizza</string>
+    <string name="sandwiches">Sandwiches</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="north_indian_recipes">North Indian Recipes</string>
+    <string name="bengali_recipes">Bengali Recipes</string>
+    <string name="goan_recipes">Goan Recipes</string>
+    <string name="continental">Continental</string>
+    <string name="indian">Indian</string>
+    <string name="indonesian">Indonesian</string>
+    <string name="thai">Thai</string>
+    <string name="south_indian_recipes">South Indian Recipes</string>
+    <string name="italian_recipes">Italian Recipes</string>
+    <string name="arab">Arab</string>
+
+
     <string name="meat">Meat</string>
-    <string name="desert">Desert</string>
+    <string name="dessert">dessert</string>
     <string name="cheese">Cheese</string>
     <string name="spice">Spice</string>
     <string name="cook_time">Cook Time</string>
     <string name="under_15_min">Under 15 min</string>
     <string name="under_30_min">Under 30 min</string>
-    <string name="under_1_hour">Under 1 hour</string>
+    <string name="under_1_hour">under_1_hour</string>
+
+
     <string name="ingredients_count">Ingredients count</string>
     <string name="under_30_ingredients">Under 30 Ingredients</string>
     <string name="under_10_ingredients">Under 10 Ingredients</string>
@@ -65,10 +94,14 @@
     <string name="blockThree">Indian ingredients are as varied as the Indian people and the available foods of each region. Masala means spice blend. Certain foods use certain spice blends. For instance, birlyani masala—cardamom, cinnamon, cloves and fennel—is used for birlyani, an oven-cooked dish of rice and a vegetable, seafood or meat. Chilies, mustard seeds, gram flour, coconut and yogurt are popular ingredients in all types of Indian cuisine. Ghee, a type of clarified butter, is used for cooking, and has a toasty taste. Saffron is used to flavor and color rice dishes. Over 5,000 years you learn to use what you have and be creative with it.</string>
     <string name="titleFour">Regional Cuisine</string>
     <string name="blockFour">Food choice varies north, south, east and west. Indians from the north eat flat breads like chapati and naan, while Southern Indians prefer to eat rice and coconut. The versatile coconut not only provides milk, it thickens stews, makes a chewy snack and is used in many sweet southern dishes as an ingredient or as a garnish. Western India is more cosmopolitan, but is known for its traditional spicy curries. Mumbai, formerly Bombay, at the heart of the region, is flooded with city dwellers, students and workers. They all have their traditional cuisines, but seafood and curries, hot and spicy sausages and snacks with chai tea are popular traditional fare. East Indian food relies heavily on rice, milk and vegetables, prepared simply with yogurt, seeds and spices steamed and curried. East Indians love their sweets and use milk and other dairy products abundantly in them.</string>
-
-
-
-
+    <string name="food_categories">Food Categories</string>
+    <string name="search">search</string>
+    <string name="collapse">Collapse</string>
+    <string name="cuisine">Cuisine</string>
+    <string name="chicken_frid_rice">Chicken Frid Rice</string>
+    <string name="description">Description</string>
+    <string name="relative_food">Relative Food</string>
+    <string name="manchurian_nodules">Manchurian Nodules</string>
 
 
 </resources>

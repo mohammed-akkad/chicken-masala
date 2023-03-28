@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="orange_200">#4F4A45</color>
+    <color name="orange_300">#7E7974</color>
+    <color name="orange_400">#726254</color>
+    <color name="orange_500">#2A1C14</color>
+    <color name="orange_600">#FDA033</color>
+    <color name="orange_700">#FF7900</color>
+
+    <color name="yellow_600">#FFD87A</color>
+    <color name="red_100">#EA5B5B</color>
+    <color name="green_100">#2ED573</color>
+    <color name="neutrals_800">#2D3648</color>
+
+    <color name="black">#CC000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray_200">#F1F0F3</color>
+    <color name="gray_300">#FAFAFA</color>
+
+    <color name="primary">#1f1d1b</color>
+    <color name="background">#1f1d1b</color>
+    <color name="bottom_navigation">#242424</color>
+    <color name="white_txt_dark_background">@color/white</color>
+    <color name="white_txt_dark">@color/white</color>
+    <color name="backround_card_answres">#3b3834</color>
+    <color name="icon_home">#cccccc</color>
+    <color name="txt_color_bottom_navigation">#cccccc</color>
+    <color name="icon_filter">@color/white</color>
+<!--    &lt;!&ndash;The colors used in the dark mode&ndash;&gt;-->
+<!--    <color name="color_splash">#d2d1d0</color>-->
+<!--    <color name="primary">#121212</color>-->
+<!--    <color name="background">#2e2e2e</color>-->
+<!--    <color name="primary_text">#34FF1E</color>-->
+<!--    <color name="color_bottom_navigation">#F9F5F3</color>-->
+</resources>

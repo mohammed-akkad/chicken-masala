@@ -5,4 +5,5 @@ object Constants {
     const val CATEGORIES_CSV_FILE_NAME = "categories.csv"
 
     const val KEY_RECIPES_LIST = "recipesList"
+    const val KEY_DATA_SET = "data set"
 }
