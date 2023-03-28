@@ -11,7 +11,7 @@
         android:id="@+id/scrollview_fragment_about_indian_food"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spaceXLarge"
+
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -20,8 +20,9 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textview_headline_guide"
+                android:id="@+id/text_view_headline_guide"
                 style="@style/indian_food_text"
+                android:layout_marginTop="@dimen/spaceXLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/titleOne" />

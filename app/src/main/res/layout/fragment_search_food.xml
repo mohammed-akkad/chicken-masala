@@ -15,7 +15,7 @@
         android:layout_marginStart="@dimen/spaceLarge"
         android:layout_marginTop="@dimen/spaceMedium"
         android:layout_marginEnd="@dimen/spaceLarge"
-        android:background="@drawable/rounded_search_bar"
+        android:background="@drawable/shape_rounded_search_bar"
         android:drawableLeft="@drawable/ic_filter"
         android:drawableRight="@drawable/ic_search"
         android:drawablePadding="16dp"

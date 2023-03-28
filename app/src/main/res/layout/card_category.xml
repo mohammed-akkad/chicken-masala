@@ -5,7 +5,7 @@
     android:layout_height="75dp"
     android:layout_margin="@dimen/spaceMedium"
     android:layout_marginEnd="@dimen/spaceExtraSmall"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="@dimen/spaceSmall">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,12 +32,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView_category"
+            android:id="@+id/text_view_category"
             style="@style/textCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:textSize="@dimen/textExtraSmall"
             android:text="@string/content"
+            android:layout_marginBottom="@dimen/spaceMedium"
             app:layout_constraintBottom_toBottomOf="@id/shadow"
             app:layout_constraintEnd_toEndOf="@id/shadow"
             app:layout_constraintStart_toStartOf="@id/shadow"

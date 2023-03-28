@@ -5,14 +5,14 @@
     android:layout_height="192dp"
     android:layout_margin="@dimen/spaceMedium"
     android:layout_marginEnd="@dimen/spaceExtraSmall"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="@dimen/spaceSmall">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageview_card_small"
+            android:id="@+id/image_view_card_small"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/img_burger"
@@ -35,9 +35,10 @@
         <TextView
             android:id="@+id/textview_card_small"
             style="@style/textCategory.textCardSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spaceMedium"
+            android:textSize="@dimen/textSmall"
             android:text="@string/content"
             app:layout_constraintBottom_toBottomOf="@id/shadow"
             app:layout_constraintStart_toStartOf="@id/shadow"

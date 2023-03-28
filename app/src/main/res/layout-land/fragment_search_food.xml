@@ -72,7 +72,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/category_text"
                             style="@style/textTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                             android:layout_marginTop="@dimen/spaceMedium"
                             app:layout_constraintEnd_toEndOf="@id/guideline2"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView2">
+                            app:layout_constraintTop_toBottomOf="@+id/category_text">
 
                             <com.google.android.material.chip.Chip
                                 android:id="@+id/chipCategoriesMeat"
@@ -131,7 +131,7 @@
 
 
                         <TextView
-                            android:id="@+id/textView3"
+                            android:id="@+id/cook_time_text"
                             style="@style/textTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
                             app:layout_constraintEnd_toEndOf="@id/guideline2"
                             app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView3">
+                            app:layout_constraintTop_toBottomOf="@+id/cook_time_text">
 
                             <com.google.android.material.chip.Chip
                                 android:id="@+id/chipCookTimeUnder15Min"
