@@ -7,6 +7,7 @@
     android:background="@color/gray_200"
     tools:context=".ui.screen.TriviaGamesFragment">
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_miniGameOne"
         android:layout_width="wrap_content"
