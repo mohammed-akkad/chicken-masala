@@ -6,4 +6,9 @@ object Constants {
 
     const val KEY_RECIPES_LIST = "recipesList"
     const val KEY_DATA_SET = "data set"
+
+    const val KEY_RECIPE_NAME = "name"
+    const val KEY_IMAGE_URL = "image url"
+    const val KEY_CLEANED_INGREDIENTS = "ingredients count"
+    const val KEY_INGREDIENTS = "ingredients"
 }

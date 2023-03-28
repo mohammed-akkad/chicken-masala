@@ -43,7 +43,7 @@ class ForYouFragment : BaseFragment<FragmentForYouBinding>() , RecipeInteraction
             GetAListOfRandomRecipesInteractor(dataSourceOfRecipeEntity)
 
 
-        val list = arguments?.getParcelableArrayList<RecipeEntity>("key")!!.toList()
+        val list = arguments?.getParcelableArrayList<RecipeEntity>(Constants.KEY_RECIPES_LIST)!!.toList()
         val listAllForYou = getAListOfRandomRecipesInteractor.execute(45)
         forYouAdapter = ForYouRecipesAdapter(list+listAllForYou , this)
 
