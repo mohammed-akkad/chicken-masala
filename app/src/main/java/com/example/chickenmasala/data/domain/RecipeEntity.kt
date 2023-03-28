@@ -1,5 +1,6 @@
 package com.example.chickenmasala.data.domain
 
+
 data class RecipeEntity(
     val name: String,
     val ingredients: List<String>,
@@ -10,5 +11,5 @@ data class RecipeEntity(
     val cleanedIngredients: List<String>,
     val imageUrl: String,
     val ingredientsCount: Int?,
-    val tags:List<String>
+    val tags: List<String>
 )

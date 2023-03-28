@@ -4,42 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="@dimen/spaceMedium"
+    app:cardCornerRadius="@dimen/spaceSmall"
     android:layout_marginHorizontal="@dimen/spaceMedium"
+    android:background="@color/background"
     android:layout_marginVertical="@dimen/spaceSmall">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@drawable/card_kitchen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/image_item_kitchens"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
         app:roundPercent="0.2"
-        android:src="@drawable/imag"
+        android:src="@drawable/img_burger"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
+
+    <View
+        android:id="@+id/shadow"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/shape_shadow"
+        app:layout_constraintBottom_toBottomOf="@id/image_item_kitchens"
+        app:layout_constraintEnd_toEndOf="@id/image_item_kitchens"
+        app:layout_constraintStart_toStartOf="@id/image_item_kitchens" />
+
     <TextView
-        android:id="@+id/text_item_kitchens"
+        android:id="@+id/text_view_card_large"
+        style="@style/textCategory.textCardLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spaceMedium"
-        android:layout_marginBottom="@dimen/spaceSmall"
         android:text="@string/content"
-        android:textColor="@color/white"
-        android:textSize="@dimen/textXLarge"
-        android:fontFamily="@font/roboto_bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/shadow"
+        app:layout_constraintStart_toStartOf="@id/shadow"
+        app:layout_constraintTop_toTopOf="@+id/shadow" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

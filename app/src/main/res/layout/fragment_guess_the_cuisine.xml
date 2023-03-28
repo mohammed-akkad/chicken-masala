@@ -4,171 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_300"
-    tools:context=".ui.GuessTheCuisineFragment">
+android:background="@color/background"
+    tools:context=".GuessTheCuisineFragment">
 
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spaceMedium"
-        android:layout_marginEnd="@dimen/spaceMedium"
-        android:layout_marginTop="@dimen/spaceXXXLarge"
-        android:fontFamily="@font/roboto_bold"
+        android:id="@+id/textView_question"
+        style="@style/textQuestion"
         android:text="@string/questionText"
-        android:textColor="@color/orange_200"
-        android:textSize="@dimen/textLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white_txt_dark"
+        />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/answerOne"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="@dimen/spaceMedium"
-        android:layout_marginEnd="@dimen/spaceMedium"
-        app:cardCornerRadius="22dp"
+        style="@style/cv_guess"
         android:layout_marginTop="@dimen/spaceXLarge"
+        app:cardCornerRadius="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView_question">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:background="@color/gray_200"
-            android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/textview_answer_one_cuisine"
+                style="@style/textAnswers"
                 android:text="@string/answerOne"
-                android:textColor="@color/orange_200"
-                android:textSize="@dimen/textLarge"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:fontFamily="@font/roboto_regular"/>
-
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/answerTwo"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="@dimen/spaceMedium"
-        android:layout_marginEnd="@dimen/spaceMedium"
+        style="@style/cv_guess"
         app:cardCornerRadius="22dp"
-        android:layout_marginTop="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerOne">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:background="@color/gray_200"
-            android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/textview_answer_two_cuisine"
+                style="@style/textAnswers"
                 android:text="@string/answerTwo"
-                android:textColor="@color/orange_200"
-                android:textSize="@dimen/textLarge"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:fontFamily="@font/roboto_regular"/>
-
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/answerThree"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="@dimen/spaceMedium"
-        android:layout_marginEnd="@dimen/spaceMedium"
+        style="@style/cv_guess"
         app:cardCornerRadius="22dp"
-        android:layout_marginTop="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerTwo">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:background="@color/gray_200"
-            android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/textview_answer_three_cuisine"
+                style="@style/textAnswers"
                 android:text="@string/answerThree"
-                android:textColor="@color/orange_200"
-                android:textSize="@dimen/textLarge"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:fontFamily="@font/roboto_regular"/>
-
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/answerFour"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="@dimen/spaceMedium"
-        android:layout_marginEnd="@dimen/spaceMedium"
+        style="@style/cv_guess"
         app:cardCornerRadius="22dp"
-        android:layout_marginTop="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerThree">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:background="@color/gray_200"
-            android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/textview_answer_four_cuisine"
+                style="@style/textAnswers"
                 android:text="@string/answerFour"
-                android:textColor="@color/orange_200"
-                android:textSize="@dimen/textLarge"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:fontFamily="@font/roboto_regular"/>
-
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/submitButton"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:text="@string/submit"
-        android:fontFamily="@font/roboto_regular"
-        android:textSize="@dimen/textMedium"
-        android:background="@drawable/button_with_radius"
-        android:layout_marginEnd="@dimen/spaceMedium"
-        android:layout_marginStart="@dimen/spaceMedium"
-        android:layout_marginTop="@dimen/spaceXXLarge"
+        style="@style/submitButton"
+        android:layout_height="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerFour" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
