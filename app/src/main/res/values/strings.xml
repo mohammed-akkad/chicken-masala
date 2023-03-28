@@ -44,7 +44,6 @@
     <string name="pizza">Pizza</string>
     <string name="sandwiches">Sandwiches</string>
     <string name="breakfast">Breakfast</string>
-
     <string name="north_indian_recipes">North Indian Recipes</string>
     <string name="bengali_recipes">Bengali Recipes</string>
     <string name="goan_recipes">Goan Recipes</string>
@@ -55,7 +54,6 @@
     <string name="south_indian_recipes">South Indian Recipes</string>
     <string name="italian_recipes">Italian Recipes</string>
     <string name="arab">Arab</string>
-
 
 
     <string name="meat">Meat</string>
@@ -100,7 +98,7 @@
     <string name="search">search</string>
     <string name="collapse">Collapse</string>
     <string name="cuisine">Cuisine</string>
-   <string name="chicken_frid_rice">Chicken Frid Rice</string>
+    <string name="chicken_frid_rice">Chicken Frid Rice</string>
     <string name="description">Description</string>
     <string name="relative_food">Relative Food</string>
     <string name="manchurian_nodules">Manchurian Nodules</string>

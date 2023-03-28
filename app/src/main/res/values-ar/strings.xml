@@ -20,7 +20,7 @@
     <string name="trivia">التسلية</string>
     <string name="guess_the_ingredient">تخمين المكون</string>
     <string name="guess_the_meal">تخمين الوجبة</string>
-    <string name="guess_the_cuisine" >تخمين المطبخ</string>
+    <string name="guess_the_cuisine">تخمين المطبخ</string>
     <string name="hinted_search_text">نص البحث الظاهر</string>
     <string name="categories">فئات</string>
     <string name="meat">لحمة</string>
@@ -55,4 +55,36 @@
     <string name="description">وصف</string>
     <string name="relative_food">الغذاء النسبي</string>
     <string name="manchurian_nodules">العقيدات المنشورية</string>
+    <string name="vegetarian">نباتي</string>
+    <string name="seafood">مأكولات بحرية</string>
+    <string name="grilled">مشوي</string>
+    <string name="spicy">حار</string>
+    <string name="salad">سلطة</string>
+    <string name="mediterranean">البحر المتوسط</string>
+    <string name="barbecue">شواء</string>
+    <string name="soup">شوربة</string>
+    <string name="pasta">معكرونة</string>
+    <string name="Chicken">دجاج</string>
+    <string name="beef">لحم بقر</string>
+    <string name="rice">أرز</string>
+    <string name="pizza">بيتزا</string>
+    <string name="sandwiches">سندويشات</string>
+    <string name="breakfast">إفطار</string>
+    <string name="north_indian_recipes">وصفات شمال الهند</string>
+    <string name="bengali_recipes">وصفات البنغالية</string>
+    <string name="goan_recipes">وصفات الجوانية</string>
+    <string name="continental">قاري</string>
+    <string name="indian">هندي</string>
+    <string name="indonesian">إندونيسي</string>
+    <string name="thai">تايلاندي</string>
+    <string name="south_indian_recipes">وصفات جنوب الهند</string>
+    <string name="italian_recipes">وصفات إيطالية</string>
+    <string name="arab">عربي</string>
+    <string name="food_categories">فئات الطعام</string>
+    <string name="search">بحث</string>
+    <string name="collapse">طي</string>
+    <string name="cuisine">مطبخ</string>
+
+
+
 </resources>

@@ -96,19 +96,19 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
             recyclerSweetTreatHome.adapter = sweetAdapter
 
 
-            textSeeAllCategories.setOnClickListener {
+            textviewCategories.setOnClickListener {
                 navigationBetweenFragment(foodKitchenCategoryFragment)
                 setNavigationTitleAppBar(getString(R.string.food_categories))
             }
-            textSeeAllForYou.setOnClickListener {
+            textviewForYou.setOnClickListener {
                 navigationBetweenFragment(foodKitchenCategoryFragment)
                 setNavigationTitleAppBar(getString(R.string.for_you))
             }
-            textSeeAllSweetTreats.setOnClickListener {
+            sweetTreatsTextview.setOnClickListener {
                 navigationBetweenFragment(sweetRecipeFragment)
                 setNavigationTitleAppBar(getString(R.string.sweet_treats))
             }
-            textSeeAllCakeCorner.setOnClickListener {
+            textviewCategories.setOnClickListener {
                 navigationBetweenFragment(foodKitchenCategoryFragment)
                 setNavigationTitleAppBar(getString(R.string.cake_corner))
             }
