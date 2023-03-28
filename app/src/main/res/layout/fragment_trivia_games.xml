@@ -7,6 +7,7 @@
     android:background="@color/background"
     tools:context=".TriviaGamesFragment">
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_miniGameOne"
         style="@style/cardviewTrivia"
@@ -21,17 +22,19 @@
 
             <View
                 style="@style/viewTrivia"
-                android:background="#3E000000" />
+                />
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_cuisineTwo"
                 style="@style/imageviewTrivia"
                 android:src="@drawable/img_kitchen" />
+            <View
+                style="@style/viewTrivia"
+                android:background="@drawable/shape_shadow" />
 
             <TextView
                 android:id="@+id/tv_gameOne"
                 style="@style/textTrivia"
-                android:background="#00FFFFFF"
                 android:text="@string/guess_the_ingredient" />
         </FrameLayout>
     </androidx.cardview.widget.CardView>
@@ -52,7 +55,9 @@
                 android:id="@+id/iv_guess_the_ingredient"
                 style="@style/imageviewTrivia"
                 android:src="@drawable/img_ingredients" />
-
+            <View
+                style="@style/viewTrivia"
+                android:background="@drawable/shape_shadow" />
             <TextView
                 android:id="@+id/tv_gameTwo"
                 style="@style/textTrivia"
@@ -72,13 +77,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <View
-                style="@style/viewTrivia"
-                android:background="#2C000000" />
 
             <View
                 style="@style/viewTrivia"
-                android:background="#00000000" />
+                android:background="@drawable/shape_shadow" />
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_Meal"

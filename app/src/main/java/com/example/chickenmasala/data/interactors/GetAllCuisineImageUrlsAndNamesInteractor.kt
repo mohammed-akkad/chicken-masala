@@ -12,5 +12,12 @@ class GetAllCuisineImageUrlsAndNamesInteractor(
             it.cuisine
         }
     }
+    fun executeCuisine(): List<String> {
+        return dataSource.getAllItems().shuffled().distinctBy {
+            it.cuisine
+        }.map {
+            it.cuisine
+        }
+    }
 
 }

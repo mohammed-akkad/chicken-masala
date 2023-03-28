@@ -4,27 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".FoodKitchenCategoryFragment">
+    android:background="@color/gray_300"
+    tools:context=".ui.screen.FoodKitchenCategoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/titleView"
-        style="@style/text_Kitchen_category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spaceLarge"
-        android:text="@string/now_ready_this_food"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spaceMedium"
-        android:layout_marginTop="@dimen/spaceMedium"
-        app:layout_constraintTop_toBottomOf="@+id/titleView" />
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spaceSmall"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

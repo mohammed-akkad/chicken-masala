@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="122dp"
     android:layout_height="192dp"
-    android:layout_margin="@dimen/spaceMedium"
-    android:layout_marginEnd="@dimen/spaceExtraSmall"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="@dimen/spaceExtraSmall"
+    android:layout_marginVertical="@dimen/spaceSmall"
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,10 +13,11 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageview_card_small"
+            android:id="@+id/image_recipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/img_burger"
+            tool:src="@drawable/img_card_food"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/category_food"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,12 +35,17 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textview_card_small"
-            style="@style/textCategory.textCardSmall"
-            android:layout_width="wrap_content"
+            android:id="@+id/text_nameRecipe"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spaceMedium"
+            android:ellipsize="middle"
+            android:lines="2"
+            android:fontFamily="@font/roboto_regular"
             android:text="@string/content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textMedium"
+            android:paddingEnd="8dp"
             app:layout_constraintBottom_toBottomOf="@id/shadow"
             app:layout_constraintStart_toStartOf="@id/shadow"
             app:layout_constraintTop_toTopOf="@+id/shadow" />
