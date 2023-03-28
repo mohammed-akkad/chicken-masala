@@ -185,4 +185,9 @@
         <item name="android:layout_marginTop">@dimen/spaceMedium</item>
         <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
     </style>
+    <style name="SplashScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:statusBarColor" >@color/white</item>
+
+    </style>
 </resources>
