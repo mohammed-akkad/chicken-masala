@@ -43,44 +43,27 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
 
 
     override fun setup() {
+        val name = arguments?.getString("name")
 
     }
 
 
-    override fun addCallBacks() {
-        csvRecipeParser = RecipeParser()
-        dataSourceOfRecipeEntity =
-            CsvDataSource(requireContext(), Constants.RECIPES_CSV_FILE_NAME, csvRecipeParser)
-        val list =
-            dataSourceOfRecipeEntity.getAllItems().filter { it.name == dataCakeRecipes }.shuffled()
-        val listRelatedSweet = dataSourceOfRecipeEntity.getAllItems()
-            .filter { it.cleanedIngredients.toString().contains("sugar ") }.shuffled().take(2)
 
-        val imageSweet = list.map { it.imageUrl }[0]
-        val nameRecipe = list.joinToString { it.name }
-        val ingredient = list.map { it.ingredients }.joinToString()
+override fun addCallBacks() {
+    binding.apply {
 
-        val cleanIngredient = list.map { it.cleanedIngredients }.joinToString()
+        tvFoodName.text = arguments?.getString("name")
+        tvFoodDetailName.text = arguments?.getString("cleanedIngredients")
+        tvFoodDescription.text = arguments?.getString("ingredients")
+        Glide.with(this.root).load(arguments?.getString("imageUrl")).placeholder(R.drawable.cloud_download).into(imageView)
+        cookTimeText.setVisibility(View.GONE)
+        cardFirstRelativeFood.setVisibility(View.GONE)
+        cardSecondRelativeFood.setVisibility(View.GONE)
 
-        val imageSweetOneRelated = listRelatedSweet.map { it.imageUrl }[0]
-        val imageSweetTwoRelated = listRelatedSweet.map { it.imageUrl }[1]
-        val nameSweetOneRelated = listRelatedSweet.map { it.name }[0]
-        val nameSweetTwoRelated = listRelatedSweet.map { it.name }[1]
 
-        binding.apply {
-            spicficGlide(binding, imageSweet, imageView)
-            tvFoodName.text = nameRecipe
-            tvFoodDescription.text = cleanIngredient
-            tvFirstRelativeFoodName.text = nameSweetOneRelated
-            tvSecondRelativeFoodName.text = nameSweetTwoRelated
 
-            tvFoodDetailName.text = ingredient
-            spicficGlide(binding, imageSweetOneRelated, imgFirstRelativeFood)
-            spicficGlide(binding, imageSweetTwoRelated, imgSecondRelativeFood)
-        }
-        dataCakeRecipes?.let { setNavigationTitleAppBar(it) }
     }
-
+}
     private fun setNavigationTitleAppBar(name: String) {
         (activity as MainActivity).apply {
             title = "$name Food "
