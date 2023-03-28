@@ -19,6 +19,7 @@ abstract val bindingInflater:(LayoutInflater,ViewGroup?,Boolean)->VB
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding=bindingInflater(inflater,container,false)
         return (_binding as VB).root
 
