@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="312dp"
     android:layout_height="208dp"
-    android:layout_marginVertical="@dimen/spaceMedium"
+    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_marginEnd="@dimen/spaceExtraSmall"
     android:layout_marginStart="@dimen/spaceSmall"
     app:cardCornerRadius="@dimen/spaceSmall">
@@ -16,7 +17,7 @@
             android:id="@+id/card_large_Categories"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/card_large_categories"
+            tools:src="@drawable/card_large_categories"
             android:scaleType="centerCrop"
             android:contentDescription="@string/category_food"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -33,16 +34,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/text_view_card_large"
-            style="@style/textCategory.textCardLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spaceMedium"
-            android:text="@string/content"
-            app:layout_constraintBottom_toBottomOf="@id/shadow"
-            app:layout_constraintStart_toStartOf="@id/shadow"
-            app:layout_constraintTop_toTopOf="@+id/shadow" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
