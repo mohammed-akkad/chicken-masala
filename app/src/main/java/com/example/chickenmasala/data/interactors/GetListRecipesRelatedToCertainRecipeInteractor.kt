@@ -11,10 +11,10 @@ class GetListRecipesRelatedToCertainRecipeInteractor(
         return dataSource.getAllItems()
             .filter {
                 when {
-                    categories == null -> {
+                    categories.isNullOrEmpty() -> {
                         it.cuisine.equals(cuisine, ignoreCase = true)
                     }
-                    cuisine == null -> {
+                    cuisine.isNullOrEmpty() -> {
                         it.tags == categories
                     }
                     else -> {
