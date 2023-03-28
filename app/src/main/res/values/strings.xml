@@ -12,7 +12,7 @@
     <string name="answerTwo">2 - Egyptian Cuisine</string>
     <string name="answerThree">3 - Iraqi Cuisine</string>
     <string name="answerFour">4 - Palestinian Cuisine</string>
-    <string name="invalidIngredientQuestion">What is the invalid ingredient in chicken masala ?</string>
+    <string name="invalidIngredientQuestion"> What is the valid ingredient in chicken masala ?</string>
     <string name="meatOne">1 - Meat</string>
     <string name="tomato">2 - Tomato</string>
     <string name="chicken">3 - Chicken</string>
