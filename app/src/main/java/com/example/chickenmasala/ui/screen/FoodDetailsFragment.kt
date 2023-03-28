@@ -86,19 +86,19 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
             title = "$name Food "
         }
 
-        binding.apply {
-
-            tvFoodName.text = arguments?.getString("name")
-            tvFoodDetailName.text = arguments?.getString("cleanedIngredients")
-            tvFoodDescription.text = arguments?.getString("ingredients")
-            Glide.with(this.root).load(arguments?.getString("imageUrl")).placeholder(R.drawable.cloud_download).into(imageView)
-            textView3.setVisibility(View.GONE)
-            cardFirstRelativeFood.setVisibility(View.GONE)
-            cardSecondRelativeFood.setVisibility(View.GONE)
-
-
-
-        }
+//        binding.apply {
+//
+//            tvFoodName.text = arguments?.getString("name")
+//            tvFoodDetailName.text = arguments?.getString("cleanedIngredients")
+//            tvFoodDescription.text = arguments?.getString("ingredients")
+//            Glide.with(this.root).load(arguments?.getString("imageUrl")).placeholder(R.drawable.cloud_download).into(imageView)
+//            textView3.setVisibility(View.GONE)
+//            cardFirstRelativeFood.setVisibility(View.GONE)
+//            cardSecondRelativeFood.setVisibility(View.GONE)
+//
+//
+//
+//        }
     }
 
     private fun spicficGlide(

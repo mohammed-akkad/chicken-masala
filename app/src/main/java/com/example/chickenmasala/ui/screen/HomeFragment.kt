@@ -23,10 +23,10 @@ import com.example.chickenmasala.ui.listener.RecipeInteractionListener
 import com.example.chickenmasala.util.Constants.CATEGORIES_CSV_FILE_NAME
 import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
 
-class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionListener,
-    SweetTreatsListener {
 @Suppress("DEPRECATION")
-class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionListener  , RecipeInteractionListener{
+
+class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionListener,
+    SweetTreatsListener, RecipeInteractionListener {
     override val LOG_TAG: String = "HomeFragment"
     private lateinit var csvRecipeParser: RecipeParser
     private lateinit var csvCategoryParser: CategoryParser
@@ -40,10 +40,9 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
     private val sweetRecipeFragment = SweetRecipeFragment()
 
 
-
     lateinit var recipesAdapter: RecipesAdapter
     lateinit var categotyAdapter: CategotyAdapter
-    lateinit var forYouAdapter : ForYouRecipesAdapter
+    lateinit var forYouAdapter: ForYouRecipesAdapter
     lateinit var sweetAdapter: SweetAdapter
 
 
@@ -71,8 +70,8 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
 
         val list = getAListOfRandomRecipesInteractor.execute(5)
         recipesAdapter = RecipesAdapter(list)
-        forYouAdapter = ForYouRecipesAdapter(list , this)
-        bundle.putParcelableArrayList("key" , ArrayList(list))
+        forYouAdapter = ForYouRecipesAdapter(list, this)
+        bundle.putParcelableArrayList("key", ArrayList(list))
         forYouRecipesFragment.arguments = bundle
 
     }
@@ -117,20 +116,23 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
             }
             textviewSeeAllForYou.setOnClickListener {
                 navigationBetweenFragment(foodKitchenCategoryFragment)
-            textSeeAllForYou.setOnClickListener {
-                navigationBetweenFragment(forYouRecipesFragment)
-                setNavigationTitleAppBar(getString(R.string.for_you))
-            }
-            seeAllSweetTreats.setOnClickListener {
-                navigationBetweenFragment(sweetRecipeFragment)
-                setNavigationTitleAppBar(getString(R.string.sweet_treats))
-            }
-            seeAllCakeCorner.setOnClickListener {
-                navigationBetweenFragment(foodKitchenCategoryFragment)
-                setNavigationTitleAppBar(getString(R.string.cake_corner))
+                textviewSeeAllForYou.setOnClickListener {
+                    navigationBetweenFragment(forYouRecipesFragment)
+                    setNavigationTitleAppBar(getString(R.string.for_you))
+                }
+                seeAllSweetTreats.setOnClickListener {
+                    navigationBetweenFragment(sweetRecipeFragment)
+                    setNavigationTitleAppBar(getString(R.string.sweet_treats))
+                }
+                seeAllCakeCorner.setOnClickListener {
+                    navigationBetweenFragment(foodKitchenCategoryFragment)
+                    setNavigationTitleAppBar(getString(R.string.cake_corner))
+                }
+
             }
 
         }
+
 
     }
 
@@ -145,6 +147,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
 
 
     }
+
     private fun navigationBetweenParentFragment(fragment: Fragment) {
         parentFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
@@ -175,10 +178,10 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
 
     override fun onClickItemRecipeEntitty(recipeEntity: RecipeEntity) {
         navigationBetweenFragment(foodDetailsFragment)
-        bundle.putString("name" , recipeEntity.name)
-        bundle.putString("cleanedIngredients" , recipeEntity.cleanedIngredients.joinToString())
-        bundle.putString("imageUrl" , recipeEntity.imageUrl)
-        bundle.putString("ingredients" , recipeEntity.ingredients.joinToString { it })
+        bundle.putString("name", recipeEntity.name)
+        bundle.putString("cleanedIngredients", recipeEntity.cleanedIngredients.joinToString())
+        bundle.putString("imageUrl", recipeEntity.imageUrl)
+        bundle.putString("ingredients", recipeEntity.ingredients.joinToString { it })
         foodDetailsFragment.arguments = bundle
 
 

@@ -67,12 +67,12 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
         private fun bindRecipeForYou(holder: ForYouViewHolder, position: Int) {
         val currentRecipe = list[position]
         holder.binding.apply {
-            textviewCardSmall.text = currentRecipe.name
+            textNameRecipe.text = currentRecipe.name
 
             Glide
                 .with(this.root)
                 .load(currentRecipe.imageUrl)
-                .into(holder.binding.imageViewCardSmall)
+                .into(holder.binding.imageRecipe)
 
         }
 
