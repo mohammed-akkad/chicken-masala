@@ -11,14 +11,14 @@
     android:layout_height="wrap_content"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    android:layout_marginHorizontal="@dimen/spaceMedium"
-    android:layout_marginBottom="@dimen/spaceMedium"
+    android:layout_marginHorizontal="@dimen/spaceSmall"
+    android:layout_marginBottom="@dimen/spaceSmall"
+    android:layout_marginEnd="@dimen/spaceSmall"
     android:orientation="horizontal">
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:cardCornerRadius="@dimen/spaceSmall"
-            android:layout_marginEnd="@dimen/spaceSmall"
             android:layout_weight="1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

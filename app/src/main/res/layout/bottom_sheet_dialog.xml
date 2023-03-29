@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/gray_300"
     android:orientation="vertical">
 
     <ScrollView
@@ -352,6 +353,18 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.8" />
+
+            <Button
+                android:id="@+id/button_filter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceMedium"
+                android:text="@string/filter"
+                android:background="@drawable/button_with_radius"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chipGroup_cuisine" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
