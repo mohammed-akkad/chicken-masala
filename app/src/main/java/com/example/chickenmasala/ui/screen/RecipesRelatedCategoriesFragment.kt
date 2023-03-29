@@ -62,7 +62,6 @@ class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategor
 
         val list = getListRecipesRelatedToCertainRecipeInteractor.executeAllRecipe(
             limit = 20,
-
             )
 
         val newList  = dataSourceOfRecipeEntity.getAllItems().distinct().shuffled().distinctBy {
@@ -80,7 +79,6 @@ class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategor
         (activity as MainActivity).apply {
             title = "$name Food "
         }
-
     }
 
     private fun navigationBetweenParentFragment(fragment: Fragment) {
@@ -88,7 +86,6 @@ class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategor
             .replace(R.id.container, fragment)
             .addToBackStack(null)
             .commit()
-
     }
 
 

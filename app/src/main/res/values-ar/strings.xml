@@ -84,7 +84,8 @@
     <string name="search">بحث</string>
     <string name="collapse">طي</string>
     <string name="cuisine">مطبخ</string>
-
+    <string name="filter">Filter</string>
+    <string name="text_not_found">Text not Found</string>
 
 
 </resources>
