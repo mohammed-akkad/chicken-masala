@@ -17,14 +17,6 @@ class SearchAdapter(val list: List<RecipeEntity>) :
     RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
 
-    private val shimmer =
-        Shimmer.AlphaHighlightBuilder()
-            .setDuration(1800)
-            .setBaseAlpha(0.5f)
-            .setHighlightAlpha(0.7f)
-            .setTilt(45f)
-            .setAutoStart(true)
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_card_food, parent, false)
@@ -33,19 +25,16 @@ class SearchAdapter(val list: List<RecipeEntity>) :
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
 
-        val shimmerDrawable = ShimmerDrawable().apply {
-            setShimmer(shimmer.build())
-        }
 
         val currentItem = list[position]
 
         holder.binding.apply {
-            this.root.setOnClickListener {  }
+            this.root.setOnClickListener { }
             textviewRecipe.text = currentItem.name
+            textviewRecipeCuisine.text = currentItem.cuisine
             Glide
                 .with(this.root)
                 .load(currentItem.imageUrl)
-                .placeholder(shimmerDrawable)
                 .into(holder.binding.imageviewIndianFoodFirstItem)
 
         }

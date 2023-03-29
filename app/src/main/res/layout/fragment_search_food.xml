@@ -3,11 +3,10 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/gray_300"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/gray_300">
 
 
     <EditText
@@ -20,13 +19,14 @@
         android:background="@drawable/shape_rounded_search_bar"
         android:drawableStart="@drawable/ic_filter"
         android:drawableEnd="@drawable/ic_search"
-        android:singleLine="true"
         android:drawablePadding="@dimen/spaceMedium"
         android:hint="@string/hinted_search_text"
         android:paddingStart="@dimen/spaceMedium"
         android:paddingTop="@dimen/spaceExtraSmall"
         android:paddingEnd="@dimen/spaceMedium"
         android:paddingBottom="@dimen/spaceExtraSmall"
+        android:singleLine="true"
+        android:maxLength="15"
         android:textColor="@color/orange_400"
         android:textColorHint="@color/orange_400"
         android:textSize="@dimen/textMedium"
@@ -34,18 +34,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_search_card"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-        app:spanCount="2"
         android:orientation="vertical"
-        tools:listitem="@layout/item_card_food"
-        tools:itemCount="2"
+        android:layout_marginTop="@dimen/spaceSmall"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="@+id/card_filter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:spanCount="2"
+        tools:itemCount="8"
+        tools:listitem="@layout/item_card_food" />
+
+    <LinearLayout
+        android:id="@+id/item_recipe_not_found"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src ="@drawable/img_card_food"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_not_found"
+            android:layout_marginTop="@dimen/spaceSmall"
+            android:layout_gravity="center"
+            />
+
+
+    </LinearLayout>
 
     <com.google.android.material.bottomsheet.BottomSheetDragHandleView
         android:id="@+id/card_filter"

@@ -28,17 +28,13 @@ class FoodKitchenCategoryFragment : BaseFragment<FragmentFoodKitchenCategoryBind
 
 
     override fun setup() {
-
         setupDateAllCategory()
-
     }
 
     private fun setupDateAllCategory() {
         csvCategoryParser = CategoryParser()
         dataSourceOfCategoryEntity =
             CsvDataSource(requireContext(), Constants.CATEGORIES_CSV_FILE_NAME, csvCategoryParser)
-
-
         val list = dataSourceOfCategoryEntity.getAllItems().shuffled()
         Log.d(LOG_TAG, "$list")
         allCategoryAdapter = AllCategoryAdapter(list)

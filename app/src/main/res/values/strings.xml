@@ -103,6 +103,7 @@
     <string name="relative_food">Relative Food</string>
     <string name="manchurian_nodules">Manchurian Nodules</string>
     <string name="filter">Filter</string>
+    <string name="text_not_found">Text not Found</string>
 
 
 </resources>
