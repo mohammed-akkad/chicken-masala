@@ -7,11 +7,10 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
-import com.example.chickenmasala.data.interactors.GetAllCuisineImageUrlsAndNamesInteractor
-import com.example.chickenmasala.data.interactors.GetListRecipesRelatedToCertainRecipeInteractor
 import com.example.chickenmasala.data.interactors.GetRecipesOfCuisineInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentFoodDetailsBinding
+import com.example.chickenmasala.ui.screen.BaseFragment
 import com.example.chickenmasala.util.Constants
 import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
 import java.util.ArrayList
