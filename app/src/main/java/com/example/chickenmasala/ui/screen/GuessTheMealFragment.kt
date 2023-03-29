@@ -1,15 +1,22 @@
 package com.example.chickenmasala.ui.screen
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.GuessTheCuisineFragment
+import com.example.chickenmasala.GuessTheCuisineFragment.Companion.FIRST_ANSWER_KEY
+import com.example.chickenmasala.GuessTheCuisineFragment.Companion.TRY_AGAIN_WORD
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
+import com.example.chickenmasala.data.domain.GuessGamesName
+import com.example.chickenmasala.data.domain.QuestionGames
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
+import com.example.chickenmasala.data.interactors.GuessGamesInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentGuessTheMealBinding
 import com.example.chickenmasala.util.Constants
@@ -22,16 +29,15 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
         FragmentGuessTheMealBinding::inflate
 
     var chosenAnswer : RecipeEntity? = null
-    private lateinit var randomListOfDataInteractor : GetAListOfRandomRecipesInteractor
-    private lateinit var randomRecipes : List<RecipeEntity>
-    private lateinit var randomRecipe : RecipeEntity
+    private lateinit var guessGamesInteractor: GuessGamesInteractor
+    private lateinit var guessTheMeal:QuestionGames
 
     override fun setup() {
 
         val recipeParser = RecipeParser()
         val dataSource = CsvDataSource(requireContext(), Constants.RECIPES_CSV_FILE_NAME,recipeParser)
         val randomListOfDataInteractor = GetAListOfRandomRecipesInteractor(dataSource)
-
+        guessTheMeal=guessGamesInteractor.guessGames(GuessGamesName.GUESS_THE_MEAL)
         randomRecipes = randomListOfDataInteractor.execute(GuessTheCuisineFragment.NUMBER_OF_ANSWERS)
         randomRecipe = randomRecipes.random()
     }
@@ -45,7 +51,7 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
     private fun prepareImage(){
 
         Glide.with(this)
-            .load(randomRecipe.imageUrl)
+            .load(guessTheMeal.question)
             .error(R.drawable.baseline_error_24)
             .into(binding.mealImageView)
     }
@@ -59,88 +65,38 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
             answerFourText.text = "4 - ${randomRecipes[3].name}"
         }
     }
-    private fun changeColorToYellow(answerId : Int){
+    private fun changeColorToYellow(selectedAnswer : View){
 
         val yellowColor = ContextCompat.getColor(requireContext(), R.color.yellow_600)
-        when(answerId){
-
-            FIRST_ANSWER_KEY -> binding.constraintLayoutOfCard1.setBackgroundColor(yellowColor)
-            SECOND_ANSWER_KEY -> binding.constraintLayoutOfCard2.setBackgroundColor(yellowColor)
-            THIRD_ANSWER_KEY -> binding.constraintLayoutOfCard3.setBackgroundColor(yellowColor)
-            FOURTH_ANSWER_KEY -> binding.constraintLayoutOfCard4.setBackgroundColor(yellowColor)
-        }
+        selectedAnswer.setBackgroundColor(yellowColor)
     }
-    private fun changeColorToGreen(answerId : Int){
+    private fun changeColorToGreen(correctAnswer : View){
 
         val greenColor = ContextCompat.getColor(requireContext(), R.color.green_100)
-        when(answerId){
-
-            FIRST_ANSWER_KEY -> binding.constraintLayoutOfCard1.setBackgroundColor(greenColor)
-            SECOND_ANSWER_KEY -> binding.constraintLayoutOfCard2.setBackgroundColor(greenColor)
-            THIRD_ANSWER_KEY -> binding.constraintLayoutOfCard3.setBackgroundColor(greenColor)
-            FOURTH_ANSWER_KEY -> binding.constraintLayoutOfCard4.setBackgroundColor(greenColor)
+            correctAnswer.setBackgroundColor(greenColor)
         }
+
+    private fun changeColorToRed(wrongAnswer : View){
+
+        val redColor = ContextCompat.getColor(wrongAnswer.context, R.color.red_100)
+            wrongAnswer.setBackgroundColor(redColor)
     }
-    private fun changeColorToRed(answerId : Int){
+    private fun changeColorToGray(answerId : View , container:ViewGroup){
 
-        val redColor = ContextCompat.getColor(requireContext(), R.color.red_100)
-        when(answerId){
+        val grayColor = ContextCompat.getColor(answerId.context, R.color.gray_200)
+        for (i in 0 until container.childCount)
+            if (container.getChildAt(i)!=answerId)
+                answerId.setBackgroundColor(grayColor)
 
-            FIRST_ANSWER_KEY -> binding.constraintLayoutOfCard1.setBackgroundColor(redColor)
-            SECOND_ANSWER_KEY -> binding.constraintLayoutOfCard2.setBackgroundColor(redColor)
-            THIRD_ANSWER_KEY -> binding.constraintLayoutOfCard3.setBackgroundColor(redColor)
-            FOURTH_ANSWER_KEY -> binding.constraintLayoutOfCard4.setBackgroundColor(redColor)
         }
-    }
-    private fun changeColorToGray(answerId : Int){
 
-        val grayColor = ContextCompat.getColor(requireContext(), R.color.gray_200)
-        when(answerId){
-
-            FIRST_ANSWER_KEY ->{
-
-                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
-            }
-
-            SECOND_ANSWER_KEY ->{
-
-                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
-            }
-
-            THIRD_ANSWER_KEY ->{
-
-                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
-            }
-
-            FOURTH_ANSWER_KEY ->{
-
-                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
-            }
-
-            NUMBER_OF_ANSWERS ->{
-
-                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
-            }
-        }
-    }
     private fun answeringProcess(){
 
         selectAnswer()
 
         binding.submitButton.setOnClickListener {
 
-            when(chosenAnswer){
+            when(guessTheMeal.correctAnswer){
 
                 randomRecipes[FIRST_ANSWER_KEY] -> {
 
@@ -209,25 +165,25 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
         binding.apply {
 
             answerOne.setOnClickListener {
-                changeColorToYellow(FIRST_ANSWER_KEY)
-                changeColorToGray(FIRST_ANSWER_KEY)
+                changeColorToYellow(answerOne)
+                changeColorToGray(answer)
                 chosenAnswer = randomRecipes[FIRST_ANSWER_KEY]
             }
 
             answerTwo.setOnClickListener {
-                changeColorToYellow(SECOND_ANSWER_KEY)
+                changeColorToYellow(answerTwo)
                 changeColorToGray(SECOND_ANSWER_KEY)
                 chosenAnswer = randomRecipes[SECOND_ANSWER_KEY]
             }
 
             answerThree.setOnClickListener {
-                changeColorToYellow(THIRD_ANSWER_KEY)
+                changeColorToYellow(answerThree)
                 changeColorToGray(THIRD_ANSWER_KEY)
                 chosenAnswer = randomRecipes[THIRD_ANSWER_KEY]
             }
 
             answerFour.setOnClickListener {
-                changeColorToYellow(FOURTH_ANSWER_KEY)
+                changeColorToYellow(answerFour)
                 changeColorToGray(FOURTH_ANSWER_KEY)
                 chosenAnswer = randomRecipes[FOURTH_ANSWER_KEY]
             }
