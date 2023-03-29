@@ -12,6 +12,7 @@ import com.example.chickenmasala.databinding.ItemKitchensBinding
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
+
 class KitchensAdapter(
     private val list: List<RecipeEntity>,
     private val onClick: (cuisineName: String) -> Unit,
