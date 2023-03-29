@@ -135,7 +135,7 @@
 
                         <TextView
                             android:id="@+id/tvFirstRelativeFoodName"
-                            style="@style/textTitle.FoodName"
+                            style="@style/textTitle"
                             android:layout_marginStart="@dimen/spaceSmall"
                             android:layout_marginTop="@dimen/spaceSmall"
                             android:text="@string/manchurian_nodules"
@@ -187,7 +187,7 @@
 
                         <TextView
                             android:id="@+id/tvSecondRelativeFoodName"
-                            style="@style/textTitle.FoodName"
+                            style="@style/textTitle"
                             android:layout_marginStart="@dimen/spaceSmall"
                             android:layout_marginTop="@dimen/spaceSmall"
                             android:text="@string/manchurian_nodules"

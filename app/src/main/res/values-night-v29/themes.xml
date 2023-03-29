@@ -1,32 +1,21 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-     Base application theme.
-    <style name="Theme.ChickenMasala" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.ChickenMasala" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryVariant">@color/black</item>
-    <item name="colorOnPrimary">#CCFFFFFF</item>
+        <item name="colorPrimary">@color/green_100</item>
+        <item name="colorPrimaryVariant">#000000</item>
+        <item name="colorOnPrimary">#CCFFFFFF</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/orange_600</item>
         <item name="colorSecondaryVariant">@color/orange_600</item>
         <item name="colorOnSecondary">@color/green_100</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">#000000</item>
-
         <!-- Customize your theme here. -->
+        <item name="android:forceDarkAllowed">true</item>
 
 
-    </style>
-
-
-
-    <style name="textSubTitle">
-        <item name="android:fontFamily">@font/roboto_light</item>
-        <item name="android:textColor">#9A9A9A</item>
-        <item name="android:textSize">@dimen/textMedium</item>
-    </style>
-
-    <style name="circle">
-        <item name="cornerSize">100dp</item>
     </style>
 
     <style name="textTitle">
@@ -47,7 +36,17 @@
 
     </style>
 
+    <style name="textSubTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textColor">#9A9A9A</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+    </style>
 
+    <style name="circle">
+        <item name="cornerSize">100dp</item>
+    </style>
 
     <style name="relativeFoodImage">
         <item name="cornerSize">50dp</item>
@@ -198,6 +197,4 @@
         <item name="android:windowBackground">@drawable/splash_screen</item>
 
     </style>
-
-
 </resources>

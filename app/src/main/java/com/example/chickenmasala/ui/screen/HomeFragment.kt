@@ -3,7 +3,6 @@ package com.example.chickenmasala.ui.screen
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
@@ -20,6 +19,7 @@ import com.example.chickenmasala.ui.adapter.RecipesAdapter
 import com.example.chickenmasala.ui.adapter.SweetAdapter
 import com.example.chickenmasala.ui.listener.SweetTreatsListener
 import com.example.chickenmasala.ui.listener.RecipeInteractionListener
+import com.example.chickenmasala.util.Constants
 import com.example.chickenmasala.util.Constants.CATEGORIES_CSV_FILE_NAME
 import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
 
@@ -71,7 +71,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
         val list = getAListOfRandomRecipesInteractor.execute(5)
         recipesAdapter = RecipesAdapter(list)
         forYouAdapter = ForYouRecipesAdapter(list, this)
-        bundle.putParcelableArrayList("key", ArrayList(list))
+        bundle.putParcelableArrayList(Constants.KEY_RECIPES_LIST, ArrayList(list))
         forYouRecipesFragment.arguments = bundle
 
     }
@@ -174,10 +174,10 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(), CategoryInteractionLis
 
     override fun onClickItemRecipeEntitty(recipeEntity: RecipeEntity) {
         navigationBetweenFragment(foodDetailsFragment)
-        bundle.putString("name", recipeEntity.name)
-        bundle.putString("cleanedIngredients", recipeEntity.cleanedIngredients.joinToString())
-        bundle.putString("imageUrl", recipeEntity.imageUrl)
-        bundle.putString("ingredients", recipeEntity.ingredients.joinToString { it })
+        bundle.putString(Constants.KEY_RECIPE_NAME, recipeEntity.name)
+        bundle.putString(Constants.KEY_CLEANED_INGREDIENTS, recipeEntity.cleanedIngredients.joinToString())
+        bundle.putString(Constants.KEY_IMAGE_URL, recipeEntity.imageUrl)
+        bundle.putString(Constants.KEY_INGREDIENTS, recipeEntity.ingredients.joinToString())
         foodDetailsFragment.arguments = bundle
 
 

@@ -43,7 +43,6 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
 
 
     override fun setup() {
-        val name = arguments?.getString("name")
 
     }
 
@@ -52,10 +51,10 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
 override fun addCallBacks() {
     binding.apply {
 
-        tvFoodName.text = arguments?.getString("name")
-        tvFoodDetailName.text = arguments?.getString("cleanedIngredients")
-        tvFoodDescription.text = arguments?.getString("ingredients")
-        Glide.with(this.root).load(arguments?.getString("imageUrl")).placeholder(R.drawable.cloud_download).into(imageView)
+        tvFoodName.text = arguments?.getString(Constants.KEY_RECIPE_NAME)
+        tvFoodDetailName.text = arguments?.getString(Constants.KEY_CLEANED_INGREDIENTS)
+        tvFoodDescription.text = arguments?.getString(Constants.KEY_INGREDIENTS)
+        Glide.with(this.root).load(arguments?.getString(Constants.KEY_IMAGE_URL)).placeholder(R.drawable.cloud_download).into(imageView)
         cookTimeText.setVisibility(View.GONE)
         cardFirstRelativeFood.setVisibility(View.GONE)
         cardSecondRelativeFood.setVisibility(View.GONE)
