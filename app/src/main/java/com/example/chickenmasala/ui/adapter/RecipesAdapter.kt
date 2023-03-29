@@ -23,11 +23,6 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
                     .inflate(R.layout.card_large, parent, false)
                 RecipeViewHolder(view)
             }
-            VIEW_TYPE_FOR_YOU -> {
-                val view =
-                    LayoutInflater.from(parent.context).inflate(R.layout.card_small, parent, false)
-                return ForYouViewHolder(view)
-            }
 
             else -> {
                 super.createViewHolder(parent, viewType)
@@ -41,8 +36,7 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
 
 
         when {
-            holder is RecipeViewHolder && position > 0 -> bindImage(holder, position)
-            holder is ForYouViewHolder -> bindRecipeForYou(holder, position)
+            holder is RecipeViewHolder -> bindImage(holder, position)
         }
 
 
@@ -64,19 +58,7 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
 
 
 
-        private fun bindRecipeForYou(holder: ForYouViewHolder, position: Int) {
-        val currentRecipe = list[position]
-        holder.binding.apply {
-            textNameRecipe.text = currentRecipe.name
 
-            Glide
-                .with(this.root)
-                .load(currentRecipe.imageUrl)
-                .into(holder.binding.imageRecipe)
-
-        }
-
-    }
 
 
     abstract class BaseViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem)
@@ -85,13 +67,9 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
         val binding = CardLargeBinding.bind(viewItem)
     }
 
-    class ForYouViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
-        val binding = CardSmallBinding.bind(viewItem)
-    }
 
     companion object {
         const val VIEW_TYPE_IMAGE_LARGE = 0
-        const val VIEW_TYPE_FOR_YOU = 1
 
     }
 

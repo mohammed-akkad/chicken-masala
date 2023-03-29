@@ -36,6 +36,7 @@ class CategorySpacificAdapter(val list: List<RecipeEntity>, val listener: Recipe
                 .load(currentCategory.imageUrl)
                 .into(holder.binding.imageviewIndianFoodFirstItem)
             textviewRecipe.text = currentCategory.name
+            textviewRecipeCuisine.text = currentCategory.tags[0]
             root.setOnClickListener { listener.onClickItemRecipeEntitty(currentCategory)  }
 
         }

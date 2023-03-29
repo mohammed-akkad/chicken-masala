@@ -22,9 +22,7 @@ class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategor
     private lateinit var csvRecipeParser: RecipeParser
     var dataCategories: String? = null
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
-    lateinit var getListRecipesRelatedToCertainRecipeInteractor: GetListRecipesRelatedToCertainRecipeInteractor
     lateinit var categorySpacificAdapter: CategorySpacificAdapter
-    lateinit var getAllCuisineImageUrlsAndNamesInteractor: GetAllCuisineImageUrlsAndNamesInteractor
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodKitchenCategoryBinding =
         FragmentFoodKitchenCategoryBinding::inflate
 
@@ -55,21 +53,9 @@ class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategor
         dataSourceOfRecipeEntity =
             CsvDataSource(requireContext(), Constants.RECIPES_CSV_FILE_NAME, csvRecipeParser)
 
-        getListRecipesRelatedToCertainRecipeInteractor =
-            GetListRecipesRelatedToCertainRecipeInteractor(dataSourceOfRecipeEntity)
+        val list = dataSourceOfRecipeEntity.getAllItems()
+            .shuffled()
 
-        getAllCuisineImageUrlsAndNamesInteractor = GetAllCuisineImageUrlsAndNamesInteractor(dataSourceOfRecipeEntity)
-
-        val list = getListRecipesRelatedToCertainRecipeInteractor.executeAllRecipe(
-            limit = 20,
-            )
-
-        val newList  = dataSourceOfRecipeEntity.getAllItems().distinct().shuffled().distinctBy {
-            it.cuisine
-        }.map {
-            it.cuisine
-        }
-        Log.d(LOG_TAG, "$newList ")
         categorySpacificAdapter = CategorySpacificAdapter(list,this)
 
 

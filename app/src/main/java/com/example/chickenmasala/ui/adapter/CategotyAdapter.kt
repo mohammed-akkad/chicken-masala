@@ -52,7 +52,7 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
                 .load(currentCategory.imageUrl)
                 .into(holder.binding.cardLargeImageview)
             textViewCategory.text = currentCategory.name
-            textViewCategory.setOnClickListener { listener.onClickItemCategory(currentCategory.name) }
+            root.setOnClickListener { listener.onClickItemCategory(currentCategory.name) }
         }
 
 
