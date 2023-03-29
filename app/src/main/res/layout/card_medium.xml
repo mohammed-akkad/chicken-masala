@@ -16,7 +16,7 @@
             android:id="@+id/image_recipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tool:background="@drawable/pic6"
+            tool:background="@drawable/img_card_food"
             android:scaleType="centerCrop"
             android:contentDescription="@string/category_food"
             app:layout_constraintBottom_toBottomOf="parent"

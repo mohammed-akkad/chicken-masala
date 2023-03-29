@@ -13,8 +13,8 @@ import com.example.chickenmasala.ui.listener.SpecialTreatsListener
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
-class SweetAdapter(val list: List<RecipeEntity>, val listener : SpecialTreatsListener) :
-    RecyclerView.Adapter<SweetAdapter.SweetViewHolder>() {
+class CakeAdapter(val list: List<RecipeEntity>, val listener: SpecialTreatsListener) :
+    RecyclerView.Adapter<CakeAdapter.CakeViewHolder>() {
 
     private val shimmer =
         Shimmer.AlphaHighlightBuilder()
@@ -24,13 +24,14 @@ class SweetAdapter(val list: List<RecipeEntity>, val listener : SpecialTreatsLis
             .setTilt(45f)
             .setAutoStart(true)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SweetViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CakeViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.card_medium, parent, false)
-        return SweetViewHolder(view)
+        return CakeViewHolder(view)
+
     }
 
-    override fun onBindViewHolder(holder: SweetViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CakeViewHolder, position: Int) {
         val currentItem = list[position]
         val shimmerDrawable = ShimmerDrawable().apply {
             setShimmer(shimmer.build())
@@ -47,15 +48,13 @@ class SweetAdapter(val list: List<RecipeEntity>, val listener : SpecialTreatsLis
             root.setOnClickListener { listener.onClickItemRecipeEntity(currentItem.name) }
         }
 
-
-
-
     }
 
     override fun getItemCount() = list.size
 
-    class SweetViewHolder(viewItem: View) : ViewHolder(viewItem) {
+    class CakeViewHolder(viewItem : View) : ViewHolder(viewItem)  {
         val binding = CardSmallBinding.bind(viewItem)
+
     }
 
 }
