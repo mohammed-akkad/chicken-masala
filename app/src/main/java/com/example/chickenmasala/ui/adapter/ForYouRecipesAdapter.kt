@@ -12,10 +12,18 @@ import com.example.chickenmasala.databinding.CardSmallBinding
 import com.example.chickenmasala.databinding.ItemKitchensBinding
 import com.example.chickenmasala.ui.listener.RecipeInteractionListener
 import com.example.chickenmasala.ui.screen.ForYouFragment
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerDrawable
 
 class ForYouRecipesAdapter(val list: List<RecipeEntity>, val listener: RecipeInteractionListener) : RecyclerView.Adapter<ForYouRecipesAdapter.ForYouRecipesViewHolder>(){
 
-
+    private val shimmer =
+        Shimmer.AlphaHighlightBuilder()
+            .setDuration(1800)
+            .setBaseAlpha(0.5f)
+            .setHighlightAlpha(0.7f)
+            .setTilt(45f)
+            .setAutoStart(true)
 
 
 
@@ -26,6 +34,11 @@ class ForYouRecipesAdapter(val list: List<RecipeEntity>, val listener: RecipeInt
 
 
     override fun onBindViewHolder(holder: ForYouRecipesViewHolder, position: Int) {
+        val shimmerDrawable = ShimmerDrawable().apply {
+            setShimmer(shimmer.build())
+        }
+
+
         val currentRecipes = list[position]
         holder.binding.apply {
             textNameRecipe.text = currentRecipes.name
@@ -38,7 +51,7 @@ class ForYouRecipesAdapter(val list: List<RecipeEntity>, val listener: RecipeInt
 
             Glide.with(this.root)
                 .load(currentRecipes.imageUrl)
-                .placeholder(R.drawable.cloud_download)
+                .placeholder(shimmerDrawable)
                 .into(imageRecipe)
 
         }
@@ -49,6 +62,8 @@ class ForYouRecipesAdapter(val list: List<RecipeEntity>, val listener: RecipeInt
 
     class ForYouRecipesViewHolder(viewItem: View): RecyclerView.ViewHolder(viewItem){
         val binding = CardMediumBinding.bind(viewItem)
+
+
 
     }
 }
