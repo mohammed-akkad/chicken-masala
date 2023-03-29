@@ -64,7 +64,10 @@
                 <TextView
                     android:id="@+id/tvFoodName"
                     style="@style/textTitle"
+                    android:ellipsize="end"
+                    android:lines="1"
                     android:text="@string/chicken_frid_rice"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,7 +83,10 @@
                     android:id="@+id/category_text"
                     style="@style/textTitle"
                     android:layout_marginTop="@dimen/spaceLarge"
+                    android:ellipsize="end"
+                    android:lines="1"
                     android:text="@string/description"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/tvFoodDetailName"
                     app:layout_constraintTop_toBottomOf="@+id/tvFoodDetailName" />
 
@@ -136,9 +142,12 @@
                         <TextView
                             android:id="@+id/tvFirstRelativeFoodName"
                             style="@style/textTitle"
-                            android:layout_marginStart="@dimen/spaceSmall"
                             android:layout_marginTop="@dimen/spaceSmall"
+                            android:layout_marginEnd="@dimen/spaceSmall"
+                            android:ellipsize="end"
+                            android:lines="1"
                             android:text="@string/manchurian_nodules"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -188,9 +197,12 @@
                         <TextView
                             android:id="@+id/tvSecondRelativeFoodName"
                             style="@style/textTitle"
-                            android:layout_marginStart="@dimen/spaceSmall"
                             android:layout_marginTop="@dimen/spaceSmall"
+                            android:layout_marginEnd="@dimen/spaceSmall"
+                            android:ellipsize="end"
+                            android:lines="1"
                             android:text="@string/manchurian_nodules"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 

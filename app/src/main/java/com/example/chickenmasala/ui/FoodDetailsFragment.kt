@@ -13,7 +13,6 @@ import com.example.chickenmasala.databinding.FragmentFoodDetailsBinding
 import com.example.chickenmasala.ui.screen.BaseFragment
 import com.example.chickenmasala.util.Constants
 import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
-import java.util.ArrayList
 
 class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
 
@@ -24,39 +23,22 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
 
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
     private lateinit var csvRecipeParser: RecipeParser
-    lateinit var name:String
-    lateinit var ingredients:List<String>
-    lateinit var imageUrl:String
-    lateinit var cleanedIngredients:List<String>
-    lateinit var cuisine:String
+//    lateinit var name:String
+//    lateinit var ingredients:List<String>
+//    lateinit var imageUrl:String
+//    lateinit var cleanedIngredients:List<String>
+//    lateinit var cuisine:String
 
     override fun onStart() {
         super.onStart()
 
+            val recipeEntity = arguments?.
+            getParcelable<RecipeEntity>(Constants.TransitionKeys.RECIPE_LIST_KEY)
 
-            val foodDetailsList = arguments?.
-            getParcelableArrayList<RecipeEntity>(Constants.TransitionKeys.RECIPE_LIST_KEY)
-
-            getAllFoodDetailsInformation(foodDetailsList)
-            foodDetailsList?.let { updateFoodDetailsViews(it) }
-
-            val relativeFoodList =
-                foodDetailsList?.get(0)?.cuisine?.let { getAllFoodRelativeInformation(it,2) }
-            relativeFoodList?.let { updateRelativeFoodViews(it) }
-
-
+        recipeEntity?.let { updateFoodDetailsViews(it) }
 
     }
 
-    private fun updateFoodDetailsViews(list:List<RecipeEntity>) {
-        binding.apply {
-            tvFoodName.text = list[0].name
-            tvFoodDetailName.text = list[0].cleanedIngredients.toString()
-            tvFoodDescription.text = list[0].ingredients.toString()
-
-             loadImageFromNetwork(list[0].url, imageView)
-        }
-    }
 
     override fun setup() {
     }
@@ -71,17 +53,17 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
             }
         }
     }
-    private fun getAllFoodDetailsInformation(foodDetailsList: ArrayList<RecipeEntity>?) {
-        foodDetailsList?.forEach { recipe ->
-            name = recipe.name
-            ingredients = recipe.ingredients
-            imageUrl = recipe.imageUrl
-            cleanedIngredients = recipe.cleanedIngredients
-            cuisine = recipe.cuisine
+
+    private fun updateFoodDetailsViews(recipeEntity:RecipeEntity) {
+        binding.apply {
+            tvFoodName.text = recipeEntity.name
+            tvFoodDetailName.text = recipeEntity.cleanedIngredients.toString()
+            tvFoodDescription.text = recipeEntity.ingredients.toString()
+            loadImageFromNetwork(recipeEntity.url, imageView)
+
+            updateRelativeFoodViews(getAllFoodRelativeInformation(recipeEntity.cuisine, 2))
         }
     }
-
-
 
     private fun getAllFoodRelativeInformation(cuisine: String, limit:Int): List<RecipeEntity> {
         csvRecipeParser = RecipeParser()
@@ -97,11 +79,9 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
         binding.apply {
             tvFirstRelativeFoodName.text = list[0].name
             tvSecondRelativeFoodName.text = list[1].name
-
             loadImageFromNetwork(list[0].imageUrl, imgFirstRelativeFood) }
-        loadImageFromNetwork(list[1].imageUrl, binding.imgSecondRelativeFood) }
-
-
+            loadImageFromNetwork(list[1].imageUrl, binding.imgSecondRelativeFood)
+    }
 
     private fun loadImageFromNetwork(url: String, imageView: ImageView){
         Glide.with(this@FoodDetailsFragment).load(url)
