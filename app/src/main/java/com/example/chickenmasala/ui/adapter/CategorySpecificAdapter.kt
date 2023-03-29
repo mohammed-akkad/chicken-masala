@@ -9,10 +9,23 @@ import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.databinding.ItemCardFoodBinding
 import com.example.chickenmasala.ui.listener.RecipeInteractionListener
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerDrawable
 
-class CategorySpacificAdapter(val list: List<RecipeEntity>, val listener: RecipeInteractionListener) :
-    RecyclerView.Adapter<CategorySpacificAdapter.CategorySpicficViewHolder>() {
+class CategorySpecificAdapter(
+    val list: List<RecipeEntity>,
+    val listener: RecipeInteractionListener
+) :
+    RecyclerView.Adapter<CategorySpecificAdapter.CategorySpicficViewHolder>() {
 
+
+    private val shimmer =
+        Shimmer.AlphaHighlightBuilder()
+            .setDuration(1800)
+            .setBaseAlpha(0.5f)
+            .setHighlightAlpha(0.7f)
+            .setTilt(45f)
+            .setAutoStart(true)
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -28,16 +41,21 @@ class CategorySpacificAdapter(val list: List<RecipeEntity>, val listener: Recipe
         holder: CategorySpicficViewHolder,
         position: Int
     ) {
+        val shimmerDrawable = ShimmerDrawable().apply {
+            setShimmer(shimmer.build())
+        }
+
         val currentCategory = list[position]
         holder.binding.apply {
 
             Glide
                 .with(this.root)
                 .load(currentCategory.imageUrl)
+                .placeholder(shimmerDrawable)
                 .into(holder.binding.imageviewIndianFoodFirstItem)
             textviewRecipe.text = currentCategory.name
             textviewRecipeCuisine.text = currentCategory.tags[0]
-            root.setOnClickListener { listener.onClickItemRecipeEntitty(currentCategory)  }
+            root.setOnClickListener { listener.onClickItemRecipeEntitty(currentCategory) }
 
         }
     }

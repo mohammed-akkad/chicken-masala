@@ -8,10 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.databinding.CardMediumBinding
-import com.example.chickenmasala.databinding.CardSmallBinding
-import com.example.chickenmasala.databinding.ItemKitchensBinding
 import com.example.chickenmasala.ui.listener.RecipeInteractionListener
-import com.example.chickenmasala.ui.screen.ForYouFragment
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 

@@ -6,14 +6,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
-
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.databinding.CardLargeBinding
-import com.example.chickenmasala.databinding.CardSmallBinding
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerDrawable
 
 class RecipesAdapter(val list: List<RecipeEntity>) :
     RecyclerView.Adapter<RecipesAdapter.BaseViewHolder>() {
 
+    private val shimmer =
+        Shimmer.AlphaHighlightBuilder()
+            .setDuration(1800)
+            .setBaseAlpha(0.5f)
+            .setHighlightAlpha(0.7f)
+            .setTilt(45f)
+            .setAutoStart(true)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return when (viewType) {
@@ -45,11 +52,15 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
     override fun getItemCount() = list.size
 
     private fun bindImage(holder: RecipeViewHolder, position: Int) {
+        val shimmerDrawable = ShimmerDrawable().apply {
+            setShimmer(shimmer.build())
+        }
         val currentRecipe = list[position]
         holder.binding.apply {
             Glide
                 .with(this.root)
                 .load(currentRecipe.imageUrl)
+                .placeholder(shimmerDrawable)
                 .into(holder.binding.cardLargeCategories)
         }
 

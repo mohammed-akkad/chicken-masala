@@ -8,13 +8,20 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.RecipeEntity
-import com.example.chickenmasala.databinding.CardSmallBinding
 import com.example.chickenmasala.databinding.ItemCardFoodBinding
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
 class SearchAdapter(val list: List<RecipeEntity>) :
     RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
+
+    private val shimmer =
+        Shimmer.AlphaHighlightBuilder()
+            .setDuration(1800)
+            .setBaseAlpha(0.5f)
+            .setHighlightAlpha(0.7f)
+            .setTilt(45f)
+            .setAutoStart(true)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
@@ -24,7 +31,9 @@ class SearchAdapter(val list: List<RecipeEntity>) :
     }
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
-
+        val shimmerDrawable = ShimmerDrawable().apply {
+            setShimmer(shimmer.build())
+        }
 
         val currentItem = list[position]
 
@@ -35,6 +44,7 @@ class SearchAdapter(val list: List<RecipeEntity>) :
             Glide
                 .with(this.root)
                 .load(currentItem.imageUrl)
+                .placeholder(shimmerDrawable)
                 .into(holder.binding.imageviewIndianFoodFirstItem)
 
         }
