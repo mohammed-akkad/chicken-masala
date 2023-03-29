@@ -35,12 +35,12 @@ class KitchenFragment : BaseFragment<FragmantKitchensBinding>() {
     }
 
     private fun onClickKitchenItem(cuisine: String) {
-        val foodKitchenCategoryFragment = FoodKitchenCategoryFragment()
+        val recipesRelatedCategoriesFragment = RecipesRelatedCategoriesFragment()
         val recipesOfKitchen = GetRecipesOfCuisineInteractor(dataSource).execute(cuisine)
-        foodKitchenCategoryFragment.arguments = Bundle().apply {
+        recipesRelatedCategoriesFragment.arguments = Bundle().apply {
             putParcelableArrayList(Constants.KEY_RECIPES_LIST, ArrayList(recipesOfKitchen))
         }
-        addFragment(foodKitchenCategoryFragment)
+        addFragment(recipesRelatedCategoriesFragment)
     }
 
     private fun addFragment(fragment: Fragment) {

@@ -10,16 +10,18 @@ import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.GetRecipesOfCuisineInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentFoodDetailsBinding
+import com.example.chickenmasala.ui.listener.RecipeInteractionListener
 import com.example.chickenmasala.ui.screen.BaseFragment
 import com.example.chickenmasala.util.Constants
 import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
 
-class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
+class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>(){
 
     override val LOG_TAG: String = "FragmentDetails"
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) ->
         FragmentFoodDetailsBinding = FragmentFoodDetailsBinding::inflate
+
 
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
     private lateinit var csvRecipeParser: RecipeParser
@@ -90,7 +92,9 @@ class FoodDetailsFragment : BaseFragment<FragmentFoodDetailsBinding>() {
             .into(imageView)
     }
 
-    }
+
+
+}
 
 
 
