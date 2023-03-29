@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".TriviaGamesFragment">
+    android:paddingTop="@dimen/spaceNormal">
 
 
     <androidx.cardview.widget.CardView
@@ -17,12 +17,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <FrameLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <View
-                style="@style/viewTrivia"
-                />
+            <View style="@style/viewTrivia" />
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_cuisineTwo"

@@ -59,10 +59,10 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
         binding.apply {
 
-            answerOneText.text = "1 - ${randomRecipes[0].name}"
-            answerTwoText.text = "2 - ${randomRecipes[1].name}"
-            answerThreeText.text = "3 - ${randomRecipes[2].name}"
-            answerFourText.text = "4 - ${randomRecipes[3].name}"
+            answerOneText.text = randomRecipes[0].name
+            answerTwoText.text = randomRecipes[1].name
+            answerThreeText.text = randomRecipes[2].name
+            answerFourText.text = randomRecipes[3].name
         }
     }
     private fun changeColorToYellow(selectedAnswer : View){
@@ -207,10 +207,10 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
         binding.apply {
 
-            answerOne.isClickable = false
-            answerTwo.isClickable = false
-            answerThree.isClickable = false
-            answerFour.isClickable = false
+            answerOneText.isClickable = false
+            answerTwoText.isClickable = false
+            answerThreeText.isClickable = false
+            answerFourText.isClickable = false
         }
     }
 
