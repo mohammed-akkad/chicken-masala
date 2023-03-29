@@ -69,8 +69,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionLis
 
 
         val list = getAListOfRandomRecipesInteractor.execute(5)
+        val listForYou = getAListOfRandomRecipesInteractor.execute(5)
         recipesAdapter = RecipesAdapter(list)
-        forYouAdapter = ForYouRecipesAdapter(list, this)
+        forYouAdapter = ForYouRecipesAdapter(listForYou, this)
         bundle.putParcelableArrayList(Constants.KEY_RECIPES_LIST, ArrayList(list))
         forYouRecipesFragment.arguments = bundle
 
