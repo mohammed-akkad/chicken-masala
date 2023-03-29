@@ -34,7 +34,7 @@
 
         <TextView
             android:id="@+id/text_view_category"
-            style="@style/textCategory"
+            style="@style/TextCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/textSmall"

@@ -5,43 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".TriviaGamesFragment">
+    android:paddingTop="@dimen/spaceNormal">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_miniGameOne"
-        style="@style/cardviewTrivia"
+        style="@style/CardViewTrivia"
         app:cardCornerRadius="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <FrameLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <View
-                style="@style/viewTrivia"
-                />
+            <View style="@style/ViewTrivia" />
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_cuisineTwo"
-                style="@style/imageviewTrivia"
+                style="@style/ImageViewTrivia"
                 android:src="@drawable/img_kitchen" />
             <View
-                style="@style/viewTrivia"
+                style="@style/ViewTrivia"
                 android:background="@drawable/shape_shadow" />
 
             <TextView
                 android:id="@+id/tv_gameOne"
-                style="@style/textTrivia"
+                style="@style/TextTrivia"
                 android:text="@string/guess_the_ingredient" />
         </FrameLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_miniGameTwo"
-        style="@style/cardviewTrivia"
+        style="@style/CardViewTrivia"
         app:cardCornerRadius="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,21 +51,21 @@
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_ingredient"
-                style="@style/imageviewTrivia"
+                style="@style/ImageViewTrivia"
                 android:src="@drawable/img_ingredients" />
             <View
-                style="@style/viewTrivia"
+                style="@style/ViewTrivia"
                 android:background="@drawable/shape_shadow" />
             <TextView
                 android:id="@+id/tv_gameTwo"
-                style="@style/textTrivia"
+                style="@style/TextTrivia"
                 android:text="@string/guess_the_cuisine" />
         </FrameLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_miniGameThree"
-        style="@style/cardviewTrivia"
+        style="@style/CardViewTrivia"
         app:cardCornerRadius="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,17 +77,17 @@
 
 
             <View
-                style="@style/viewTrivia"
+                style="@style/ViewTrivia"
                 android:background="@drawable/shape_shadow" />
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/iv_guess_the_Meal"
-                style="@style/imageviewTrivia"
+                style="@style/ImageViewTrivia"
                 android:src="@drawable/img_meal" />
 
             <TextView
                 android:id="@+id/tv_gameThree"
-                style="@style/textTrivia"
+                style="@style/TextTrivia"
                 android:text="@string/guess_the_meal" />
         </FrameLayout>
     </androidx.cardview.widget.CardView>

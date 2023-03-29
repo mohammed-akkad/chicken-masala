@@ -20,13 +20,13 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_large_home"
-                style="@style/RV"
+                style="@style/RecyclerView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_category_home"
-                style="@style/RV"
+                style="@style/RecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_title_home_category"
@@ -34,14 +34,14 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_for_you_home"
-                style="@style/RV"
+                style="@style/RecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_title_home_for_you" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_sweet_treat_home"
-                style="@style/RV"
+                style="@style/RecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_title_home_sweet_treat" />
@@ -50,7 +50,7 @@
                 android:id="@+id/recycler_cake_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/RV"
+                style="@style/RecyclerView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -58,14 +58,14 @@
 
             <LinearLayout
                 android:id="@+id/text_title_home_category"
-                style="@style/linearLayout"
+                style="@style/LinearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_large_home">
 
                 <TextView
                     android:id="@+id/textview_categories"
-                    style="@style/see_all.categories"
+                    style="@style/SeeAll.Categories"
                     android:text="@string/categories" />
 
                 <TextView
@@ -73,19 +73,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/see_all"
-                    style="@style/see_all" />
+                    style="@style/SeeAll" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/text_title_home_for_you"
-               style="@style/linearLayout"
+               style="@style/LinearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_category_home">
 
                 <TextView
                     android:id="@+id/textview_for_you"
-                    style="@style/see_all.categories"
+                    style="@style/SeeAll.Categories"
                     android:text="@string/for_you" />
 
                 <TextView
@@ -93,20 +93,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/see_all"
-                    style="@style/see_all" />
+                    style="@style/SeeAll" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:id="@+id/text_title_home_sweet_treat"
-                style="@style/linearLayout"
+                style="@style/LinearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_for_you_home">
 
                 <TextView
                     android:id="@+id/sweet_treats_textview"
-                    style="@style/see_all.categories"
+                    style="@style/SeeAll.Categories"
                     android:text="@string/sweet_treats" />
 
                 <TextView
@@ -114,19 +114,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/see_all"
-                    style="@style/see_all" />
+                    style="@style/SeeAll" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/text_title_home_cake"
-                style="@style/linearLayout"
+                style="@style/LinearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_sweet_treat_home">
 
                 <TextView
                     android:id="@+id/cake_corner_textview"
-                    style="@style/see_all.categories"
+                    style="@style/SeeAll.Categories"
                     android:text="@string/cake_corner"
                     />
 
@@ -135,7 +135,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/see_all"
-                    style="@style/see_all" />
+                    style="@style/SeeAll" />
             </LinearLayout>
 
 
