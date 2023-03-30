@@ -22,7 +22,7 @@
 
 
 
-            android:configChanges="orientation|screenSize|uiMode"
+
             android:windowSoftInputMode="adjustResize|adjustPan"
             android:exported="true">
             <intent-filter>

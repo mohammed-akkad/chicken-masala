@@ -19,7 +19,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|clip_horizontal"
         android:background="@color/gray_300"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:backgroundTint="@color/backround_card"
+        >
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/imageview_indian_food_first_item"
@@ -44,7 +46,7 @@
             android:fontFamily="@font/roboto_bold"
             android:lines="1"
             android:text="@string/masala_karela_recipe"
-            android:textColor="@color/black"
+            android:textColor="@color/txt_white_dark_background"
             android:textSize="@dimen/textMedium"
             app:layout_constraintBottom_toBottomOf="@+id/imageview_indian_food_first_item"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spaceSmall"
-
+            android:textColor="@color/txt_white_dark_background"
             android:fontFamily="@font/roboto_bold"
             android:textSize="@dimen/textMedium"
             app:layout_constraintEnd_toEndOf="@+id/textview_recipe"

@@ -93,7 +93,6 @@
     </style>
 
     <style name="indian_food_text.indian">
-        <item name="background">@color/black</item>
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:textColor">@color/txt_white_dark_background</item>
     </style>
