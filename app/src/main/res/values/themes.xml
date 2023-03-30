@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ChickenMasala" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+    <style name="Theme.ChickenMasala" parent="Theme.Material3.Light">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/orange_700</item>
         <item name="colorPrimaryVariant">@color/orange_700</item>
@@ -10,10 +10,12 @@
         <item name="colorSecondaryVariant">@color/orange_600</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">#fff0ea</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@drawable/splash_screen</item>
 
-
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:navigationBarColor">#fff0ea</item>
     </style>
 
     <style name="textTitle">
@@ -38,7 +40,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/roboto_light</item>
-        <item name="android:textColor">#9A9A9A</item>
+        <item name="android:textColor">@color/txt_white_dark_background</item>
         <item name="android:textSize">@dimen/textMedium</item>
     </style>
 
@@ -75,9 +77,9 @@
     </style>
 
     <style name="indian_food_text">
-        <item name="android:background">@color/background</item>
         <item name="android:textSize">@dimen/textXLarge</item>
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:textColor">@color/txt_white_dark_background</item>
     </style>
 
     <style name="indian_food_text.indian">
@@ -93,7 +95,7 @@
     </style>
     <style name="see_all">
         <item name="android:fontFamily">@font/roboto_regular</item>
-        <item name="android:textColor">@color/orange_200</item>
+        <item name="android:color">@color/txt_white_dark_background</item>
         <item name="android:textSize">@dimen/textMedium</item>
     </style>
     <style name="see_all.categories">
@@ -102,6 +104,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">3</item>
+
     </style>
     <style name="RV">
         <item name="android:orientation">horizontal</item>
@@ -191,8 +194,5 @@
         <item name="android:layout_marginTop">@dimen/spaceMedium</item>
         <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
     </style>
-    <style name="SplashScreen" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="android:windowBackground">@drawable/splash_screen</item>
 
-    </style>
 </resources>

@@ -32,7 +32,11 @@
         app:itemIconTint="@color/icon_home"
        app:itemTextColor="@color/txt_color_bottom_navigation"
 
-
         />
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

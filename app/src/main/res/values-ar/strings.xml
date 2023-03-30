@@ -36,7 +36,7 @@
     <string name="under_10_ingredients">أقل من10  مكونًا</string>
     <string name="see_all">اظهار الكل</string>
     <string name="cake_corner">قسم الكيك</string>
-    <string name="sweet_treats">عمل الحلو</string>
+    <string name="sweet_treats">قسم الحلوى</string>
     <string name="for_you">لك</string>
     <string name="contentOne">المحتوى</string>
     <string name="category_food">فئة الطعام</string>
@@ -62,6 +62,7 @@
     <string name="salad">سلطة</string>
     <string name="mediterranean">البحر المتوسط</string>
     <string name="barbecue">شواء</string>
+
     <string name="soup">شوربة</string>
     <string name="pasta">معكرونة</string>
     <string name="Chicken">دجاج</string>
@@ -84,6 +85,7 @@
     <string name="search">بحث</string>
     <string name="collapse">طي</string>
     <string name="cuisine">مطبخ</string>
+
 
 
 
