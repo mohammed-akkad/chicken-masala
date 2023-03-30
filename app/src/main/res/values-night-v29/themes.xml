@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.ChickenMasala" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.ChickenMasala" parent="Theme.Material3.Dark">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/green_100</item>
-        <item name="colorPrimaryVariant">#000000</item>
+        <item name="colorPrimary">#FFEB3B</item>
+        <item name="colorPrimaryVariant">#FFC107</item>
         <item name="colorOnPrimary">#CCFFFFFF</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/orange_600</item>
@@ -14,7 +14,7 @@
         <item name="android:statusBarColor">#000000</item>
         <!-- Customize your theme here. -->
         <item name="android:forceDarkAllowed">true</item>
-
+        <item name="android:windowBackground">@drawable/splash_screen</item>
 
     </style>
 
@@ -40,7 +40,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/roboto_light</item>
-        <item name="android:textColor">#9A9A9A</item>
+        <item name="android:textColor">@color/txt_white_dark_background</item>
         <item name="android:textSize">@dimen/textMedium</item>
     </style>
 
@@ -77,13 +77,13 @@
     </style>
 
     <style name="indian_food_text">
-        <item name="android:background">@color/background</item>
         <item name="android:textSize">@dimen/textXLarge</item>
+        <item name="android:textColor">@color/txt_white_dark_background</item>
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
     </style>
 
     <style name="indian_food_text.indian">
-        <item name="background">@color/black</item>
+
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:textColor">@color/txt_white_dark_background</item>
     </style>
@@ -95,8 +95,9 @@
     </style>
     <style name="see_all">
         <item name="android:fontFamily">@font/roboto_regular</item>
-        <item name="android:textColor">@color/orange_200</item>
+        <item name="android:color">@color/txt_white_dark_background</item>
         <item name="android:textSize">@dimen/textMedium</item>
+
     </style>
     <style name="see_all.categories">
         <item name="android:fontFamily">@font/roboto_bold</item>
@@ -178,8 +179,5 @@
         <item name="android:layout_marginTop">@dimen/spaceMedium</item>
         <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
     </style>
-    <style name="SplashScreen" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="android:windowBackground">@drawable/splash_screen</item>
 
-    </style>
 </resources>

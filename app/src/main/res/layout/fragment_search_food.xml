@@ -5,8 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:backgroundTint="@color/background"
     android:layout_height="match_parent"
-    android:background="@color/gray_300">
+    >
 
 
     <EditText
@@ -19,16 +20,16 @@
         android:background="@drawable/shape_rounded_search_bar"
         android:drawableStart="@drawable/ic_filter"
         android:drawableEnd="@drawable/ic_search"
+        android:singleLine="true"
         android:drawablePadding="@dimen/spaceMedium"
         android:hint="@string/hinted_search_text"
         android:paddingStart="@dimen/spaceMedium"
         android:paddingTop="@dimen/spaceExtraSmall"
         android:paddingEnd="@dimen/spaceMedium"
         android:paddingBottom="@dimen/spaceExtraSmall"
-        android:singleLine="true"
         android:maxLength="15"
         android:textColor="@color/orange_400"
-        android:textColorHint="@color/orange_400"
+        android:textColorHint="@color/txt_white_dark_background"
         android:textSize="@dimen/textMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,12 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-     Base application theme.
-    <style name="Theme.ChickenMasala" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+
+
+    <style name="Theme.ChickenMasala" parent="Theme.Material3.Dark">
+
+
+        <item name="android:windowBackground">@drawable/splash_screen</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/black</item>
-    <item name="colorOnPrimary">#CCFFFFFF</item>
+        <item name="colorOnPrimary">#CCFFFFFF</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/orange_600</item>
+        <item name="colorSecondary">#7C654A</item>
         <item name="colorSecondaryVariant">@color/orange_600</item>
         <item name="colorOnSecondary">@color/green_100</item>
         <!-- Status bar color. -->
@@ -14,8 +18,13 @@
 
         <!-- Customize your theme here. -->
 
-
     </style>
+
+
+
+
+
+
 
 
 
@@ -84,7 +93,6 @@
     </style>
 
     <style name="indian_food_text.indian">
-        <item name="background">@color/black</item>
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:textColor">@color/txt_white_dark_background</item>
     </style>
@@ -179,10 +187,7 @@
         <item name="android:layout_marginTop">@dimen/spaceMedium</item>
         <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
     </style>
-    <style name="SplashScreen" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="android:windowBackground">@drawable/splash_screen</item>
 
-    </style>
 
 
 </resources>

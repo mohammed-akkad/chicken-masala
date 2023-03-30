@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -66,6 +67,7 @@
                 <TextView
                     android:id="@+id/textview_categories"
                     style="@style/see_all.categories"
+
                     android:text="@string/categories" />
 
                 <TextView
