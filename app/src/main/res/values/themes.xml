@@ -135,8 +135,10 @@
         <item name="android:background">#00FFFFFF</item>
     </style>
     <style name="cardviewTrivia">
-        <item name="android:layout_marginVertical">@dimen/spaceNormal</item>
-        <item name="android:layout_marginHorizontal">@dimen/spaceMedium</item>
+        <item name="android:layout_marginTop">@dimen/spaceNormal</item>
+        <item name="android:layout_marginBottom">@dimen/spaceNormal</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>
     </style>
