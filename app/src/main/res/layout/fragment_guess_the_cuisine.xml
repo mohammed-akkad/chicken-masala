@@ -12,8 +12,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spaceMedium"
-        android:layout_marginEnd="@dimen/spaceMedium"
         android:layout_marginTop="@dimen/spaceXXXLarge"
+        android:layout_marginEnd="@dimen/spaceMedium"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/questionText"
         android:textColor="@color/txt_white_dark_background"
@@ -27,9 +27,9 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceXLarge"
         android:layout_marginEnd="@dimen/spaceMedium"
         app:cardCornerRadius="22dp"
-        android:layout_marginTop="@dimen/spaceXLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guessTheCuisineQuestion">
@@ -37,21 +37,21 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayoutOfCard1"
             android:layout_width="match_parent"
-            android:background="@color/backround_card"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/backround_card">
 
             <TextView
                 android:id="@+id/answerOneText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/answerOne"
                 android:textColor="@color/txt_white_dark_background"
                 android:textSize="@dimen/textLarge"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:fontFamily="@font/roboto_regular"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -62,9 +62,9 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceMedium"
         android:layout_marginEnd="@dimen/spaceMedium"
         app:cardCornerRadius="22dp"
-        android:layout_marginTop="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerOne">
@@ -72,21 +72,21 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayoutOfCard2"
             android:layout_width="match_parent"
-            android:background="@color/backround_card"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/backround_card">
 
             <TextView
                 android:id="@+id/answerTwoText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/answerTwo"
                 android:textColor="@color/txt_white_dark_background"
                 android:textSize="@dimen/textLarge"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:fontFamily="@font/roboto_regular"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -97,9 +97,9 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceMedium"
         android:layout_marginEnd="@dimen/spaceMedium"
         app:cardCornerRadius="22dp"
-        android:layout_marginTop="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerTwo">
@@ -107,21 +107,21 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayoutOfCard3"
             android:layout_width="match_parent"
-            android:background="@color/backround_card"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/backround_card">
 
             <TextView
                 android:id="@+id/answerThreeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/answerThree"
                 android:textColor="@color/txt_white_dark_background"
                 android:textSize="@dimen/textLarge"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:fontFamily="@font/roboto_regular"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -132,9 +132,9 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceMedium"
         android:layout_marginEnd="@dimen/spaceMedium"
         app:cardCornerRadius="22dp"
-        android:layout_marginTop="@dimen/spaceMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerThree">
@@ -142,21 +142,21 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayoutOfCard4"
             android:layout_width="match_parent"
-            android:background="@color/backround_card"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/backround_card">
 
             <TextView
                 android:id="@+id/answerFourText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/spaceMedium"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/answerFour"
                 android:textColor="@color/txt_white_dark_background"
                 android:textSize="@dimen/textLarge"
-                android:layout_marginStart="@dimen/spaceMedium"
-                android:fontFamily="@font/roboto_regular"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -166,18 +166,17 @@
         android:id="@+id/submitButton"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:text="@string/submit"
-        android:fontFamily="@font/roboto_regular"
-        android:textSize="@dimen/textMedium"
-        android:background="@drawable/button_with_radius"
-        android:layout_marginEnd="@dimen/spaceMedium"
         android:layout_marginStart="@dimen/spaceMedium"
         android:layout_marginTop="@dimen/spaceXXLarge"
+        android:layout_marginEnd="@dimen/spaceMedium"
+        android:background="@drawable/button_with_radius"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answerFour"
-        android:backgroundTint="@color/backround_card"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/answerFour" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

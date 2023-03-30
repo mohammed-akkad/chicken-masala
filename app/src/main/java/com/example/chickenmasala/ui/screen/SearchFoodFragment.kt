@@ -55,7 +55,7 @@ class SearchFoodFragment : BaseFragment<FragmentSearchFoodBinding>() {
                 validationItem()
             }
         } else {
-            Toast.makeText(binding.root.context,"Please enter recipe",Toast.LENGTH_SHORT).show()
+            validationItem()
 
         }
 
@@ -108,5 +108,7 @@ class SearchFoodFragment : BaseFragment<FragmentSearchFoodBinding>() {
 
 
     }
+
+
 
 }

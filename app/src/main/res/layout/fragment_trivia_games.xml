@@ -1,94 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    android:paddingTop="@dimen/spaceNormal">
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:paddingTop="@dimen/spaceNormal">
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_miniGameOne"
-        style="@style/cardviewTrivia"
-        app:cardCornerRadius="@dimen/spaceMedium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_miniGameOne"
+            style="@style/cardviewTrivia"
+            app:cardCornerRadius="@dimen/spaceMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <View style="@style/viewTrivia" />
+                <View style="@style/viewTrivia" />
 
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/iv_guess_the_cuisineTwo"
-                style="@style/imageviewTrivia"
-                android:src="@drawable/img_kitchen" />
-            <View
-                style="@style/viewTrivia"
-                android:background="@drawable/shape_shadow" />
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/iv_guess_the_cuisineTwo"
+                    style="@style/imageviewTrivia"
+                    android:src="@drawable/img_kitchen" />
 
-            <TextView
-                android:id="@+id/tv_gameOne"
-                style="@style/textTrivia"
-                android:text="@string/guess_the_ingredient" />
-        </FrameLayout>
-    </androidx.cardview.widget.CardView>
+                <View
+                    style="@style/viewTrivia"
+                    android:background="@drawable/shape_shadow" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_miniGameTwo"
-        style="@style/cardviewTrivia"
-        app:cardCornerRadius="@dimen/spaceMedium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardview_miniGameOne">
+                <TextView
+                    android:id="@+id/tv_gameOne"
+                    style="@style/textTrivia"
+                    android:text="@string/guess_the_ingredient" />
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_miniGameTwo"
+            style="@style/cardviewTrivia"
+            app:cardCornerRadius="@dimen/spaceMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardview_miniGameOne">
 
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/iv_guess_the_ingredient"
-                style="@style/imageviewTrivia"
-                android:src="@drawable/img_ingredients" />
-            <View
-                style="@style/viewTrivia"
-                android:background="@drawable/shape_shadow" />
-            <TextView
-                android:id="@+id/tv_gameTwo"
-                style="@style/textTrivia"
-                android:text="@string/guess_the_cuisine" />
-        </FrameLayout>
-    </androidx.cardview.widget.CardView>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_miniGameThree"
-        style="@style/cardviewTrivia"
-        app:cardCornerRadius="@dimen/spaceMedium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardview_miniGameTwo">
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/iv_guess_the_ingredient"
+                    style="@style/imageviewTrivia"
+                    android:src="@drawable/img_ingredients" />
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+                <View
+                    style="@style/viewTrivia"
+                    android:background="@drawable/shape_shadow" />
+
+                <TextView
+                    android:id="@+id/tv_gameTwo"
+                    style="@style/textTrivia"
+                    android:text="@string/guess_the_cuisine" />
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_miniGameThree"
+            style="@style/cardviewTrivia"
+            app:cardCornerRadius="@dimen/spaceMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardview_miniGameTwo">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
 
-            <View
-                style="@style/viewTrivia"
-                android:background="@drawable/shape_shadow" />
+                <View
+                    style="@style/viewTrivia"
+                    android:background="@drawable/shape_shadow" />
 
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/iv_guess_the_Meal"
-                style="@style/imageviewTrivia"
-                android:src="@drawable/img_meal" />
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/iv_guess_the_Meal"
+                    style="@style/imageviewTrivia"
+                    android:src="@drawable/img_meal" />
 
-            <TextView
-                android:id="@+id/tv_gameThree"
-                style="@style/textTrivia"
-                android:text="@string/guess_the_meal" />
-        </FrameLayout>
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tv_gameThree"
+                    style="@style/textTrivia"
+                    android:text="@string/guess_the_meal" />
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
