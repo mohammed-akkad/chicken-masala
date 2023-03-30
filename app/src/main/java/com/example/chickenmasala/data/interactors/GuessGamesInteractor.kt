@@ -17,7 +17,7 @@ class GuessGamesInteractor(private val dataSource: FoodDataSource<RecipeEntity>)
     }
 
 
-    private fun guessMeal(): QuestionGames {
+    private fun guessExistingIngredient(): QuestionGames {
         val correctName = randomRecipe.name
         val correctIngredent = randomRecipe.cleanedIngredients.random()
         val result = dataSource.getAllItems()
@@ -48,7 +48,7 @@ class GuessGamesInteractor(private val dataSource: FoodDataSource<RecipeEntity>)
         )
     }
 
-    private fun guessExistingIngredient(): QuestionGames {
+    private fun guessMeal(): QuestionGames {
         val correctIngriedent = randomRecipe.cleanedIngredients.random()
         val result = dataSource.getAllItems()
             .filterNot { it.cleanedIngredients.contains(correctIngriedent) && it.cleanedIngredients.size < 3 }
