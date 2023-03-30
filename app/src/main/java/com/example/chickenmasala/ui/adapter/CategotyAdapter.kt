@@ -9,11 +9,19 @@ import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.CategoryEntity
 import com.example.chickenmasala.databinding.CardCategoryBinding
 import com.example.chickenmasala.ui.listener.CategoryInteractionListener
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerDrawable
 
 class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInteractionListener) :
     RecyclerView.Adapter<CategotyAdapter.BaseViewHolder>() {
 
-
+    private val shimmer =
+        Shimmer.AlphaHighlightBuilder()
+            .setDuration(1800)
+            .setBaseAlpha(0.5f)
+            .setHighlightAlpha(0.7f)
+            .setTilt(45f)
+            .setAutoStart(true)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return when (viewType) {
             VIEW_TYPE_HEADER -> {
@@ -43,16 +51,19 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
 
 
     private fun bindCategory(holder: CategoryViewHolder, position: Int) {
-
+        val shimmerDrawable = ShimmerDrawable().apply {
+            setShimmer(shimmer.build())
+        }
         val currentCategory = list[position]
         holder.binding.apply {
 
             Glide
                 .with(this.root)
                 .load(currentCategory.imageUrl)
+                .placeholder(shimmerDrawable)
                 .into(holder.binding.cardLargeImageview)
             textViewCategory.text = currentCategory.name
-            textViewCategory.setOnClickListener { listener.onClickItemCategory(currentCategory.name) }
+            root.setOnClickListener { listener.onClickItemCategory(currentCategory.name) }
         }
 
 

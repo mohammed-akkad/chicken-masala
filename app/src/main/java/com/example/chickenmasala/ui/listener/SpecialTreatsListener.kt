@@ -1,6 +1,6 @@
 package com.example.chickenmasala.ui.listener
 
-interface SweetTreatsListener {
+interface SpecialTreatsListener {
 
     fun onClickItemRecipeEntity(recipeEntity: String)
 

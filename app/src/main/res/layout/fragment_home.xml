@@ -28,25 +28,32 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_category_home"
                 style="@style/RV"
-                tools:itemCount="4"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_title_home_category" />
+                app:layout_constraintTop_toBottomOf="@id/text_title_home_category"
+                tools:itemCount="4" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_for_you_home"
                 style="@style/RV"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_title_home_for_you" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_sweet_treat_home"
                 style="@style/RV"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_title_home_sweet_treat" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_cake_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 style="@style/RV"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_title_home_cake" />
 

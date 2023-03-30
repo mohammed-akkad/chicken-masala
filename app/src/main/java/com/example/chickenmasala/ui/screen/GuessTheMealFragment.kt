@@ -53,10 +53,10 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
         binding.apply {
 
-            answerOneText.text = "1 - ${randomRecipes[0].name}"
-            answerTwoText.text = "2 - ${randomRecipes[1].name}"
-            answerThreeText.text = "3 - ${randomRecipes[2].name}"
-            answerFourText.text = "4 - ${randomRecipes[3].name}"
+            answerOneText.text = randomRecipes[0].name
+            answerTwoText.text = randomRecipes[1].name
+            answerThreeText.text = randomRecipes[2].name
+            answerFourText.text = randomRecipes[3].name
         }
     }
     private fun changeColorToYellow(answerId : Int){
@@ -64,10 +64,10 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
         val yellowColor = ContextCompat.getColor(requireContext(), R.color.yellow_600)
         when(answerId){
 
-            FIRST_ANSWER_KEY -> binding.constraintLayoutOfCard1.setBackgroundColor(yellowColor)
-            SECOND_ANSWER_KEY -> binding.constraintLayoutOfCard2.setBackgroundColor(yellowColor)
-            THIRD_ANSWER_KEY -> binding.constraintLayoutOfCard3.setBackgroundColor(yellowColor)
-            FOURTH_ANSWER_KEY -> binding.constraintLayoutOfCard4.setBackgroundColor(yellowColor)
+            FIRST_ANSWER_KEY -> binding.answerOneText.setBackgroundColor(yellowColor)
+            SECOND_ANSWER_KEY -> binding.answerTwoText.setBackgroundColor(yellowColor)
+            THIRD_ANSWER_KEY -> binding.answerThreeText.setBackgroundColor(yellowColor)
+            FOURTH_ANSWER_KEY -> binding.answerFourText.setBackgroundColor(yellowColor)
         }
     }
     private fun changeColorToGreen(answerId : Int){
@@ -75,10 +75,10 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
         val greenColor = ContextCompat.getColor(requireContext(), R.color.green_100)
         when(answerId){
 
-            FIRST_ANSWER_KEY -> binding.constraintLayoutOfCard1.setBackgroundColor(greenColor)
-            SECOND_ANSWER_KEY -> binding.constraintLayoutOfCard2.setBackgroundColor(greenColor)
-            THIRD_ANSWER_KEY -> binding.constraintLayoutOfCard3.setBackgroundColor(greenColor)
-            FOURTH_ANSWER_KEY -> binding.constraintLayoutOfCard4.setBackgroundColor(greenColor)
+            FIRST_ANSWER_KEY -> binding.answerOneText.setBackgroundColor(greenColor)
+            SECOND_ANSWER_KEY -> binding.answerTwoText.setBackgroundColor(greenColor)
+            THIRD_ANSWER_KEY -> binding.answerThreeText.setBackgroundColor(greenColor)
+            FOURTH_ANSWER_KEY -> binding.answerFourText.setBackgroundColor(greenColor)
         }
     }
     private fun changeColorToRed(answerId : Int){
@@ -86,10 +86,10 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
         val redColor = ContextCompat.getColor(requireContext(), R.color.red_100)
         when(answerId){
 
-            FIRST_ANSWER_KEY -> binding.constraintLayoutOfCard1.setBackgroundColor(redColor)
-            SECOND_ANSWER_KEY -> binding.constraintLayoutOfCard2.setBackgroundColor(redColor)
-            THIRD_ANSWER_KEY -> binding.constraintLayoutOfCard3.setBackgroundColor(redColor)
-            FOURTH_ANSWER_KEY -> binding.constraintLayoutOfCard4.setBackgroundColor(redColor)
+            FIRST_ANSWER_KEY -> binding.answerOneText.setBackgroundColor(redColor)
+            SECOND_ANSWER_KEY -> binding.answerTwoText.setBackgroundColor(redColor)
+            THIRD_ANSWER_KEY -> binding.answerThreeText.setBackgroundColor(redColor)
+            FOURTH_ANSWER_KEY -> binding.answerFourText.setBackgroundColor(redColor)
         }
     }
     private fun changeColorToGray(answerId : Int){
@@ -99,38 +99,38 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
             FIRST_ANSWER_KEY ->{
 
-                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
+                binding.answerFourText.setBackgroundColor(grayColor)
+                binding.answerThreeText.setBackgroundColor(grayColor)
+                binding.answerTwoText.setBackgroundColor(grayColor)
             }
 
             SECOND_ANSWER_KEY ->{
 
-                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
+                binding.answerFourText.setBackgroundColor(grayColor)
+                binding.answerThreeText.setBackgroundColor(grayColor)
+                binding.answerOneText.setBackgroundColor(grayColor)
             }
 
             THIRD_ANSWER_KEY ->{
 
-                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
+                binding.answerFourText.setBackgroundColor(grayColor)
+                binding.answerOneText.setBackgroundColor(grayColor)
+                binding.answerTwoText.setBackgroundColor(grayColor)
             }
 
             FOURTH_ANSWER_KEY ->{
 
-                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
+                binding.answerOneText.setBackgroundColor(grayColor)
+                binding.answerThreeText.setBackgroundColor(grayColor)
+                binding.answerTwoText.setBackgroundColor(grayColor)
             }
 
             NUMBER_OF_ANSWERS ->{
 
-                binding.constraintLayoutOfCard1.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard3.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard2.setBackgroundColor(grayColor)
-                binding.constraintLayoutOfCard4.setBackgroundColor(grayColor)
+                binding.answerOneText.setBackgroundColor(grayColor)
+                binding.answerThreeText.setBackgroundColor(grayColor)
+                binding.answerTwoText.setBackgroundColor(grayColor)
+                binding.answerFourText.setBackgroundColor(grayColor)
             }
         }
     }
@@ -208,25 +208,25 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
         binding.apply {
 
-            answerOne.setOnClickListener {
+            answerOneText.setOnClickListener {
                 changeColorToYellow(FIRST_ANSWER_KEY)
                 changeColorToGray(FIRST_ANSWER_KEY)
                 chosenAnswer = randomRecipes[FIRST_ANSWER_KEY]
             }
 
-            answerTwo.setOnClickListener {
+            answerTwoText.setOnClickListener {
                 changeColorToYellow(SECOND_ANSWER_KEY)
                 changeColorToGray(SECOND_ANSWER_KEY)
                 chosenAnswer = randomRecipes[SECOND_ANSWER_KEY]
             }
 
-            answerThree.setOnClickListener {
+            answerThreeText.setOnClickListener {
                 changeColorToYellow(THIRD_ANSWER_KEY)
                 changeColorToGray(THIRD_ANSWER_KEY)
                 chosenAnswer = randomRecipes[THIRD_ANSWER_KEY]
             }
 
-            answerFour.setOnClickListener {
+            answerFourText.setOnClickListener {
                 changeColorToYellow(FOURTH_ANSWER_KEY)
                 changeColorToGray(FOURTH_ANSWER_KEY)
                 chosenAnswer = randomRecipes[FOURTH_ANSWER_KEY]
@@ -251,10 +251,10 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
 
         binding.apply {
 
-            answerOne.isClickable = false
-            answerTwo.isClickable = false
-            answerThree.isClickable = false
-            answerFour.isClickable = false
+            answerOneText.isClickable = false
+            answerTwoText.isClickable = false
+            answerThreeText.isClickable = false
+            answerFourText.isClickable = false
         }
     }
 

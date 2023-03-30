@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screen.MainActivity"
     android:background="@color/background"
-    >
+    tools:context=".ui.screen.MainActivity">
 
 
     <androidx.fragment.app.FragmentContainerView
@@ -28,15 +27,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu"
-        app:itemIconTint="@color/icon_home"
-       app:itemTextColor="@color/txt_color_bottom_navigation"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
 
         />
 
 
-
-
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="56dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,43 +9,44 @@ import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentFoodKitchenCategoryBinding
+import com.example.chickenmasala.ui.adapter.CakeAdapter
 import com.example.chickenmasala.ui.adapter.SweetAdapter
 import com.example.chickenmasala.ui.listener.SpecialTreatsListener
 import com.example.chickenmasala.util.Constants
 
-class SweetRecipeFragment : BaseFragment<FragmentFoodKitchenCategoryBinding>(),
+class CakeRecipeFragment : BaseFragment<FragmentFoodKitchenCategoryBinding>(),
     SpecialTreatsListener {
     override val LOG_TAG: String = "SweetRecipeFragment"
     private lateinit var csvRecipeParser: RecipeParser
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
-    lateinit var sweetAdapter: SweetAdapter
+    lateinit var cakeAdapter: CakeAdapter
 
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodKitchenCategoryBinding =
         FragmentFoodKitchenCategoryBinding::inflate
 
     override fun setup() {
-        setupDateSweet()
+        setupDateCake()
 
     }
 
     override fun addCallBacks() {
         binding.apply {
             itemCard.apply {
-                adapter = sweetAdapter
+                adapter = cakeAdapter
                 layoutManager = GridLayoutManager(requireContext(), 2)
             }
 
         }
     }
 
-    private fun setupDateSweet() {
+    private fun setupDateCake() {
         csvRecipeParser = RecipeParser()
         dataSourceOfRecipeEntity =
             CsvDataSource(requireContext(), Constants.RECIPES_CSV_FILE_NAME, csvRecipeParser)
         val list = dataSourceOfRecipeEntity.getAllItems()
-            .filter { it.cleanedIngredients.toString().contains("sugar ") }.shuffled()
-        sweetAdapter = SweetAdapter(list, this)
+            .filter { it.cleanedIngredients.toString().contains("cake ") }.shuffled()
+        cakeAdapter = CakeAdapter(list, this)
     }
 
     private fun navigationBetweenParentFragment(fragment: Fragment) {
