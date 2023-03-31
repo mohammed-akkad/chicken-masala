@@ -13,52 +13,58 @@ class GuessGamesInteractor(private val dataSource: FoodDataSource<RecipeEntity>)
             GuessGamesName.GUESS_THE_EXSTING_INGREDIENT -> guessExistingIngredient()
             GuessGamesName.GUESS_THE_MEAL -> guessMeal()
         }
-
     }
 
-
-    private fun guessMeal(): QuestionGames {
+    private fun guessExistingIngredient(): QuestionGames {
         val correctName = randomRecipe.name
         val correctIngredent = randomRecipe.cleanedIngredients.random()
-        val result = dataSource.getAllItems()
+        val wrongAnswersRecipe = dataSource.getAllItems()
             .filterNot { it.cleanedIngredients.contains(correctIngredent) }
-        return QuestionGames(
-            correctName,
-            correctIngredent, listOf(
-                result[0].cleanedIngredients.random(),
-                result[1].cleanedIngredients.random(),
-                result[2].cleanedIngredients.random()
-            )
+        val wrongAnswers = listOf(
+            wrongAnswersRecipe[0].cleanedIngredients.random(),
+            wrongAnswersRecipe[1].cleanedIngredients.random(),
+            wrongAnswersRecipe[2].cleanedIngredients.random(),
         )
+        return question(correctName, correctIngredent, wrongAnswers)
     }
 
     private fun guessCuisine(): QuestionGames {
         val correctCuisine = randomRecipe.cuisine
         val correctRecipeName = randomRecipe.name
-
-        val result = dataSource.getAllItems()
-
+        val wrongAnswersRecipe = dataSource.getAllItems()
             .filterNot { it.name.contains(correctRecipeName) }
-        val wrongAnswers = listOf(result[0].cuisine, result[1].cuisine, result[2].cuisine)
-
-        return QuestionGames(
-            correctRecipeName,
-            correctCuisine,
-            wrongAnswers
+        val wrongAnswers = listOf(
+            wrongAnswersRecipe[0].cuisine,
+            wrongAnswersRecipe[1].cuisine,
+            wrongAnswersRecipe[2].cuisine
         )
+        return question(correctRecipeName, correctCuisine, wrongAnswers)
     }
 
-    private fun guessExistingIngredient(): QuestionGames {
-        val correctIngriedent = randomRecipe.cleanedIngredients.random()
-        val result = dataSource.getAllItems()
-            .filterNot { it.cleanedIngredients.contains(correctIngriedent) && it.cleanedIngredients.size < 3 }
-            .random()
+    private fun guessMeal(): QuestionGames {
+        val imageUrl = randomRecipe.imageUrl
+        val correctAnswer = randomRecipe.name
+        val wrongAnswersRecipe = dataSource.getAllItems()
+            .filterNot { it.imageUrl == imageUrl }
+        val wrongAnswers = listOf(
+            wrongAnswersRecipe[0].name,
+            wrongAnswersRecipe[1].name,
+            wrongAnswersRecipe[2].name
+        )
+        return question(imageUrl, correctAnswer, wrongAnswers)
+    }
+
+    private fun question(
+        correctName: String,
+        correctIngredent: String,
+        wrongAnswers: List<String>,
+    ): QuestionGames {
         return QuestionGames(
-            result.imageUrl, correctIngriedent, listOf(
-                result.cleanedIngredients[0],
-                result.cleanedIngredients[1],
-                result.cleanedIngredients[2]
-            )
+            correctName,
+            correctIngredent,
+            wrongAnswers[0],
+            wrongAnswers[1],
+            wrongAnswers[2]
         )
     }
 
