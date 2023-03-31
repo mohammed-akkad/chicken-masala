@@ -25,7 +25,7 @@ class ForYouRecipesAdapter(val list: List<RecipeEntity>, val listener: RecipeInt
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForYouRecipesViewHolder {
-        val view =LayoutInflater.from(parent.context).inflate(R.layout.card_medium , parent , false)
+        val view =LayoutInflater.from(parent.context).inflate(R.layout.item_card_medium , parent , false)
         return ForYouRecipesViewHolder(view)
     }
 

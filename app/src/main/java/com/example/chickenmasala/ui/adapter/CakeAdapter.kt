@@ -26,7 +26,7 @@ class CakeAdapter(val list: List<RecipeEntity>, val listener: SpecialTreatsListe
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CakeViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.card_medium, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_card_medium, parent, false)
         return CakeViewHolder(view)
 
     }

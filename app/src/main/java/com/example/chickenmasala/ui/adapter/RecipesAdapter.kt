@@ -27,7 +27,7 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
 
             VIEW_TYPE_IMAGE_LARGE -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.card_large, parent, false)
+                    .inflate(R.layout.item_card_large, parent, false)
                 RecipeViewHolder(view)
             }
 

@@ -26,7 +26,7 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
         return when (viewType) {
             VIEW_TYPE_HEADER -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.card_category, parent, false)
+                    .inflate(R.layout.item_card_category, parent, false)
                 CategoryViewHolder(view)
             }
 
