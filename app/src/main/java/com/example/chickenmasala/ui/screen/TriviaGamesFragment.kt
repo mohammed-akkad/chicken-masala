@@ -5,7 +5,6 @@ package com.example.chickenmasala.ui.screen
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.chickenmasala.GuessTheCuisineFragment
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.GuessGamesName
 import com.example.chickenmasala.databinding.FragmentTriviaGamesBinding
