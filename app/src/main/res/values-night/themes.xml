@@ -44,6 +44,25 @@
         <item name="android:lines">2</item>
         <item name="fontFamily">@font/roboto_regular</item>
     </style>
+    <style name="SearchEdit">
+        <item name="android:layout_marginStart">@dimen/spaceLarge</item>
+        <item name="android:layout_marginTop">@dimen/spaceMedium</item>
+        <item name="android:layout_marginEnd">@dimen/spaceLarge</item>
+        <item name="background">@drawable/shape_rounded_search_bar</item>
+        <item name="android:drawableStart">@drawable/ic_filter</item>
+        <item name="android:drawableEnd">@drawable/ic_search</item>
+        <item name="android:drawablePadding">@dimen/spaceMedium</item>
+        <item name="android:paddingStart">@dimen/spaceMedium</item>
+        <item name="android:paddingEnd">@dimen/spaceMedium</item>
+        <item name="android:paddingTop">@dimen/spaceExtraSmall</item>
+        <item name="android:paddingBottom">@dimen/spaceExtraSmall</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:textColor">@color/orange_400</item>
+        <item name="android:textColorHint">@color/orange_400</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLength">15</item>
+
+    </style>
     <style name="Circle">
         <item name="cornerSize">100dp</item>
     </style>
