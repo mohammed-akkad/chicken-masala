@@ -5,14 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginVertical="@dimen/spaceSmall"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
     app:cardCornerRadius="@dimen/spaceSmall">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gray_300"
-        android:backgroundTint="@color/backround_card"
-        >
+        android:backgroundTint="@color/backround_card">
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/recipe_image"

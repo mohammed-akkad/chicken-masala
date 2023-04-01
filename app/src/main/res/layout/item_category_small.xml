@@ -5,6 +5,9 @@
     android:layout_height="75dp"
     android:layout_marginStart="@dimen/spaceSmall"
     android:layout_marginEnd="@dimen/spaceExtraSmall"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
     app:cardCornerRadius="@dimen/spaceSmall">
 
     <ImageView
