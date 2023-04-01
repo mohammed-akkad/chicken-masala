@@ -61,6 +61,7 @@
         <item name="android:textColor">@drawable/chip_text_color</item>
         <item name="chipBackgroundColor">@drawable/chip_background_color</item>
     </style>
+
     <style name="textCategory">
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:textColor">@color/white</item>
@@ -69,36 +70,48 @@
         <item name="android:gravity">center</item>
 
     </style>
+
     <style name="textCategory.textCardLarge">
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">@dimen/textXLarge</item>
     </style>
+
     <style name="textCategory.textCardSmall">
         <item name="android:textSize">@dimen/textMedium</item>
     </style>
 
     <style name="indian_food_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/background</item>
         <item name="android:textSize">@dimen/textXLarge</item>
-        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:layout_marginHorizontal">@dimen/spaceMedium</item>
         <item name="android:textColor">@color/txt_white_dark_background</item>
     </style>
 
     <style name="indian_food_text.indian">
+        <item name="android:layout_marginTop">@dimen/spaceSmall</item>
+        <item name="android:padding">@dimen/spaceSmall</item>
+        <item name="android:background">@color/backround_card</item>
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:textColor">@color/txt_white_dark_background</item>
     </style>
+
     <style name="text_Kitchen_category">
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">@dimen/textXLarge</item>
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
         <item name="android:background">#00FFFFFF</item>
     </style>
+
     <style name="see_all">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:color">@color/txt_white_dark_background</item>
         <item name="android:textSize">@dimen/textMedium</item>
     </style>
+
     <style name="see_all.categories">
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">@dimen/textLarge</item>
@@ -107,13 +120,15 @@
         <item name="android:layout_weight">3</item>
 
     </style>
+
     <style name="RV">
         <item name="android:orientation">horizontal</item>
         <item name="android:layout_marginTop">@dimen/spaceSmall</item>
         <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
-        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
     </style>
+
     <style name="linearLayout">
         <item name="android:layout_marginTop">@dimen/spaceXLarge</item>
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
@@ -121,6 +136,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
     </style>
+
     <style name="textTrivia">
         <item name="android:layout_marginTop">@dimen/spaceMedium</item>
         <item name="android:layout_marginStart">@dimen/spaceLarge</item>
@@ -134,23 +150,28 @@
         <item name="android:elevation">3dp</item>
         <item name="android:background">#00FFFFFF</item>
     </style>
-    <style name="cardviewTrivia">
-        <item name="android:layout_marginVertical">@dimen/spaceNormal</item>
-        <item name="android:layout_marginHorizontal">@dimen/spaceMedium</item>
+
+    <style name="style_trivia_card">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">@dimen/spaceNormal</item>
+        <item name="cornerRadius">@dimen/spaceMedium</item>
     </style>
+
     <style name="viewTrivia">
         <item name="android:layout_height">80dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:elevation">1dp</item>
         <item name="android:layout_gravity">bottom</item>
+
     </style>
+
     <style name="imageviewTrivia">
         <item name="android:layout_height">180dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
+
     <style name="textQuestion">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>
@@ -162,6 +183,7 @@
         <item name="android:textSize">@dimen/textLarge</item>
 
     </style>
+
     <style name="submitButton">
         <item name="android:layout_height">40dp</item>
         <item name="android:layout_width">0dp</item>
@@ -175,6 +197,7 @@
         <item name="android:textColor">@color/txt_white_dark_background</item>
         <item name="android:backgroundTint">@color/orange_400</item>
     </style>
+
     <style name="textAnswers">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
@@ -184,11 +207,13 @@
         <item name="android:textColor">@color/txt_white_dark_background</item>
         <item name="backgroundTint">#00FFFFFF</item>
     </style>
+
     <style name="constraint_layout">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">@color/backround_card</item>
     </style>
+
     <style name="cv_guess">
         <item name="android:layout_height">45dp</item>
         <item name="android:layout_width">0dp</item>

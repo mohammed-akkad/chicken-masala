@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/background"
     android:layout_height="match_parent"
-    >
-
+    android:background="@color/background">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/search_text_view"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginStart="@dimen/spaceLarge"
@@ -20,14 +16,14 @@
         android:background="@drawable/shape_rounded_search_bar"
         android:drawableStart="@drawable/ic_filter"
         android:drawableEnd="@drawable/ic_search"
-        android:singleLine="true"
         android:drawablePadding="@dimen/spaceMedium"
         android:hint="@string/hinted_search_text"
+        android:maxLength="15"
         android:paddingStart="@dimen/spaceMedium"
         android:paddingTop="@dimen/spaceExtraSmall"
         android:paddingEnd="@dimen/spaceMedium"
         android:paddingBottom="@dimen/spaceExtraSmall"
-        android:maxLength="15"
+        android:singleLine="true"
         android:textColor="@color/orange_400"
         android:textColorHint="@color/txt_white_dark_background"
         android:textSize="@dimen/textMedium"
@@ -37,56 +33,48 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_search_card"
+        android:id="@+id/search_results_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_marginTop="@dimen/spaceSmall"
+        android:layout_marginHorizontal="@dimen/spaceMedium"
+        android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="@+id/card_filter"
+        app:layout_constraintBottom_toBottomOf="@+id/filters_bottom_sheet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/search_textview"
         app:spanCount="2"
         tools:itemCount="8"
-        tools:listitem="@layout/item_card_food" />
+        tools:listitem="@layout/item_recipe_horizontal" />
 
     <LinearLayout
-        android:id="@+id/item_recipe_not_found"
+        android:id="@+id/recipe_not_found_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:gravity="center"
-        android:visibility="gone"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText">
-
+        app:layout_constraintTop_toBottomOf="@+id/search_textview">
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:lottie_rawRes="@raw/not_found_alt"
             app:lottie_autoPlay="true"
-            app:lottie_loop="false"/>
-
-
-
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/not_found_alt" />
     </LinearLayout>
 
-
     <com.google.android.material.bottomsheet.BottomSheetDragHandleView
-        android:id="@+id/card_filter"
+        android:id="@+id/filters_bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/spaceXXXLarge"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText">
-
-
+        app:layout_constraintTop_toBottomOf="@+id/search_textview">
     </com.google.android.material.bottomsheet.BottomSheetDragHandleView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
