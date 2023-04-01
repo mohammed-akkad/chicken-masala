@@ -32,7 +32,7 @@ class GuessGamesInteractor(private val dataSource: FoodDataSource<RecipeEntity>)
         val correctCuisine = randomRecipe.cuisine
         val correctRecipeName = randomRecipe.name
         val wrongAnswersRecipe = dataSource.getAllItems()
-            .filterNot { it.name.contains(correctRecipeName) }
+            .filterNot { it.name.contains(correctRecipeName) }.shuffled()
         val wrongAnswers = listOf(
             wrongAnswersRecipe[0].cuisine,
             wrongAnswersRecipe[1].cuisine,
@@ -45,7 +45,7 @@ class GuessGamesInteractor(private val dataSource: FoodDataSource<RecipeEntity>)
         val imageUrl = randomRecipe.imageUrl
         val correctAnswer = randomRecipe.name
         val wrongAnswersRecipe = dataSource.getAllItems()
-            .filterNot { it.imageUrl == imageUrl }
+            .filterNot { it.imageUrl == imageUrl }.shuffled()
         val wrongAnswers = listOf(
             wrongAnswersRecipe[0].name,
             wrongAnswersRecipe[1].name,
