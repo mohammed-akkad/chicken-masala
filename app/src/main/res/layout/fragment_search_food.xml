@@ -49,8 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center"
-        android:visibility="gone"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_text_view">
 
@@ -68,6 +68,6 @@
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/spaceXXXLarge"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_text_view"/>
+        app:layout_constraintTop_toBottomOf="@+id/search_text_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

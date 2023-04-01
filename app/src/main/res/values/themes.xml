@@ -32,7 +32,8 @@
     </style>
 
     <style name="TextFood">
-        <item name="android:layout_marginHorizontal">@dimen/spaceSmall</item>
+        <item name="android:layout_marginStart">@dimen/spaceSmall</item>
+        <item name="android:layout_marginEnd">@dimen/spaceSmall</item>
         <item name="fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:textColor">@color/black</item>
@@ -187,8 +188,10 @@
     </style>
 
     <style name="CardViewTrivia">
-        <item name="android:layout_marginVertical">@dimen/spaceNormal</item>
-        <item name="android:layout_marginHorizontal">@dimen/spaceMedium</item>
+        <item name="android:layout_marginTop">@dimen/spaceNormal</item>
+        <item name="android:layout_marginBottom">@dimen/spaceNormal</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>
     </style>
