@@ -21,7 +21,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shape_shadow_upsidedown" />
+        android:background="@drawable/shape_shadow" />
     <TextView
         android:id="@+id/category_title"
         style="@style/textCategory"

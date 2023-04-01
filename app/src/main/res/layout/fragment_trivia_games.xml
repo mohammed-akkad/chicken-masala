@@ -18,10 +18,6 @@
             app:cardCornerRadius="@dimen/spaceMedium"
             app:layout_constraintTop_toTopOf="parent">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
                 <ImageView
                     style="@style/imageviewTrivia"
                     android:src="@drawable/img_kitchen" />
@@ -33,7 +29,7 @@
                 <TextView
                     style="@style/textTrivia"
                     android:text="@string/guess_the_ingredient" />
-            </FrameLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -42,9 +38,6 @@
             app:cardCornerRadius="@dimen/spaceMedium"
             app:layout_constraintTop_toBottomOf="@id/guess_the_ingredient_card">
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
 
                 <ImageView
                     style="@style/imageviewTrivia"
@@ -57,7 +50,7 @@
                 <TextView
                     style="@style/textTrivia"
                     android:text="@string/guess_the_cuisine" />
-            </FrameLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -65,11 +58,6 @@
             style="@style/style_trivia_card"
             app:cardCornerRadius="@dimen/spaceMedium"
             app:layout_constraintTop_toBottomOf="@id/guess_the_cuisine_card">
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
                 <View
                     style="@style/viewTrivia"
                     android:background="@drawable/shape_shadow" />
@@ -81,7 +69,7 @@
                 <TextView
                     style="@style/textTrivia"
                     android:text="@string/guess_the_meal" />
-            </FrameLayout>
+
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
