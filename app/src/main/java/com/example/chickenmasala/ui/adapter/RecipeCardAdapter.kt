@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.RecipeEntity
-import com.example.chickenmasala.databinding.CardMediumBinding
+import com.example.chickenmasala.databinding.ItemRecipeBinding
 import com.example.chickenmasala.ui.listener.RecipeInteractionListener
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
-class ForYouRecipesAdapter(val list: List<RecipeEntity>, val listener: RecipeInteractionListener) : RecyclerView.Adapter<ForYouRecipesAdapter.ForYouRecipesViewHolder>(){
+class RecipeCardAdapter(val list: List<RecipeEntity>, val listener: RecipeInteractionListener) : RecyclerView.Adapter<RecipeCardAdapter.ForYouRecipesViewHolder>(){
 
     private val shimmer =
         Shimmer.AlphaHighlightBuilder()
@@ -25,7 +25,7 @@ class ForYouRecipesAdapter(val list: List<RecipeEntity>, val listener: RecipeInt
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForYouRecipesViewHolder {
-        val view =LayoutInflater.from(parent.context).inflate(R.layout.card_medium , parent , false)
+        val view =LayoutInflater.from(parent.context).inflate(R.layout.item_recipe , parent , false)
         return ForYouRecipesViewHolder(view)
     }
 
@@ -38,7 +38,7 @@ class ForYouRecipesAdapter(val list: List<RecipeEntity>, val listener: RecipeInt
 
         val currentRecipes = list[position]
         holder.binding.apply {
-            textNameRecipe.text = currentRecipes.name
+            recipeNameText.text = currentRecipes.name
 
             root.setOnClickListener{
                 listener.onClickItemRecipeEntitty(currentRecipes)
@@ -46,10 +46,10 @@ class ForYouRecipesAdapter(val list: List<RecipeEntity>, val listener: RecipeInt
             }
 
 
-            Glide.with(this.root)
+            Glide.with(recipeImageUrl)
                 .load(currentRecipes.imageUrl)
                 .placeholder(shimmerDrawable)
-                .into(imageRecipe)
+                .into(recipeImageUrl)
 
         }
         }
@@ -58,7 +58,7 @@ class ForYouRecipesAdapter(val list: List<RecipeEntity>, val listener: RecipeInt
     override fun getItemCount() = list.size
 
     class ForYouRecipesViewHolder(viewItem: View): RecyclerView.ViewHolder(viewItem){
-        val binding = CardMediumBinding.bind(viewItem)
+        val binding = ItemRecipeBinding.bind(viewItem)
 
 
 
