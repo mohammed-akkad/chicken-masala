@@ -82,9 +82,9 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
     private fun getRandomArrangeOfChoices(): List<String> {
         return listOf(
             guessTheMeal.correctAnswer,
-            guessTheMeal.wrongAnswer1,
-            guessTheMeal.wrongAnswer2,
-            guessTheMeal.wrongAnswer3
+            guessTheMeal.wrongAnswerOne,
+            guessTheMeal.wrongAnswerTwo,
+            guessTheMeal.wrongAnswerThree
         )
             .shuffled()
     }
