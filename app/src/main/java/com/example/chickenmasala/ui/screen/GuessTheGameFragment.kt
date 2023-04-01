@@ -22,10 +22,10 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
         FragmentGuessTheMealBinding::inflate
     private lateinit var guessTheMeal: QuestionGames
     private var selectedChoiceId: Int = 0
-    private var yellowColor: Int? = null
-    private var grayColor: Int? = null
-    private var greenColor: Int? = null
-    private var redColor: Int? = null
+    private var yellowColor: Int = ContextCompat.getColor(requireContext(), R.color.yellow_600)
+    private var grayColor: Int = ContextCompat.getColor(requireContext(), R.color.gray_200)
+    private var greenColor: Int = ContextCompat.getColor(requireContext(), R.color.green_100)
+    private var redColor: Int = ContextCompat.getColor(requireContext(), R.color.red_100)
     private var multiChoices: List<TextView>? = null
     override fun setup() {
         val recipeParser = RecipeParser()
@@ -43,7 +43,7 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
     }
 
     private fun showGame() {
-        prepareColors()
+        setUpChoicesColor()
         prepareMultiChoices()
         prepareQuestion()
         setButtonStatus(binding.submitButton, false)
@@ -55,17 +55,9 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
         submitAnswer()
     }
 
-    private fun prepareColors() {
-        yellowColor = ContextCompat.getColor(requireContext(), R.color.yellow_600)
-        grayColor = ContextCompat.getColor(requireContext(), R.color.gray_200)
-        greenColor = ContextCompat.getColor(requireContext(), R.color.green_100)
-        redColor = ContextCompat.getColor(requireContext(), R.color.red_100)
-        setUpChoicesColor()
-    }
-
     private fun setUpChoicesColor() {
         multiChoices?.forEach { choice ->
-            colorizeTheView(choice, grayColor!!)
+            colorizeTheView(choice, grayColor)
         }
     }
 
@@ -103,9 +95,9 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
                 setButtonStatus(binding.submitButton, true)
                 for (oneChoice in multiChoices!!) {
                     if (isSelectedChoice(oneChoice, selectedChoice)) {
-                        colorizeTheView(oneChoice, yellowColor!!)
+                        colorizeTheView(oneChoice, yellowColor)
                     } else
-                        colorizeTheView(oneChoice, grayColor!!)
+                        colorizeTheView(oneChoice, grayColor)
                 }
             }
         }
@@ -131,9 +123,9 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
 
             val selectedChoice = determineSelectedView()
             if (selectedChoice.text.toString() == guessTheMeal.correctAnswer)
-                colorizeTheView(selectedChoice, greenColor!!)
+                colorizeTheView(selectedChoice, greenColor)
             else {
-                colorizeTheView(selectedChoice, redColor!!)
+                colorizeTheView(selectedChoice, redColor)
             }
             prepareNextQuestion(clickChoicesState = false)
         }
@@ -144,7 +136,7 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
     }
 
     private fun prepareNextQuestion(clickChoicesState: Boolean) {
-        multiChoices!!.forEach { choice ->
+        multiChoices?.forEach { choice ->
             choice.isClickable = clickChoicesState
         }
         if (!clickChoicesState) {
@@ -161,12 +153,12 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
     private fun colorizeTheView(selectedChoice: TextView, color: Int) {
         if (color == redColor) {
             selectedChoice.setBackgroundColor(color)
-            colorizeTheView(corrctAnswer()!!, greenColor!!)
+            colorizeTheView(correctAnswer()!!, greenColor)
         } else
             selectedChoice.setBackgroundColor(color)
     }
 
-    private fun corrctAnswer(): TextView? {
+    private fun correctAnswer(): TextView? {
         var correctAnswer: TextView? = null
         multiChoices!!.forEach { choice ->
             if (choice.text == guessTheMeal.correctAnswer)
