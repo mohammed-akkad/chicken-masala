@@ -17,15 +17,11 @@ class GuessGamesInteractor(private val dataSource: FoodDataSource<RecipeEntity>)
 
     private fun guessExistingIngredient(): QuestionGames {
         val correctName = randomRecipe.name
-        val correctIngredent = randomRecipe.cleanedIngredients.random()
+        val correctIngredient = randomRecipe.cleanedIngredients.random()
         val wrongAnswersRecipe = dataSource.getAllItems()
-            .filterNot { it.cleanedIngredients.contains(correctIngredent) }
-        val wrongAnswers = listOf(
-            wrongAnswersRecipe[0].cleanedIngredients.random(),
-            wrongAnswersRecipe[1].cleanedIngredients.random(),
-            wrongAnswersRecipe[2].cleanedIngredients.random(),
-        )
-        return question(correctName, correctIngredent, wrongAnswers)
+            .filterNot { it.cleanedIngredients.contains(correctIngredient) }.random()
+        val wrongAnswers =wrongAnswersRecipe.cleanedIngredients.shuffled().take(3)
+        return question(correctName, correctIngredient, wrongAnswers)
     }
 
     private fun guessCuisine(): QuestionGames {
@@ -56,12 +52,12 @@ class GuessGamesInteractor(private val dataSource: FoodDataSource<RecipeEntity>)
 
     private fun question(
         correctName: String,
-        correctIngredent: String,
+        correctIngredient: String,
         wrongAnswers: List<String>,
     ): QuestionGames {
         return QuestionGames(
             correctName,
-            correctIngredent,
+            correctIngredient,
             wrongAnswers[0],
             wrongAnswers[1],
             wrongAnswers[2]
