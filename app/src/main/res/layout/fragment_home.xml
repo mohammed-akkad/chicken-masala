@@ -13,36 +13,48 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/slider_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             style="@style/RecyclerView"
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/item_slider" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/categories_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             style="@style/RecyclerView"
             app:layout_constraintTop_toBottomOf="@id/categories_section_header"
             tools:listitem="@layout/item_category_small" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/for_you_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             style="@style/RecyclerView"
             app:layout_constraintTop_toBottomOf="@id/for_you_section_header"
             tools:listitem="@layout/item_recipe" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sweet_treats_recylcer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             style="@style/RecyclerView"
             app:layout_constraintTop_toBottomOf="@id/sweet_treats_section_header"
             tools:listitem="@layout/item_recipe" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cake_corner_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             style="@style/RecyclerView"
             app:layout_constraintTop_toBottomOf="@id/cake_corner_section_header"
             tools:listitem="@layout/item_recipe" />
 
         <LinearLayout
             android:id="@+id/categories_section_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             style="@style/LinearLayout"
             app:layout_constraintTop_toBottomOf="@+id/slider_recycler">
 
@@ -58,6 +70,8 @@
 
         <LinearLayout
             android:id="@+id/for_you_section_header"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             style="@style/LinearLayout"
             app:layout_constraintTop_toBottomOf="@+id/categories_recycler">
 
@@ -73,6 +87,8 @@
 
         <LinearLayout
             android:id="@+id/sweet_treats_section_header"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             style="@style/LinearLayout"
             app:layout_constraintTop_toBottomOf="@+id/for_you_recycler">
 
@@ -88,6 +104,8 @@
 
         <LinearLayout
             android:id="@+id/cake_corner_section_header"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             style="@style/LinearLayout"
             app:layout_constraintTop_toBottomOf="@+id/sweet_treats_recylcer">
 

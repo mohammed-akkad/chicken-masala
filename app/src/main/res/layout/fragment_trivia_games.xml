@@ -34,7 +34,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/guess_the_cuisine_card"
-            style="@style/ImageViewTrivia"
+            style="@style/CardViewTrivia"
             app:cardCornerRadius="@dimen/spaceMedium"
             app:layout_constraintTop_toBottomOf="@id/guess_the_ingredient_card">
 
@@ -55,7 +55,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/guess_the_meal_card"
-            style="@style/ImageViewTrivia"
+            style="@style/CardViewTrivia"
             app:cardCornerRadius="@dimen/spaceMedium"
             app:layout_constraintTop_toBottomOf="@id/guess_the_cuisine_card">
 
