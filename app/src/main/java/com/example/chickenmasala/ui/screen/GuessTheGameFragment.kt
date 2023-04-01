@@ -1,8 +1,8 @@
 package com.example.chickenmasala.ui.screen
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
@@ -14,6 +14,8 @@ import com.example.chickenmasala.data.interactors.GuessGamesInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentGuessTheMealBinding
 import com.example.chickenmasala.util.Constants
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerDrawable
 import kotlinx.coroutines.*
 
 class GuessTheGameFragment(private val gameName: GuessGamesName) :
@@ -47,7 +49,7 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
         prepareColors()
         prepareMultiChoices()
         prepareQuestion()
-        setButtonStatus(binding.submitButton, false)
+        isSubmitButtonEnabled(false)
         prepareNextQuestion(clickChoicesState = true)
     }
 
@@ -72,11 +74,8 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
 
     private fun prepareMultiChoices() {
         val listOfChoices = getRandomArrangeOfChoices()
-        binding.apply {
-            answerOneText.text = listOfChoices[0]
-            answerTwoText.text = listOfChoices[1]
-            answerThreeText.text = listOfChoices[2]
-            answerFourText.text = listOfChoices[3]
+        multiChoices?.forEachIndexed { index, textView ->
+            textView.text = listOfChoices[index]
         }
     }
 
@@ -86,8 +85,7 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
             guessTheMeal.wrongAnswerOne,
             guessTheMeal.wrongAnswerTwo,
             guessTheMeal.wrongAnswerThree
-        )
-            .shuffled()
+        ).shuffled()
     }
 
     private fun prepareQuestion() {
@@ -111,52 +109,63 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
         binding.apply {
             Glide.with(mealImageView)
                 .load(guessTheMeal.question)
-                .error(R.drawable.baseline_error_24)
+                .placeholder(shimmerPlaceholder())
                 .into(mealImageView)
             mealImageView.visibility = View.VISIBLE
         }
+    }
 
+    private fun shimmerPlaceholder(): ShimmerDrawable {
+        val shimmer =
+            Shimmer.AlphaHighlightBuilder()
+                .setDuration(1800)
+                .setBaseAlpha(0.5f)
+                .setHighlightAlpha(0.7f)
+                .setTilt(45f)
+                .setAutoStart(true)
+                .build()
+        return ShimmerDrawable().apply {
+            setShimmer(shimmer)
+        }
     }
 
     private fun setColorOfSelectedChoice() {
         for (selectedChoice in multiChoices!!) {
             selectedChoice.setOnClickListener {
-                setButtonStatus(binding.submitButton, true)
-                for (oneChoice in multiChoices!!) {
-                    if (isSelectedChoice(oneChoice, selectedChoice)) {
-                        colorizeTheView(oneChoice, yellowColor!!)
-                    } else
-                        colorizeTheView(oneChoice, grayColor!!)
-                }
+                resetOtherOptionsColors()
+                isSubmitButtonEnabled(true)
+                colorizeTheView(selectedChoice, yellowColor!!)
+                selectedChoiceId = selectedChoice.id
             }
         }
     }
 
-    private fun setButtonStatus(submitButton: Button, buttonStatus: Boolean) {
-        submitButton.isEnabled = buttonStatus
+    private fun resetOtherOptionsColors() {
+        multiChoices?.forEach {
+            colorizeTheView(it, grayColor!!)
+        }
     }
 
-    private fun isSelectedChoice(oneChoice: TextView, selectedChoice: TextView): Boolean {
-        oneChoice.isSelected = (oneChoice == selectedChoice)
-        return when (oneChoice.isSelected) {
-            true -> {
-                selectedChoiceId = oneChoice.id
-                true
-            }
-            else -> false
-        }
+    private fun isSubmitButtonEnabled(status: Boolean) {
+        binding.submitButton.isEnabled = status
     }
 
     private fun submitAnswer() {
         binding.submitButton.setOnClickListener {
             val selectedChoice = determineSelectedView()
-            if (selectedChoice.text.toString() == guessTheMeal.correctAnswer)
+            if (isCorrectAnswer(selectedChoice)) {
                 colorizeTheView(selectedChoice, greenColor!!)
-            else {
+            } else {
+                val correctChoice = multiChoices?.find(::isCorrectAnswer)
+                colorizeTheView(correctChoice!!, greenColor!!)
                 colorizeTheView(selectedChoice, redColor!!)
             }
             prepareNextQuestion(clickChoicesState = false)
         }
+    }
+
+    private fun isCorrectAnswer(textView: TextView): Boolean {
+        return textView.text.toString() == guessTheMeal.correctAnswer
     }
 
     private fun determineSelectedView(): TextView {
@@ -170,29 +179,14 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
         }
         if (!clickChoicesState) {
             GlobalScope.launch {
-                requireActivity().runOnUiThread {
-                    setup()
-                }
+                requireActivity().runOnUiThread { setup() }
                 delay(100)
             }
         }
     }
 
     private fun colorizeTheView(selectedChoice: TextView, color: Int) {
-        if (color == redColor) {
-            selectedChoice.setBackgroundColor(color)
-            colorizeTheView(correctAnswer()!!, greenColor!!)
-        } else
-            selectedChoice.setBackgroundColor(color)
-    }
-
-    private fun correctAnswer(): TextView? {
-        var correctAnswer: TextView? = null
-        multiChoices!!.forEach { choice ->
-            if (choice.text == guessTheMeal.correctAnswer)
-                correctAnswer = choice
-        }
-        return correctAnswer
+        selectedChoice.setBackgroundColor(color)
     }
 
 }
