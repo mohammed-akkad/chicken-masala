@@ -1,16 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+    Base application theme.
 
-
-    <style name="Theme.ChickenMasala" parent="Theme.Material3.Dark">
-
-
-        <item name="android:windowBackground">@drawable/splash_screen</item>
+    <style name="Theme.ChickenMasala" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">#CCFFFFFF</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#7C654A</item>
+        <item name="colorSecondary">@color/orange_600</item>
         <item name="colorSecondaryVariant">@color/orange_600</item>
         <item name="colorOnSecondary">@color/green_100</item>
         <!-- Status bar color. -->
@@ -20,18 +17,65 @@
 
     </style>
 
-
-    <style name="textSubTitle">
+    <style name="TextSubTitle">
         <item name="android:fontFamily">@font/roboto_light</item>
         <item name="android:textColor">#9A9A9A</item>
         <item name="android:textSize">@dimen/textMedium</item>
     </style>
 
-    <style name="circle">
+    <style name="TextKitchens">
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:layout_marginBottom">@dimen/spaceSmall</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/textXLarge</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextFood">
+        <item name="android:layout_marginStart">@dimen/spaceSmall</item>
+        <item name="android:layout_marginEnd">@dimen/spaceSmall</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="TextSmall">
+        <item name="android:ellipsize">middle</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="paddingEnd">@dimen/spaceSmall</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:lines">2</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="SearchEdit">
+        <item name="android:layout_marginStart">@dimen/spaceLarge</item>
+        <item name="android:layout_marginTop">@dimen/spaceMedium</item>
+        <item name="android:layout_marginEnd">@dimen/spaceLarge</item>
+        <item name="background">@drawable/shape_rounded_search_bar</item>
+        <item name="android:drawableStart">@drawable/ic_filter</item>
+        <item name="android:drawableEnd">@drawable/ic_search</item>
+        <item name="android:drawablePadding">@dimen/spaceMedium</item>
+        <item name="android:paddingStart">@dimen/spaceMedium</item>
+        <item name="android:paddingEnd">@dimen/spaceMedium</item>
+        <item name="android:paddingTop">@dimen/spaceExtraSmall</item>
+        <item name="android:paddingBottom">@dimen/spaceExtraSmall</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:textColor">@color/orange_400</item>
+        <item name="android:textColorHint">@color/orange_400</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLength">15</item>
+
+    </style>
+
+    <style name="Circle">
         <item name="cornerSize">100dp</item>
     </style>
 
-    <style name="textTitle">
+    <style name="TextTitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/roboto_medium</item>
@@ -49,12 +93,11 @@
 
     </style>
 
-
-    <style name="relativeFoodImage">
+    <style name="RelativeFoodImage">
         <item name="cornerSize">50dp</item>
     </style>
 
-    <style name="chip" parent="Widget.MaterialComponents.Chip.Filter">
+    <style name="Chip" parent="Widget.MaterialComponents.Chip.Filter">
         <item name="textStartPadding">@dimen/spaceMedium</item>
         <item name="textEndPadding">@dimen/spaceMedium</item>
         <item name="android:textSize">@dimen/textMedium</item>
@@ -63,7 +106,7 @@
 
     </style>
 
-    <style name="textCategory">
+    <style name="TextCategory">
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/textLarge</item>
@@ -72,47 +115,41 @@
 
     </style>
 
-    <style name="textCategory.textCardLarge">
+    <style name="TextCategory.TextCardLarge">
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">@dimen/textXLarge</item>
     </style>
 
-    <style name="textCategory.textCardSmall">
+    <style name="TextCategory.TextCardSmall">
         <item name="android:textSize">@dimen/textMedium</item>
     </style>
 
-    <style name="indian_food_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+    <style name="IndianFoodText">
         <item name="android:background">@color/background</item>
         <item name="android:textSize">@dimen/textXLarge</item>
-        <item name="android:layout_marginHorizontal">@dimen/spaceMedium</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
     </style>
 
-    <style name="indian_food_text.indian">
-        <item name="android:layout_marginTop">@dimen/spaceSmall</item>
-        <item name="android:padding">@dimen/spaceSmall</item>
-        <item name="android:background">@color/backround_card</item>
+    <style name="IndianFoodText.Indian">
+        <item name="background">@color/black</item>
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:textColor">@color/txt_white_dark_background</item>
     </style>
 
-    <style name="text_Kitchen_category">
+    <style name="TextKitchenCategory">
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">@dimen/textXLarge</item>
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
         <item name="android:background">#00FFFFFF</item>
     </style>
 
-    <style name="see_all">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+    <style name="SeeAll">
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:textColor">@color/orange_200</item>
         <item name="android:textSize">@dimen/textMedium</item>
     </style>
 
-    <style name="see_all.categories">
+    <style name="SeeAll.Categories">
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">@dimen/textLarge</item>
         <item name="android:layout_height">wrap_content</item>
@@ -120,7 +157,7 @@
         <item name="android:layout_weight">3</item>
     </style>
 
-    <style name="RV">
+    <style name="RecyclerView">
         <item name="android:orientation">horizontal</item>
         <item name="android:layout_marginTop">@dimen/spaceSmall</item>
         <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
@@ -128,7 +165,7 @@
         <item name="android:layout_width">match_parent</item>
     </style>
 
-    <style name="linearLayout">
+    <style name="LinearLayout">
         <item name="android:layout_marginTop">@dimen/spaceXLarge</item>
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
         <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
@@ -136,7 +173,7 @@
         <item name="android:layout_width">match_parent</item>
     </style>
 
-    <style name="textTrivia">
+    <style name="TextTrivia">
         <item name="android:layout_marginTop">@dimen/spaceMedium</item>
         <item name="android:layout_marginStart">@dimen/spaceLarge</item>
         <item name="android:layout_marginBottom">@dimen/spaceMedium</item>
@@ -150,7 +187,7 @@
         <item name="android:background">#00FFFFFF</item>
     </style>
 
-    <style name="textQuestion">
+    <style name="TextQuestion">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_marginTop">@dimen/spaceXXXLarge</item>
@@ -162,7 +199,7 @@
 
     </style>
 
-    <style name="submitButton">
+    <style name="SubmitButton">
         <item name="android:layout_height">40dp</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_marginTop">@dimen/spaceXXLarge</item>
@@ -176,7 +213,7 @@
         <item name="android:backgroundTint">@color/orange_400</item>
     </style>
 
-    <style name="textAnswers">
+    <style name="TextAnswers">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
@@ -186,7 +223,7 @@
         <item name="backgroundTint">#00FFFFFF</item>
     </style>
 
-    <style name="constraint_layout">
+    <style name="ConstraintLayout">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">@color/backround_card</item>
@@ -198,6 +235,11 @@
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
         <item name="android:layout_marginTop">@dimen/spaceMedium</item>
         <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
+    </style>
+
+    <style name="SplashScreen" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+
     </style>
 
 

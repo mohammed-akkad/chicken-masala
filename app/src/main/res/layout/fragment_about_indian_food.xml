@@ -14,21 +14,21 @@
         android:orientation="vertical">
 
         <TextView
-            style="@style/indian_food_text"
+            style="@style/IndianFoodText"
             android:layout_marginTop="@dimen/spaceXLarge"
             android:text="@string/titleOne" />
 
         <TextView
-            style="@style/indian_food_text.indian"
+            style="@style/IndianFoodText.Indian"
             android:text="@string/blockOne" />
 
         <TextView
-            style="@style/indian_food_text"
+            style="@style/IndianFoodText"
             android:layout_marginTop="@dimen/spaceLarge"
             android:text="@string/titleTwo" />
 
         <TextView
-            style="@style/indian_food_text.indian"
+            style="@style/IndianFoodText.Indian"
             android:text="@string/blockTwo" />
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
@@ -41,21 +41,21 @@
             app:roundPercent="0.2" />
 
         <TextView
-            style="@style/indian_food_text"
+            style="@style/IndianFoodText"
             android:layout_marginTop="@dimen/spaceLarge"
             android:text="@string/titleThree" />
 
         <TextView
-            style="@style/indian_food_text.indian"
+            style="@style/IndianFoodText.Indian"
             android:text="@string/blockThree" />
 
         <TextView
-            style="@style/indian_food_text"
+            style="@style/IndianFoodText"
             android:layout_marginTop="@dimen/spaceLarge"
             android:text="@string/titleFour" />
 
         <TextView
-            style="@style/indian_food_text.indian"
+            style="@style/IndianFoodText.Indian"
             android:text="@string/blockFour" />
     </LinearLayout>
 </ScrollView>

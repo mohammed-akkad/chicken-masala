@@ -10,7 +10,7 @@
     android:foreground="?attr/selectableItemBackground"
     app:cardCornerRadius="@dimen/spaceSmall">
 
-<androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gray_300"
@@ -51,8 +51,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spaceSmall"
-            android:textColor="@color/txt_white_dark_background"
             android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/txt_white_dark_background"
             android:textSize="@dimen/textMedium"
             app:layout_constraintEnd_toEndOf="@+id/recipe_title"
             app:layout_constraintHorizontal_bias="0.0"
