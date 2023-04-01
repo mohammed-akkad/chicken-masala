@@ -104,6 +104,8 @@
     <string name="manchurian_nodules">Manchurian Nodules</string>
     <string name="filter">Filter</string>
     <string name="text_not_found">Text not Found</string>
+    <string name="questionGuessTheCusine" translatable="false">guess the cuisine of</string>
+    <string name="questionGuessTheMeal" translatable="false">what is the ingredient in</string>
 
 
 </resources>
