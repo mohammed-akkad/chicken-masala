@@ -5,21 +5,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.example.chickenmasala.GuessTheCuisineFragment
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
-import com.example.chickenmasala.databinding.FragmentGuessTheMealBinding
+import com.example.chickenmasala.databinding.FragmentGuessGameBinding
 import com.example.chickenmasala.util.Constants
 
-class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
+class GuessTheMealFragment : BaseFragment<FragmentGuessGameBinding>() {
 
 
     override val LOG_TAG: String = "GuessTheMealFragment"
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheMealBinding =
-        FragmentGuessTheMealBinding::inflate
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessGameBinding =
+        FragmentGuessGameBinding::inflate
 
     var chosenAnswer : RecipeEntity? = null
     private lateinit var randomListOfDataInteractor : GetAListOfRandomRecipesInteractor
@@ -32,7 +31,7 @@ class GuessTheMealFragment : BaseFragment<FragmentGuessTheMealBinding>() {
         val dataSource = CsvDataSource(requireContext(), Constants.RECIPES_CSV_FILE_NAME,recipeParser)
         val randomListOfDataInteractor = GetAListOfRandomRecipesInteractor(dataSource)
 
-        randomRecipes = randomListOfDataInteractor.execute(GuessTheCuisineFragment.NUMBER_OF_ANSWERS)
+        randomRecipes = randomListOfDataInteractor.execute(GuessTheMealFragment.NUMBER_OF_ANSWERS)
         randomRecipe = randomRecipes.random()
     }
 
