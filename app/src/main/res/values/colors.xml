@@ -29,4 +29,5 @@
     <color name="icon_filter">@color/neutrals_800</color>
     <color name="backround_card_details_start_color_lift">@color/orange_600</color>
     <color name="backround_card_details_end_color_right">@color/orange_700</color>
+    <color name="light_purple">#59AFB5EF</color>
 </resources>
