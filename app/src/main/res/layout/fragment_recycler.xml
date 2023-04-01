@@ -5,7 +5,8 @@
     android:id="@+id/items_recycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/spaceMedium"
+    android:padding="@dimen/spaceMedium"
+    android:clipToPadding="false"
     android:orientation="vertical"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:listitem="@layout/item_large_card" />
