@@ -1,20 +1,14 @@
 package com.example.chickenmasala.ui.screen
 
 
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.chickenmasala.GuessTheCuisineFragment
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.FragmentTriviaGamesBinding
 
 
 class TriviaGamesFragment : BaseFragment<FragmentTriviaGamesBinding>() {
-
-    val cuisineFragmentVal = GuessTheCuisineFragment()
-    val ingredientFragmentVal = GuessTheIngredientFragment()
-    val mealFragmentVal = GuessTheMealFragment()
 
     override val LOG_TAG: String = "TriviaGamesFragment"
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentTriviaGamesBinding =
@@ -26,17 +20,18 @@ class TriviaGamesFragment : BaseFragment<FragmentTriviaGamesBinding>() {
 
     override fun addCallBacks() {
 
-        binding.cardviewMiniGameOne.setOnClickListener {
+        binding.guessTheIngredientCard.setOnClickListener {
             replaceFragment(GuessTheIngredientFragment())
         }
-        binding.cardviewMiniGameTwo.setOnClickListener {
+        binding.guessTheCuisineCard.setOnClickListener {
             replaceFragment(GuessTheCuisineFragment())
         }
-        binding.cardviewMiniGameThree.setOnClickListener {
+        binding.guessTheMealCard.setOnClickListener {
             replaceFragment(GuessTheMealFragment())
         }
     }
-    private fun replaceFragment(fragment:Fragment){
+
+    private fun replaceFragment(fragment: Fragment) {
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
             .addToBackStack(null)

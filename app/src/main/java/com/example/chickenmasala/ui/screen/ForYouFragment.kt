@@ -3,31 +3,29 @@ package com.example.chickenmasala.ui.screen
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
-import com.example.chickenmasala.databinding.FragmentForYouBinding
-import com.example.chickenmasala.ui.adapter.ForYouRecipesAdapter
+import com.example.chickenmasala.databinding.FragmentRecyclerBinding
+import com.example.chickenmasala.ui.adapter.RecipeCardAdapter
 import com.example.chickenmasala.ui.listener.RecipeInteractionListener
 import com.example.chickenmasala.util.Constants
 
 
-class ForYouFragment : BaseFragment<FragmentForYouBinding>() , RecipeInteractionListener {
+class ForYouFragment : BaseFragment<FragmentRecyclerBinding>() , RecipeInteractionListener {
     override val LOG_TAG: String = "FragmentForYou"
     private lateinit var csvRecipeParser: RecipeParser
-    private val foodDetailsFragment = FoodDetailsFragment()
-    private val bundle= Bundle()
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
     lateinit var getAListOfRandomRecipesInteractor: GetAListOfRandomRecipesInteractor
-    lateinit var forYouAdapter : ForYouRecipesAdapter
+    lateinit var forYouAdapter : RecipeCardAdapter
 
 
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentForYouBinding =
-        FragmentForYouBinding::inflate
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRecyclerBinding =
+        FragmentRecyclerBinding::inflate
     override fun setup() {
         setupDataRecipesEntity()
 
@@ -45,36 +43,32 @@ class ForYouFragment : BaseFragment<FragmentForYouBinding>() , RecipeInteraction
 
         val list = arguments?.getParcelableArrayList<RecipeEntity>(Constants.KEY_RECIPES_LIST)!!.toList()
         val listAllForYou = getAListOfRandomRecipesInteractor.execute(45)
-        forYouAdapter = ForYouRecipesAdapter(list+listAllForYou , this)
+        forYouAdapter = RecipeCardAdapter(list+listAllForYou , this)
 
     }
 
     override fun addCallBacks() {
-        binding.apply {
-            recyclerForYouHome.adapter = forYouAdapter
+        binding.itemsRecycler.apply {
+            adapter = forYouAdapter
+            layoutManager = GridLayoutManager(requireContext(),2)
         }
     }
 
 
     override fun onClickItemRecipeEntitty(recipeEntity: RecipeEntity) {
-        navigationBetweenFragment(foodDetailsFragment)
+        val fragment = com.example.chickenmasala.ui.FoodDetailsFragment()
+        val bundle = Bundle()
+        bundle.putParcelable(Constants.TransitionKeys.RECIPE_LIST_KEY, recipeEntity)
+        fragment.arguments = bundle
 
-        bundle.putString(Constants.KEY_RECIPE_NAME, recipeEntity.name)
-        bundle.putString(Constants.KEY_CLEANED_INGREDIENTS, recipeEntity.cleanedIngredients.joinToString())
-        bundle.putString(Constants.KEY_IMAGE_URL, recipeEntity.imageUrl)
-        bundle.putString(Constants.KEY_INGREDIENTS, recipeEntity.ingredients.joinToString())
-        foodDetailsFragment.arguments = bundle
+        navigationBetweenParentFragment(fragment)
+
     }
-
-
-
-    private fun navigationBetweenFragment(fragment: Fragment) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.apply {
-            replace(R.id.container, fragment)
-            addToBackStack(null)
-            commit()
-        }
+    private fun navigationBetweenParentFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
 
