@@ -1,4 +1,4 @@
-# ChickenMasala
+# Chicken Masala
 
 - Chicken Massala is a food recipe app that helps users learn how to prepare different dishes.
 
