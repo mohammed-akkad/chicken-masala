@@ -1,5 +1,6 @@
 package com.example.chickenmasala.ui.screen
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
@@ -90,12 +91,32 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
     }
 
     private fun prepareQuestion() {
-        Glide.with(this)
-            .load(guessTheMeal.question)
-            .error(R.drawable.baseline_error_24)
-            .into(binding.mealImageView)
+        when (gameName) {
+            GuessGamesName.GUESS_THE_MEAL -> setImageQuestion()
+            GuessGamesName.GUESS_THE_CUISINE -> setTextQuestion(getString(R.string.questionGuessTheCusine))
+            GuessGamesName.GUESS_THE_EXSTING_INGREDIENT -> setTextQuestion(getString(R.string.questionGuessTheMeal))
+        }
     }
 
+    private fun setTextQuestion(string: String) {
+        binding.apply {
+            guessTheMealQuestion.text = string.plus(
+                guessTheMeal.question
+            )
+            mealImageView.visibility = View.GONE
+        }
+    }
+
+    private fun setImageQuestion() {
+        binding.apply {
+            Glide.with(mealImageView)
+                .load(guessTheMeal.question)
+                .error(R.drawable.baseline_error_24)
+                .into(mealImageView)
+            mealImageView.visibility = View.VISIBLE
+        }
+
+    }
 
     private fun setColorOfSelectedChoice() {
         for (selectedChoice in multiChoices!!) {
@@ -128,7 +149,6 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
 
     private fun submitAnswer() {
         binding.submitButton.setOnClickListener {
-
             val selectedChoice = determineSelectedView()
             if (selectedChoice.text.toString() == guessTheMeal.correctAnswer)
                 colorizeTheView(selectedChoice, greenColor!!)
@@ -143,6 +163,7 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
         return binding.QuestionParentLayout.findViewById(selectedChoiceId)
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     private fun prepareNextQuestion(clickChoicesState: Boolean) {
         multiChoices!!.forEach { choice ->
             choice.isClickable = clickChoicesState
@@ -154,7 +175,6 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
                 }
                 delay(100)
             }
-
         }
     }
 
