@@ -8,20 +8,20 @@ import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.utils.RecipeParser
-import com.example.chickenmasala.databinding.FragmentFoodKitchenCategoryBinding
+import com.example.chickenmasala.databinding.FragmentRecyclerBinding
+import com.example.chickenmasala.ui.adapter.RecipeHorizontalAdapter
 import com.example.chickenmasala.ui.listener.RecipeInteractionListener
-import com.example.chickenmasala.ui.adapter.CategorySpecificAdapter
 import com.example.chickenmasala.util.Constants
 
-class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategoryBinding>(),
+class RecipesRelatedCategoriesFragment : BaseFragment<FragmentRecyclerBinding>(),
     RecipeInteractionListener {
     override val LOG_TAG: String = "RecipesRelatedCategoriesFragment"
     private lateinit var csvRecipeParser: RecipeParser
     var dataCategories: String? = null
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
-    lateinit var categorySpecificAdapter: CategorySpecificAdapter
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodKitchenCategoryBinding =
-        FragmentFoodKitchenCategoryBinding::inflate
+    lateinit var recipeHorizontalAdapter: RecipeHorizontalAdapter
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRecyclerBinding =
+        FragmentRecyclerBinding::inflate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +37,8 @@ class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategor
 
     override fun addCallBacks() {
         binding.apply {
-            itemCard.apply {
-                adapter = categorySpecificAdapter
+            itemsRecycler.apply {
+                adapter = recipeHorizontalAdapter
 
             }
         }
@@ -53,7 +53,7 @@ class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategor
         val list = dataSourceOfRecipeEntity.getAllItems()
             .shuffled()
 
-        categorySpecificAdapter = CategorySpecificAdapter(list,this)
+        recipeHorizontalAdapter = RecipeHorizontalAdapter(list,this)
 
 
     }
@@ -73,7 +73,11 @@ class RecipesRelatedCategoriesFragment : BaseFragment<FragmentFoodKitchenCategor
 
 
     override fun onClickItemRecipeEntitty(recipeEntity: RecipeEntity) {
-        val fragment = FoodDetailsFragment()
+        val fragment = com.example.chickenmasala.ui.FoodDetailsFragment()
+        val bundle = Bundle()
+        bundle.putParcelable(Constants.TransitionKeys.RECIPE_LIST_KEY, recipeEntity)
+        fragment.arguments = bundle
+
         navigationBetweenParentFragment(fragment)
 
     }

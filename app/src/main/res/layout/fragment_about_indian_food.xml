@@ -1,121 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollview_fragment_about_indian_food"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/background"
-    >
+    android:scrollbars="none">
 
-
-    <ScrollView
-        android:id="@+id/scrollview_fragment_about_indian_food"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            style="@style/indian_food_text"
+            android:layout_marginTop="@dimen/spaceXLarge"
+            android:text="@string/titleOne" />
 
-        <LinearLayout
+        <TextView
+            style="@style/indian_food_text.indian"
+            android:text="@string/blockOne" />
+
+        <TextView
+            style="@style/indian_food_text"
+            android:layout_marginTop="@dimen/spaceLarge"
+            android:text="@string/titleTwo" />
+
+        <TextView
+            style="@style/indian_food_text.indian"
+            android:text="@string/blockTwo" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/imageview_indian_meal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="255dp"
+            android:layout_margin="@dimen/spaceMedium"
+            android:elevation="1dp"
+            android:src="@drawable/img_meal"
+            app:roundPercent="0.2" />
 
-            <TextView
-                android:id="@+id/text_view_headline_guide"
-                style="@style/IndianFoodText"
-                android:layout_marginTop="@dimen/spaceXLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/titleOne" />
+        <TextView
+            style="@style/indian_food_text"
+            android:layout_marginTop="@dimen/spaceLarge"
+            android:text="@string/titleThree" />
 
-            <TextView
-                android:id="@+id/textview_details_guide"
-                style="@style/IndianFoodText.Indian"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceSmall"
-                android:text="@string/blockOne" />
+        <TextView
+            style="@style/indian_food_text.indian"
+            android:text="@string/blockThree" />
 
+        <TextView
+            style="@style/indian_food_text"
+            android:layout_marginTop="@dimen/spaceLarge"
+            android:text="@string/titleFour" />
 
-            <TextView
-                android:id="@+id/textview_headline_history"
-                style="@style/IndianFoodText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/titleTwo"
-               />
+        <TextView
+            style="@style/indian_food_text.indian"
+            android:text="@string/blockFour" />
+    </LinearLayout>
+</ScrollView>
 
-            <TextView
-                android:id="@+id/textview_details_history"
-                style="@style/IndianFoodText.Indian"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceSmall"
-                android:text="@string/blockTwo" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="280dp"
-                    android:background="@color/background" />
-
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:id="@+id/imageview_indian_meal"
-                    android:layout_width="380dp"
-                    android:layout_height="255dp"
-                    android:layout_marginStart="@dimen/spaceMedium"
-                    android:layout_marginTop="@dimen/spaceMedium"
-                    android:layout_marginEnd="@dimen/spaceMedium"
-                    android:elevation="1dp"
-                    android:src="@drawable/img_meal"
-                    app:roundPercent="0.2" />
-
-            </androidx.cardview.widget.CardView>
-
-
-            <TextView
-                android:id="@+id/textview_headline_ingredients"
-                style="@style/IndianFoodText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/titleThree" />
-
-            <TextView
-                android:id="@+id/textview_details_ingredients"
-                style="@style/IndianFoodText.Indian"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceSmall"
-                android:text="@string/blockThree" />
-
-            <TextView
-                android:id="@+id/textview_headline_regional_cuisine"
-                style="@style/IndianFoodText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-
-                android:text="@string/titleFour" />
-
-            <TextView
-                android:id="@+id/textview_details_regional_cuisine"
-                style="@style/IndianFoodText.Indian"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spaceMedium"
-                android:layout_marginTop="@dimen/spaceSmall"
-                android:layout_marginBottom="@dimen/spaceMedium"
-                android:text="@string/blockFour" />
-
-        </LinearLayout>
-
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>

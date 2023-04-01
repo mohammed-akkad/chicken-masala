@@ -5,18 +5,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.chickenmasala.data.domain.RecipeEntity
-import com.example.chickenmasala.databinding.ItemKitchensBinding
+import com.example.chickenmasala.databinding.ItemLargeCardBinding
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
 
-class KitchensAdapter(
-    private val list: List<RecipeEntity>,
-    private val onClick: (cuisineName: String) -> Unit,
+class LargeCardAdapter(
+    private val list: List<Pair<String,String>>,
+    private val onClick: (position: Int) -> Unit,
 ) :
-    RecyclerView.Adapter<KitchensAdapter.KitchensViewHolder>() {
-    class KitchensViewHolder(val binding: ItemKitchensBinding) :
+    RecyclerView.Adapter<LargeCardAdapter.KitchensViewHolder>() {
+    class KitchensViewHolder(val binding: ItemLargeCardBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     private val shimmer =
@@ -29,7 +28,7 @@ class KitchensAdapter(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KitchensViewHolder {
-        val item = ItemKitchensBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val item = ItemLargeCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return KitchensViewHolder(item)
     }
 
@@ -44,13 +43,13 @@ class KitchensAdapter(
         }
 
         holder.binding.apply {
-            this.root.setOnClickListener { onClick(list[position].cuisine) }
-            kitchenName.text = list[position].cuisine
+            this.root.setOnClickListener { onClick(position) }
+            itemTitle.text = list[position].first
             Glide
-                .with(this.root)
-                .load(list[position].imageUrl)
+                .with(itemImage)
+                .load(list[position].second)
                 .placeholder(shimmerDrawable)
-                .into(holder.binding.kitchenImage)
+                .into(itemImage)
 
         }
     }

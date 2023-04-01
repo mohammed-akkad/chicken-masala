@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.RecipeEntity
-import com.example.chickenmasala.databinding.CardLargeBinding
+import com.example.chickenmasala.databinding.ItemSliderBinding
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
-class RecipesAdapter(val list: List<RecipeEntity>) :
-    RecyclerView.Adapter<RecipesAdapter.BaseViewHolder>() {
+class SliderAdapter(val list: List<RecipeEntity>) :
+    RecyclerView.Adapter<SliderAdapter.BaseViewHolder>() {
 
     private val shimmer =
         Shimmer.AlphaHighlightBuilder()
@@ -27,7 +27,7 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
 
             VIEW_TYPE_IMAGE_LARGE -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_card_large, parent, false)
+                    .inflate(R.layout.item_slider, parent, false)
                 RecipeViewHolder(view)
             }
 
@@ -58,10 +58,10 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
         val currentRecipe = list[position]
         holder.binding.apply {
             Glide
-                .with(this.root)
+                .with(sliderImage)
                 .load(currentRecipe.imageUrl)
                 .placeholder(shimmerDrawable)
-                .into(holder.binding.cardLargeCategories)
+                .into(sliderImage)
         }
 
 
@@ -75,7 +75,7 @@ class RecipesAdapter(val list: List<RecipeEntity>) :
     abstract class BaseViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem)
 
     class RecipeViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
-        val binding = CardLargeBinding.bind(viewItem)
+        val binding = ItemSliderBinding.bind(viewItem)
     }
 
 

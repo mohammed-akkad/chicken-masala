@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.CategoryEntity
-import com.example.chickenmasala.databinding.CardCategoryBinding
+import com.example.chickenmasala.databinding.ItemCategorySmallBinding
 import com.example.chickenmasala.ui.listener.CategoryInteractionListener
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
@@ -26,7 +26,7 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
         return when (viewType) {
             VIEW_TYPE_HEADER -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_card_category, parent, false)
+                    .inflate(R.layout.item_category_small, parent, false)
                 CategoryViewHolder(view)
             }
 
@@ -61,8 +61,8 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
                 .with(this.root)
                 .load(currentCategory.imageUrl)
                 .placeholder(shimmerDrawable)
-                .into(holder.binding.cardLargeImageview)
-            textViewCategory.text = currentCategory.name
+                .into(holder.binding.categoryImage)
+            categoryTitle.text = currentCategory.name
             root.setOnClickListener { listener.onClickItemCategory(currentCategory.name) }
         }
 
@@ -74,7 +74,7 @@ class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
 
 
     class CategoryViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
-        val binding = CardCategoryBinding.bind(viewItem)
+        val binding = ItemCategorySmallBinding.bind(viewItem)
     }
 
 

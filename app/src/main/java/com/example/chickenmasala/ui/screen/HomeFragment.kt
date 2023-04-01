@@ -14,7 +14,6 @@ import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentHomeBinding
 import com.example.chickenmasala.ui.adapter.*
 import com.example.chickenmasala.ui.listener.CategoryInteractionListener
-import com.example.chickenmasala.ui.listener.SpecialTreatsListener
 import com.example.chickenmasala.ui.listener.RecipeInteractionListener
 import com.example.chickenmasala.util.Constants
 import com.example.chickenmasala.util.Constants.CATEGORIES_CSV_FILE_NAME
@@ -23,11 +22,10 @@ import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
 @Suppress("DEPRECATION")
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionListener,
-    SpecialTreatsListener, RecipeInteractionListener {
+    RecipeInteractionListener {
     override val LOG_TAG: String = "HomeFragment"
     private lateinit var csvRecipeParser: RecipeParser
     private lateinit var csvCategoryParser: CategoryParser
-    private val foodDetailsFragment = FoodDetailsFragment()
     val bundle = Bundle()
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
     private lateinit var dataSourceOfCategoryEntity: CsvDataSource<CategoryEntity>
@@ -38,11 +36,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionLis
     private val cakeRecipeFragment = CakeRecipeFragment()
 
 
-    lateinit var recipesAdapter: RecipesAdapter
+    lateinit var sliderAdapter: SliderAdapter
     lateinit var categotyAdapter: CategotyAdapter
-    lateinit var forYouAdapter: ForYouRecipesAdapter
-    lateinit var sweetAdapter: SweetAdapter
-    lateinit var cakeAdapter: CakeAdapter
+    lateinit var forYouAdapter: RecipeCardAdapter
+    lateinit var sweetAdapter: RecipeCardAdapter
+    lateinit var cakeAdapter: RecipeCardAdapter
 
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding =
@@ -70,8 +68,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionLis
 
         val list = getAListOfRandomRecipesInteractor.execute(5)
         val listForYou = getAListOfRandomRecipesInteractor.execute(5)
-        recipesAdapter = RecipesAdapter(list)
-        forYouAdapter = ForYouRecipesAdapter(listForYou, this)
+        sliderAdapter = SliderAdapter(list)
+        forYouAdapter = RecipeCardAdapter(listForYou, this)
         bundle.putParcelableArrayList(Constants.KEY_RECIPES_LIST, ArrayList(list))
         forYouRecipesFragment.arguments = bundle
 
@@ -89,7 +87,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionLis
         val list = dataSourceOfRecipeEntity.getAllItems()
             .filter { it.cleanedIngredients.toString().contains("sugar ") }.shuffled().take(5)
 
-        sweetAdapter = SweetAdapter(list, this)
+        sweetAdapter = RecipeCardAdapter(list, this)
 
     }
     private fun setDAtaCakeTreats() {
@@ -104,7 +102,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionLis
         val list = dataSourceOfRecipeEntity.getAllItems()
             .filter { it.cleanedIngredients.toString().contains("cake ") }.shuffled().take(5)
 
-        cakeAdapter = CakeAdapter(list, this)
+        cakeAdapter = RecipeCardAdapter(list, this)
 
     }
 
@@ -120,11 +118,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionLis
     override fun addCallBacks() {
 
         binding.apply {
-            recyclerLargeHome.adapter = recipesAdapter
-            recyclerCategoryHome.adapter = categotyAdapter
-            recyclerSweetTreatHome.adapter = sweetAdapter
-            recyclerForYouHome.adapter = forYouAdapter
-            recyclerCakeHome.adapter = cakeAdapter
+            sliderRecycler.adapter = sliderAdapter
+            categoriesRecycler.adapter = categotyAdapter
+            sweetTreatsRecylcer.adapter = sweetAdapter
+            forYouRecycler.adapter = forYouAdapter
+            cakeCornerRecycler.adapter = cakeAdapter
 
 
             seeAllCategories.setOnClickListener {
@@ -161,13 +159,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionLis
 
     }
 
-    private fun navigationBetweenParentFragment(fragment: Fragment) {
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment)
-            .addToBackStack(null)
-            .commit()
-
-    }
 
     private fun setNavigationTitleAppBar(name: String) {
         (activity as MainActivity).apply {
@@ -183,24 +174,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionLis
 
     }
 
-    override fun onClickItemRecipeEntity(recipeEntity: String) {
-        val foodDetailsFragment = FoodDetailsFragment.newInstance(recipeEntity)
-        navigationBetweenParentFragment(foodDetailsFragment)
+    override fun onClickItemRecipeEntitty(recipeEntity: RecipeEntity) {
+        val fragment = com.example.chickenmasala.ui.FoodDetailsFragment()
+        val bundle = Bundle()
+        bundle.putParcelable(Constants.TransitionKeys.RECIPE_LIST_KEY, recipeEntity)
+        fragment.arguments = bundle
+
+        navigationBetweenParentFragment(fragment)
 
     }
-
-    override fun onClickItemRecipeEntitty(recipeEntity: RecipeEntity) {
-        navigationBetweenFragment(foodDetailsFragment)
-        bundle.putString(Constants.KEY_RECIPE_NAME, recipeEntity.name)
-        bundle.putString(
-            Constants.KEY_CLEANED_INGREDIENTS,
-            recipeEntity.cleanedIngredients.joinToString()
-        )
-        bundle.putString(Constants.KEY_IMAGE_URL, recipeEntity.imageUrl)
-        bundle.putString(Constants.KEY_INGREDIENTS, recipeEntity.ingredients.joinToString())
-        foodDetailsFragment.arguments = bundle
-
-
+    private fun navigationBetweenParentFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
 }

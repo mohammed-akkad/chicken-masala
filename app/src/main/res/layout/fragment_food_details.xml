@@ -5,7 +5,7 @@
     android:id="@+id/fragment_food_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+   android:background="@color/background"
     tools:context=".ui.screen.FoodDetailsFragment">
 
     <ScrollView
@@ -33,7 +33,7 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/view"
-                app:shapeAppearanceOverlay="@style/Circle"
+                app:shapeAppearanceOverlay="@style/circle"
                 tools:src="@drawable/ic_launcher_background" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -63,14 +63,17 @@
 
                 <TextView
                     android:id="@+id/tvFoodName"
-                    style="@style/TextTitle"
+                    style="@style/textTitle"
+                    android:ellipsize="end"
+                    android:lines="1"
                     android:text="@string/chicken_frid_rice"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tvFoodDetailName"
-                    style="@style/TextSubTitle"
+                    style="@style/textSubTitle"
                     android:layout_marginTop="@dimen/spaceExtraSmall"
                     android:text="@string/chicken_frid_rice"
                     app:layout_constraintStart_toStartOf="@+id/tvFoodName"
@@ -78,15 +81,18 @@
 
                 <TextView
                     android:id="@+id/category_text"
-                    style="@style/TextTitle"
+                    style="@style/textTitle"
                     android:layout_marginTop="@dimen/spaceLarge"
+                    android:ellipsize="end"
+                    android:lines="1"
                     android:text="@string/description"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/tvFoodDetailName"
                     app:layout_constraintTop_toBottomOf="@+id/tvFoodDetailName" />
 
                 <TextView
                     android:id="@+id/tvFoodDescription"
-                    style="@style/TextSubTitle"
+                    style="@style/textSubTitle"
                     android:layout_marginTop="@dimen/spaceExtraSmall"
                     android:text="@string/chicken_frid_rice"
                     app:layout_constraintStart_toStartOf="@+id/tvFoodName"
@@ -94,7 +100,7 @@
 
                 <TextView
                     android:id="@+id/cook_time_text"
-                    style="@style/TextTitle"
+                    style="@style/textTitle"
                     android:layout_marginTop="@dimen/spaceLarge"
                     android:text="@string/relative_food"
                     app:layout_constraintStart_toStartOf="@+id/tvFoodDescription"
@@ -135,10 +141,13 @@
 
                         <TextView
                             android:id="@+id/tvFirstRelativeFoodName"
-                            style="@style/TextTitle"
-                            android:layout_marginStart="@dimen/spaceSmall"
+                            style="@style/textTitle"
                             android:layout_marginTop="@dimen/spaceSmall"
+                            android:layout_marginHorizontal="@dimen/spaceSmall"
+                            android:ellipsize="end"
+                            android:lines="1"
                             android:text="@string/manchurian_nodules"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -153,7 +162,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvFirstRelativeFoodName"
-                            app:shapeAppearanceOverlay="@style/RelativeFoodImage"
+                            app:shapeAppearanceOverlay="@style/relativeFoodImage"
                             tools:src="@drawable/ic_launcher_background" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
@@ -187,10 +196,13 @@
 
                         <TextView
                             android:id="@+id/tvSecondRelativeFoodName"
-                            style="@style/TextTitle"
-                            android:layout_marginStart="@dimen/spaceSmall"
+                            style="@style/textTitle"
                             android:layout_marginTop="@dimen/spaceSmall"
+                            android:layout_marginHorizontal="@dimen/spaceSmall"
+                            android:ellipsize="end"
+                            android:lines="1"
                             android:text="@string/manchurian_nodules"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -203,11 +215,26 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvSecondRelativeFoodName"
-                            app:shapeAppearanceOverlay="@style/RelativeFoodImage"
+                            app:shapeAppearanceOverlay="@style/relativeFoodImage"
                             tools:src="@drawable/ic_launcher_background" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:visibility="invisible"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginTop="-50dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintHorizontal_bias="0.577"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </FrameLayout>
