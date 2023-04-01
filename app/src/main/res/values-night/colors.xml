@@ -23,7 +23,7 @@
     <color name="background">@color/gray_700</color>
     <color name="backround_bottom_navigation">#242424</color>
     <color name="txt_white_dark_background">@color/white</color>
-    <color name="backround_card">#3b3834</color>
+    <color name="background_card">#3b3834</color>
     <color name="icon_home">#cccccc</color>
     <color name="txt_color_bottom_navigation">#cccccc</color>
     <color name="icon_filter">@color/white</color>
