@@ -12,17 +12,17 @@ import com.example.chickenmasala.data.domain.GuessGamesName
 import com.example.chickenmasala.data.domain.QuestionGames
 import com.example.chickenmasala.data.interactors.GuessGamesInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
-import com.example.chickenmasala.databinding.FragmentGuessTheMealBinding
+import com.example.chickenmasala.databinding.FragmentGuessGameBinding
 import com.example.chickenmasala.util.Constants
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 import kotlinx.coroutines.*
 
 class GuessTheGameFragment(private val gameName: GuessGamesName) :
-    BaseFragment<FragmentGuessTheMealBinding>() {
+    BaseFragment<FragmentGuessGameBinding>() {
     override val LOG_TAG: String = "GuessTheMealFragment"
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessTheMealBinding =
-        FragmentGuessTheMealBinding::inflate
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessGameBinding =
+        FragmentGuessGameBinding::inflate
     private lateinit var guessTheMeal: QuestionGames
     private var selectedChoiceId: Int = 0
     private var yellowColor: Int? = null

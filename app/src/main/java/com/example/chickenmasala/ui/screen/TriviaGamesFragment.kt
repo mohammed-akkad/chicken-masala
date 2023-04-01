@@ -23,13 +23,13 @@ class TriviaGamesFragment : BaseFragment<FragmentTriviaGamesBinding>() {
 
     override fun addCallBacks() {
 
-        binding.cardviewMiniGameOne.setOnClickListener {
+        binding.guessTheIngredientCard.setOnClickListener {
             replaceFragment(GuessTheGameFragment(GuessGamesName.GUESS_THE_EXSTING_INGREDIENT))
         }
-        binding.cardviewMiniGameTwo.setOnClickListener {
+        binding.guessTheCuisineCard.setOnClickListener {
             replaceFragment(GuessTheGameFragment(GuessGamesName.GUESS_THE_CUISINE))
         }
-        binding.cardviewMiniGameThree.setOnClickListener {
+        binding.guessTheMealCard.setOnClickListener {
             replaceFragment(GuessTheGameFragment(GuessGamesName.GUESS_THE_MEAL))
         }
     }

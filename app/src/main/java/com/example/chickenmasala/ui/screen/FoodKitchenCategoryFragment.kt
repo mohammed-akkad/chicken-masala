@@ -5,20 +5,20 @@ import android.view.ViewGroup
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.CategoryEntity
 import com.example.chickenmasala.data.utils.CategoryParser
-import com.example.chickenmasala.databinding.FragmentFoodKitchenCategoryBinding
-import com.example.chickenmasala.ui.adapter.AllCategoryAdapter
+import com.example.chickenmasala.databinding.FragmentRecyclerBinding
+import com.example.chickenmasala.ui.adapter.LargeCardAdapter
 import com.example.chickenmasala.util.Constants
 
 
-class FoodKitchenCategoryFragment : BaseFragment<FragmentFoodKitchenCategoryBinding>() {
+class FoodKitchenCategoryFragment : BaseFragment<FragmentRecyclerBinding>() {
     override val LOG_TAG: String = "FoodKitchenCategoryFragment"
     private lateinit var csvCategoryParser: CategoryParser
     private lateinit var dataSourceOfCategoryEntity: CsvDataSource<CategoryEntity>
-    lateinit var allCategoryAdapter: AllCategoryAdapter
+    lateinit var allCategoriesAdapter: LargeCardAdapter
 
 
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodKitchenCategoryBinding =
-        FragmentFoodKitchenCategoryBinding::inflate
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRecyclerBinding =
+        FragmentRecyclerBinding::inflate
 
 
     override fun setup() {
@@ -29,16 +29,20 @@ class FoodKitchenCategoryFragment : BaseFragment<FragmentFoodKitchenCategoryBind
         csvCategoryParser = CategoryParser()
         dataSourceOfCategoryEntity =
             CsvDataSource(requireContext(), Constants.CATEGORIES_CSV_FILE_NAME, csvCategoryParser)
-        val list = dataSourceOfCategoryEntity.getAllItems().shuffled()
-        allCategoryAdapter = AllCategoryAdapter(list)
+        val list = dataSourceOfCategoryEntity.getAllItems().shuffled().map {
+            Pair(it.name,it.imageUrl)
+        }
+        allCategoriesAdapter = LargeCardAdapter(list){position: Int ->  
+            //TODO: Handle on category click listener
+        }
 
     }
 
 
     override fun addCallBacks() {
         binding.apply {
-            itemCard.apply {
-                adapter = allCategoryAdapter
+            itemsRecycler.apply {
+                adapter = allCategoriesAdapter
             }
 
         }

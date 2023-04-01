@@ -1,33 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginVertical="@dimen/spaceSmall"
-    android:layout_marginHorizontal="@dimen/spaceMedium"
-    android:background="@color/white"
-    app:cardCornerRadius="@dimen/spaceSmall"
-    app:cardElevation="@dimen/spaceSmall"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/spaceSmall">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|clip_horizontal"
         android:background="@color/gray_300"
-        android:orientation="horizontal"
-        android:backgroundTint="@color/backround_card"
-        >
+        android:backgroundTint="@color/backround_card">
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/imageview_indian_food_first_item"
+            android:id="@+id/recipe_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_gravity="start"
             android:layout_marginVertical="@dimen/spaceExtraSmall"
             android:layout_marginStart="@dimen/spaceExtraSmall"
             android:scaleType="centerCrop"
@@ -38,35 +30,34 @@
             tools:src="@drawable/img_card_food" />
 
         <TextView
-            android:id="@+id/textview_recipe"
+            android:id="@+id/recipe_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/spaceSmall"
             android:ellipsize="end"
             android:fontFamily="@font/roboto_bold"
-            android:lines="1"
+            android:lines="2"
             android:text="@string/masala_karela_recipe"
             android:textColor="@color/txt_white_dark_background"
             android:textSize="@dimen/textMedium"
-            app:layout_constraintBottom_toBottomOf="@+id/imageview_indian_food_first_item"
+            app:layout_constraintBottom_toBottomOf="@+id/recipe_image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageview_indian_food_first_item"
-            app:layout_constraintTop_toTopOf="@+id/imageview_indian_food_first_item"
-            app:layout_constraintVertical_bias="0.23000002" />
+            app:layout_constraintStart_toEndOf="@+id/recipe_image"
+            app:layout_constraintTop_toTopOf="@+id/recipe_image"
+            app:layout_constraintVertical_bias="0.2" />
 
         <TextView
-            android:id="@+id/textview_recipeCuisine"
+            android:id="@+id/recipe_cuisine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spaceSmall"
             android:textColor="@color/txt_white_dark_background"
             android:fontFamily="@font/roboto_bold"
             android:textSize="@dimen/textMedium"
-            app:layout_constraintEnd_toEndOf="@+id/textview_recipe"
+            app:layout_constraintEnd_toEndOf="@+id/recipe_title"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textview_recipe"
-            app:layout_constraintTop_toBottomOf="@+id/textview_recipe"
+            app:layout_constraintStart_toStartOf="@+id/recipe_title"
+            app:layout_constraintTop_toBottomOf="@+id/recipe_title"
             tools:text="@string/cuisine" />
 
 

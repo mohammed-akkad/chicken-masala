@@ -7,16 +7,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.domain.RecipeEntity
-import com.example.chickenmasala.databinding.ItemCardFoodBinding
+import com.example.chickenmasala.databinding.ItemRecipeHorizontalBinding
 import com.example.chickenmasala.ui.listener.RecipeInteractionListener
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
-class CategorySpecificAdapter(
+class RecipeHorizontalAdapter(
     val list: List<RecipeEntity>,
     val listener: RecipeInteractionListener
 ) :
-    RecyclerView.Adapter<CategorySpecificAdapter.CategorySpicficViewHolder>() {
+    RecyclerView.Adapter<RecipeHorizontalAdapter.CategorySpicficViewHolder>() {
 
 
     private val shimmer =
@@ -33,7 +33,7 @@ class CategorySpecificAdapter(
     ): CategorySpicficViewHolder {
 
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_card_food, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_recipe_horizontal, parent, false)
         return CategorySpicficViewHolder(view)
     }
 
@@ -45,17 +45,17 @@ class CategorySpecificAdapter(
             setShimmer(shimmer.build())
         }
 
-        val currentCategory = list[position]
+        val currentRecipe = list[position]
         holder.binding.apply {
 
             Glide
                 .with(this.root)
-                .load(currentCategory.imageUrl)
+                .load(currentRecipe.imageUrl)
                 .placeholder(shimmerDrawable)
-                .into(holder.binding.imageviewIndianFoodFirstItem)
-            textviewRecipe.text = currentCategory.name
-            textviewRecipeCuisine.text = currentCategory.tags[0]
-            root.setOnClickListener { listener.onClickItemRecipeEntitty(currentCategory) }
+                .into(holder.binding.recipeImage)
+            recipeTitle.text = currentRecipe.name
+            recipeCuisine.text = currentRecipe.cuisine
+            root.setOnClickListener { listener.onClickItemRecipeEntitty(currentRecipe) }
 
         }
     }
@@ -63,6 +63,6 @@ class CategorySpecificAdapter(
     override fun getItemCount() = list.size
 
     class CategorySpicficViewHolder(viewItem: View) : CategotyAdapter.BaseViewHolder(viewItem) {
-        val binding = ItemCardFoodBinding.bind(viewItem)
+        val binding = ItemRecipeHorizontalBinding.bind(viewItem)
     }
 }

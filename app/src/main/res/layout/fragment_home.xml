@@ -1,147 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@color/background"
+    android:scrollbars="none">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/slider_recycler"
+            style="@style/RV"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_slider" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_large_home"
-                style="@style/RV"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categories_recycler"
+            style="@style/RV"
+            app:layout_constraintTop_toBottomOf="@id/categories_section_header"
+            tools:listitem="@layout/item_category_small" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_category_home"
-                style="@style/RV"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_title_home_category"
-                tools:itemCount="4" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/for_you_recycler"
+            style="@style/RV"
+            app:layout_constraintTop_toBottomOf="@id/for_you_section_header"
+            tools:listitem="@layout/item_recipe" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_for_you_home"
-                style="@style/RV"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_title_home_for_you" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sweet_treats_recylcer"
+            style="@style/RV"
+            app:layout_constraintTop_toBottomOf="@id/sweet_treats_section_header"
+            tools:listitem="@layout/item_recipe" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_sweet_treat_home"
-                style="@style/RV"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_title_home_sweet_treat" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cake_corner_recycler"
+            style="@style/RV"
+            app:layout_constraintTop_toBottomOf="@id/cake_corner_section_header"
+            tools:listitem="@layout/item_recipe" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_cake_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/RV"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_title_home_cake" />
+        <LinearLayout
+            android:id="@+id/categories_section_header"
+            style="@style/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/slider_recycler">
 
-            <LinearLayout
-                android:id="@+id/text_title_home_category"
-                style="@style/linearLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recycler_large_home">
+            <TextView
+                style="@style/see_all.categories"
+                android:text="@string/categories" />
 
-                <TextView
-                    android:id="@+id/textview_categories"
-                    style="@style/see_all.categories"
+            <TextView
+                android:id="@+id/see_all_categories"
+                style="@style/see_all"
+                android:text="@string/see_all" />
+        </LinearLayout>
 
-                    android:text="@string/categories" />
+        <LinearLayout
+            android:id="@+id/for_you_section_header"
+            style="@style/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/categories_recycler">
 
-                <TextView
-                    android:id="@+id/see_all_categories"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/see_all"
-                    style="@style/see_all" />
-            </LinearLayout>
+            <TextView
+                style="@style/see_all.categories"
+                android:text="@string/for_you" />
 
-            <LinearLayout
-                android:id="@+id/text_title_home_for_you"
-               style="@style/linearLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recycler_category_home">
+            <TextView
+                android:id="@+id/textview_see_all_for_you"
+                style="@style/see_all"
+                android:text="@string/see_all" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textview_for_you"
-                    style="@style/see_all.categories"
-                    android:text="@string/for_you" />
+        <LinearLayout
+            android:id="@+id/sweet_treats_section_header"
+            style="@style/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/for_you_recycler">
 
-                <TextView
-                    android:id="@+id/textview_see_all_for_you"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/see_all"
-                    style="@style/see_all" />
-            </LinearLayout>
+            <TextView
+                style="@style/see_all.categories"
+                android:text="@string/sweet_treats" />
 
+            <TextView
+                android:id="@+id/see_all_sweet_treats"
+                style="@style/see_all"
+                android:text="@string/see_all" />
+        </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/text_title_home_sweet_treat"
-                style="@style/linearLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recycler_for_you_home">
+        <LinearLayout
+            android:id="@+id/cake_corner_section_header"
+            style="@style/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/sweet_treats_recylcer">
 
-                <TextView
-                    android:id="@+id/sweet_treats_textview"
-                    style="@style/see_all.categories"
-                    android:text="@string/sweet_treats" />
+            <TextView
+                style="@style/see_all.categories"
+                android:text="@string/cake_corner" />
 
-                <TextView
-                    android:id="@+id/see_all_sweet_treats"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/see_all"
-                    style="@style/see_all" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/see_all_cake_corner"
+                style="@style/see_all"
+                android:text="@string/see_all" />
+        </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/text_title_home_cake"
-                style="@style/linearLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recycler_sweet_treat_home">
-
-                <TextView
-                    android:id="@+id/cake_corner_textview"
-                    style="@style/see_all.categories"
-                    android:text="@string/cake_corner"
-                    />
-
-                <TextView
-                    android:id="@+id/see_all_cake_corner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/see_all"
-                    style="@style/see_all" />
-            </LinearLayout>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
