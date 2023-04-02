@@ -30,7 +30,7 @@
     <string name="cook_time">وقت الطبخ</string>
     <string name="under_15_min">أقل من 15 دقيقة</string>
     <string name="under_30_min">أقل من 30 دقيقة</string>
-    <string name="under_1_hour">أقل من 30 ساعة</string>
+    <string name="under_1_hour">أقل من 1 ساعة</string>
     <string name="ingredients_count">عدد المكونات</string>
     <string name="under_30_ingredients">أقل من 30 مكونًا</string>
     <string name="under_10_ingredients">أقل من10  مكونًا</string>

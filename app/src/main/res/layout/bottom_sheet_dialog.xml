@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/gray_300"
+    android:scrollbars="none"
     android:orientation="vertical">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/spaceMedium">
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/tape"
                 android:layout_width="80dp"
-                android:layout_height="@dimen/spaceSmall"
+                android:layout_height="@dimen/spaceExtraSmall"
                 android:backgroundTint="@color/gray_200"
                 app:cardCornerRadius="@dimen/spaceExtraSmall"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -42,8 +37,8 @@
                 android:id="@+id/chipGroup_category"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spaceMedium"
-                app:layout_constraintEnd_toEndOf="@id/guideline2"
+                android:layout_marginTop="@dimen/spaceSmall"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/category_text">
 
@@ -118,13 +113,6 @@
                     android:text="@string/Chicken" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chipBeef"
-                    style="@style/Chip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/beef" />
-
-                <com.google.android.material.chip.Chip
                     android:id="@+id/chipRice"
                     style="@style/Chip"
                     android:layout_width="wrap_content"
@@ -145,24 +133,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/sandwiches" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipBreakfast"
-                    style="@style/Chip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/breakfast" />
-
-                <TextView
-                    android:id="@+id/collapseCategories"
-                    style="@style/TextTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/collapse"
-                    android:textSize="16sp" />
-
             </com.google.android.material.chip.ChipGroup>
-
 
             <TextView
                 android:id="@+id/cook_time_text"
@@ -179,8 +150,8 @@
                 android:id="@+id/chipGroup_cookTime"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spaceMedium"
-                app:layout_constraintEnd_toEndOf="@id/guideline2"
+                android:layout_marginTop="@dimen/spaceSmall"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cook_time_text">
@@ -210,58 +181,22 @@
             </com.google.android.material.chip.ChipGroup>
 
             <TextView
-                android:id="@+id/textView4"
-                style="@style/TextTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spaceMedium"
-                android:text="@string/ingredients_count"
-                app:layout_constraintTop_toBottomOf="@+id/chipGroup_cookTime"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroup_ingredientsCount"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="@id/guideline2"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipIngredientsCountUnder30"
-                    style="@style/Chip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="@string/under_30_ingredients" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipIngredientsCountUnder10"
-                    style="@style/Chip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/under_10_ingredients" />
-
-
-            </com.google.android.material.chip.ChipGroup>
-
-            <TextView
                 android:id="@+id/textView5"
                 style="@style/TextTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spaceMedium"
                 android:text="@string/cuisine"
-                app:layout_constraintTop_toBottomOf="@+id/chipGroup_ingredientsCount"
-                tools:layout_editor_absoluteX="16dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chipGroup_cookTime" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroup_cuisine"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="@id/guideline2"
-                app:layout_constraintHorizontal_bias="1.0"
+                android:layout_marginTop="@dimen/spaceSmall"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5">
 
@@ -286,13 +221,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/goan_recipes" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipCuisine_continental"
-                    style="@style/Chip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/continental" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipCuisine_indian"
@@ -323,13 +251,6 @@
                     android:text="@string/south_indian_recipes" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chipCuisine_mediterranean"
-                    style="@style/Chip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mediterranean" />
-
-                <com.google.android.material.chip.Chip
                     android:id="@+id/chipCuisine_italian"
                     style="@style/Chip"
                     android:layout_width="wrap_content"
@@ -346,14 +267,6 @@
 
             </com.google.android.material.chip.ChipGroup>
 
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.8" />
-
             <Button
                 android:id="@+id/button_filter"
                 android:layout_width="match_parent"
@@ -361,13 +274,12 @@
                 android:layout_marginTop="@dimen/spaceMedium"
                 android:background="@drawable/button_with_radius"
                 android:text="@string/filter"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chipGroup_cuisine" />
+                app:layout_constraintTop_toBottomOf="@id/chipGroup_cuisine" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-</LinearLayout>
