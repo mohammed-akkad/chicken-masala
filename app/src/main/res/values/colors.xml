@@ -8,11 +8,19 @@
     <color name="orange_500">#2A1C14</color>
     <color name="orange_600">#FDA033</color>
     <color name="orange_700">#FF7900</color>
+    <color name="txt_background">#333333</color>
 
-    <color name="yellow_600">#FFD87A</color>
-    <color name="red_100">#EA5B5B</color>
-    <color name="green_100">#2ED573</color>
-    <color name="neutrals_800">#2D3648</color>
+    <color name="yellow_600_night">#3D3D3D</color>
+    <color name="yellow_600_night_extr">#272727</color>
+    <color name="red_100_night">#EA5B5B</color>
+    <color name="green_100_night">#2ED573</color>
+    <color name="neutrals_800_night">#2D3648</color>
+
+    <color name="yellow_600">#FDD26A</color>
+    <color name="red_100">#B71C1B</color>
+    <color name="green_100">#10C337</color>
+    <color name="neutrals_800">#2D384E</color>
+
 
     <color name="black">#CC000000</color>
     <color name="white">#FFFFFFFF</color>
