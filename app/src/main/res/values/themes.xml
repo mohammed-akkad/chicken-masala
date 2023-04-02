@@ -132,7 +132,6 @@
     <style name="IndianFoodText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/background</item>
         <item name="android:textSize">@dimen/textXLarge</item>
         <item name="android:layout_marginStart">@dimen/spaceMedium</item>
         <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
@@ -141,8 +140,8 @@
 
     <style name="IndianFoodText.Indian">
         <item name="android:layout_marginTop">@dimen/spaceSmall</item>
-        <item name="android:padding">@dimen/spaceSmall</item>
-        <item name="background">@color/background_card</item>
+        <item name="android:padding">@dimen/spaceNormal</item>
+        <item name="android:background">@drawable/text_background_radius</item>
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:textColor">@color/txt_white_dark_background</item>
     </style>
@@ -266,4 +265,41 @@
         <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
     </style>
 
+    <style name="relativeFoodCardStyle" parent="CardView">
+        <item name="android:layout_marginStart">@dimen/spaceExtraSmall</item>
+        <item name="android:layout_marginTop">@dimen/spaceMedium</item>
+        <item name="android:layout_marginBottom">@dimen/spaceSmall</item>
+        <item name="android:background">@color/gray_300</item>
+        <item name="android:backgroundTint">@color/gray_300</item>
+        <item name="cardCornerRadius">@dimen/spaceLarge</item>
+        <item name="layout_goneMarginEnd">@dimen/spaceSmall</item>
+    </style>
+
+    <style name="parentLayoutBackgroundColor">
+        <item name="android:background">@color/gray_200</item>
+    </style>
+
+    <style name="answerButtonStyle">
+        <item name="android:background">@color/gray_200</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">@dimen/spaceMedium</item>
+        <item name="android:paddingEnd">@dimen/spaceMedium</item>
+        <item name="android:textColor">@color/txt_white_dark_background</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+    </style>
+
+    <style name="submitButtonStyle">
+        <item name="android:layout_marginTop">@dimen/spaceLarge</item>
+        <item name="android:layout_marginBottom">@dimen/spaceLarge</item>
+        <item name="android:layout_marginStart">@dimen/spaceMedium</item>
+        <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
+        <item name="android:backgroundTint">@color/orange_600</item>
+        <item name="android:background">@drawable/button_with_radius</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:text">@string/submit</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+    </style>
 </resources>
