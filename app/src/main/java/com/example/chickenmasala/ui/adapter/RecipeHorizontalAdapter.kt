@@ -55,6 +55,7 @@ class RecipeHorizontalAdapter(
                 .into(holder.binding.recipeImage)
             recipeTitle.text = currentRecipe.name
             recipeCuisine.text = currentRecipe.cuisine
+            timeToPrepare.text=currentRecipe.totalTime.toString()
             root.setOnClickListener { listener.onClickItemRecipeEntitty(currentRecipe) }
 
         }
