@@ -170,6 +170,8 @@
     </style>
 
     <style name="RecyclerView">
+        <item name="android:paddingHorizontal">@dimen/spaceSmall</item>
+        <item name="android:clipToPadding">false</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:layout_marginTop">@dimen/spaceSmall</item>
         <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
