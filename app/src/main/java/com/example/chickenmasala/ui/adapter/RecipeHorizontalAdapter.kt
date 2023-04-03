@@ -49,12 +49,13 @@ class RecipeHorizontalAdapter(
         holder.binding.apply {
 
             Glide
-                .with(this.root)
+                .with(recipeImage)
                 .load(currentRecipe.imageUrl)
                 .placeholder(shimmerDrawable)
-                .into(holder.binding.recipeImage)
+                .into(recipeImage)
             recipeTitle.text = currentRecipe.name
             recipeCuisine.text = currentRecipe.cuisine
+            timeToPrepare.text=currentRecipe.totalTime.toString()+" mins"
             root.setOnClickListener { listener.onClickItemRecipeEntitty(currentRecipe) }
 
         }

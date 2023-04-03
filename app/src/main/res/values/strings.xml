@@ -63,7 +63,7 @@
     <string name="cook_time">Cook Time</string>
     <string name="under_15_min">Under 15 min</string>
     <string name="under_30_min">Under 30 min</string>
-    <string name="under_1_hour">under_1_hour</string>
+    <string name="under_1_hour">Under 1 hour</string>
 
 
     <string name="ingredients_count">Ingredients count</string>
@@ -99,13 +99,15 @@
     <string name="collapse">Collapse</string>
     <string name="cuisine">Cuisine</string>
     <string name="chicken_frid_rice">Chicken Frid Rice</string>
-    <string name="description">Description</string>
+    <string name="description">Ingredients</string>
     <string name="relative_food">Relative Food</string>
     <string name="manchurian_nodules">Manchurian Nodules</string>
     <string name="filter">Filter</string>
     <string name="text_not_found">Text not Found</string>
     <string name="questionGuessTheCusine" translatable="false">guess the cuisine of</string>
     <string name="questionGuessTheMeal" translatable="false">what is the ingredient in</string>
+    <string name="_2_mins" translatable="false">2 mins</string>
+
 
 
 </resources>

@@ -5,7 +5,7 @@
     android:id="@+id/scrollview_fragment_about_indian_food"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background"
+    style="@style/parentLayoutBackgroundColor"
     android:scrollbars="none">
 
     <LinearLayout
