@@ -1,7 +1,7 @@
 package com.example.chickenmasala.data
 
 import android.content.Context
-import com.example.chickenmasala.data.interactors.FoodDataSource
+import com.example.chickenmasala.interactors.FoodDataSource
 import com.example.chickenmasala.data.utils.CsvParser
 import java.io.BufferedReader
 import java.io.InputStreamReader

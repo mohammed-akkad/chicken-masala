@@ -2,6 +2,8 @@ package com.example.chickenmasala.data.interactors
 
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.chickenmasala.data.domain.RecipeEntity
+import com.example.chickenmasala.interactors.FoodDataSource
+import com.example.chickenmasala.interactors.GetAListOfRecipesOfACertainCategoryInteractor
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK

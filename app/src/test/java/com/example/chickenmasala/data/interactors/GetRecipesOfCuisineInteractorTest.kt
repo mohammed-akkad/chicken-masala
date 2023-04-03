@@ -1,5 +1,7 @@
 package com.example.chickenmasala.data.interactors
 import com.example.chickenmasala.data.domain.RecipeEntity
+import com.example.chickenmasala.interactors.FoodDataSource
+import com.example.chickenmasala.interactors.GetRecipesOfCuisineInteractor
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK

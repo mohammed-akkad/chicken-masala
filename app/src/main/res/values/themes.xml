@@ -27,7 +27,7 @@
     </style>
 
     <style name="BottomNavigationBarIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">@color/orange_600</item>
+        <item name="android:color">#F3D0C2</item>
     </style>
 
     <style name="TextKitchens">
