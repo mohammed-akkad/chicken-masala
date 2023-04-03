@@ -29,7 +29,7 @@
     <color name="gray_700">#1f1d1b</color>
 
     <color name="background">@color/white</color>
-    <color name="backround_bottom_navigation">#F9F5F3</color>
+    <color name="background_bottom_navigation">#F9F5F3</color>
     <color name="background_card">@color/gray_200</color>
     <color name="txt_color_bottom_navigation">#1c1b1f</color>
     <color name="txt_white_dark_background">@color/orange_200</color>

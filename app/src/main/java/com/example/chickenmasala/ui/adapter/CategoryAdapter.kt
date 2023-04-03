@@ -13,50 +13,20 @@ import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
 class CategoryAdapter(val list: List<CategoryEntity>, val listener: CategoryInteractionListener) :
-    RecyclerView.Adapter<CategoryAdapter.BaseViewHolder>() {
+    RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
-    private val shimmer =
-        Shimmer.AlphaHighlightBuilder()
-            .setDuration(1800)
-            .setBaseAlpha(0.5f)
-            .setHighlightAlpha(0.7f)
-            .setTilt(45f)
-            .setAutoStart(true)
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        return when (viewType) {
-            VIEW_TYPE_HEADER -> {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_category_small, parent, false)
-                CategoryViewHolder(view)
-            }
-
-            else -> {
-                super.createViewHolder(parent, viewType)
-            }
-        }
-
-
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_category_small, parent, false)
+        return CategoryViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-
-
-        when (holder) {
-            is CategoryViewHolder -> bindCategory(holder, position)
-        }
-
-    }
-
-    override fun getItemCount() = list.size
-
-
-    private fun bindCategory(holder: CategoryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val shimmerDrawable = ShimmerDrawable().apply {
             setShimmer(shimmer.build())
         }
         val currentCategory = list[position]
         holder.binding.apply {
-
             Glide
                 .with(this.root)
                 .load(currentCategory.imageUrl)
@@ -65,20 +35,21 @@ class CategoryAdapter(val list: List<CategoryEntity>, val listener: CategoryInte
             categoryTitle.text = currentCategory.name
             root.setOnClickListener { listener.onClickItemCategory(currentCategory.name) }
         }
-
-
     }
 
+    override fun getItemCount() = list.size
 
-    abstract class BaseViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem)
-
-
-    class CategoryViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
+    class CategoryViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemCategorySmallBinding.bind(viewItem)
     }
 
-
     companion object {
-        const val VIEW_TYPE_HEADER = 0
+        private val shimmer =
+            Shimmer.AlphaHighlightBuilder()
+                .setDuration(1800)
+                .setBaseAlpha(0.5f)
+                .setHighlightAlpha(0.7f)
+                .setTilt(45f)
+                .setAutoStart(true)
     }
 }

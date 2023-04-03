@@ -12,56 +12,44 @@ import com.example.chickenmasala.ui.listener.RecipeInteractionListener
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
-class RecipeCardAdapter(val list: List<RecipeEntity>, val listener: RecipeInteractionListener) : RecyclerView.Adapter<RecipeCardAdapter.ForYouRecipesViewHolder>(){
-
-    private val shimmer =
-        Shimmer.AlphaHighlightBuilder()
-            .setDuration(1800)
-            .setBaseAlpha(0.5f)
-            .setHighlightAlpha(0.7f)
-            .setTilt(45f)
-            .setAutoStart(true)
-
-
+class RecipeCardAdapter(val list: List<RecipeEntity>, val listener: RecipeInteractionListener) :
+    RecyclerView.Adapter<RecipeCardAdapter.ForYouRecipesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForYouRecipesViewHolder {
-        val view =LayoutInflater.from(parent.context).inflate(R.layout.item_recipe , parent , false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recipe, parent, false)
         return ForYouRecipesViewHolder(view)
     }
-
 
     override fun onBindViewHolder(holder: ForYouRecipesViewHolder, position: Int) {
         val shimmerDrawable = ShimmerDrawable().apply {
             setShimmer(shimmer.build())
         }
-
-
         val currentRecipes = list[position]
         holder.binding.apply {
             recipeNameText.text = currentRecipes.name
-
-            root.setOnClickListener{
+            root.setOnClickListener {
                 listener.onClickItemRecipeEntitty(currentRecipes)
-
             }
-
-
             Glide.with(recipeImageUrl)
                 .load(currentRecipes.imageUrl)
                 .placeholder(shimmerDrawable)
                 .into(recipeImageUrl)
-
         }
-        }
-
+    }
 
     override fun getItemCount() = list.size
 
-    class ForYouRecipesViewHolder(viewItem: View): RecyclerView.ViewHolder(viewItem){
+    class ForYouRecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemRecipeBinding.bind(viewItem)
+    }
 
-
-
+    companion object {
+        private val shimmer =
+            Shimmer.AlphaHighlightBuilder()
+                .setDuration(1800)
+                .setBaseAlpha(0.5f)
+                .setHighlightAlpha(0.7f)
+                .setTilt(45f)
+                .setAutoStart(true)
     }
 }
-

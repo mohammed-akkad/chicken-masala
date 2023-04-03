@@ -56,7 +56,10 @@
 
         <TextView
             style="@style/IndianFoodText.Indian"
-            android:text="@string/blockFour" />
+            android:text="@string/blockFour"
+            android:layout_marginBottom="@dimen/spaceMedium"
+            />
+
     </LinearLayout>
 </ScrollView>
 

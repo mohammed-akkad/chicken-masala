@@ -21,7 +21,7 @@ import kotlinx.coroutines.*
 
 class GuessTheGameFragment(private val gameName: GuessGamesName) :
     BaseFragment<FragmentGuessGameBinding>() {
-    override val LOG_TAG: String = "GuessTheMealFragment"
+    override val LOG_TAG: String = GuessGamesInteractor::class.java.name
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentGuessGameBinding =
         FragmentGuessGameBinding::inflate
     private lateinit var guessTheMeal: QuestionGames
@@ -60,8 +60,6 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
     }
 
     private fun prepareColors() {
-
-
         when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
             Configuration.UI_MODE_NIGHT_YES -> {
                 yellowColor = ContextCompat.getColor(requireContext(), R.color.yellow_600_night)
@@ -75,14 +73,9 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
                 greenColor = ContextCompat.getColor(requireContext(), R.color.green_100)
                 redColor = ContextCompat.getColor(requireContext(), R.color.red_100)
             }
-
         }
-
         setUpChoicesColor()
-
     }
-
-
 
     private fun setUpChoicesColor() {
         multiChoices?.forEach { choice ->
@@ -206,5 +199,4 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
     private fun colorizeTheView(selectedChoice: TextView, color: Int) {
         selectedChoice.setBackgroundColor(color)
     }
-
 }

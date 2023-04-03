@@ -15,7 +15,11 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/guess_the_ingredient_card"
             style="@style/CardViewTrivia"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
             app:cardCornerRadius="@dimen/spaceMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
@@ -35,7 +39,11 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/guess_the_cuisine_card"
             style="@style/CardViewTrivia"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
             app:cardCornerRadius="@dimen/spaceMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/guess_the_ingredient_card">
 
 
@@ -56,7 +64,11 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/guess_the_meal_card"
             style="@style/CardViewTrivia"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
             app:cardCornerRadius="@dimen/spaceMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/guess_the_cuisine_card">
 
             <View

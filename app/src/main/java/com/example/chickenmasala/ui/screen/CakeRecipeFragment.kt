@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
+import com.example.chickenmasala.data.interactors.GetAListOfCakeRecipesInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentRecyclerBinding
 import com.example.chickenmasala.ui.adapter.RecipeCardAdapter
@@ -16,18 +17,19 @@ import com.example.chickenmasala.util.Constants
 
 class CakeRecipeFragment : BaseFragment<FragmentRecyclerBinding>(),
     RecipeInteractionListener {
-    override val LOG_TAG: String = "SweetRecipeFragment"
+    override val LOG_TAG: String = CakeRecipeFragment::class.java.name
     private lateinit var csvRecipeParser: RecipeParser
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
     private lateinit var cakeAdapter: RecipeCardAdapter
-
+    private lateinit var getAListOfCakeRecipesInteractor: GetAListOfCakeRecipesInteractor
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRecyclerBinding =
         FragmentRecyclerBinding::inflate
 
     override fun setup() {
-        setupDateCake()
+        setDateCake()
     }
+
     override fun addCallBacks() {
         binding.apply {
             itemsRecycler.apply {
@@ -41,8 +43,12 @@ class CakeRecipeFragment : BaseFragment<FragmentRecyclerBinding>(),
         csvRecipeParser = RecipeParser()
         dataSourceOfRecipeEntity =
             CsvDataSource(requireContext(), Constants.RECIPES_CSV_FILE_NAME, csvRecipeParser)
-        val list = dataSourceOfRecipeEntity.getAllItems()
-            .filter { it.cleanedIngredients.toString().contains("cake ") }.shuffled()
+        getAListOfCakeRecipesInteractor = GetAListOfCakeRecipesInteractor(dataSourceOfRecipeEntity)
+    }
+
+    private fun setDateCake() {
+        setupDateCake()
+        val list = getAListOfCakeRecipesInteractor.execute(45)
         cakeAdapter = RecipeCardAdapter(list, this)
     }
 
@@ -53,6 +59,7 @@ class CakeRecipeFragment : BaseFragment<FragmentRecyclerBinding>(),
         fragment.arguments = bundle
         navigationBetweenParentFragment(fragment)
     }
+
     private fun navigationBetweenParentFragment(fragment: Fragment) {
         parentFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)

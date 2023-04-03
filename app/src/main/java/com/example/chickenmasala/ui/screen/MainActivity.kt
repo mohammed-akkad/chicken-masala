@@ -11,7 +11,6 @@ import com.example.chickenmasala.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-
     lateinit var binding: ActivityMainBinding
     private val homeFragment = HomeFragment()
     private val kitchenFragment = KitchenFragment()
@@ -19,23 +18,14 @@ class MainActivity : AppCompatActivity() {
     private val indianFoodHistoryFragment = IndianFoodHistoryFragment()
     private val searchFoodFragment = SearchFoodFragment()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        setup()
         addCallBacks()
-
-
-    }
-
-    private fun setup() {
-
     }
 
     private fun addCallBacks() {
-
         showFragment(homeFragment, HOME_SCREEN)
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -55,7 +45,6 @@ class MainActivity : AppCompatActivity() {
                     showFragment(indianFoodHistoryFragment, ABOUT_INDIAN_FOOD_SCREEN)
                     true
                 }
-
                 else -> {
                     false
                 }
@@ -67,15 +56,12 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
             .commit()
-
         title = screenTitle
-
     }
 
     private fun updateSelectedItemId(itemId: Int) {
         binding.bottomNavigation.selectedItemId = itemId
     }
-
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
@@ -93,20 +79,16 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.app_bar_menu, menu)
         return true
     }
 
-
     companion object {
-        private val LOG_TAG = "MAIN_ACTIVITY"
         private val HOME_SCREEN = "Home"
         private val KITCHEN_SCREEN = "Kitchens"
         private val TRIVIA_GAME_SCREEN = "Trivia Game"
         private val ABOUT_INDIAN_FOOD_SCREEN = "About Indian Food"
         private val SEARCH_FOOD_SCREEN = "Search"
     }
-
 }

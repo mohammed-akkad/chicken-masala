@@ -6,9 +6,9 @@ class GetAListOfCakeRecipesInteractor(
     private val dataSource: FoodDataSource<RecipeEntity>,
 
     ) {
-    fun execute(): List<RecipeEntity> {
+    fun execute(limit: Int): List<RecipeEntity> {
         return dataSource.getAllItems()
-            .filter { it.cleanedIngredients.toString().contains("Cake ") }.shuffled()
-            .take(5)
+            .filter { it.cleanedIngredients.toString().contains("Cake ",true) }.shuffled()
+            .take(limit)
     }
 }

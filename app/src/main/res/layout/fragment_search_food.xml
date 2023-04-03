@@ -35,17 +35,6 @@
         app:layout_constraintStart_toStartOf="@id/search_text_view"
         app:layout_constraintBottom_toBottomOf="@id/search_text_view"
         />
-    <ImageView
-        android:id="@+id/filters"
-        android:layout_marginEnd="@dimen/spaceMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_filter"
-       app:layout_constraintTop_toTopOf="@id/search_text_view"
-        app:layout_constraintEnd_toEndOf="@id/search_text_view"
-        app:layout_constraintBottom_toBottomOf="@id/search_text_view"
-        />
-
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -56,7 +45,8 @@
         android:paddingHorizontal="@dimen/spaceMedium"
         android:paddingVertical="@dimen/spaceSmall"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="@+id/filters_bottom_sheet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_text_view"
         tools:listitem="@layout/item_recipe_horizontal" />
 
@@ -78,12 +68,5 @@
             app:lottie_rawRes="@raw/not_found_alt" />
     </LinearLayout>
 
-    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
-        android:id="@+id/filters_bottom_sheet"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/spaceXXXLarge"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_results_recycler" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

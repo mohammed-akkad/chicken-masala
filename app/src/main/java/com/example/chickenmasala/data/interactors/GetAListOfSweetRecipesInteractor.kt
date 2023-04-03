@@ -6,10 +6,10 @@ class GetAListOfSweetRecipesInteractor(
     private val dataSource: FoodDataSource<RecipeEntity>,
 
     ) {
-    fun execute(): List<RecipeEntity> {
+    fun execute(limit : Int): List<RecipeEntity> {
         return dataSource.getAllItems()
-            .filter { it.cleanedIngredients.toString().contains("sugar ") }
+            .filter { it.cleanedIngredients.toString().contains("sugar ",true) }
             .shuffled()
-            .take(5)
+            .take(limit)
     }
 }

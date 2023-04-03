@@ -1,52 +1,76 @@
 package com.example.chickenmasala.ui.screen
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.chickenmasala.R
 import com.example.chickenmasala.data.CsvDataSource
 import com.example.chickenmasala.data.domain.RecipeEntity
 import com.example.chickenmasala.data.interactors.FoodDataSource
 import com.example.chickenmasala.data.interactors.GetAllCuisineImageUrlsAndNamesInteractor
+import com.example.chickenmasala.data.interactors.GetRecipesOfCuisineInteractor
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentRecyclerBinding
 import com.example.chickenmasala.ui.adapter.LargeCardAdapter
+import com.example.chickenmasala.ui.listener.CategoryInteractionListener
 import com.example.chickenmasala.util.Constants
+import kotlin.io.path.Path
 
-class KitchenFragment : BaseFragment<FragmentRecyclerBinding>() {
-    override val LOG_TAG: String = "KitchenFragment"
+
+class KitchenFragment : BaseFragment<FragmentRecyclerBinding>(),
+    CategoryInteractionListener {
+    override val LOG_TAG: String = KitchenFragment::class.java.name
+    lateinit var allRecipeAdapter: LargeCardAdapter
+    private lateinit var dataSource: FoodDataSource<RecipeEntity>
+
+
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRecyclerBinding =
         FragmentRecyclerBinding::inflate
-    private lateinit var dataSource: FoodDataSource<RecipeEntity>
+
     override fun setup() {
         dataSource =
             CsvDataSource(requireContext(), Constants.RECIPES_CSV_FILE_NAME, RecipeParser())
-        setupKitchenAdapter()
+        setupDateAllKitchen()
     }
 
-    override fun addCallBacks() {}
-
-    private fun setupKitchenAdapter() {
-        val recipesList = GetAllCuisineImageUrlsAndNamesInteractor(dataSource).execute().map {
-            Pair(it.cuisine,it.imageUrl)
+    private fun setupDateAllKitchen() {
+        val list = GetAllCuisineImageUrlsAndNamesInteractor(dataSource).execute().map {
+            Pair(it.cuisine, it.imageUrl)
         }
-        val kitchensAdapter = LargeCardAdapter(recipesList){position: Int ->
-            //TODO: Handle on category click listener
-        }
-        binding.itemsRecycler.adapter = kitchensAdapter
+        allRecipeAdapter = LargeCardAdapter(list, this)
     }
 
-/*    private fun onClickKitchenItem(cuisine: String) {
+    override fun addCallBacks() {
+        binding.apply {
+            itemsRecycler.apply {
+                adapter = allRecipeAdapter
+            }
+        }
+    }
+
+    override fun onClickItemCategory(nameCategory: String) {
+
         val recipesRelatedCategoriesFragment = RecipesRelatedCategoriesFragment()
-        val recipesOfKitchen = GetRecipesOfCuisineInteractor(dataSource).execute(cuisine)
+        val recipesOfKitchen = GetRecipesOfCuisineInteractor(dataSource).execute("indian")
         recipesRelatedCategoriesFragment.arguments = Bundle().apply {
             putParcelableArrayList(Constants.KEY_RECIPES_LIST, ArrayList(recipesOfKitchen))
         }
         addFragment(recipesRelatedCategoriesFragment)
-    }*/
+        setTitleAppBar(nameCategory)
+    }
 
-/*    private fun addFragment(fragment: Fragment) {
+    private fun addFragment(fragment: Fragment) {
         requireActivity().supportFragmentManager.beginTransaction()
             .add(R.id.container, fragment)
             .addToBackStack(null)
             .commit()
-    }*/
+    }
+
+    private fun setTitleAppBar(name: String) {
+        (activity as MainActivity).apply {
+            title = "$name "
+        }
+    }
+
 }

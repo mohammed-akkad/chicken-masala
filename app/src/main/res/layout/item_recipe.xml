@@ -5,6 +5,7 @@
     android:layout_width="@dimen/widthRecipeItem"
     android:layout_height="@dimen/heightRecipeItem"
     android:layout_marginHorizontal="@dimen/spaceSmall"
+    android:layout_marginEnd="@dimen/spaceSmall"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"

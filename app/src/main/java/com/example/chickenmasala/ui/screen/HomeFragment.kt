@@ -39,7 +39,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionLis
     override fun setup() {
         setDataSliderAndForYou()
         setupDataCategoryEntity()
-        setNavigationTitleAppBar(getString(R.string.home))
+        setTitleAppBar(getString(R.string.home))
         setDataSweetTreats()
         setDataCakeTreats()
     }
@@ -79,7 +79,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionLis
         cakeAdapter = RecipeCardAdapter(listOfCake, this)
     }
 
-
     private fun setupDataCategoryEntity() {
         val csvCategoryParser = CategoryParser()
         val dataSourceOfCategoryEntity: CsvDataSource<CategoryEntity> =
@@ -96,27 +95,26 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionLis
             sweetTreatsRecycler.adapter = sweetAdapter
             forYouRecycler.adapter = forYouAdapter
             cakeCornerRecycler.adapter = cakeAdapter
-
             seeAllCategories.setOnClickListener {
                 navigationBetweenFragment(FoodKitchenCategoryFragment())
-                setNavigationTitleAppBar(getString(R.string.food_categories))
+                setTitleAppBar(getString(R.string.food_categories))
             }
             textviewSeeAllForYou.setOnClickListener {
                 navigationBetweenFragment(ForYouFragment())
-                setNavigationTitleAppBar(getString(R.string.for_you))
+                setTitleAppBar(getString(R.string.for_you))
             }
             seeAllSweetTreats.setOnClickListener {
                 navigationBetweenFragment(SweetRecipeFragment())
-                setNavigationTitleAppBar(getString(R.string.sweet_treats))
+                setTitleAppBar(getString(R.string.sweet_treats))
             }
             seeAllCakeCorner.setOnClickListener {
                 navigationBetweenFragment(CakeRecipeFragment())
-                setNavigationTitleAppBar(getString(R.string.cake_corner))
+                setTitleAppBar(getString(R.string.cake_corner))
             }
         }
     }
 
-    private fun setNavigationTitleAppBar(name: String) {
+    private fun setTitleAppBar(name: String) {
         (activity as MainActivity).apply {
             title = "$name "
         }
