@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
     private fun showFragment(fragment: Fragment, screenTitle: String) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
+            .addToBackStack(null)
             .commit()
         title = screenTitle
     }
