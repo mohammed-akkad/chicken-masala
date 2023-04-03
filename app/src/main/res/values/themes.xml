@@ -265,5 +265,9 @@
         <item name="android:layout_marginTop">@dimen/spaceMedium</item>
         <item name="android:layout_marginEnd">@dimen/spaceMedium</item>
     </style>
+    <style name="image_recipe_horizontal">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 
 </resources>

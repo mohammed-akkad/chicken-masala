@@ -106,6 +106,8 @@
     <string name="text_not_found">Text not Found</string>
     <string name="questionGuessTheCusine" translatable="false">guess the cuisine of</string>
     <string name="questionGuessTheMeal" translatable="false">what is the ingredient in</string>
+    <string name="_2_mins" translatable="false">2 mins</string>
+
 
 
 </resources>
