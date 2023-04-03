@@ -1,5 +1,6 @@
 package com.example.chickenmasala.ui.screen
 
+import android.content.res.Configuration
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,12 +60,29 @@ class GuessTheGameFragment(private val gameName: GuessGamesName) :
     }
 
     private fun prepareColors() {
-        yellowColor = ContextCompat.getColor(requireContext(), R.color.yellow_600)
-        grayColor = ContextCompat.getColor(requireContext(), R.color.gray_200)
-        greenColor = ContextCompat.getColor(requireContext(), R.color.green_100)
-        redColor = ContextCompat.getColor(requireContext(), R.color.red_100)
+
+
+        when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                yellowColor = ContextCompat.getColor(requireContext(), R.color.yellow_600_night)
+                grayColor = ContextCompat.getColor(requireContext(), R.color.yellow_600_night_extr)
+                greenColor = ContextCompat.getColor(requireContext(), R.color.green_100_night)
+                redColor = ContextCompat.getColor(requireContext(), R.color.red_100_night)
+            }
+            else -> {
+                yellowColor = ContextCompat.getColor(requireContext(), R.color.yellow_600)
+                grayColor = ContextCompat.getColor(requireContext(), R.color.gray_200)
+                greenColor = ContextCompat.getColor(requireContext(), R.color.green_100)
+                redColor = ContextCompat.getColor(requireContext(), R.color.red_100)
+            }
+
+        }
+
         setUpChoicesColor()
+
     }
+
+
 
     private fun setUpChoicesColor() {
         multiChoices?.forEach { choice ->

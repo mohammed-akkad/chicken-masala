@@ -52,17 +52,10 @@
 
             <TextView
                 android:id="@+id/answerOneText"
+                style="@style/answerButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/gray_200"
-                android:ellipsize="end"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:paddingHorizontal="@dimen/spaceMedium"
                 android:text="@string/answerOne"
-                android:textColor="@color/txt_white_dark_background"
-                android:textSize="@dimen/textMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -84,17 +77,10 @@
 
             <TextView
                 android:id="@+id/answerTwoText"
+                style="@style/answerButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/gray_200"
-                android:ellipsize="end"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:paddingHorizontal="@dimen/spaceMedium"
                 android:text="@string/answerTwo"
-                android:textColor="@color/txt_white_dark_background"
-                android:textSize="@dimen/textMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -115,17 +101,10 @@
 
             <TextView
                 android:id="@+id/answerThreeText"
+                style="@style/answerButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/gray_200"
-                android:ellipsize="end"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:paddingHorizontal="@dimen/spaceMedium"
                 android:text="@string/answerThree"
-                android:textColor="@color/txt_white_dark_background"
-                android:textSize="@dimen/textMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -146,17 +125,10 @@
 
             <TextView
                 android:id="@+id/answerFourText"
+                style="@style/answerButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/gray_200"
-                android:ellipsize="end"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:paddingHorizontal="@dimen/spaceMedium"
                 android:text="@string/answerFour"
-                android:textColor="@color/txt_white_dark_background"
-                android:textSize="@dimen/textMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -166,15 +138,10 @@
 
         <Button
             android:id="@+id/submitButton"
+            style="@style/submitButtonStyle"
+            android:backgroundTint="@color/orange_700"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_marginHorizontal="@dimen/spaceMedium"
-            android:layout_marginVertical="@dimen/spaceLarge"
-            android:background="@drawable/button_with_radius"
-            android:fontFamily="@font/roboto_regular"
-            android:text="@string/submit"
-            android:textColor="@color/white"
-            android:textSize="@dimen/textMedium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#ff7900</color>X
+    <color name="primary">#ff7900</color>
+    <color name="orange_100">#fff0ea</color>
     <color name="orange_200">#4F4A45</color>
     <color name="orange_300">#7E7974</color>
     <color name="orange_400">#726254</color>
     <color name="orange_500">#2A1C14</color>
     <color name="orange_600">#FDA033</color>
     <color name="orange_700">#FF7900</color>
+    <color name="txt_background">#333333</color>
 
-    <color name="yellow_600">#FFD87A</color>
-    <color name="red_100">#EA5B5B</color>
-    <color name="green_100">#2ED573</color>
-    <color name="neutrals_800">#2D3648</color>
+    <color name="yellow_600_night">#3D3D3D</color>
+    <color name="yellow_600_night_extr">#272727</color>
+    <color name="red_100_night">#EA5B5B</color>
+    <color name="green_100_night">#2ED573</color>
+    <color name="neutrals_800_night">#2D3648</color>
+
+    <color name="yellow_600">#FDD26A</color>
+    <color name="red_100">#B71C1B</color>
+    <color name="green_100">#10C337</color>
+    <color name="neutrals_800">#2D384E</color>
+
 
     <color name="black">#CC000000</color>
     <color name="white">#FFFFFFFF</color>
@@ -21,11 +30,12 @@
 
     <color name="background">@color/white</color>
     <color name="backround_bottom_navigation">#F9F5F3</color>
-    <color name="backround_card">@color/gray_200</color>
+    <color name="background_card">@color/gray_200</color>
     <color name="txt_color_bottom_navigation">#1c1b1f</color>
     <color name="txt_white_dark_background">@color/orange_200</color>
     <color name="icon_home">#2D3648</color>
     <color name="icon_filter">@color/neutrals_800</color>
     <color name="backround_card_details_start_color_lift">@color/orange_600</color>
     <color name="backround_card_details_end_color_right">@color/orange_700</color>
+    <color name="light_purple">#59AFB5EF</color>
 </resources>

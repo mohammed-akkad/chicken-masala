@@ -1,7 +1,6 @@
 package com.example.chickenmasala.ui.screen
 
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -30,11 +29,20 @@ class SearchFoodFragment : BaseFragment<FragmentSearchFoodBinding>(), RecipeInte
      var searchAdapter = RecipeHorizontalAdapter(emptyList(),this)
 
     override fun setup() {
-        createBottomSheetDialog()
+        dialog = BottomSheetDialog(binding.root.context)
+        binding.filters.setOnClickListener {
+            createDialog()
+            dialog.show()
+        }
+        binding.search.setOnClickListener {
+            setupDateSearchItem()
+            binding.searchResultsRecycler.adapter = searchAdapter
+        }
 
     }
 
     override fun addCallBacks() {
+
     }
 
 
@@ -66,38 +74,6 @@ class SearchFoodFragment : BaseFragment<FragmentSearchFoodBinding>(), RecipeInte
         binding.searchResultsRecycler.visibility = View.GONE
         binding.recipeNotFoundView.visibility = View.VISIBLE
 
-    }
-
-    @SuppressLint("ClickableViewAccessibility")
-    private fun createBottomSheetDialog() {
-        dialog = BottomSheetDialog(binding.root.context)
-        binding.searchTextView.setOnTouchListener { _, motionEvent ->
-            when (motionEvent.action) {
-                MotionEvent.ACTION_UP -> {
-                    val drawableRight = 2
-                    val drawableLeft = 0
-                    val rightDrawableWidth =
-                        binding.searchTextView.compoundDrawables[drawableRight].bounds.width()
-                    val leftDrawableWidth =
-                        binding.searchTextView.compoundDrawables[drawableLeft].bounds.width()
-                    val x = motionEvent.rawX.toInt()
-                    when {
-                        x >= binding.searchTextView.right - rightDrawableWidth -> {
-                            setupDateSearchItem()
-                            binding.searchResultsRecycler.adapter = searchAdapter
-                            return@setOnTouchListener true
-                        }
-                        x <= binding.searchTextView.left + leftDrawableWidth -> {
-                            createDialog()
-                            dialog.show()
-                            return@setOnTouchListener true
-                        }
-                    }
-                }
-            }
-            return@setOnTouchListener false
-        }
-        dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
     }
 
 

@@ -13,91 +13,109 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/slider_recycler"
-            style="@style/RV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            style="@style/RecyclerView"
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/item_slider" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/categories_recycler"
-            style="@style/RV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            style="@style/RecyclerView"
             app:layout_constraintTop_toBottomOf="@id/categories_section_header"
             tools:listitem="@layout/item_category_small" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/for_you_recycler"
-            style="@style/RV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            style="@style/RecyclerView"
             app:layout_constraintTop_toBottomOf="@id/for_you_section_header"
             tools:listitem="@layout/item_recipe" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sweet_treats_recylcer"
-            style="@style/RV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            style="@style/RecyclerView"
             app:layout_constraintTop_toBottomOf="@id/sweet_treats_section_header"
             tools:listitem="@layout/item_recipe" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cake_corner_recycler"
-            style="@style/RV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            style="@style/RecyclerView"
             app:layout_constraintTop_toBottomOf="@id/cake_corner_section_header"
             tools:listitem="@layout/item_recipe" />
 
         <LinearLayout
             android:id="@+id/categories_section_header"
-            style="@style/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/LinearLayout"
             app:layout_constraintTop_toBottomOf="@+id/slider_recycler">
 
             <TextView
-                style="@style/see_all.categories"
+                style="@style/SeeAll.Categories"
                 android:text="@string/categories" />
 
             <TextView
                 android:id="@+id/see_all_categories"
-                style="@style/see_all"
+                style="@style/SeeAll"
                 android:text="@string/see_all" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/for_you_section_header"
-            style="@style/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            style="@style/LinearLayout"
             app:layout_constraintTop_toBottomOf="@+id/categories_recycler">
 
             <TextView
-                style="@style/see_all.categories"
+                style="@style/SeeAll.Categories"
                 android:text="@string/for_you" />
 
             <TextView
                 android:id="@+id/textview_see_all_for_you"
-                style="@style/see_all"
+                style="@style/SeeAll"
                 android:text="@string/see_all" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/sweet_treats_section_header"
-            style="@style/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            style="@style/LinearLayout"
             app:layout_constraintTop_toBottomOf="@+id/for_you_recycler">
 
             <TextView
-                style="@style/see_all.categories"
+                style="@style/SeeAll.Categories"
                 android:text="@string/sweet_treats" />
 
             <TextView
                 android:id="@+id/see_all_sweet_treats"
-                style="@style/see_all"
+                style="@style/SeeAll"
                 android:text="@string/see_all" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/cake_corner_section_header"
-            style="@style/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            style="@style/LinearLayout"
             app:layout_constraintTop_toBottomOf="@+id/sweet_treats_recylcer">
 
             <TextView
-                style="@style/see_all.categories"
+                style="@style/SeeAll.Categories"
                 android:text="@string/cake_corner" />
 
             <TextView
                 android:id="@+id/see_all_cake_corner"
-                style="@style/see_all"
+                style="@style/SeeAll"
                 android:text="@string/see_all" />
         </LinearLayout>
 
