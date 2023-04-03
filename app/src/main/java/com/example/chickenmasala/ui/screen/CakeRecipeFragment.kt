@@ -27,16 +27,13 @@ class CakeRecipeFragment : BaseFragment<FragmentRecyclerBinding>(),
 
     override fun setup() {
         setupDateCake()
-
     }
-
     override fun addCallBacks() {
         binding.apply {
             itemsRecycler.apply {
                 adapter = cakeAdapter
                 layoutManager = GridLayoutManager(requireContext(), 2)
             }
-
         }
     }
 
@@ -54,9 +51,7 @@ class CakeRecipeFragment : BaseFragment<FragmentRecyclerBinding>(),
         val bundle = Bundle()
         bundle.putParcelable(Constants.TransitionKeys.RECIPE_LIST_KEY, recipeEntity)
         fragment.arguments = bundle
-
         navigationBetweenParentFragment(fragment)
-
     }
     private fun navigationBetweenParentFragment(fragment: Fragment) {
         parentFragmentManager.beginTransaction()

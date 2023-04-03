@@ -12,8 +12,8 @@ import com.example.chickenmasala.ui.listener.CategoryInteractionListener
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
-class CategotyAdapter(val list: List<CategoryEntity>, val listener: CategoryInteractionListener) :
-    RecyclerView.Adapter<CategotyAdapter.BaseViewHolder>() {
+class CategoryAdapter(val list: List<CategoryEntity>, val listener: CategoryInteractionListener) :
+    RecyclerView.Adapter<CategoryAdapter.BaseViewHolder>() {
 
     private val shimmer =
         Shimmer.AlphaHighlightBuilder()

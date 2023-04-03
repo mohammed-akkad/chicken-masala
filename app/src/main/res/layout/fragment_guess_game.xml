@@ -167,7 +167,7 @@
         <Button
             android:id="@+id/submitButton"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/spaceMedium"
             android:layout_marginVertical="@dimen/spaceLarge"
             android:background="@drawable/button_with_radius"

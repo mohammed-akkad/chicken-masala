@@ -84,11 +84,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-           R.id.search_icon_screen -> {
-               showFragment(searchFoodFragment, SEARCH_FOOD_SCREEN)
-               return true
-           }
+        when (item.itemId) {
+            R.id.search_icon_screen -> {
+                showFragment(searchFoodFragment, SEARCH_FOOD_SCREEN)
+                return true
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -98,6 +98,7 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.app_bar_menu, menu)
         return true
     }
+
 
     companion object {
         private val LOG_TAG = "MAIN_ACTIVITY"

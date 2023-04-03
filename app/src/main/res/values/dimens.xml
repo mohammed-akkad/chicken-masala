@@ -13,5 +13,8 @@
     <dimen name="spaceNormal">12dp</dimen>
     <dimen name="spaceSmall">8dp</dimen>
     <dimen name="spaceExtraSmall">4dp</dimen>
-
+    <dimen name="widthRecipeItem">180dp</dimen>
+    <dimen name="heightRecipeItem">192dp</dimen>
+    <dimen name="widthCategoryItem">110dp</dimen>
+    <dimen name="heightCategoryItem">75dp</dimen>
 </resources>

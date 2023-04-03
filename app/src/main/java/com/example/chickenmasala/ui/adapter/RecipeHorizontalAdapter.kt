@@ -62,7 +62,7 @@ class RecipeHorizontalAdapter(
 
     override fun getItemCount() = list.size
 
-    class CategorySpicficViewHolder(viewItem: View) : CategotyAdapter.BaseViewHolder(viewItem) {
+    class CategorySpicficViewHolder(viewItem: View) : CategoryAdapter.BaseViewHolder(viewItem) {
         val binding = ItemRecipeHorizontalBinding.bind(viewItem)
     }
 }

@@ -2,15 +2,13 @@ package com.example.chickenmasala.data.interactors
 
 import com.example.chickenmasala.data.domain.RecipeEntity
 
-class GetAllCuisineImageUrlsAndNamesInteractor(
+class GetAListOfCakeRecipesInteractor(
     private val dataSource: FoodDataSource<RecipeEntity>,
-
 
     ) {
     fun execute(): List<RecipeEntity> {
-        return dataSource.getAllItems().shuffled().distinctBy {
-            it.cuisine
-        }
+        return dataSource.getAllItems()
+            .filter { it.cleanedIngredients.toString().contains("Cake ") }.shuffled()
+            .take(5)
     }
-
 }

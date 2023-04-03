@@ -37,6 +37,17 @@ class SearchFoodFragment : BaseFragment<FragmentSearchFoodBinding>(), RecipeInte
     override fun addCallBacks() {
     }
 
+    class MyFragment : Fragment() {
+
+        override fun onPrepareOptionsMenu(menu: Menu) {
+            super.onPrepareOptionsMenu(menu)
+            val menuItemToHide = menu.findItem(R.id.search_icon_screen)
+
+            menuItemToHide?.isVisible = false
+        }
+
+    }
+
 
     private fun setupDateSearchItem() {
         val nameRecipe = binding.searchTextView.text.toString()
@@ -123,6 +134,10 @@ class SearchFoodFragment : BaseFragment<FragmentSearchFoodBinding>(), RecipeInte
             .addToBackStack(null)
             .commit()
     }
+
+
+
+
 
 
 }

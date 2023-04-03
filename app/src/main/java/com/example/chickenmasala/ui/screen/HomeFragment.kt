@@ -12,6 +12,7 @@ import com.example.chickenmasala.data.interactors.GetAListOfRandomRecipesInterac
 import com.example.chickenmasala.data.utils.CategoryParser
 import com.example.chickenmasala.data.utils.RecipeParser
 import com.example.chickenmasala.databinding.FragmentHomeBinding
+import com.example.chickenmasala.ui.FoodDetailsFragment
 import com.example.chickenmasala.ui.adapter.*
 import com.example.chickenmasala.ui.listener.CategoryInteractionListener
 import com.example.chickenmasala.ui.listener.RecipeInteractionListener
@@ -19,181 +20,132 @@ import com.example.chickenmasala.util.Constants
 import com.example.chickenmasala.util.Constants.CATEGORIES_CSV_FILE_NAME
 import com.example.chickenmasala.util.Constants.RECIPES_CSV_FILE_NAME
 
-@Suppress("DEPRECATION")
-
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), CategoryInteractionListener,
     RecipeInteractionListener {
-    override val LOG_TAG: String = "HomeFragment"
-    private lateinit var csvRecipeParser: RecipeParser
-    private lateinit var csvCategoryParser: CategoryParser
-    val bundle = Bundle()
+
+    override val LOG_TAG: String = HomeFragment::class.java.name
     private lateinit var dataSourceOfRecipeEntity: CsvDataSource<RecipeEntity>
-    private lateinit var dataSourceOfCategoryEntity: CsvDataSource<CategoryEntity>
-    private val foodKitchenCategoryFragment = FoodKitchenCategoryFragment()
-    private val forYouRecipesFragment = ForYouFragment()
-    lateinit var getAListOfRandomRecipesInteractor: GetAListOfRandomRecipesInteractor
-    private val sweetRecipeFragment = SweetRecipeFragment()
-    private val cakeRecipeFragment = CakeRecipeFragment()
-
-
-    lateinit var sliderAdapter: SliderAdapter
-    lateinit var categotyAdapter: CategotyAdapter
-    lateinit var forYouAdapter: RecipeCardAdapter
-    lateinit var sweetAdapter: RecipeCardAdapter
-    lateinit var cakeAdapter: RecipeCardAdapter
-
+    private lateinit var getAListOfRandomRecipesInteractor: GetAListOfRandomRecipesInteractor
+    private lateinit var sliderAdapter: SliderAdapter
+    private lateinit var categoryAdapter: CategoryAdapter
+    private lateinit var forYouAdapter: RecipeCardAdapter
+    private lateinit var sweetAdapter: RecipeCardAdapter
+    private lateinit var cakeAdapter: RecipeCardAdapter
+    private val bundle = Bundle()
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding =
         FragmentHomeBinding::inflate
 
-
     override fun setup() {
-        setupDataRecipesEntity()
+        setDataSliderAndForYou()
         setupDataCategoryEntity()
         setNavigationTitleAppBar(getString(R.string.home))
-        setDAtaSweetTreats()
-        setDAtaCakeTreats()
-
+        setDataSweetTreats()
+        setDataCakeTreats()
     }
-
 
     private fun setupDataRecipesEntity() {
-        csvRecipeParser = RecipeParser()
+        val csvRecipeParser = RecipeParser()
         dataSourceOfRecipeEntity =
             CsvDataSource(requireContext(), RECIPES_CSV_FILE_NAME, csvRecipeParser)
-
         getAListOfRandomRecipesInteractor =
             GetAListOfRandomRecipesInteractor(dataSourceOfRecipeEntity)
+    }
 
+    private fun setDataSweetTreats() {
+        setupDataRecipesEntity()
+        val listOfSweet = dataSourceOfRecipeEntity.getAllItems()
+            .filter { it.cleanedIngredients.toString().contains(FILTER_SWEET) }.shuffled()
+            .take(LIMIT_LIST_RECIPE)
+        sweetAdapter = RecipeCardAdapter(listOfSweet, this)
+    }
 
-        val list = getAListOfRandomRecipesInteractor.execute(5)
-        val listForYou = getAListOfRandomRecipesInteractor.execute(5)
-        sliderAdapter = SliderAdapter(list)
+    private fun setDataSliderAndForYou() {
+        setupDataRecipesEntity()
+        val listOfSlider = getAListOfRandomRecipesInteractor.execute(LIMIT_LIST_RECIPE)
+        val listForYou = getAListOfRandomRecipesInteractor.execute(LIMIT_LIST_RECIPE)
+        sliderAdapter = SliderAdapter(listOfSlider)
         forYouAdapter = RecipeCardAdapter(listForYou, this)
-        bundle.putParcelableArrayList(Constants.KEY_RECIPES_LIST, ArrayList(list))
+        bundle.putParcelableArrayList(Constants.KEY_RECIPES_LIST, ArrayList(listOfSlider))
+        val forYouRecipesFragment = ForYouFragment()
         forYouRecipesFragment.arguments = bundle
-
     }
 
-    private fun setDAtaSweetTreats() {
-        csvRecipeParser = RecipeParser()
-        dataSourceOfRecipeEntity =
-            CsvDataSource(requireContext(), RECIPES_CSV_FILE_NAME, csvRecipeParser)
-
-        getAListOfRandomRecipesInteractor =
-            GetAListOfRandomRecipesInteractor(dataSourceOfRecipeEntity)
-
-
-        val list = dataSourceOfRecipeEntity.getAllItems()
-            .filter { it.cleanedIngredients.toString().contains("sugar ") }.shuffled().take(5)
-
-        sweetAdapter = RecipeCardAdapter(list, this)
-
-    }
-    private fun setDAtaCakeTreats() {
-        csvRecipeParser = RecipeParser()
-        dataSourceOfRecipeEntity =
-            CsvDataSource(requireContext(), RECIPES_CSV_FILE_NAME, csvRecipeParser)
-
-        getAListOfRandomRecipesInteractor =
-            GetAListOfRandomRecipesInteractor(dataSourceOfRecipeEntity)
-
-
-        val list = dataSourceOfRecipeEntity.getAllItems()
-            .filter { it.cleanedIngredients.toString().contains("cake ") }.shuffled().take(5)
-
-        cakeAdapter = RecipeCardAdapter(list, this)
-
+    private fun setDataCakeTreats() {
+        setupDataRecipesEntity()
+        val listOfCake = dataSourceOfRecipeEntity.getAllItems()
+            .filter { it.cleanedIngredients.toString().contains(FILTER_CAKE) }.shuffled()
+            .take(LIMIT_LIST_RECIPE)
+        cakeAdapter = RecipeCardAdapter(listOfCake, this)
     }
 
 
     private fun setupDataCategoryEntity() {
-        csvCategoryParser = CategoryParser()
-        dataSourceOfCategoryEntity =
+        val csvCategoryParser = CategoryParser()
+        val dataSourceOfCategoryEntity: CsvDataSource<CategoryEntity> =
             CsvDataSource(requireContext(), CATEGORIES_CSV_FILE_NAME, csvCategoryParser)
-        val list = dataSourceOfCategoryEntity.getAllItems().shuffled().take(5)
-        categotyAdapter = CategotyAdapter(list, this)
+        val listOfCategory =
+            dataSourceOfCategoryEntity.getAllItems().shuffled().take(LIMIT_LIST_RECIPE)
+        categoryAdapter = CategoryAdapter(listOfCategory, this)
     }
 
     override fun addCallBacks() {
-
         binding.apply {
             sliderRecycler.adapter = sliderAdapter
-            categoriesRecycler.adapter = categotyAdapter
-            sweetTreatsRecylcer.adapter = sweetAdapter
+            categoriesRecycler.adapter = categoryAdapter
+            sweetTreatsRecycler.adapter = sweetAdapter
             forYouRecycler.adapter = forYouAdapter
             cakeCornerRecycler.adapter = cakeAdapter
 
-
             seeAllCategories.setOnClickListener {
-                navigationBetweenFragment(foodKitchenCategoryFragment)
+                navigationBetweenFragment(FoodKitchenCategoryFragment())
                 setNavigationTitleAppBar(getString(R.string.food_categories))
             }
             textviewSeeAllForYou.setOnClickListener {
-                navigationBetweenFragment(forYouRecipesFragment)
+                navigationBetweenFragment(ForYouFragment())
                 setNavigationTitleAppBar(getString(R.string.for_you))
             }
             seeAllSweetTreats.setOnClickListener {
-                navigationBetweenFragment(sweetRecipeFragment)
+                navigationBetweenFragment(SweetRecipeFragment())
                 setNavigationTitleAppBar(getString(R.string.sweet_treats))
             }
             seeAllCakeCorner.setOnClickListener {
-                navigationBetweenFragment(cakeRecipeFragment)
+                navigationBetweenFragment(CakeRecipeFragment())
                 setNavigationTitleAppBar(getString(R.string.cake_corner))
             }
-
         }
+    }
 
+    private fun setNavigationTitleAppBar(name: String) {
+        (activity as MainActivity).apply {
+            title = "$name "
+        }
+    }
 
+    override fun onClickItemCategory(nameCategory: String) {
+        val fragment = RecipesRelatedCategoriesFragment.newInstance(nameCategory)
+        navigationBetweenFragment(fragment)
+    }
+
+    override fun onClickItemRecipeEntitty(recipeEntity: RecipeEntity) {
+        val fragment = FoodDetailsFragment()
+        bundle.putParcelable(Constants.TransitionKeys.RECIPE_LIST_KEY, recipeEntity)
+        fragment.arguments = bundle
+        navigationBetweenFragment(fragment)
     }
 
     private fun navigationBetweenFragment(fragment: Fragment) {
-
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.apply {
             replace(R.id.container, fragment)
             addToBackStack(null)
             commit()
         }
-
-
     }
 
-
-    private fun setNavigationTitleAppBar(name: String) {
-        (activity as MainActivity).apply {
-            title = "$name "
-        }
-
+    companion object {
+        const val LIMIT_LIST_RECIPE = 5
+        const val FILTER_CAKE = "cake "
+        const val FILTER_SWEET = "sugar "
     }
-
-
-    override fun onClickItemCategory(nameCategory: String) {
-        val fragment = RecipesRelatedCategoriesFragment.newInstance(nameCategory)
-        navigationBetweenParentFragment(fragment)
-
-    }
-
-    override fun onClickItemRecipeEntitty(recipeEntity: RecipeEntity) {
-        val fragment = com.example.chickenmasala.ui.FoodDetailsFragment()
-        val bundle = Bundle()
-        bundle.putParcelable(Constants.TransitionKeys.RECIPE_LIST_KEY, recipeEntity)
-        fragment.arguments = bundle
-
-        navigationBetweenParentFragment(fragment)
-
-    }
-    private fun navigationBetweenParentFragment(fragment: Fragment) {
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment)
-            .addToBackStack(null)
-            .commit()
-    }
-
 }
-
-
-
-
-
-
